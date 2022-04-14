@@ -1,0 +1,1248 @@
+fileFormatVersion: 2
+guid: aa7ddde80b11102478cadc74452b5589
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5878052359353595796
+    second: Inside_C 1_0
+  - first:
+      213: 1680314980192778012
+    second: Inside_C 1_1
+  - first:
+      213: 1703526987628505053
+    second: Inside_C 1_2
+  - first:
+      213: 4114522260764225699
+    second: Inside_C 1_3
+  - first:
+      213: -5192543523330897916
+    second: Inside_C 1_4
+  - first:
+      213: -8195368893899333
+    second: Inside_C 1_5
+  - first:
+      213: -934756712960702427
+    second: Inside_C 1_6
+  - first:
+      213: -1732535853635485335
+    second: Inside_C 1_7
+  - first:
+      213: 938364398592874674
+    second: Inside_C 1_8
+  - first:
+      213: -2011727508925874730
+    second: Inside_C 1_9
+  - first:
+      213: -8939930483220602131
+    second: Inside_C 1_10
+  - first:
+      213: -3371045409320425323
+    second: Inside_C 1_11
+  - first:
+      213: 5268497630949248823
+    second: Inside_C 1_12
+  - first:
+      213: -6308905317037263262
+    second: Inside_C 1_13
+  - first:
+      213: 1225804630551176911
+    second: Inside_C 1_14
+  - first:
+      213: 5771780073654000223
+    second: Inside_C 1_15
+  - first:
+      213: 400697091568301989
+    second: Inside_C 1_16
+  - first:
+      213: 2332920766470399785
+    second: Inside_C 1_17
+  - first:
+      213: 9068434022826612081
+    second: Inside_C 1_18
+  - first:
+      213: -105555483040704405
+    second: Inside_C 1_19
+  - first:
+      213: -2224658579485201912
+    second: Inside_C 1_20
+  - first:
+      213: 4809049057652407052
+    second: Inside_C 1_21
+  - first:
+      213: 3186677649192351650
+    second: Inside_C 1_22
+  - first:
+      213: -3040997994129547953
+    second: Inside_C 1_23
+  - first:
+      213: 5911535391425630125
+    second: Inside_C 1_24
+  - first:
+      213: 9217166842666459897
+    second: Inside_C 1_25
+  - first:
+      213: 5457825363920291165
+    second: Inside_C 1_26
+  - first:
+      213: 1881657983594876995
+    second: Inside_C 1_27
+  - first:
+      213: -2517144095520800947
+    second: Inside_C 1_28
+  - first:
+      213: 987551925968660764
+    second: Inside_C 1_29
+  - first:
+      213: -9101920430439029196
+    second: Inside_C 1_30
+  - first:
+      213: 2470184544634356482
+    second: Inside_C 1_31
+  - first:
+      213: 123971872044241249
+    second: Inside_C 1_32
+  - first:
+      213: -7299092109297233129
+    second: Inside_C 1_33
+  - first:
+      213: -2152531517086012121
+    second: Inside_C 1_34
+  - first:
+      213: -3403982756428355935
+    second: Inside_C 1_35
+  - first:
+      213: -447300874705240155
+    second: Inside_C 1_36
+  - first:
+      213: 783385607571925170
+    second: Inside_C 1_37
+  - first:
+      213: -4928955527930923796
+    second: Inside_C 1_38
+  - first:
+      213: 243267586347155336
+    second: Inside_C 1_39
+  - first:
+      213: -1993521599371352565
+    second: Inside_C 1_40
+  - first:
+      213: 2734918865477657715
+    second: Inside_C 1_41
+  - first:
+      213: 6682468110076644142
+    second: Inside_C 1_42
+  - first:
+      213: -2816302919064847954
+    second: Inside_C 1_43
+  - first:
+      213: -198215892813216486
+    second: Inside_C 1_44
+  - first:
+      213: -7109464664782825119
+    second: Inside_C 1_45
+  - first:
+      213: -2255306891682634190
+    second: Inside_C 1_46
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Inside_C 1_0
+      rect:
+        serializedVersion: 2
+        x: 14
+        y: 424
+        width: 62
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c68059db586fc6ea0800000000000000
+      internalID: -5878052359353595796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_1
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 424
+        width: 62
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c177821629da15710800000000000000
+      internalID: 1680314980192778012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_2
+      rect:
+        serializedVersion: 2
+        x: 210
+        y: 422
+        width: 62
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dd763e205c424a710800000000000000
+      internalID: 1703526987628505053
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_3
+      rect:
+        serializedVersion: 2
+        x: 299
+        y: 425
+        width: 68
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3a0f94d4238b91930800000000000000
+      internalID: 4114522260764225699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_4
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 420
+        width: 77
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4084b134d2160f7b0800000000000000
+      internalID: -5192543523330897916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_5
+      rect:
+        serializedVersion: 2
+        x: 591
+        y: 363
+        width: 69
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbd964cfa52e2eff0800000000000000
+      internalID: -8195368893899333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_6
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 371
+        width: 69
+        height: 104
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 528c09cd8b31703f0800000000000000
+      internalID: -934756712960702427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_7
+      rect:
+        serializedVersion: 2
+        x: 252
+        y: 390
+        width: 62
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 961cd6b02dbc4f7e0800000000000000
+      internalID: -1732535853635485335
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_8
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 359
+        width: 75
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b85008e27db50d00800000000000000
+      internalID: 938364398592874674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_9
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 354
+        width: 28
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6dd779d3d78e414e0800000000000000
+      internalID: -2011727508925874730
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_10
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 355
+        width: 28
+        height: 41
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de223fe579cfee380800000000000000
+      internalID: -8939930483220602131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 335
+        width: 42
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 598aebf8f04a731d0800000000000000
+      internalID: -3371045409320425323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_12
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 335
+        width: 37
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 73f87b08ea67d1940800000000000000
+      internalID: 5268497630949248823
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_13
+      rect:
+        serializedVersion: 2
+        x: 98
+        y: 324
+        width: 39
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 266bb684a044278a0800000000000000
+      internalID: -6308905317037263262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_14
+      rect:
+        serializedVersion: 2
+        x: 146
+        y: 324
+        width: 38
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fc6280021dee20110800000000000000
+      internalID: 1225804630551176911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_15
+      rect:
+        serializedVersion: 2
+        x: 200
+        y: 329
+        width: 37
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5a13d3956b791050800000000000000
+      internalID: 5771780073654000223
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_16
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 329
+        width: 18
+        height: 50
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a7f57db1ef8f8500800000000000000
+      internalID: 400697091568301989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_17
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 322
+        width: 22
+        height: 57
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 927a996a313306020800000000000000
+      internalID: 2332920766470399785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_18
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 260
+        width: 63
+        height: 38
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 17595a772bc89dd70800000000000000
+      internalID: 9068434022826612081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_19
+      rect:
+        serializedVersion: 2
+        x: 111
+        y: 267
+        width: 58
+        height: 33
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b689341f8ddf88ef0800000000000000
+      internalID: -105555483040704405
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_20
+      rect:
+        serializedVersion: 2
+        x: 190
+        y: 218
+        width: 152
+        height: 76
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80a62470fcc6021e0800000000000000
+      internalID: -2224658579485201912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_21
+      rect:
+        serializedVersion: 2
+        x: 386
+        y: 234
+        width: 131
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c0b7cc473ac2db240800000000000000
+      internalID: 4809049057652407052
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_22
+      rect:
+        serializedVersion: 2
+        x: 536
+        y: 261
+        width: 72
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a779cd207a593c20800000000000000
+      internalID: 3186677649192351650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_23
+      rect:
+        serializedVersion: 2
+        x: 653
+        y: 237
+        width: 95
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f4d9b3daf643cc5d0800000000000000
+      internalID: -3040997994129547953
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_24
+      rect:
+        serializedVersion: 2
+        x: 9
+        y: 185
+        width: 17
+        height: 52
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: daf031b2e1ef90250800000000000000
+      internalID: 5911535391425630125
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_25
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 177
+        width: 110
+        height: 68
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9f2a4a4a864f9ef70800000000000000
+      internalID: 9217166842666459897
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_26
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 114
+        width: 58
+        height: 89
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d55069e60471ebb40800000000000000
+      internalID: 5457825363920291165
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_27
+      rect:
+        serializedVersion: 2
+        x: 415
+        y: 149
+        width: 54
+        height: 61
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34053f477fdfc1a10800000000000000
+      internalID: 1881657983594876995
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_28
+      rect:
+        serializedVersion: 2
+        x: 484
+        y: 172
+        width: 38
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4fb20218ce411dd0800000000000000
+      internalID: -2517144095520800947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_29
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 172
+        width: 39
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c196d909e3d74bd00800000000000000
+      internalID: 987551925968660764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_30
+      rect:
+        serializedVersion: 2
+        x: 585
+        y: 167
+        width: 30
+        height: 70
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 436afc1b79b7fa180800000000000000
+      internalID: -9101920430439029196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_31
+      rect:
+        serializedVersion: 2
+        x: 656
+        y: 177
+        width: 95
+        height: 49
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 203479871cbd74220800000000000000
+      internalID: 2470184544634356482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_32
+      rect:
+        serializedVersion: 2
+        x: 6
+        y: 125
+        width: 42
+        height: 26
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1615653c2cf68b100800000000000000
+      internalID: 123971872044241249
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_33
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 133
+        width: 21
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7135b7a166a64ba90800000000000000
+      internalID: -7299092109297233129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_34
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 125
+        width: 27
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72d61446dfba022e0800000000000000
+      internalID: -2152531517086012121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_35
+      rect:
+        serializedVersion: 2
+        x: 145
+        y: 124
+        width: 16
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a66885d7bf92c0d0800000000000000
+      internalID: -3403982756428355935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_36
+      rect:
+        serializedVersion: 2
+        x: 168
+        y: 123
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5aff87f693edac9f0800000000000000
+      internalID: -447300874705240155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_37
+      rect:
+        serializedVersion: 2
+        x: 189
+        y: 109
+        width: 14
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b86a7d3f052fda00800000000000000
+      internalID: 783385607571925170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_38
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 86
+        width: 95
+        height: 54
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce4baf3ef05d89bb0800000000000000
+      internalID: -4928955527930923796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_39
+      rect:
+        serializedVersion: 2
+        x: 11
+        y: 103
+        width: 27
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88fb695b492406300800000000000000
+      internalID: 243267586347155336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_40
+      rect:
+        serializedVersion: 2
+        x: 51
+        y: 81
+        width: 19
+        height: 37
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b06e661eaa69554e0800000000000000
+      internalID: -1993521599371352565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_41
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 93
+        width: 103
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3746f4ac73264f520800000000000000
+      internalID: 2734918865477657715
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_42
+      rect:
+        serializedVersion: 2
+        x: 159
+        y: 56
+        width: 44
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2b8ef34755ecbc50800000000000000
+      internalID: 6682468110076644142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_43
+      rect:
+        serializedVersion: 2
+        x: 349
+        y: 65
+        width: 229
+        height: 56
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea97e31aa6b7ae8d0800000000000000
+      internalID: -2816302919064847954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_44
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 48
+        width: 65
+        height: 53
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a15080812bbcf3df0800000000000000
+      internalID: -198215892813216486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_45
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 40
+        width: 64
+        height: 43
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1699d601e8b165d90800000000000000
+      internalID: -7109464664782825119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Inside_C 1_46
+      rect:
+        serializedVersion: 2
+        x: 687
+        y: 0
+        width: 30
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23624c5c45a83b0e0800000000000000
+      internalID: -2255306891682634190
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
