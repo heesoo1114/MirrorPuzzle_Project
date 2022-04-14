@@ -5,13 +5,18 @@ using UnityEngine;
 public class PlayerMove : MonoBehaviour
 {
     public float speed = 5f;
+    private Rigidbody2D rigid;
+
+    private void Start()
+    {
+        rigid = GetComponent<Rigidbody2D>();
+    }
 
     private void Update()
     {
-        float x = Input.GetAxis("Horizontal") * speed * Time.deltaTime;
-        float y = Input.GetAxis("Vertical") * speed * Time.deltaTime;
+        float x = Input.GetAxis("Horizontal") * speed;
+        float y = Input.GetAxis("Vertical")*speed;
 
-        transform.Translate(x, y, 0);
-
+        rigid.velocity = new Vector2(x, y);
     }
 }
