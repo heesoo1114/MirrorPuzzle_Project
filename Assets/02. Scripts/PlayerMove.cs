@@ -15,7 +15,7 @@ public class PlayerMove : MonoBehaviour
     private void Update()
     {
         float x = Input.GetAxis("Horizontal") * speed;
-        float y = Input.GetAxis("Vertical")*speed;
+        float y = Input.GetAxis("Vertical") * speed;
 
         rigid.velocity = new Vector2(x, y);
     }
