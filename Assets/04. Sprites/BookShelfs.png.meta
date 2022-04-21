@@ -33,6 +33,7 @@ TextureImporter:
   streamingMipmaps: 0
   streamingMipmapsPriority: 0
   vTOnly: 0
+  ignoreMasterTextureLimit: 0
   grayScaleToAlpha: 0
   generateCubemap: 6
   cubemapConvolution: 0
@@ -247,6 +248,13 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
+    nameFileIdTable:
+      BookShelfs_4: -3646115909134080324
+      BookShelfs_2: -2168537626813973092
+      BookShelfs_3: 6446686589295170041
+      BookShelfs_0: 4255635177234202631
+      BookShelfs_5: -6210508163429216678
+      BookShelfs_1: 872985812400888817
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
