@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Letter : MonoBehaviour
+public class Locker : MonoBehaviour
 {
     public Transform playerTranform;
     private GameManager gameManager;
@@ -16,8 +16,8 @@ public class Letter : MonoBehaviour
     {
         if (Vector2.Distance(transform.position, playerTranform.transform.position) < 2f)
         {
-            gameManager.UIManger.SetActiveLetter(true);
+            gameManager.UIManger.SetActiveLocker(true);
         }
-        
+
     }
 }
