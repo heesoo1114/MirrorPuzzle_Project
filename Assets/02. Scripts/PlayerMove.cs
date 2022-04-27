@@ -4,7 +4,12 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float speed = 3f;
+    public float _maxSpeed = 5f;
+    public float _acceleration = 50f;
+    public float _deAcceleration = 50f;
+
+    protected float _currentVelocity = 3f;
+    protected Vector2 _movementDir;
 
     private Rigidbody2D _rigid;
     private bool _isWarping;
@@ -17,29 +22,81 @@ public class PlayerMove : MonoBehaviour
         _uiManager = FindObjectOfType<UIManager>();
     }
 
-    void Update()
+    void FixedUpdate()
     {
-        Move();
+        InputDirection();
+
+        _rigid.velocity = _movementDir * _currentVelocity;
     }
 
-    private void Move()
+    private void InputDirection()
     {
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
         Vector2 dir = new Vector2(x, y);
 
-        _rigid.velocity = dir.normalized * speed;
+        if (dir.sqrMagnitude > 0)
+        {
+            // 내가 가려고 한 방향이 지금 향하고 있는 방향의 반대면 
+            // 속도를 0으로 초기화를 시킨다
+            if (Vector2.Dot(dir, _movementDir) < 0)
+            {
+                _currentVelocity = 0f;
+            }
 
+            // 값을 변경 시킴
+            _movementDir = dir.normalized;
+        }
+
+        _currentVelocity = CalcSpeed(dir.normalized);
+        // (0,0) == 움직일 방향이 없다면
+        // 값 변화가 없다
+    }
+
+    private float CalcSpeed(Vector2 dir)
+    {
+        float velocity = _currentVelocity;
+
+        if (dir.sqrMagnitude > 0)
+        {
+            velocity += _acceleration * Time.fixedDeltaTime;
+        }
+
+        else
+        {
+            velocity -= _deAcceleration * Time.fixedDeltaTime;
+        }
+
+        return Mathf.Clamp(velocity, 0f, _maxSpeed);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.CompareTag("Trigger"))
+        if (collision.CompareTag("Trigger"))
         {
             if (_isWarping) return;
             _isWarping = true;
             Vector2 warpPoint = collision.GetComponent<WarpZone>().WarpPoint;
             StartCoroutine(WarpPlayer(warpPoint));
+        }
+
+
+    }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Mirror"))
+        {
+            _uiManager.ShowInteractionUI(collision.transform.position);
+            //_uiManager.ShowTextPanal("어? 거울이다!");
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Mirror"))
+        {
+            _uiManager.UnShowInteractionUI();
         }
     }
 

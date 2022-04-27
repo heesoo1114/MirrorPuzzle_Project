@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - Trigger
+  - Mirror
   layers:
   - Default
   - TransparentFX
@@ -41,6 +42,24 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Floor
+    uniqueID: 2533035673
+    locked: 0
+  - name: Background
+    uniqueID: 819348527
+    locked: 0
+  - name: BackObject
+    uniqueID: 2352795525
+    locked: 0
+  - name: Player
+    uniqueID: 3232771655
+    locked: 0
+  - name: ForeObject
+    uniqueID: 4019290739
+    locked: 0
+  - name: Foreground
+    uniqueID: 653163641
     locked: 0
   - name: UI
     uniqueID: 3952627273
