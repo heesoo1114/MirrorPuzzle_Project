@@ -13,6 +13,7 @@ public class BoxButton : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         collider = GetComponent<Collider2D>();
     }
+
     private void Update()
     {
         if(activeWorld == GameManager.WorldType)

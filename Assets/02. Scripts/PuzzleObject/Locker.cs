@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class Locker : MonoBehaviour
 {
-    public Transform playerTranform;
+    private Transform playerTranform;
     private GameManager gameManager;
 
     private void Start()
     {
+        playerTranform = FindObjectOfType<PlayerMove>().transform;
         gameManager = FindObjectOfType<GameManager>();
     }
 

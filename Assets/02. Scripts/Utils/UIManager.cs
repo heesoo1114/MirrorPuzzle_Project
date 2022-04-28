@@ -9,8 +9,11 @@ public class UIManager : MonoBehaviour
 {
     public Image letterImage;
     public Image keypad;
-    private const string password = "1357";
+    private const string PASSWORD = "85672";
     private string currentPw = "";
+    [SerializeField]
+    private GameObject key;
+
 
     public void SetActiveLetter(bool isActive)
     {
@@ -26,20 +29,22 @@ public class UIManager : MonoBehaviour
 
     private void CheckPassword()
     {
-        if(password == currentPw)
+        if(PASSWORD == currentPw)
         {
-            Debug.Log("맞음");
+            keypad.gameObject.SetActive(false);
+            key.gameObject.SetActive(true);
         }
         else
         {
-            Debug.Log("틀림");
+            keypad.transform.GetChild(0).DOShakePosition(0.5f,20);
+                
         }
     }
 
     public void InputPassword(string number)
     {
         currentPw += number;
-        if (currentPw.Length == 4)
+        if (currentPw.Length == PASSWORD.Length)
         {
             CheckPassword();
             currentPw = "";
