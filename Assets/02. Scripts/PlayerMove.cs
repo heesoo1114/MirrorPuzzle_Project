@@ -7,12 +7,14 @@ public class PlayerMove : MonoBehaviour
     public float _maxSpeed = 5f;
     public float _acceleration = 50f;
     public float _deAcceleration = 50f;
+    public TextDatas _textDatas;
 
     protected float _currentVelocity = 3f;
     protected Vector2 _movementDir;
 
     private Rigidbody2D _rigid;
     private bool _isWarping;
+    private bool _findMirror;
 
     private UIManager _uiManager;
 
@@ -22,8 +24,37 @@ public class PlayerMove : MonoBehaviour
         _uiManager = FindObjectOfType<UIManager>();
     }
 
+    // 실행되는 동안 반복 => 1 프레임 한번씩 호출
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (_uiManager.IsActiveTextPanal())
+            {
+                _uiManager.ActiveTextPanal();
+            }
+
+            else
+            {
+                FindMirror();
+            }
+        }
+    }
+
+    private void FindMirror()
+    {
+        if (!_findMirror) return;
+
+        string str = _textDatas.FindTextData("FIND_MIRROR");
+        _uiManager.ActiveTextPanal(str);
+        _rigid.velocity = Vector2.zero;
+        _uiManager.OnUI = true;
+    }
+
     void FixedUpdate()
     {
+        if (_uiManager.OnUI) return;
+
         InputDirection();
 
         _rigid.velocity = _movementDir * _currentVelocity;
@@ -70,7 +101,7 @@ public class PlayerMove : MonoBehaviour
         return Mathf.Clamp(velocity, 0f, _maxSpeed);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnTriggerStay2D(Collider2D collision)
     {
         if (collision.CompareTag("Trigger"))
         {
@@ -80,14 +111,10 @@ public class PlayerMove : MonoBehaviour
             StartCoroutine(WarpPlayer(warpPoint));
         }
 
-
-    }
-
-    private void OnTriggerStay2D(Collider2D collision)
-    {
         if (collision.CompareTag("Mirror"))
         {
             _uiManager.ShowInteractionUI(collision.transform.position);
+            _findMirror = true;
             //_uiManager.ShowTextPanal("어? 거울이다!");
         }
     }
@@ -97,6 +124,7 @@ public class PlayerMove : MonoBehaviour
         if (collision.CompareTag("Mirror"))
         {
             _uiManager.UnShowInteractionUI();
+            _findMirror = false;
         }
     }
 
