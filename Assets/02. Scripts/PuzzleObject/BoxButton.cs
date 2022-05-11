@@ -7,24 +7,42 @@ public class BoxButton : MonoBehaviour
     public WorldType activeWorld;
     private SpriteRenderer spriteRenderer;
     new private Collider2D collider;
+    private GameObject lightObject;
 
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         collider = GetComponent<Collider2D>();
+    
+        if(transform.childCount > 0)
+        {
+            lightObject = transform.GetChild(0).gameObject;
+        }
     }
 
     private void Update()
     {
-        if(activeWorld == GameManager.WorldType)
+        if (activeWorld == GameManager.WorldType)
         {
-            spriteRenderer.enabled = false;
-            collider.enabled = true;
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.enabled = false;
+                lightObject?.gameObject.SetActive(false);
+            }
+
+            if (collider != null)
+                collider.enabled = true;
         }
         else
         {
-            spriteRenderer.enabled = true;
-            collider.enabled = false;
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.enabled = true;
+                lightObject?.gameObject.SetActive(true);
+            }
+
+            if (collider != null)
+                collider.enabled = false;
         }
     }
 

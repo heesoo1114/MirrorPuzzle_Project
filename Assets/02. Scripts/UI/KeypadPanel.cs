@@ -8,6 +8,7 @@ public class KeypadPanel : MonoBehaviour
     private string number;
     private Text numberText;
     private Button button;
+   
 
     private GameManager gameManager;
 
@@ -25,7 +26,13 @@ public class KeypadPanel : MonoBehaviour
 
     private void InputButton()
     {
+        if(gameManager.UIManger.isInputKey == false)
+        {
+            return;
+        }
+        
         gameManager.UIManger.InputPassword(number);
+        
     }
 
 }

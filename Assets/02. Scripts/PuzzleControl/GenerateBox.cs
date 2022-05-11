@@ -13,6 +13,8 @@ public class GenerateBox : MonoBehaviour
     private readonly Vector2 MIN_POSITION = new Vector2(-7.4f, - 4.5f);
     private readonly Vector2 MAX_POSITION = new Vector2(7.82f, 1.45f);
 
+    GameObject[] boxes = new GameObject[BOX_COUNT];
+
     private void Start()
     {
         Generate();
@@ -21,7 +23,7 @@ public class GenerateBox : MonoBehaviour
     {
         for(int i = 0; i < BOX_COUNT; i++)
         {
-            Instantiate(boxPrefab, GetRandomPosition() ,Quaternion.identity, transform);
+            boxes[i] = Instantiate(boxPrefab, GetRandomPosition() ,Quaternion.identity, transform);
         }
     }
 
@@ -32,5 +34,13 @@ public class GenerateBox : MonoBehaviour
         position.y = Random.Range(MIN_POSITION.y, MAX_POSITION.y);
 
         return position;
+    }
+
+    private void ChangePosition()
+    {
+        for (int i = 0; i < BOX_COUNT; i++)
+        {
+            boxes[i].transform.position = GetRandomPosition();
+        }
     }
 }
