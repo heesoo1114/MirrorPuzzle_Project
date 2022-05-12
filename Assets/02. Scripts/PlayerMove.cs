@@ -107,25 +107,29 @@ public class PlayerMove : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D collision)
     {
-        if (collision.CompareTag("Trigger"))
-        {
-            if (_isWarping) return;
-            WarpZone warpZone = collision.GetComponent<WarpZone>();
-            Vector2 warpPoint = warpZone.WarpPoint;
-
-            if(_movementDir.x == warpZone._offset.x ||
-                _movementDir.y == warpZone._offset.y)
-            {
-                _isWarping = true;
-                StartCoroutine(WarpPlayer(warpPoint));
-            }
-        }
-
         if (collision.CompareTag("Mirror"))
         {
             _uiManager.ShowInteractionUI(collision.transform.position);
             _findMirror = true;
             //_uiManager.ShowTextPanal("어? 거울이다!");
+        }
+    }
+
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Trigger"))
+        {
+            if (_isWarping) return;
+            WarpZone warpZone = collision.gameObject.GetComponent<WarpZone>();
+            Vector2 warpPoint = warpZone.WarpPoint;
+
+            // 맵 바꿀 때까지는 임시로 주석 해놓을게요
+            //if (_movementDir.x == warpZone._offset.x ||
+            //    _movementDir.y == warpZone._offset.y)
+            {
+                _isWarping = true;
+                StartCoroutine(WarpPlayer(warpPoint));
+            }
         }
     }
 
@@ -151,21 +155,16 @@ public class PlayerMove : MonoBehaviour
 
     private void PlayerAnimation()
     {
-        if (_rigid.velocity.x > 0.01f)
-        {
+        if (_rigid.velocity.x > 0.05f)
             _animator.Play("RightWalk");
-        }
-        else if (_rigid.velocity.x < -0.01f)
-        {
+
+        else if (_rigid.velocity.x < -0.05f)
             _animator.Play("LeftWalk");
-        }
-        else if (_rigid.velocity.y > 0.01f)
-        {
+
+        else if (_rigid.velocity.y > 0.05f)
             _animator.Play("UpWalk");
-        }
-        else if (_rigid.velocity.y < -0.01f)
-        {
+
+        else if (_rigid.velocity.y < -0.05f)
             _animator.Play("DownWalk");
-        }
     }
 }

@@ -153,10 +153,4 @@ public class UIManager : MonoBehaviour
         pwText.text = currentPw;
         isInputKey = true;
     }
-
-    public void ChangeRoom(Action loadRoom)
-    {
-        // TODO: 씬 바꾸는 애니메이션
-        loadRoom.Invoke();
-    }
 }
