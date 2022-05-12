@@ -1,0 +1,15 @@
+Credit: Joe Pal 
+[MV Resource Thread Link: Joe Pal's Weird Warehouse: https://forums.rpgmakerweb.com/index.php?threads/joe-pals-weird-warehouse-updated-9-01-2021.70129/]
+
+Non-Commercial/Commercial: Free to use! Witch and Scarecrow follow base model of MV walking sprites, so legal license for MV is required for use in other 
+RPG Maker engines. If used in a project, I’d like to be notified when the project is complete so I can check out the work. This isn’t a hard-and-fast 
+requirement, just a pleasant request.
+
+Edits: Edits allowed! However, please link back to originals/my resource thread and provide proper credits.
+
+Repost of Edits: Yes! Again, please link back to the originals/my resource thread and provide proper credits.
+Maker Required:
+* For Witch and Scarecrow: MV license required for use RPG Maker engines outside of RMMV, as the bodies are in the style of MV sprites
+* For Spider Mutant, Candy Corn & Ghost: free to use in any engine
+
+Contact: Feel free to PM me for further questions/concerns/comments/a haiku/a rambling monologue, or just to say hey! :)
