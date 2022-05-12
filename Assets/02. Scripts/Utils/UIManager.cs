@@ -91,11 +91,5 @@ public class UIManager : MonoBehaviour
     public void ChangeRoom(Action loadRoom)
     {
         loadRoom.Invoke();
-
-        changeImage.gameObject.SetActive(true);
-        changeImage.DOFade(0f, 1f).OnComplete(() =>
-        {
-            changeImage.gameObject.SetActive(false);
-        });
     }
 }
