@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
-
+using System;
 
 public class UIManager : MonoBehaviour
 {
@@ -13,11 +13,14 @@ public class UIManager : MonoBehaviour
     public Image keypad;
     private const string PASSWORD = "85672";
     private string currentPw = "";
+
     [SerializeField]
     private GameObject key;
     [SerializeField] private Text pwText;
     [HideInInspector]
     public bool isInputKey = true;
+
+    [SerializeField] private Image changeImage;
 
     private void Start()
     {
@@ -28,7 +31,7 @@ public class UIManager : MonoBehaviour
     {
         pwLetterImage.gameObject.SetActive(isActive);
         pwLetterImage.transform.localScale = Vector3.zero;
-        pwLetterImage.transform.DOScale(1f,0.3f);
+        pwLetterImage.transform.DOScale(1f, 0.3f);
     }
 
     public void SetActiveLetter(string letter = "")
@@ -55,15 +58,14 @@ public class UIManager : MonoBehaviour
 
     private void CheckPassword()
     {
-        if(PASSWORD == currentPw)
+        if (PASSWORD == currentPw)
         {
             keypad.gameObject.SetActive(false);
             key.gameObject.SetActive(true);
         }
         else
         {
-            keypad.transform.GetChild(0).DOShakePosition(0.5f,20);
-                
+            keypad.transform.GetChild(0).DOShakePosition(0.5f, 20);
         }
     }
 
@@ -84,8 +86,16 @@ public class UIManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         pwText.text = currentPw;
         isInputKey = true;
-
     }
 
+    public void ChangeRoom(Action loadRoom)
+    {
+        loadRoom.Invoke();
 
+        changeImage.gameObject.SetActive(true);
+        changeImage.DOFade(0f, 1f).OnComplete(() =>
+        {
+            changeImage.gameObject.SetActive(false);
+        });
+    }
 }

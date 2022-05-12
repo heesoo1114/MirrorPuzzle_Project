@@ -7,16 +7,21 @@ using UnityEngine.Rendering.Universal;
 public class GameManager : MonoBehaviour
 {
     private UIManager uiManager;
-    
+
     public UIManager UIManger { get { return uiManager; } }
 
-    private static WorldType worldType = WorldType.RealWorld;
-    public static WorldType WorldType{get { return worldType; } set { worldType = value; } }
+    private WorldType worldType = WorldType.RealWorld;
+    public WorldType WorldType { get { return worldType; } set { worldType = value; } }
+
+    public RoomType currentRoom;
 
     public Light2D globalLight;
-
     public GameObject tileMapGrid;
-    
+
+    public List<Room> rooms;
+
+    public bool isChangingRoom;
+
     private void Awake()
     {
         uiManager = GetComponent<UIManager>();
@@ -37,7 +42,7 @@ public class GameManager : MonoBehaviour
 
     private void ChangeWorld()
     {
-        if(worldType == WorldType.RealWorld)
+        if (worldType == WorldType.RealWorld)
         {
             worldType = WorldType.MirrorWorld;
         }
@@ -45,13 +50,14 @@ public class GameManager : MonoBehaviour
         {
             worldType = WorldType.RealWorld;
         }
+
         if (tileMapGrid.transform.localScale.x > 0f)
         {
             tileMapGrid.transform.localScale = new Vector3(-1f, 1f, 1f);
         }
         else
         {
-            tileMapGrid.transform.localScale = new Vector3(1f, 1f, 1f);
+            tileMapGrid.transform.localScale = Vector3.one;
         }
         ChangeGlobalLight();
         Debug.Log(worldType.ToString());
@@ -65,8 +71,23 @@ public class GameManager : MonoBehaviour
         }
         else
         {
-            globalLight.intensity = 1;
+            globalLight.intensity = 1f;
         }
+    }
 
+    public void ChangeRoom(RoomType room)
+    {
+        if (isChangingRoom) return;
+        isChangingRoom = true;
+        currentRoom = room;
+        UIManger.ChangeRoom(LoadRoom);
+    }
+
+    private void LoadRoom()
+    {
+        rooms.ForEach(x => x.roomObject.gameObject.SetActive(false));
+        Room room = rooms.Find(x => x.roomType == currentRoom);
+        room.roomObject.gameObject.SetActive(true);
+        isChangingRoom = false;
     }
 }

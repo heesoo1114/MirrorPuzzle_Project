@@ -8,13 +8,15 @@ public class BoxButton : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     new private Collider2D collider;
     private GameObject lightObject;
+    private GameManager gm;
 
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
         collider = GetComponent<Collider2D>();
-    
-        if(transform.childCount > 0)
+        gm = FindObjectOfType<GameManager>();
+
+        if (transform.childCount > 0)
         {
             lightObject = transform.GetChild(0).gameObject;
         }
@@ -22,7 +24,7 @@ public class BoxButton : MonoBehaviour
 
     private void Update()
     {
-        if (activeWorld == GameManager.WorldType)
+        if (activeWorld == gm.WorldType)
         {
             if (spriteRenderer != null)
             {
