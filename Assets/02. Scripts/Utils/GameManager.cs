@@ -13,25 +13,19 @@ public class GameManager : MonoBehaviour
     private WorldType worldType = WorldType.RealWorld;
     public WorldType WorldType { get { return worldType; } set { worldType = value; } }
 
-    public RoomType currentRoom;
-
     public Light2D globalLight;
-    public GameObject tileMapGrid;
-
     public List<Room> rooms;
-
-    public bool isChangingRoom;
 
     private void Awake()
     {
         uiManager = GetComponent<UIManager>();
-
     }
 
     private void Start()
     {
         ChangeGlobalLight();
     }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
@@ -51,14 +45,16 @@ public class GameManager : MonoBehaviour
             worldType = WorldType.RealWorld;
         }
 
-        if (tileMapGrid.transform.localScale.x > 0f)
+        if (rooms[0].roomObject.transform.localScale.x > 0f)
         {
-            tileMapGrid.transform.localScale = new Vector3(-1f, 1f, 1f);
+            rooms.ForEach(x => x.roomObject.transform.localScale = new Vector3(-1f, 1f, 1f));
         }
         else
         {
-            tileMapGrid.transform.localScale = Vector3.one;
+            rooms.ForEach(x => x.roomObject.transform.localScale = Vector3.one);
         }
+
+
         ChangeGlobalLight();
         Debug.Log(worldType.ToString());
     }
@@ -73,21 +69,5 @@ public class GameManager : MonoBehaviour
         {
             globalLight.intensity = 1f;
         }
-    }
-
-    public void ChangeRoom(RoomType room)
-    {
-        if (isChangingRoom) return;
-        isChangingRoom = true;
-        currentRoom = room;
-        UIManger.ChangeRoom(LoadRoom);
-    }
-
-    private void LoadRoom()
-    {
-        rooms.ForEach(x => x.roomObject.gameObject.SetActive(false));
-        Room room = rooms.Find(x => x.roomType == currentRoom);
-        room.roomObject.gameObject.SetActive(true);
-        isChangingRoom = false;
     }
 }

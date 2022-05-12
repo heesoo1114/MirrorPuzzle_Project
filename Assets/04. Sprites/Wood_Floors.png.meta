@@ -1,7 +1,13 @@
 fileFormatVersion: 2
-guid: a0630bcf6fdee6d42ae180266407f3da
+guid: 784e7e828777dbd42b7d512ad76df759
 TextureImporter:
-  internalIDToNameTable: []
+  internalIDToNameTable:
+  - first:
+      213: -6535743234617599864
+    second: Wood_Floors_1
+  - first:
+      213: 443645676201154399
+    second: Wood_Floors_2
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -89,7 +95,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Server
+    buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -101,7 +107,19 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: Android
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -120,18 +138,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ead8bb1800920e943a8cd49e37fe481b
-      internalID: -621662038
+      spriteID: 4322ddae625bd9700800000000000000
+      internalID: 548793908362814004
       vertices: []
       indices: 
       edges: []
@@ -141,18 +159,18 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 32
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: bafbe01c7551bd64eae86d4b5869eb4d
-      internalID: -405212741
+      spriteID: 888947de7206c45a0800000000000000
+      internalID: -6535743234617599864
       vertices: []
       indices: 
       edges: []
@@ -162,18 +180,39 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 0
+        y: 32
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 87aea41d5bedf8740a13b65c2e5d1f56
-      internalID: -1069841993
+      spriteID: f579b185465282600800000000000000
+      internalID: 443645676201154399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wood_Floors_3
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 16
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 27ed7343d5087f04dafe25757963561a
+      internalID: 1816501337
       vertices: []
       indices: 
       edges: []
@@ -189,9 +228,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Wood_Floors_1: -405212741
-      Wood_Floors_0: -621662038
-      Wood_Floors_2: -1069841993
+      Wood_Floors_3: 1816501337
+      Wood_Floors_1: -6535743234617599864
+      Wood_Floors_0: 548793908362814004
+      Wood_Floors_2: 443645676201154399
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

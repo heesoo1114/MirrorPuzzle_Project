@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: Wood_Floors_0
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: -621662038, guid: a0630bcf6fdee6d42ae180266407f3da, type: 3}
+  m_Sprite: {fileID: 548793908362814004, guid: 784e7e828777dbd42b7d512ad76df759, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
