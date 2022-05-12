@@ -6475,7 +6475,7 @@ TextureImporter:
         width: 16
         height: 16
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -6483,6 +6483,27 @@ TextureImporter:
       bones: []
       spriteID: 8a0c468c40825dcc0800000000000000
       internalID: -3686996718925856600
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset_265
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 216
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 961c52ce6a848204cb8b787068475421
+      internalID: -420181527
       vertices: []
       indices: 
       edges: []
@@ -6536,10 +6557,10 @@ TextureImporter:
       tileset_18: 3985221016008397036
       tileset_107: -3988596780175509632
       tileset_222: -8311164549472156482
-      tileset_141: 5388502597285703958
-      tileset_158: -7564863161185782991
-      tileset_22: -1385786070971223102
       tileset_184: 2736909019620709926
+      tileset_141: 5388502597285703958
+      tileset_22: -1385786070971223102
+      tileset_158: -7564863161185782991
       tileset_201: -1629341528189829555
       tileset_253: 2786873931873931643
       tileset_221: 5765094374394043039
@@ -6642,12 +6663,12 @@ TextureImporter:
       tileset_46: -4116040823106012581
       tileset_214: -4537573223965190097
       tileset_8: -7775419718026629507
-      tileset_52: 293392773991598977
-      tileset_101: 4060546897201354903
       tileset_177: -566659428371333733
+      tileset_101: 4060546897201354903
+      tileset_52: 293392773991598977
+      tileset_248: -5691891959014864785
       tileset_125: 8428129474414255811
       tileset_175: 3227097814093670755
-      tileset_248: -5691891959014864785
       tileset_85: -1691220034148343436
       tileset_148: 7415296042182116920
       tileset_98: 2734534193476647528
@@ -6656,11 +6677,11 @@ TextureImporter:
       tileset_228: -4357557447699990553
       tileset_181: -3499984441526269211
       tileset_197: 2122296157948569085
-      tileset_247: 5985507967813629022
       tileset_256: 7817706946133889683
+      tileset_247: 5985507967813629022
       tileset_198: -7974934122615966272
-      tileset_174: -6008480010249992571
       tileset_211: 351704232138058046
+      tileset_174: -6008480010249992571
       tileset_39: 8621815960616643281
       tileset_135: -4473804774917083361
       tileset_140: 4519099050224943632
@@ -6747,6 +6768,7 @@ TextureImporter:
       tileset_138: -2350811187745343328
       tileset_240: 2731447283922565767
       tileset_116: 6222405554938725553
+      tileset_265: -420181527
       tileset_20: 8758155216525550727
       tileset_65: 6418657867545673408
       tileset_210: -3751724370511174559

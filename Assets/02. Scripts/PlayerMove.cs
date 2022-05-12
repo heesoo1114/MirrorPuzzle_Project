@@ -106,9 +106,15 @@ public class PlayerMove : MonoBehaviour
         if (collision.CompareTag("Trigger"))
         {
             if (_isWarping) return;
-            _isWarping = true;
-            Vector2 warpPoint = collision.GetComponent<WarpZone>().WarpPoint;
-            StartCoroutine(WarpPlayer(warpPoint));
+            WarpZone warpZone = collision.GetComponent<WarpZone>();
+            Vector2 warpPoint = warpZone.WarpPoint;
+
+            if(_movementDir.x == warpZone._offset.x ||
+                _movementDir.y == warpZone._offset.y)
+            {
+                _isWarping = true;
+                StartCoroutine(WarpPlayer(warpPoint));
+            }
         }
 
         if (collision.CompareTag("Mirror"))
