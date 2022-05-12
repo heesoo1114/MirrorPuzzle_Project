@@ -3563,7 +3563,11 @@ TextureImporter:
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
-      physicsShape: []
+      physicsShape:
+      - - {x: -8, y: -8}
+        - {x: -8, y: -1}
+        - {x: 8, y: -1}
+        - {x: 8, y: -8}
       tessellationDetail: 0
       bones: []
       spriteID: dae853de131823a60800000000000000
@@ -3635,6 +3639,48 @@ TextureImporter:
       bones: []
       spriteID: c88c3f3b52b6980c0800000000000000
       internalID: -4573006136940967796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Serene Village - Inside_146
+      rect:
+        serializedVersion: 2
+        x: 80
+        y: 304
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3624855a663bec94995eb7ec0593df6c
+      internalID: -1061002828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Serene Village - Inside_147
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 304
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2155890b6005a46499310ee3c17b4040
+      internalID: 1367132605
       vertices: []
       indices: 
       edges: []
@@ -3721,12 +3767,13 @@ TextureImporter:
       Serene Village - Inside_119: 7639964181226642016
       Serene Village - Inside_110: 663494594960805801
       Serene Village - Inside_25: -4415093614913771477
-      Serene Village - Inside_97: 1838151411320779184
+      Serene Village - Inside_100: 6500066050205196637
       Serene Village - Inside_34: 963183899290736542
       Serene Village - Inside_29: -4834857406510329231
-      Serene Village - Inside_100: 6500066050205196637
+      Serene Village - Inside_97: 1838151411320779184
       Serene Village - Inside_0: -6014315069920326607
       Serene Village - Inside_99: 4522877678001260810
+      Serene Village - Inside_147: 1367132605
       Serene Village - Inside_121: -1328701376546569250
       Serene Village - Inside_9: 6200922121357579308
       Serene Village - Inside_106: 1053332811005889501
@@ -3768,6 +3815,7 @@ TextureImporter:
       Serene Village - Inside_73: -707205517727356926
       Serene Village - Inside_108: 8234030765254443206
       Serene Village - Inside_39: 5102365941007182695
+      Serene Village - Inside_146: -1061002828
       Serene Village - Inside_130: 5829790852560593750
       Serene Village - Inside_32: -4485536707225999505
       Serene Village - Inside_82: 1306875163699923225
