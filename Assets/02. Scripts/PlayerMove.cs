@@ -17,11 +17,13 @@ public class PlayerMove : MonoBehaviour
     private bool _findMirror;
 
     private UIManager _uiManager;
+    private Animator _animator;
 
     void Start()
     {
         _rigid = GetComponent<Rigidbody2D>();
         _uiManager = FindObjectOfType<UIManager>();
+        _animator = GetComponent<Animator>();
     }
 
     // 실행되는 동안 반복 => 1 프레임 한번씩 호출
@@ -58,6 +60,8 @@ public class PlayerMove : MonoBehaviour
         InputDirection();
 
         _rigid.velocity = _movementDir * _currentVelocity;
+
+        PlayerAnimation();
     }
 
     private void InputDirection()
@@ -144,5 +148,24 @@ public class PlayerMove : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         _isWarping = false;
     }
-}
 
+    private void PlayerAnimation()
+    {
+        if (_rigid.velocity.x > 0.01f)
+        {
+            _animator.Play("RightWalk");
+        }
+        else if (_rigid.velocity.x < -0.01f)
+        {
+            _animator.Play("LeftWalk");
+        }
+        else if (_rigid.velocity.y > 0.01f)
+        {
+            _animator.Play("UpWalk");
+        }
+        else if (_rigid.velocity.y < -0.01f)
+        {
+            _animator.Play("DownWalk");
+        }
+    }
+}
