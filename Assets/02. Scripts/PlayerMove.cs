@@ -156,15 +156,23 @@ public class PlayerMove : MonoBehaviour
     private void PlayerAnimation()
     {
         if (_rigid.velocity.x > 0.05f)
+        {
             _animator.Play("RightWalk");
+        }
 
         else if (_rigid.velocity.x < -0.05f)
+        {
             _animator.Play("LeftWalk");
+        }
 
         else if (_rigid.velocity.y > 0.05f)
+        {
             _animator.Play("UpWalk");
+        }
 
         else if (_rigid.velocity.y < -0.05f)
+        {
             _animator.Play("DownWalk");
+        }
     }
 }

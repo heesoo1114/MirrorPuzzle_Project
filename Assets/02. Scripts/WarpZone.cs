@@ -5,7 +5,7 @@ using UnityEngine;
 public class WarpZone : MonoBehaviour
 {
     public Transform _warpPoint;
-    public SpawnType spawnType;
+    public FaceType spawnType;
     [HideInInspector]
     public Vector2 _offset;
 
@@ -13,16 +13,16 @@ public class WarpZone : MonoBehaviour
     {
         switch(spawnType)
         {
-            case SpawnType.Right:
+            case FaceType.Right:
                 _offset = Vector2.right;
                 break;
-            case SpawnType.Left:
+            case FaceType.Left:
                 _offset = Vector2.left;
                 break;
-            case SpawnType.Up:
+            case FaceType.Up:
                 _offset = Vector2.up;
                 break;
-            case SpawnType.Down:
+            case FaceType.Down:
                 _offset = Vector2.down;
                 break;
         }

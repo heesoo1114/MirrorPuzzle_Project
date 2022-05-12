@@ -1,4 +1,4 @@
-public enum SpawnType
+public enum FaceType
 {
     Left,
     Right,
