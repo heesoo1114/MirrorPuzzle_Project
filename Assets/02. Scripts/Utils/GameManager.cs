@@ -39,21 +39,13 @@ public class GameManager : MonoBehaviour
         if (worldType == WorldType.RealWorld)
         {
             worldType = WorldType.MirrorWorld;
-        }
-        else
-        {
-            worldType = WorldType.RealWorld;
-        }
-
-        if (rooms[0].roomObject.transform.localScale.x > 0f)
-        {
             rooms.ForEach(x => x.roomObject.transform.localScale = new Vector3(-1f, 1f, 1f));
         }
         else
         {
+            worldType = WorldType.RealWorld;
             rooms.ForEach(x => x.roomObject.transform.localScale = Vector3.one);
         }
-
 
         ChangeGlobalLight();
         Debug.Log(worldType.ToString());
