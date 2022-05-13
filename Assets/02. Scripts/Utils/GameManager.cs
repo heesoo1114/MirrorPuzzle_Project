@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     public Light2D globalLight;
     public List<Room> rooms;
+    public Transform map;
 
     private void Awake()
     {
@@ -24,6 +25,12 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         ChangeGlobalLight();
+
+        for (int i = 0; i < map.childCount; i++)
+        {
+            // Room TypeÀº ÀÓ½Ã
+            rooms.Add(new Room(map.GetChild(i).gameObject, RoomType.BigBrother));
+        }
     }
 
     private void Update()
