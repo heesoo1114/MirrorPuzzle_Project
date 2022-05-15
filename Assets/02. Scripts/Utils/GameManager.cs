@@ -15,6 +15,7 @@ public class GameManager : MonoBehaviour
 
     public Light2D globalLight;
     public List<Room> rooms;
+    public Transform map;
 
     private void Awake()
     {
@@ -24,6 +25,12 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         ChangeGlobalLight();
+
+        for (int i = 0; i < map.childCount; i++)
+        {
+            // Room TypeÀº ÀÓ½Ã
+            rooms.Add(new Room(map.GetChild(i).gameObject, RoomType.BigBrother));
+        }
     }
 
     private void Update()
@@ -39,21 +46,13 @@ public class GameManager : MonoBehaviour
         if (worldType == WorldType.RealWorld)
         {
             worldType = WorldType.MirrorWorld;
-        }
-        else
-        {
-            worldType = WorldType.RealWorld;
-        }
-
-        if (rooms[0].roomObject.transform.localScale.x > 0f)
-        {
             rooms.ForEach(x => x.roomObject.transform.localScale = new Vector3(-1f, 1f, 1f));
         }
         else
         {
+            worldType = WorldType.RealWorld;
             rooms.ForEach(x => x.roomObject.transform.localScale = Vector3.one);
         }
-
 
         ChangeGlobalLight();
         Debug.Log(worldType.ToString());

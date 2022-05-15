@@ -7,4 +7,10 @@ public class Room
 {
     public GameObject roomObject;
     public RoomType roomType;
+
+    public Room(GameObject roomObj, RoomType type)
+    {
+        roomObject = roomObj;
+        roomType = type;
+    }
 }
