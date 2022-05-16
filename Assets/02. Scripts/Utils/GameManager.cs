@@ -64,7 +64,6 @@ public class GameManager : MonoBehaviour
         {
             worldType = WorldType.MirrorWorld;
             rooms.ForEach(x => x.roomObject.transform.localScale = new Vector3(-1f, 1f, 1f));
-
         }
 
         ChangeGlobalLight();
