@@ -7,7 +7,6 @@ public class PlayerMove : MonoBehaviour
     public float _maxSpeed = 5f;
     public float _acceleration = 50f;
     public float _deAcceleration = 50f;
-    public TextDatas _textDatas;
 
     protected float _currentVelocity = 3f;
     protected Vector2 _movementDir;
@@ -18,6 +17,8 @@ public class PlayerMove : MonoBehaviour
 
     private UIManager _uiManager;
     private Animator _animator;
+
+    private InteractionObject _interactionObject;
 
     void Start()
     {
@@ -38,30 +39,41 @@ public class PlayerMove : MonoBehaviour
 
             else
             {
-                FindMirror();
+                if(_interactionObject != null)
+                {
+                    _interactionObject.InteractionEvent();
+                }
             }
+        }
+
+        if(_interactionObject != null)
+        {
+            Vector3 objPos = _interactionObject.transform.position;
+            GameManager.Inst.UI.ShowInteractionUI(objPos);
         }
     }
 
-    private void FindMirror()
-    {
-        if (!_findMirror) return;
-
-        string str = _textDatas.FindTextData("FIND_MIRROR");
-        _uiManager.ActiveTextPanal(str);
-        _rigid.velocity = Vector2.zero;
-        _uiManager.OnUI = true;
-    }
+    
 
     void FixedUpdate()
     {
-        if (_uiManager.OnUI) return;
+        if (GameManager.Inst.OnUI) return;
 
         InputDirection();
 
         _rigid.velocity = _movementDir * _currentVelocity;
 
         PlayerAnimation();
+    }
+    private void FindMirror()
+    {
+        if (!_findMirror) return;
+
+        string str = GameManager.Inst.FindTextData("FIND_MIRROR");
+        _uiManager.ActiveTextPanal(str);
+        _rigid.velocity = Vector2.zero;
+        GameManager.Inst.OnUI = true;
+
     }
 
     private void InputDirection()
@@ -78,10 +90,10 @@ public class PlayerMove : MonoBehaviour
             {
                 _currentVelocity = 0f;
             }
-
-            // 값을 변경 시킴
-            _movementDir = dir.normalized;
         }
+        // 값을 변경 시킴
+
+        _movementDir = dir.normalized;
 
         _currentVelocity = CalcSpeed(dir.normalized);
         // (0,0) == 움직일 방향이 없다면
@@ -105,15 +117,16 @@ public class PlayerMove : MonoBehaviour
         return Mathf.Clamp(velocity, 0f, _maxSpeed);
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
+
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Mirror"))
+        if (collision.gameObject.CompareTag("Interaction"))
         {
-            _uiManager.ShowInteractionUI(collision.transform.position);
-            _findMirror = true;
-            //_uiManager.ShowTextPanal("어? 거울이다!");
+            _interactionObject = collision.transform.GetComponent<InteractionObject>();
+            
         }
     }
+
 
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -132,13 +145,17 @@ public class PlayerMove : MonoBehaviour
             }
         }
     }
-
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.CompareTag("Mirror"))
+        if (collision.gameObject.CompareTag("Interaction"))
         {
-            _uiManager.UnShowInteractionUI();
-            _findMirror = false;
+            GameManager.Inst.UI.UnShowInteractionUI();
+
+            if (_interactionObject != null)
+            {
+                _interactionObject.ExitInteraction();
+                _interactionObject = null;
+            }
         }
     }
 

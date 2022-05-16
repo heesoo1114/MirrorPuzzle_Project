@@ -16,3 +16,7 @@ MonoBehaviour:
   _textDataList:
   - dataID: FIND_MIRROR
     text: "\uC5B4? \uAC70\uC6B8\uC774\uB2E4!"
+  - dataID: INTERACTION_BOOK_NOTREAD
+    text: "\uAE00\uC528\uAC00 \uC798 \uC548\uBCF4\uC778\uB2E4."
+  - dataID: INTERACTION_BOOK_READ
+    text: "\uC6B0\uC5FD\uC774\uD615\uC774 \uC774\uB807\uAC8C \uC9DC\uB798\uC694"

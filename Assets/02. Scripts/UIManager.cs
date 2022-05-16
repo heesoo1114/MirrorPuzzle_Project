@@ -10,10 +10,10 @@ public class UIManager : MonoBehaviour
     public Image _fadeImage;
 
     public GameObject _interactionImage;
+    public Vector3 _interactionOffset = new Vector2(0.2f,0.2f);
 
     [SerializeField] private TextPanal _textPanal;
 
-    public bool OnUI;
 
     private bool _showImage;
 
@@ -68,14 +68,14 @@ public class UIManager : MonoBehaviour
             _interactionImage.SetActive(true);
             _interactionImage.transform.position = targetPos;
             _interactionImage.transform.DOScale(Vector3.one, 0.3f);
-            _interactionImage.transform.DOMove(targetPos + new Vector3(0.7f, 0.7f), 0.5f).OnComplete(()=>
+            _interactionImage.transform.DOMove(targetPos + _interactionOffset, 0.5f).OnComplete(()=>
              _showImage = false);
             _showImage = true;
         }
 
         else
         {
-            _interactionImage.transform.position= targetPos + new Vector3(0.7f, 0.7f);
+            _interactionImage.transform.position= targetPos + _interactionOffset;
         }
     }
 
