@@ -6,12 +6,18 @@ using UnityEngine.Rendering.Universal;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager Inst;
+
     private UIManager uiManager;
 
-    public UIManager UIManger { get { return uiManager; } }
+    public UIManager UI { get { return uiManager; } }
 
     private WorldType worldType = WorldType.RealWorld;
     public WorldType WorldType { get { return worldType; } set { worldType = value; } }
+
+    [SerializeField] private TextDatas _textDatas;
+    public bool OnUI;
+
 
     public Light2D globalLight;
     public List<Room> rooms;
@@ -19,6 +25,12 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
+        if(Inst != null)
+        {
+            Debug.LogError("게임 매니저 2개 이상임");
+        }
+        Inst = this;
+
         uiManager = GetComponent<UIManager>();
     }
 
@@ -35,7 +47,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.E))
         {
             ChangeWorld();
         }
@@ -43,17 +55,21 @@ public class GameManager : MonoBehaviour
 
     private void ChangeWorld()
     {
+<<<<<<< HEAD
         if (uiManager.isWorldBarMoving) return;
 
         if (worldType == WorldType.RealWorld)
-        {
-            worldType = WorldType.MirrorWorld;
-            rooms.ForEach(x => x.roomObject.transform.localScale = new Vector3(-1f, 1f, 1f));
-        }
-        else
+=======
+        if (worldType == WorldType.MirrorWorld)
+>>>>>>> HaYeon
         {
             worldType = WorldType.RealWorld;
             rooms.ForEach(x => x.roomObject.transform.localScale = Vector3.one);
+        }
+        else
+        {
+            worldType = WorldType.MirrorWorld;
+            rooms.ForEach(x => x.roomObject.transform.localScale = new Vector3(-1f, 1f, 1f));
         }
 
         uiManager.ActiveWorldText(worldType);
@@ -66,11 +82,21 @@ public class GameManager : MonoBehaviour
     {
         if (worldType == WorldType.RealWorld)
         {
+<<<<<<< HEAD
             globalLight.intensity = 1f;
+=======
+            globalLight.intensity = 0.8f;
+>>>>>>> HaYeon
         }
         else
         {
             globalLight.intensity = 0.1f;
         }
+    }
+
+    public string FindTextData(string id)
+    {
+        Debug.Log(id);
+        return _textDatas.FindTextData(id);
     }
 }

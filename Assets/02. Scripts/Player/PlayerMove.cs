@@ -1,13 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerMove : MonoBehaviour
 {
     public float _maxSpeed = 5f;
     public float _acceleration = 50f;
     public float _deAcceleration = 50f;
-    public TextDatas _textDatas;
 
     protected float _currentVelocity = 3f;
     protected Vector2 _movementDir;
@@ -16,15 +16,18 @@ public class PlayerMove : MonoBehaviour
     private bool _isWarping;
     private bool _findMirror;
 
-    private UIManager _uiManager;
     private Animator _animator;
 
+<<<<<<< HEAD:Assets/02. Scripts/PlayerMove.cs
     private ParticleSystem _walkParticle;
+=======
+    public UnityEvent OnTriggerInteraction;
+
+>>>>>>> HaYeon:Assets/02. Scripts/Player/PlayerMove.cs
 
     void Start()
     {
         _rigid = GetComponent<Rigidbody2D>();
-        _uiManager = FindObjectOfType<UIManager>();
         _animator = GetComponent<Animator>();
         _walkParticle = GetComponentInChildren<ParticleSystem>();
     }
@@ -34,31 +37,13 @@ public class PlayerMove : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (_uiManager.IsActiveTextPanal())
-            {
-                _uiManager.ActiveTextPanal();
-            }
-
-            else
-            {
-                FindMirror();
-            }
+            OnTriggerInteraction?.Invoke();
         }
-    }
-
-    private void FindMirror()
-    {
-        if (!_findMirror) return;
-
-        string str = _textDatas.FindTextData("FIND_MIRROR");
-        _uiManager.ActiveTextPanal(str);
-        _rigid.velocity = Vector2.zero;
-        _uiManager.OnUI = true;
     }
 
     void FixedUpdate()
     {
-        if (_uiManager.OnUI) return;
+        if (GameManager.Inst.OnUI) return;
 
         InputDirection();
 
@@ -66,7 +51,6 @@ public class PlayerMove : MonoBehaviour
 
         PlayerAnimation();
     }
-
     private void InputDirection()
     {
         float x = Input.GetAxisRaw("Horizontal");
@@ -81,6 +65,7 @@ public class PlayerMove : MonoBehaviour
             {
                 _currentVelocity = 0f;
             }
+<<<<<<< HEAD:Assets/02. Scripts/PlayerMove.cs
 
             // 값을 변경 시킴
             _movementDir = dir.normalized;
@@ -89,7 +74,12 @@ public class PlayerMove : MonoBehaviour
         else
         {
             _walkParticle.gameObject.SetActive(false);
+=======
+>>>>>>> HaYeon:Assets/02. Scripts/Player/PlayerMove.cs
         }
+        // 값을 변경 시킴
+
+        _movementDir = dir.normalized;
 
         _currentVelocity = CalcSpeed(dir.normalized);
         // (0,0) == 움직일 방향이 없다면
@@ -113,15 +103,9 @@ public class PlayerMove : MonoBehaviour
         return Mathf.Clamp(velocity, 0f, _maxSpeed);
     }
 
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Mirror"))
-        {
-            _uiManager.ShowInteractionUI(collision.transform.position);
-            _findMirror = true;
-            //_uiManager.ShowTextPanal("어? 거울이다!");
-        }
-    }
+
+    
+
 
     private void OnCollisionStay2D(Collision2D collision)
     {
@@ -141,22 +125,13 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Mirror"))
-        {
-            _uiManager.UnShowInteractionUI();
-            _findMirror = false;
-        }
-    }
-
     private IEnumerator WarpPlayer(Vector2 warpPoint)
     {
-        _uiManager.FadeScreen(true);
+        GameManager.Inst.UI.FadeScreen(true);
         yield return new WaitForSeconds(0.5f);
         transform.position = warpPoint;
         yield return new WaitForSeconds(0.1f);
-        _uiManager.FadeScreen(false);
+        GameManager.Inst.UI.FadeScreen(false);
         yield return new WaitForSeconds(0.5f);
         _isWarping = false;
     }

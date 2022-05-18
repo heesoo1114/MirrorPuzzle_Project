@@ -6,20 +6,24 @@ using DG.Tweening;
 
 public class TextPanal : MonoBehaviour
 {
-    private UIManager _uiManager;
-    private Text _currentText;
+    [SerializeField] private NameTextPanal _nameTextPanal;
+    [SerializeField] private Text _currentText;
     private bool _isOutput;
     private string _currentStr;
 
-    void Awake()
-    {
-        _uiManager = FindObjectOfType<UIManager>();
-        _currentText = GetComponentInChildren<Text>();
-        gameObject.SetActive(false);    
-    }
-    public void ShowTextPanal(string outputText)
+    public void ShowTextPanal(string outputText, string name = "")
     {
         if (_isOutput) return;
+        
+        if(name != "")
+        {
+            _nameTextPanal.ChangeNameText(name);
+            _nameTextPanal.gameObject.SetActive(true);
+        }
+        else
+        {
+            _nameTextPanal.gameObject.SetActive(false);
+        }
 
         _isOutput = true;
         _currentStr = outputText;
@@ -31,13 +35,13 @@ public class TextPanal : MonoBehaviour
 
     public void UnShowTextPanal()
     {
+        if (gameObject.activeSelf == false) return;
+
         if (_isOutput)
         {
-            _isOutput = false;
-            _currentText.text = _currentStr;
-            _currentText.DOKill();
             StopAllCoroutines();
-            return;
+            _currentText.DOKill();
+            _isOutput = false;
         }
 
         StartCoroutine(Co_UnShowTextPanal());
@@ -65,8 +69,9 @@ public class TextPanal : MonoBehaviour
         transform.DOScaleX(0f, 0.5f);
         yield return new WaitForSeconds(0.5f);
         gameObject.SetActive(false);
+        _nameTextPanal.gameObject.SetActive(false);
         _currentText.text = "";
 
-        _uiManager.OnUI = false;
+        GameManager.Inst.OnUI = false;
     }
 }

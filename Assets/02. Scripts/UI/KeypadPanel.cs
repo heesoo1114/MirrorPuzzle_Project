@@ -26,12 +26,12 @@ public class KeypadPanel : MonoBehaviour
 
     private void InputButton()
     {
-        if(gameManager.UIManger.isInputKey == false)
+        if(gameManager.UI.isInputKey == false)
         {
             return;
         }
         
-        gameManager.UIManger.InputPassword(number);
+        gameManager.UI.InputPassword(number);
         
     }
 

@@ -17,7 +17,7 @@ public class Locker : MonoBehaviour
     {
         if (Vector2.Distance(transform.position, playerTranform.transform.position) < 2f)
         {
-            gameManager.UIManger.SetActiveLocker(true);
+            gameManager.UI.SetActiveLocker(true);
         }
 
     }

@@ -24,7 +24,7 @@ public class TextDatas : ScriptableObject
 
         foreach(TextData td in _textDataList)
         {
-            if(td.dataID == ID)
+            if(td.dataID.CompareTo(ID) == 0)
             {
                 value = td.text;
                 break;

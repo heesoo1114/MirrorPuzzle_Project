@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Trigger
   - Mirror
+  - Box
+  - Interaction
   layers:
   - Default
   - TransparentFX
@@ -52,6 +54,9 @@ TagManager:
   - name: BackObject
     uniqueID: 2352795525
     locked: 0
+  - name: B_NotLight
+    uniqueID: 326931783
+    locked: 0
   - name: Player
     uniqueID: 3232771655
     locked: 0
@@ -60,6 +65,9 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 653163641
+    locked: 0
+  - name: F_NotLight
+    uniqueID: 489664303
     locked: 0
   - name: UI
     uniqueID: 3952627273
