@@ -66,11 +66,11 @@ public class GameManager : MonoBehaviour
     {
         if (worldType == WorldType.RealWorld)
         {
-            globalLight.intensity = 0.1f;
+            globalLight.intensity = 1f;
         }
         else
         {
-            globalLight.intensity = 1f;
+            globalLight.intensity = 0.1f;
         }
     }
 }

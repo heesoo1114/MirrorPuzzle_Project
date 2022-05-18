@@ -9,6 +9,8 @@ public class ActiveByWorld : MonoBehaviour
     new private Collider2D collider;
     private GameManager gm;
 
+    public MonoBehaviour[] components;
+
     private void Start()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -20,8 +22,11 @@ public class ActiveByWorld : MonoBehaviour
     {
         bool isActiveWorld = (activeWorld == gm.WorldType);
  
-            spriteRenderer.enabled = isActiveWorld;
+        foreach(MonoBehaviour component in components)
+        {
+            component.enabled = isActiveWorld;
             collider.enabled = isActiveWorld;
-        
+            spriteRenderer.enabled = isActiveWorld;
+        }
     }
 }
