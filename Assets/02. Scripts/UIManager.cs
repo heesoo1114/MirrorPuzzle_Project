@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,12 +10,25 @@ public class UIManager : MonoBehaviour
     public Image _fadeImage;
 
     public GameObject _interactionImage;
+    public Vector3 _interactionOffset = new Vector2(0.2f, 0.2f);
 
     [SerializeField] private TextPanal _textPanal;
 
-    public bool OnUI;
 
     private bool _showImage;
+
+    public Image pwLetterImage;
+    public Image letterImage;
+    private Text letterText;
+    public Image keypad;
+    private const string PASSWORD = "85672";
+    private string currentPw = "";
+
+    [SerializeField]
+    private GameObject key;
+    [SerializeField] private Text pwText;
+    [HideInInspector]
+    public bool isInputKey = true;
 
     public void FadeScreen(bool isFade)
     {
@@ -25,10 +39,17 @@ public class UIManager : MonoBehaviour
     // 아무 값도 들어오지않는다면 선언되있는 값으로 초기화
     public void ActiveTextPanal(string value = "")
     {
-        if(value == "")
+        if (value == "")
         {
-            Debug.Log("d");
-            _textPanal.UnShowTextPanal(); 
+            if (IsActiveTextPanal())
+            {
+                _textPanal.UnShowTextPanal();
+            }
+
+            else
+            {
+                return;
+            }
         }
 
         else
@@ -47,21 +68,21 @@ public class UIManager : MonoBehaviour
     {
         if (_showImage) return;
 
-        if(!_interactionImage.activeSelf)
+        if (!_interactionImage.activeSelf)
         {
             _interactionImage.transform.localScale = Vector3.zero;
             _interactionImage.transform.DOKill();
             _interactionImage.SetActive(true);
             _interactionImage.transform.position = targetPos;
             _interactionImage.transform.DOScale(Vector3.one, 0.3f);
-            _interactionImage.transform.DOMove(targetPos + new Vector3(0.7f, 0.7f), 0.5f).OnComplete(()=>
+            _interactionImage.transform.DOMove(targetPos + _interactionOffset, 0.5f).OnComplete(() =>
              _showImage = false);
             _showImage = true;
         }
 
         else
         {
-            _interactionImage.transform.position= targetPos + new Vector3(0.7f, 0.7f);
+            _interactionImage.transform.position = targetPos + _interactionOffset;
         }
     }
 
@@ -71,5 +92,72 @@ public class UIManager : MonoBehaviour
         _interactionImage.transform.DOKill();
         _showImage = false;
         _interactionImage.SetActive(false);
+    }
+
+
+    private void Start()
+    {
+        letterText = letterImage.transform.GetChild(0).GetComponent<Text>();
+    }
+
+    public void SetActivePwLetter(bool isActive)
+    {
+        pwLetterImage.gameObject.SetActive(isActive);
+        pwLetterImage.transform.localScale = Vector3.zero;
+        pwLetterImage.transform.DOScale(1f, 0.3f);
+    }
+
+    public void SetActiveLetter(string letter = "")
+    {
+        bool isActive;
+
+        if (letter.Length > 0)
+            isActive = true;
+        else
+            isActive = false;
+
+        letterImage.gameObject.SetActive(isActive);
+        letterImage.transform.localScale = Vector3.zero;
+        letterImage.transform.DOScale(1f, 0.3f);
+
+        letterText.text = letter;
+    }
+
+
+    public void SetActiveLocker(bool isActive)
+    {
+        keypad.gameObject.SetActive(isActive);
+    }
+
+    private void CheckPassword()
+    {
+        if (PASSWORD == currentPw)
+        {
+            keypad.gameObject.SetActive(false);
+            key.gameObject.SetActive(true);
+        }
+        else
+        {
+            keypad.transform.GetChild(0).DOShakePosition(0.5f, 20);
+        }
+    }
+
+    public void InputPassword(string number)
+    {
+        currentPw += number;
+        pwText.text = currentPw;
+        if (currentPw.Length == PASSWORD.Length)
+        {
+            CheckPassword();
+            currentPw = "";
+            StartCoroutine(ResetPw());
+        }
+    }
+    IEnumerator ResetPw()
+    {
+        isInputKey = false;
+        yield return new WaitForSeconds(1f);
+        pwText.text = currentPw;
+        isInputKey = true;
     }
 }
