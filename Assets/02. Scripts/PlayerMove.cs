@@ -19,11 +19,14 @@ public class PlayerMove : MonoBehaviour
     private UIManager _uiManager;
     private Animator _animator;
 
+    private ParticleSystem _walkParticle;
+
     void Start()
     {
         _rigid = GetComponent<Rigidbody2D>();
         _uiManager = FindObjectOfType<UIManager>();
         _animator = GetComponent<Animator>();
+        _walkParticle = GetComponentInChildren<ParticleSystem>();
     }
 
     // 실행되는 동안 반복 => 1 프레임 한번씩 호출
@@ -81,6 +84,11 @@ public class PlayerMove : MonoBehaviour
 
             // 값을 변경 시킴
             _movementDir = dir.normalized;
+            _walkParticle.gameObject.SetActive(true);
+        }
+        else
+        {
+            _walkParticle.gameObject.SetActive(false);
         }
 
         _currentVelocity = CalcSpeed(dir.normalized);
