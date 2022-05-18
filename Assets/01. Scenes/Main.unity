@@ -8983,7 +8983,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 5
+  orthographic size: 4
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -14084,7 +14084,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1942171771
   m_SortingLayer: 3
-  m_SortingOrder: 3
+  m_SortingOrder: 4
   m_Sprite: {fileID: 21300000, guid: 55a9ae9b61ef4f143a4dc4da80e5f15b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -31736,7 +31736,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -376, y: -106}
+  m_AnchoredPosition: {x: -375.99994, y: -106}
   m_SizeDelta: {x: 359.76, y: 100}
   m_Pivot: {x: 0.0000004451722, y: 0.5}
 --- !u!114 &1124044664
@@ -72911,7 +72911,7 @@ MonoBehaviour:
   m_Follow: {fileID: 930799878}
   m_Lens:
     FieldOfView: 60
-    OrthographicSize: 5
+    OrthographicSize: 4
     NearClipPlane: 0.3
     FarClipPlane: 1000
     Dutch: 0
