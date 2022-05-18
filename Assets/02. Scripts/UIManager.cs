@@ -137,6 +137,12 @@ public class UIManager : MonoBehaviour
 
     public void InputPassword(string number)
     {
+        if(currentPw.Contains(number))
+        {
+            keypad.transform.GetChild(0).DOShakePosition(0.5f, 20);
+            return;
+        }
+
         currentPw += number;
         pwText.text = currentPw;
         if (currentPw.Length == PASSWORD.Length)
