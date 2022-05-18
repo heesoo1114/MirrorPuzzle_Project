@@ -55,13 +55,9 @@ public class GameManager : MonoBehaviour
 
     private void ChangeWorld()
     {
-<<<<<<< HEAD
         if (uiManager.isWorldBarMoving) return;
 
-        if (worldType == WorldType.RealWorld)
-=======
         if (worldType == WorldType.MirrorWorld)
->>>>>>> HaYeon
         {
             worldType = WorldType.RealWorld;
             rooms.ForEach(x => x.roomObject.transform.localScale = Vector3.one);
@@ -82,11 +78,7 @@ public class GameManager : MonoBehaviour
     {
         if (worldType == WorldType.RealWorld)
         {
-<<<<<<< HEAD
-            globalLight.intensity = 1f;
-=======
             globalLight.intensity = 0.8f;
->>>>>>> HaYeon
         }
         else
         {

@@ -18,12 +18,8 @@ public class PlayerMove : MonoBehaviour
 
     private Animator _animator;
 
-<<<<<<< HEAD:Assets/02. Scripts/PlayerMove.cs
     private ParticleSystem _walkParticle;
-=======
     public UnityEvent OnTriggerInteraction;
-
->>>>>>> HaYeon:Assets/02. Scripts/Player/PlayerMove.cs
 
     void Start()
     {
@@ -65,7 +61,6 @@ public class PlayerMove : MonoBehaviour
             {
                 _currentVelocity = 0f;
             }
-<<<<<<< HEAD:Assets/02. Scripts/PlayerMove.cs
 
             // 값을 변경 시킴
             _movementDir = dir.normalized;
@@ -74,8 +69,6 @@ public class PlayerMove : MonoBehaviour
         else
         {
             _walkParticle.gameObject.SetActive(false);
-=======
->>>>>>> HaYeon:Assets/02. Scripts/Player/PlayerMove.cs
         }
         // 값을 변경 시킴
 
