@@ -6292,8 +6292,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1942171771
+  m_SortingLayer: 3
   m_SortingOrder: 11
   m_Sprite: {fileID: 21300000, guid: ea8a0996d9ea44e40b3555f28b0b8ea1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -19999,8 +19999,8 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: "\uBCF4\uC774\uB294 \uAC83\uB9CC\uC774 \uC9C4\uC9DC\uAC00
-            \uC544\uB2C8\uB2E4"
+          m_StringArgument: "\uBCF4\uC774\uB294 \uAC83\uB9CC\uC774                    
+            \uC9C4\uC9DC\uAC00 \uC544\uB2C8\uB2E4"
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!61 &764819230
@@ -20449,8 +20449,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -275676557
-  m_SortingLayer: 5
+  m_SortingLayerID: -1942171771
+  m_SortingLayer: 3
   m_SortingOrder: 34
   m_Sprite: {fileID: 217159392, guid: 0691bb71c45332d48a42ae760d259324, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -31736,7 +31736,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -375.99994, y: -106}
+  m_AnchoredPosition: {x: -376, y: -106}
   m_SizeDelta: {x: 359.76, y: 100}
   m_Pivot: {x: 0.0000004451722, y: 0.5}
 --- !u!114 &1124044664
@@ -54837,9 +54837,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingLayerID: -1062195641
+  m_SortingLayer: 4
+  m_SortingOrder: 2
   m_Sprite: {fileID: 453429101, guid: fc86dabff4a69714d81d71e4fd3ec885, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0.5882353}
   m_FlipX: 0
@@ -55975,7 +55975,7 @@ MonoBehaviour:
   pwLetterImage: {fileID: 2099711022}
   letterImage: {fileID: 1892287999}
   keypad: {fileID: 660590774}
-  key: {fileID: 0}
+  key: {fileID: 313177145}
   pwText: {fileID: 2026442172}
   isInputKey: 1
   worldText: {fileID: 404780493}
@@ -73178,8 +73178,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000038146973, y: -0.0000038146973}
-  m_SizeDelta: {x: 857.43, y: 407.26}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 710.88, y: 382.93}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2109374022
 MonoBehaviour:
@@ -73211,10 +73211,10 @@ MonoBehaviour:
     m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
-    m_HorizontalOverflow: 1
-    m_VerticalOverflow: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\uBCF4\uC774\uB294 \uAC83\uB9CC\uC774 \uC9C4\uC9DC\uAC00 \uC544\uB2C8\uB2E4"
+  m_Text: 
 --- !u!222 &2109374023
 CanvasRenderer:
   m_ObjectHideFlags: 0
