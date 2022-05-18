@@ -6517,7 +6517,7 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -6525,6 +6525,111 @@ TextureImporter:
       bones: []
       spriteID: 4369f4bb15558864ea918c29aad22285
       internalID: -1976158215
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset_267
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c5add605a97d9ac41b83e99d48917a2a
+      internalID: 1962400967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset_268
+      rect:
+        serializedVersion: 2
+        x: 112
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de54b3268ccaca84798f3a3de2b25e7e
+      internalID: -1589774148
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset_269
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29ed803172ffde144ba901e48cb1fb44
+      internalID: 790152932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset_270
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 208
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44dbf6e3b57a38d44b2d0513f198223f
+      internalID: -904540940
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: tileset_271
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 224
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c6923317955c6874bba9a99efd465d07
+      internalID: 287777485
       vertices: []
       indices: 
       edges: []
@@ -6624,10 +6729,12 @@ TextureImporter:
       tileset_163: -6264054207902924748
       tileset_203: 519984153895491627
       tileset_50: 3885819281616729284
+      tileset_270: -904540940
       tileset_73: 1946776270529680156
       tileset_100: 26675975723062386
       tileset_251: 5131247162228763318
       tileset_75: -133517962813326697
+      tileset_267: 1962400967
       tileset_241: 4684619861358224360
       tileset_167: -1827738438839499269
       tileset_183: -5804088494527134335
@@ -6646,6 +6753,7 @@ TextureImporter:
       tileset_220: -3079637754776131628
       tileset_153: 5763273986855542310
       tileset_110: 1372472711436484874
+      tileset_271: 287777485
       tileset_206: 5996782324465608006
       tileset_92: -912226708761013127
       tileset_40: -6205172343615221245
@@ -6659,6 +6767,7 @@ TextureImporter:
       tileset_13: -1762573714345474896
       tileset_187: -6211491821418765664
       tileset_69: -8673441916583476125
+      tileset_268: -1589774148
       tileset_63: 1077660200836561826
       tileset_266: -1976158215
       tileset_219: 7049880421589487928
@@ -6696,11 +6805,12 @@ TextureImporter:
       tileset_98: 2734534193476647528
       tileset_212: -6360910202428143990
       tileset_42: -1702772467812443111
+      tileset_269: 790152932
       tileset_228: -4357557447699990553
       tileset_181: -3499984441526269211
-      tileset_197: 2122296157948569085
       tileset_256: 7817706946133889683
       tileset_247: 5985507967813629022
+      tileset_197: 2122296157948569085
       tileset_198: -7974934122615966272
       tileset_211: 351704232138058046
       tileset_174: -6008480010249992571

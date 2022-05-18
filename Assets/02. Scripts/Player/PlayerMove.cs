@@ -100,21 +100,21 @@ public class PlayerMove : MonoBehaviour
     
 
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Trigger"))
         {
             if (_isWarping) return;
             WarpZone warpZone = collision.gameObject.GetComponent<WarpZone>();
             Vector2 warpPoint = warpZone.WarpPoint;
-
+            _isWarping = true;
+            StartCoroutine(WarpPlayer(warpPoint));
             // 맵 바꿀 때까지는 임시로 주석 해놓을게요
             //if (_movementDir.x == warpZone._offset.x ||
             //    _movementDir.y == warpZone._offset.y)
-            {
-                _isWarping = true;
-                StartCoroutine(WarpPlayer(warpPoint));
-            }
+            //{
+
+            //}
         }
     }
 

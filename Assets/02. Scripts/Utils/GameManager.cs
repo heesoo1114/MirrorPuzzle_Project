@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Rendering.Universal;
 
 public class GameManager : MonoBehaviour
@@ -22,6 +23,9 @@ public class GameManager : MonoBehaviour
     public Light2D globalLight;
     public List<Room> rooms;
     public Transform map;
+
+    public UnityEvent ChangeMirrorWorld;
+    public UnityEvent ChangeRealWorld;
 
     private void Awake()
     {
@@ -61,11 +65,13 @@ public class GameManager : MonoBehaviour
         {
             worldType = WorldType.RealWorld;
             rooms.ForEach(x => x.roomObject.transform.localScale = Vector3.one);
+            ChangeRealWorld?.Invoke();
         }
         else
         {
             worldType = WorldType.MirrorWorld;
             rooms.ForEach(x => x.roomObject.transform.localScale = new Vector3(-1f, 1f, 1f));
+            ChangeMirrorWorld?.Invoke();
         }
 
         uiManager.ActiveWorldText(worldType);

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using DG.Tweening;
 
 public class BugManager : MonoBehaviour
 {
@@ -11,17 +12,24 @@ public class BugManager : MonoBehaviour
     [SerializeField] private int generateCnt;
     private List<BugMove> bugs;
 
-    private void Awake()
+    private bool _isStart;
+
+    public void Init()
     {
+        if (_isStart) return;
+        _isStart = true;
         Camera mainCam = Camera.main;
         minPos = mainCam.ViewportToWorldPoint(Vector2.zero);
         maxPos = mainCam.ViewportToWorldPoint(Vector2.one);
+
+        bugs = new List<BugMove>();
+        gameObject.SetActive(true);
+        transform.DOScale(Vector3.one, 0.8f).SetEase(Ease.InOutBounce).OnComplete(GenerateBug);
     }
 
     void Start()
     {
-        bugs = new List<BugMove>();
-        GenerateBug();
+
     }
 
     public void GenerateBug()
@@ -44,7 +52,9 @@ public class BugManager : MonoBehaviour
 
         if(bugs.Count <= 0)
         {
-            Debug.Log("³¡");
+            GameManager.Inst.OnUI = false;
+            _isStart = false;
+            transform.DOScale(Vector3.zero, 0.8f).SetEase(Ease.InOutBounce).OnComplete(() => gameObject.SetActive(false));
         }
     }
 

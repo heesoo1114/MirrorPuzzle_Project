@@ -35,6 +35,8 @@ public class UIManager : MonoBehaviour
 
     public bool isWorldBarMoving = false;
 
+    [SerializeField] private BugManager _minigameManager;
+
     public void FadeScreen(bool isFade)
     {
         _fadeImage.DOFade(isFade ? 1f : 0f, 0.5f);
@@ -195,5 +197,11 @@ public class UIManager : MonoBehaviour
         yield return new WaitForSeconds(2f);
         rectTransform.DOAnchorPosX(-400f, 0.3f).SetEase(Ease.InQuad);
         isWorldBarMoving = false;
+    }
+
+    public void StartMiniGame()
+    {
+        GameManager.Inst.OnUI = true;
+        _minigameManager.Init();
     }
 }
