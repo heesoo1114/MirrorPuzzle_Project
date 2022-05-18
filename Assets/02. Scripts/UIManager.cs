@@ -10,7 +10,7 @@ public class UIManager : MonoBehaviour
     public Image _fadeImage;
 
     public GameObject _interactionImage;
-    public Vector3 _interactionOffset = new Vector2(0.2f,0.2f);
+    public Vector3 _interactionOffset = new Vector2(0.2f, 0.2f);
 
     [SerializeField] private TextPanal _textPanal;
 
@@ -39,10 +39,17 @@ public class UIManager : MonoBehaviour
     // 아무 값도 들어오지않는다면 선언되있는 값으로 초기화
     public void ActiveTextPanal(string value = "")
     {
-        if(value == "")
+        if (value == "")
         {
-            Debug.Log("d");
-            _textPanal.UnShowTextPanal(); 
+            if (IsActiveTextPanal())
+            {
+                _textPanal.UnShowTextPanal();
+            }
+
+            else
+            {
+                return;
+            }
         }
 
         else
@@ -61,21 +68,21 @@ public class UIManager : MonoBehaviour
     {
         if (_showImage) return;
 
-        if(!_interactionImage.activeSelf)
+        if (!_interactionImage.activeSelf)
         {
             _interactionImage.transform.localScale = Vector3.zero;
             _interactionImage.transform.DOKill();
             _interactionImage.SetActive(true);
             _interactionImage.transform.position = targetPos;
             _interactionImage.transform.DOScale(Vector3.one, 0.3f);
-            _interactionImage.transform.DOMove(targetPos + _interactionOffset, 0.5f).OnComplete(()=>
+            _interactionImage.transform.DOMove(targetPos + _interactionOffset, 0.5f).OnComplete(() =>
              _showImage = false);
             _showImage = true;
         }
 
         else
         {
-            _interactionImage.transform.position= targetPos + _interactionOffset;
+            _interactionImage.transform.position = targetPos + _interactionOffset;
         }
     }
 

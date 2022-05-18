@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -15,15 +16,14 @@ public class PlayerMove : MonoBehaviour
     private bool _isWarping;
     private bool _findMirror;
 
-    private UIManager _uiManager;
     private Animator _animator;
 
-    private InteractionObject _interactionObject;
+    public UnityEvent OnTriggerInteraction;
+
 
     void Start()
     {
         _rigid = GetComponent<Rigidbody2D>();
-        _uiManager = FindObjectOfType<UIManager>();
         _animator = GetComponent<Animator>();
     }
 
@@ -32,28 +32,9 @@ public class PlayerMove : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (_uiManager.IsActiveTextPanal())
-            {
-                _uiManager.ActiveTextPanal();
-            }
-
-            else
-            {
-                if(_interactionObject != null)
-                {
-                    _interactionObject.InteractionEvent();
-                }
-            }
-        }
-
-        if(_interactionObject != null)
-        {
-            Vector3 objPos = _interactionObject.transform.position;
-            GameManager.Inst.UI.ShowInteractionUI(objPos);
+            OnTriggerInteraction?.Invoke();
         }
     }
-
-    
 
     void FixedUpdate()
     {
@@ -65,17 +46,6 @@ public class PlayerMove : MonoBehaviour
 
         PlayerAnimation();
     }
-    private void FindMirror()
-    {
-        if (!_findMirror) return;
-
-        string str = GameManager.Inst.FindTextData("FIND_MIRROR");
-        _uiManager.ActiveTextPanal(str);
-        _rigid.velocity = Vector2.zero;
-        GameManager.Inst.OnUI = true;
-
-    }
-
     private void InputDirection()
     {
         float x = Input.GetAxisRaw("Horizontal");
@@ -118,14 +88,7 @@ public class PlayerMove : MonoBehaviour
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Interaction"))
-        {
-            _interactionObject = collision.transform.GetComponent<InteractionObject>();
-            
-        }
-    }
+    
 
 
     private void OnCollisionStay2D(Collision2D collision)
@@ -145,27 +108,14 @@ public class PlayerMove : MonoBehaviour
             }
         }
     }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag("Interaction"))
-        {
-            GameManager.Inst.UI.UnShowInteractionUI();
-
-            if (_interactionObject != null)
-            {
-                _interactionObject.ExitInteraction();
-                _interactionObject = null;
-            }
-        }
-    }
 
     private IEnumerator WarpPlayer(Vector2 warpPoint)
     {
-        _uiManager.FadeScreen(true);
+        GameManager.Inst.UI.FadeScreen(true);
         yield return new WaitForSeconds(0.5f);
         transform.position = warpPoint;
         yield return new WaitForSeconds(0.1f);
-        _uiManager.FadeScreen(false);
+        GameManager.Inst.UI.FadeScreen(false);
         yield return new WaitForSeconds(0.5f);
         _isWarping = false;
     }
