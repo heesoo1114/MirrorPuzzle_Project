@@ -5,13 +5,18 @@ using UnityEngine.Events;
 
 public class Letter : MonoBehaviour
 {
-    public Transform playerTranform;
+    private Transform playerTranform;
 
     public Vector2 targetPosition = new Vector2(-0.6f, -1.75f);
 
     private bool isFallingStart = false;
     [SerializeField] private UnityEvent clickEvent;
-    
+
+    private void Start()
+    {
+        playerTranform = FindObjectOfType<PlayerMove>().transform;
+    }
+
     private void Update()
     {
         if (isFallingStart)

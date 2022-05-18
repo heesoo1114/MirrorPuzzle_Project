@@ -7,11 +7,12 @@ public class CarpetObject : MonoBehaviour
     private readonly int maxCount = 3;
     private int count = 3;
     [SerializeField] private GameObject letter;
-    [SerializeField] private Transform player;
+    private Transform player;
 
     private void Start()
     {
         count = maxCount;
+        player = FindObjectOfType<PlayerMove>().transform;
     }
 
     private void OnMouseUp()
