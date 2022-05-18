@@ -30,6 +30,11 @@ public class UIManager : MonoBehaviour
     [HideInInspector]
     public bool isInputKey = true;
 
+    [SerializeField]
+    private Text worldText;
+
+    public bool isWorldBarMoving = false;
+
     public void FadeScreen(bool isFade)
     {
         _fadeImage.DOFade(isFade ? 1f : 0f, 0.5f);
@@ -137,6 +142,12 @@ public class UIManager : MonoBehaviour
 
     public void InputPassword(string number)
     {
+        if(currentPw.Contains(number))
+        {
+            keypad.transform.GetChild(0).DOShakePosition(0.5f, 20);
+            return;
+        }
+
         currentPw += number;
         pwText.text = currentPw;
         if (currentPw.Length == PASSWORD.Length)
@@ -152,5 +163,30 @@ public class UIManager : MonoBehaviour
         yield return new WaitForSeconds(1f);
         pwText.text = currentPw;
         isInputKey = true;
+    }
+
+    public void ActiveWorldText(WorldType worldType)
+    {
+        RectTransform rectTransform = worldText.transform.parent.GetComponent<RectTransform>();
+
+        if (worldType == WorldType.MirrorWorld)
+        {
+            worldText.text = "거울세계";
+        }
+        else
+        {
+            worldText.text = "현실세계";
+        }
+
+        StartCoroutine(MoveUIBar(rectTransform));
+    }
+
+    private IEnumerator MoveUIBar(RectTransform rectTransform)
+    {
+        isWorldBarMoving = true;
+        rectTransform.DOAnchorPosX(0f, 0.3f).SetEase(Ease.OutQuad);
+        yield return new WaitForSeconds(2f);
+        rectTransform.DOAnchorPosX(-400f, 0.3f).SetEase(Ease.InQuad);
+        isWorldBarMoving = false;
     }
 }

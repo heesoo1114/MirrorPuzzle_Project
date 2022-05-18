@@ -9,6 +9,7 @@ public class BoxButton : MonoBehaviour
     new private Collider2D collider;
     private GameObject lightObject;
     private GameManager gm;
+    [SerializeField] private Letter key;
 
     private void Start()
     {
@@ -52,7 +53,7 @@ public class BoxButton : MonoBehaviour
     {
         if (collision.CompareTag("Box"))
         {
-            Debug.Log("²Ú ´©·ë~");
+            key.Fallling();
         }
     }
 }

@@ -43,6 +43,8 @@ public class GameManager : MonoBehaviour
 
     private void ChangeWorld()
     {
+        if (uiManager.isWorldBarMoving) return;
+
         if (worldType == WorldType.RealWorld)
         {
             worldType = WorldType.MirrorWorld;
@@ -54,6 +56,8 @@ public class GameManager : MonoBehaviour
             rooms.ForEach(x => x.roomObject.transform.localScale = Vector3.one);
         }
 
+        uiManager.ActiveWorldText(worldType);
+
         ChangeGlobalLight();
         Debug.Log(worldType.ToString());
     }
@@ -62,11 +66,11 @@ public class GameManager : MonoBehaviour
     {
         if (worldType == WorldType.RealWorld)
         {
-            globalLight.intensity = 0.1f;
+            globalLight.intensity = 1f;
         }
         else
         {
-            globalLight.intensity = 1f;
+            globalLight.intensity = 0.1f;
         }
     }
 }
