@@ -108,7 +108,7 @@ public class PlayerMove : MonoBehaviour
             WarpZone warpZone = collision.gameObject.GetComponent<WarpZone>();
             Vector2 warpPoint = warpZone.WarpPoint;
             _isWarping = true;
-            StartCoroutine(WarpPlayer(warpPoint));
+            StartCoroutine(WarpPlayer(warpPoint, warpZone.RoomName));
             // 맵 바꿀 때까지는 임시로 주석 해놓을게요
             //if (_movementDir.x == warpZone._offset.x ||
             //    _movementDir.y == warpZone._offset.y)
@@ -118,7 +118,7 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    private IEnumerator WarpPlayer(Vector2 warpPoint)
+    private IEnumerator WarpPlayer(Vector2 warpPoint, string roomName)
     {
         GameManager.Inst.UI.FadeScreen(true);
         yield return new WaitForSeconds(0.5f);
@@ -126,6 +126,7 @@ public class PlayerMove : MonoBehaviour
         yield return new WaitForSeconds(0.1f);
         GameManager.Inst.UI.FadeScreen(false);
         yield return new WaitForSeconds(0.5f);
+        GameManager.Inst.UI.ActiveRoomText(roomName);
         _isWarping = false;
     }
 

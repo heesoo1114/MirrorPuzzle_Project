@@ -8,11 +8,12 @@ public class InteractionObject : MonoBehaviour
 
     protected void Awake()
     {
-        if(gameObject.tag.CompareTo("Interaction") != 0)
+        if (gameObject.tag.CompareTo("Interaction") != 0)
         {
-            Debug.LogError("상호작용 오브젝트의 태그가 Interaction으로 되어있지 않습니다.");
+            Debug.LogError($"상호작용 오브젝트({name})의 태그가 Interaction으로 되어있지 않습니다.");
             gameObject.tag = "Interaction";
         }
+
         AwakeChild();
     }
 
@@ -37,5 +38,6 @@ public class InteractionObject : MonoBehaviour
     {
         GameManager.Inst.UI.ActiveTextPanal();
     }
-
 }
+
+

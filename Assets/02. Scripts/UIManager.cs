@@ -37,6 +37,8 @@ public class UIManager : MonoBehaviour
 
     [SerializeField] private BugManager _minigameManager;
 
+    private Coroutine _textCoroutine;
+
     public void FadeScreen(bool isFade)
     {
         _fadeImage.DOFade(isFade ? 1f : 0f, 0.5f);
@@ -186,17 +188,32 @@ public class UIManager : MonoBehaviour
         {
             worldText.text = "현실세계";
         }
+        if(_textCoroutine != null)
+        {
+            StopCoroutine(_textCoroutine);
+        }
 
+        _textCoroutine = StartCoroutine(MoveUIBar(rectTransform));
+    }
+
+    public void ActiveRoomText(string roomName)
+    {
+        RectTransform rectTransform = worldText.transform.parent.GetComponent<RectTransform>();
+        worldText.text = roomName;
         StartCoroutine(MoveUIBar(rectTransform));
     }
 
     private IEnumerator MoveUIBar(RectTransform rectTransform)
     {
+        rectTransform.gameObject.SetActive(true);
         isWorldBarMoving = true;
+        rectTransform.DOKill();
         rectTransform.DOAnchorPosX(0f, 0.3f).SetEase(Ease.OutQuad);
         yield return new WaitForSeconds(2f);
         rectTransform.DOAnchorPosX(-400f, 0.3f).SetEase(Ease.InQuad);
         isWorldBarMoving = false;
+        rectTransform.gameObject.SetActive(false);
+        _textCoroutine = null;
     }
 
     public void StartMiniGame()

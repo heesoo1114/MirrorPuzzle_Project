@@ -4,26 +4,85 @@ using UnityEngine;
 
 public class WarpZone : MonoBehaviour
 {
+    public enum ERoomType
+    {
+        LivingRoom,
+        Kitchen,
+        Toilet,
+        SecondFloorHallway,
+        ElderBrotherRoom,
+        YoungerBrotherRoom,
+        Library,
+        InnerRoom,
+        Veranda
+    }
+
     public Transform _warpPoint;
-    public FaceType spawnType;
+    public EFaceType spawnType;
+    public ERoomType _targetRoom;
     [HideInInspector]
     public Vector2 _offset;
 
+    private string _roomName = "";
+    public string RoomName
+    {
+        get => _roomName;
+    }
+
     private void Start()
     {
-        switch(spawnType)
+        switch (spawnType)
         {
-            case FaceType.Right:
+            case EFaceType.Right:
                 _offset = Vector2.right;
                 break;
-            case FaceType.Left:
+            case EFaceType.Left:
                 _offset = Vector2.left;
                 break;
-            case FaceType.Up:
+            case EFaceType.Up:
                 _offset = Vector2.up;
                 break;
-            case FaceType.Down:
+            case EFaceType.Down:
                 _offset = Vector2.down;
+                break;
+        }
+
+        switch (_targetRoom)
+        {
+            case ERoomType.LivingRoom:
+                _roomName = "거실";
+                break;
+
+            case ERoomType.Kitchen:
+                _roomName = "부엌";
+                break;
+
+            case ERoomType.Toilet:
+                _roomName = "화장실";
+                break;
+
+            case ERoomType.SecondFloorHallway:
+                _roomName = "2층 복도";
+                break;
+
+            case ERoomType.ElderBrotherRoom:
+                _roomName = "형 방";
+                break;
+
+            case ERoomType.YoungerBrotherRoom:
+                _roomName = "동생 방";
+                break;
+
+            case ERoomType.Library:
+                _roomName = "서재";
+                break;
+
+            case ERoomType.InnerRoom:
+                _roomName = "안방";
+                break;
+
+            case ERoomType.Veranda:
+                _roomName = "베란다";
                 break;
         }
     }

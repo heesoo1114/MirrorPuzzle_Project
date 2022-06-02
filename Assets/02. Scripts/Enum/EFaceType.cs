@@ -1,7 +1,8 @@
-public enum FaceType
+public enum EFaceType
 {
     Left,
     Right,
     Down,
     Up
 }
+
