@@ -36,6 +36,8 @@ public class UIManager : MonoBehaviour
     public bool isWorldBarMoving = false;
 
     [SerializeField] private BugManager _minigameManager;
+    [SerializeField] private SwitchManager _switchMiniGameManager1;
+    [SerializeField] private SwitchManager _switchMiniGameManager2;
 
     private Coroutine _textCoroutine;
 
@@ -220,5 +222,14 @@ public class UIManager : MonoBehaviour
     {
         GameManager.Inst.OnUI = true;
         _minigameManager.Init();
+    }
+
+    public void StartSwitchOnGame(int value)
+    {
+        GameManager.Inst.OnUI = true;
+        if (value == 1)
+            _switchMiniGameManager1.Init();
+        else if (value == 2)
+            _switchMiniGameManager2.Init();
     }
 }
