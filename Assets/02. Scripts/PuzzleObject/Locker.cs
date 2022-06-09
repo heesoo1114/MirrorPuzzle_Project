@@ -5,19 +5,17 @@ using UnityEngine;
 public class Locker : MonoBehaviour
 {
     private Transform playerTranform;
-    private GameManager gameManager;
 
     private void Start()
     {
-        playerTranform = FindObjectOfType<PlayerMove>().transform;
-        gameManager = FindObjectOfType<GameManager>();
+        playerTranform = Define.PlayerTransform;
     }
 
     private void OnMouseDown()
     {
         if (Vector2.Distance(transform.position, playerTranform.transform.position) < 2f)
         {
-            gameManager.UI.SetActiveLocker(true);
+            GameManager.Inst.UI.SetActiveLocker(true);
         }
 
     }

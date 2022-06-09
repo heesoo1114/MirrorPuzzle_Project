@@ -14,7 +14,7 @@ public class Letter : MonoBehaviour
 
     private void Start()
     {
-        playerTranform = FindObjectOfType<PlayerMove>().transform;
+        playerTranform = Define.PlayerTransform;
     }
 
     private void Update()
