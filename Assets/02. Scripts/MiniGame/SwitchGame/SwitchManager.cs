@@ -17,15 +17,15 @@ public class SwitchManager : MonoBehaviour
     {
         if (_isStart == true) return;
         _isStart = true;
-        transform.DOScale(Vector3.one, 0.8f).SetEase(Ease.InOutBounce);
         gameObject.SetActive(true);
+        transform.DOScale(Vector3.one, 0.8f).SetEase(Ease.InOutBounce);
     }
 
     private void Update()
     {
         foreach(Switch swi in switches)
             if (swi.isOn == true) _isCheck++;
-        
+
         if (_isCheck == 5) GameEnd();
         else _isCheck = 0;
     }

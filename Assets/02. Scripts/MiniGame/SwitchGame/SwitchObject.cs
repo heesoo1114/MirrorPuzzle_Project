@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class SwitchObject : InteractionObject
 {
@@ -12,4 +13,5 @@ public class SwitchObject : InteractionObject
     {
         GameManager.Inst.UI.StartSwitchOnGame(switchNum);
     }
+
 }
