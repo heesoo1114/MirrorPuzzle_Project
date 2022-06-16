@@ -13839,7 +13839,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &212667785
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15092,18 +15092,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 575588472}
-        m_TargetAssemblyTypeName: Switch, Assembly-CSharp
-        m_MethodName: SwitchOnOff
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 1615552997}
         m_TargetAssemblyTypeName: Switch, Assembly-CSharp
         m_MethodName: SwitchOnOff
@@ -15383,31 +15371,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 892503612}
-        m_TargetAssemblyTypeName: Switch, Assembly-CSharp
-        m_MethodName: SwitchOnOff
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1790004030}
-        m_TargetAssemblyTypeName: Switch, Assembly-CSharp
-        m_MethodName: SwitchOnOff
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
       - m_Target: {fileID: 575588472}
+        m_TargetAssemblyTypeName: Switch, Assembly-CSharp
+        m_MethodName: SwitchOnOff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 146651699}
         m_TargetAssemblyTypeName: Switch, Assembly-CSharp
         m_MethodName: SwitchOnOff
         m_Mode: 1
@@ -24945,7 +24921,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onImage: {fileID: 1204260493}
   offImage: {fileID: 988507666}
-  isOn: 1
+  isOn: 0
 --- !u!1 &579369435
 GameObject:
   m_ObjectHideFlags: 0
@@ -31213,31 +31189,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 1790004030}
+        m_TargetAssemblyTypeName: Switch, Assembly-CSharp
+        m_MethodName: SwitchOnOff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 575588472}
-        m_TargetAssemblyTypeName: Switch, Assembly-CSharp
-        m_MethodName: SwitchOnOff
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 146651699}
-        m_TargetAssemblyTypeName: Switch, Assembly-CSharp
-        m_MethodName: SwitchOnOff
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1615552997}
         m_TargetAssemblyTypeName: Switch, Assembly-CSharp
         m_MethodName: SwitchOnOff
         m_Mode: 1
@@ -37776,7 +37740,19 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 575588472}
+      - m_Target: {fileID: 892503612}
+        m_TargetAssemblyTypeName: Switch, Assembly-CSharp
+        m_MethodName: SwitchOnOff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 146651699}
         m_TargetAssemblyTypeName: Switch, Assembly-CSharp
         m_MethodName: SwitchOnOff
         m_Mode: 1
@@ -41413,7 +41389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onImage: {fileID: 1248524761}
   offImage: {fileID: 212667784}
-  isOn: 1
+  isOn: 0
 --- !u!1 &897558157
 GameObject:
   m_ObjectHideFlags: 0
@@ -64195,7 +64171,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: -376, y: -106}
+  m_AnchoredPosition: {x: -376.00006, y: -106}
   m_SizeDelta: {x: 359.76, y: 100}
   m_Pivot: {x: 0.0000004451722, y: 0.5}
 --- !u!114 &1124044664
@@ -66401,7 +66377,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 575588472}
+      - m_Target: {fileID: 1790004030}
+        m_TargetAssemblyTypeName: Switch, Assembly-CSharp
+        m_MethodName: SwitchOnOff
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1615552997}
         m_TargetAssemblyTypeName: Switch, Assembly-CSharp
         m_MethodName: SwitchOnOff
         m_Mode: 1
@@ -67269,7 +67257,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1248524762
 RectTransform:
   m_ObjectHideFlags: 0
@@ -82989,7 +82977,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   onImage: {fileID: 1055406575}
   offImage: {fileID: 1127524819}
-  isOn: 0
+  isOn: 1
 --- !u!1 &1794190860
 GameObject:
   m_ObjectHideFlags: 0
@@ -87579,7 +87567,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1984700644
 RectTransform:
   m_ObjectHideFlags: 0
