@@ -8,6 +8,11 @@ TagManager:
   - Mirror
   - Box
   - Interaction
+  - Closet
+  - ObjectBox
+  - Objectbed
+  - ObjectLaker
+  - ObjectTable
   layers:
   - Default
   - TransparentFX
