@@ -11,6 +11,6 @@ public class ToCellar : InteractionObject
 
     public override void InteractionEvent()
     {
-    }
 
+    }
 }
