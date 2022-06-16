@@ -11,8 +11,6 @@ public class CutSceneSOEditor : Editor
     string actionInfo = "";
     int selectCharacter;
     ECutSceneAction actionType;
-    public enum ECutSceneAction
-    { None, CharacterMove, }
 
     private CutSceneAction cutSceneAction;
     // OnInspector GUI
@@ -28,7 +26,10 @@ public class CutSceneSOEditor : Editor
 
         if (actionType != ECutSceneAction.None)
         {
-            GUILayout.BeginVertical("CharacterMove", "window");
+            GUILayout.Space(10);
+            GUILayout.BeginVertical(actionType.ToString(), "window");
+            GUILayout.Space(10);
+
 
             actionInfo = EditorGUILayout.TextField( "ActionInfo", actionInfo);
 
@@ -37,50 +38,31 @@ public class CutSceneSOEditor : Editor
                 cutSceneAction = new CutSceneAction();
             }
 
-            Character[] characters = ((CutSceneSO)target).characterList.ToArray();
-            List<string> characterList = new List<string>();
-            characterList.Add("None");
-            foreach (var character in characters)
-            {
-                characterList.Add(character.name);
-            }
+            SelectCutSceneType();
 
-            selectCharacter = EditorGUILayout.Popup("Character", selectCharacter, characterList.ToArray());
+            SelectTargetCharacter();
 
-            if (selectCharacter != 0)
-            {
-                cutSceneAction.targetCharacter = ((CutSceneSO)target).characterList[selectCharacter - 1];
-            }
+            SelectNextDelay();
 
-            cutSceneAction.nextActionDelay = EditorGUILayout.Slider("NextActionDelay", cutSceneAction.nextActionDelay, 0f, 10f);
             switch (actionType)
             {
-                case ECutSceneAction.CharacterMove:
+                case ECutSceneAction.CharacterMoveAction:
+                    FormCharcterMoveAction();
+                    break;
 
-                    CharacterMove moveAction = cutSceneAction as CharacterMove;
-
-                    if (moveAction == null)
-                    {
-                        moveAction = new CharacterMove();
-
-                        moveAction.targetCharacter = cutSceneAction.targetCharacter;
-                        moveAction.nextActionDelay = cutSceneAction.nextActionDelay;
-                    }
-
-
-                    moveAction.reachPos = EditorGUILayout.Vector2Field("ReachPos", moveAction.reachPos);
-                    moveAction.moveSpeed = EditorGUILayout.FloatField("Speed", moveAction.moveSpeed);
-                    GUILayout.EndVertical();
-
+                case ECutSceneAction.CharacterTalkAction:
+                    FormChacterTalkAction();
                     break;
             }
+            GUILayout.EndVertical();
 
         }
 
         GUILayout.EndVertical();
+
         if (GUILayout.Button("Add"))
         {
-            if (cutSceneAction != null && actionInfo == "")
+            if (cutSceneAction != null && actionInfo != "")
             {
                 ((CutSceneSO)target).cutSceneActionList.Add(cutSceneAction);
                 cutSceneAction = null;
@@ -90,5 +72,69 @@ public class CutSceneSOEditor : Editor
             }
         }
     }
-}
+
+    public void SelectCutSceneType()
+    {
+        cutSceneAction.actionPlayType = (ECutScenePlayType)EditorGUILayout.EnumPopup("PlayType", cutSceneAction.actionPlayType);
+    }
+
+    public void SelectTargetCharacter()
+    {
+        CharacterData[] characters = ((CutSceneSO)target).characterList.ToArray();
+        List<string> characterList = new List<string>();
+        characterList.Add("None");
+        foreach (var character in characters)
+        {
+            characterList.Add(character.name);
+        }
+
+        selectCharacter = EditorGUILayout.Popup("Character", selectCharacter, characterList.ToArray());
+
+        if (selectCharacter != 0)
+        {
+            cutSceneAction.targetCharacter = ((CutSceneSO)target).characterList[selectCharacter - 1];
+        }
+    }
+
+    public void SelectNextDelay()
+    {
+        cutSceneAction.nextActionDelay = EditorGUILayout.Slider("NextActionDelay", cutSceneAction.nextActionDelay, 0f, 10f);
+    }
+
+    public void FormCharcterMoveAction()
+    {
+        CharacterMoveAction moveAction = cutSceneAction as CharacterMoveAction;
+
+        if (moveAction == null)
+        {
+            moveAction = new CharacterMoveAction();
+
+            moveAction.targetCharacter = cutSceneAction.targetCharacter;
+            moveAction.nextActionDelay = cutSceneAction.nextActionDelay;
+        }
+
+
+        moveAction.reachPos = EditorGUILayout.Vector2Field("ReachPos", moveAction.reachPos);
+        moveAction.moveSpeed = EditorGUILayout.FloatField("Speed", moveAction.moveSpeed);
+
+    }
+
+    public void FormChacterTalkAction()
+    {
+        CharacterTalkAction talkAction = cutSceneAction as CharacterTalkAction;
+
+        if (talkAction == null)
+        {
+            talkAction = new CharacterTalkAction();
+
+            talkAction.targetCharacter = cutSceneAction.targetCharacter;
+            talkAction.nextActionDelay = cutSceneAction.nextActionDelay;
+        }
+
+
+        talkAction.scriptText = EditorGUILayout.TextField("ScriptText", talkAction.scriptText, GUILayout.Height(70));
+
+    }
+}
+
 
