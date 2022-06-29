@@ -14,7 +14,8 @@ public class WarpZone : MonoBehaviour
         YoungerBrotherRoom,
         Library,
         InnerRoom,
-        Veranda
+        Veranda,
+        Celler
     }
 
     public Transform _warpPoint;
@@ -83,6 +84,10 @@ public class WarpZone : MonoBehaviour
 
             case ERoomType.Veranda:
                 _roomName = "베란다";
+                break;
+
+            case ERoomType.Celler:
+                _roomName = "지하실";
                 break;
         }
     }
