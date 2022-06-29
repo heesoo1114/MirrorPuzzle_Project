@@ -30,23 +30,42 @@ public class DrowFingding : MonoBehaviour
     {
         if(GameManager.Inst.coliderState == eColiderState.Locker)
         {
-            draws[0].gameObject.SetActive(true);
+            if (GameManager.Inst.WorldType == WorldType.RealWorld)
+            {
+                draws[0].gameObject.SetActive(true);
+            }
         }
         else if(GameManager.Inst.coliderState == eColiderState.Box)
         {
-            draws[1].gameObject.SetActive(true);
+            if (GameManager.Inst.WorldType == WorldType.RealWorld)
+            {
+                draws[1].gameObject.SetActive(true);
+            }
         }
         else if(GameManager.Inst.coliderState == eColiderState.Table)
         {
-            draws[2].gameObject.SetActive(true);
+            if (GameManager.Inst.WorldType == WorldType.RealWorld)
+            {
+                draws[2].gameObject.SetActive(true);
+            }
         }
         else if (GameManager.Inst.coliderState == eColiderState.Closet)
         {
-            draws[3].gameObject.SetActive(true);
+            if(GameManager.Inst.WorldType == WorldType.RealWorld)
+            {
+                draws[3].gameObject.SetActive(true);
+            }
         }
         else if (GameManager.Inst.coliderState == eColiderState.Bed) 
         {
-            draws[4].gameObject.SetActive(true);
+            if(GameManager.Inst.WorldType == WorldType.RealWorld)
+            {
+                draws[4].gameObject.SetActive(true);
+            }
+            else if(GameManager.Inst.WorldType == WorldType.MirrorWorld)
+            {
+                draws[4].gameObject.transform.localScale = new Vector3(-30, 30, 30);
+            }                                                                                                           
         }
     }
 
