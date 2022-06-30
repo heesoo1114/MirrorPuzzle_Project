@@ -219,13 +219,13 @@ public class UIManager : MonoBehaviour
 
     public void StartMiniGame()
     {
-        GameManager.Inst.OnUI = true;
+        GameManager.Inst.SetGameState(true);
         _minigameManager.Init();
     }
 
     public void StartSwitchOnGame(int value)
     {
-        GameManager.Inst.OnUI = true;
+        GameManager.Inst.SetGameState(true);
         if (value == 1)
             _switchMiniGameManager1.Init();
         else if (value == 2)

@@ -5,8 +5,16 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering.Universal;
 
+
 public class GameManager : MonoBehaviour
 {
+    enum GameState
+    {
+        Game,
+        UI
+    }
+
+
     public eColiderState coliderState;
 
     public static GameManager Inst;
@@ -14,14 +22,16 @@ public class GameManager : MonoBehaviour
     private UIManager uiManager;
     private CutSceneManager _cutSceneManager;
 
+    private GameState _currentGameState;
+
     public UIManager UI { get { return uiManager; } }
+    public bool IsUI => _currentGameState == GameState.UI;
+
 
     private WorldType worldType = WorldType.RealWorld;
     public WorldType WorldType { get { return worldType; } set { worldType = value; } }
 
     [SerializeField] private TextDatas _textDatas;
-    public bool OnUI;
-
 
     public Light2D globalLight;
     public List<Room> rooms;
@@ -40,6 +50,8 @@ public class GameManager : MonoBehaviour
 
         uiManager = GetComponent<UIManager>();
         _cutSceneManager = GetComponent<CutSceneManager>();
+
+        _currentGameState = GameState.Game;
     }
 
     private void Start()
@@ -105,5 +117,10 @@ public class GameManager : MonoBehaviour
     public void PlayCutScene(string cutSceneID)
     {
         _cutSceneManager.PlayCutScene(cutSceneID);
+    }
+
+    public void SetGameState(bool onUI)
+    {
+        _currentGameState = onUI ? GameState.UI : GameState.Game;
     }
 }

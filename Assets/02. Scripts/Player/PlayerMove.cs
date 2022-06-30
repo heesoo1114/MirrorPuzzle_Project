@@ -39,7 +39,7 @@ public class PlayerMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (GameManager.Inst.OnUI) return;
+        if (GameManager.Inst.IsUI) return;
 
         InputDirection();
 

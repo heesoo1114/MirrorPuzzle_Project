@@ -72,6 +72,6 @@ public class TextPanal : MonoBehaviour
         _nameTextPanal.gameObject.SetActive(false);
         _currentText.text = "";
 
-        GameManager.Inst.OnUI = false;
+        GameManager.Inst.SetGameState(false);
     }
 }
