@@ -130,7 +130,6 @@ public class UIManager : MonoBehaviour
         letterText.text = letter;
     }
 
-
     public void SetActiveLocker(bool isActive)
     {
         keypad.gameObject.SetActive(isActive);

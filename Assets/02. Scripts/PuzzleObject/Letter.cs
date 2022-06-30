@@ -33,7 +33,6 @@ public class Letter : MonoBehaviour
         {
             clickEvent.Invoke();
         }
-        
     }
 
     public void Fallling()

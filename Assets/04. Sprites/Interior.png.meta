@@ -2204,7 +2204,7 @@ TextureImporter:
         height: 77
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      border: {x: 10, y: 10, z: 10, w: 10}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -2325,11 +2325,11 @@ TextureImporter:
       All-export_0: -9206582172417421683
       All-export_68: 4258573479709587432
       All-export_73: -2296491881275161447
-      All-export_14: -1420819047921182759
+      All-export_80: 5073329253859790040
       All-export_35: 7428369428783166424
       All-export_54: -3847588960912497583
+      All-export_14: -1420819047921182759
       All-export_57: -69136235503338641
-      All-export_80: 5073329253859790040
       All-export_40: 4612803813203111728
       All-export_66: 2113555086906924089
       All-export_60: -1313384220986407350
@@ -2343,8 +2343,8 @@ TextureImporter:
       All-export_23: -8507173755407222459
       All-export_33: 7556353679661172073
       All-export_21: 7430008340515263330
-      All-export_26: -371476477323444258
       All-export_59: -1097803631772457637
+      All-export_26: -371476477323444258
       All-export_17: 4300052070869072632
       All-export_70: 8315183456244122158
       All-export_12: -7444577821276482832
@@ -2372,21 +2372,21 @@ TextureImporter:
       All-export_5: 5852770938960176275
       All-export_62: -2523453959225830133
       All-export_25: -769622022877162793
-      All-export_7: 1597322803276626960
       All-export_11: 1008770442958197009
+      All-export_7: 1597322803276626960
       All-export_38: -2531695372861672500
       All-export_19: -6897931409654075490
       All-export_74: 848969093920676868
       All-export_13: 658915129026246494
-      All-export_49: 5789038568015613779
-      All-export_61: -940108868495259945
-      All-export_22: -6657669279886359631
-      All-export_3: 6043010872182986132
       All-export_91: 6428357846607459958
-      All-export_44: 1703212019938098119
       All-export_77: 3886404082763000621
-      All-export_36: -349364724742078626
+      All-export_22: -6657669279886359631
+      All-export_49: 5789038568015613779
+      All-export_3: 6043010872182986132
       All-export_83: -3302710943638563575
+      All-export_44: 1703212019938098119
+      All-export_36: -349364724742078626
+      All-export_61: -940108868495259945
       All-export_4: -101021768192042868
       All-export_34: 8278902970810209642
       All-export_41: -7301434806375622096

@@ -8,7 +8,6 @@ public class KeypadPanel : MonoBehaviour
     private string number;
     private Text numberText;
     private Button button;
-   
 
     private GameManager gameManager;
 
@@ -30,9 +29,7 @@ public class KeypadPanel : MonoBehaviour
         {
             return;
         }
-        
         gameManager.UI.InputPassword(number);
-        
     }
 
 }
