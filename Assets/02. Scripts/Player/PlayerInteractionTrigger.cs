@@ -28,7 +28,6 @@ public class PlayerInteractionTrigger : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Interaction"))
         {
-            Debug.Log(11);
             _interactionObject = collision.transform.GetComponent<InteractionObject>();
             if(_interactionObject)
             {
