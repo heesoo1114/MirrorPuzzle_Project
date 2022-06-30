@@ -7,6 +7,8 @@ using UnityEngine.Rendering.Universal;
 
 public class GameManager : MonoBehaviour
 {
+    public eColiderState coliderState;
+
     public static GameManager Inst;
 
     private UIManager uiManager;

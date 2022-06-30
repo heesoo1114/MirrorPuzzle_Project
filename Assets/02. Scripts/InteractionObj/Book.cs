@@ -29,8 +29,6 @@ public class Book : InteractionObject
             str.Append(_canRead ? "_READ" : "_NOTREAD");
             _textDataID = str.ToString();
         }
-      
-        base.InteractionEvent();
-        _textDataID = oirginID;
+       
     }
 }
