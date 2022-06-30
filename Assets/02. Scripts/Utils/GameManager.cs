@@ -12,7 +12,6 @@ public class GameManager : MonoBehaviour
     public static GameManager Inst;
 
     private UIManager uiManager;
-    private CutSceneManager _cutSceneManager;
 
     public UIManager UI { get { return uiManager; } }
 
@@ -39,7 +38,6 @@ public class GameManager : MonoBehaviour
         Inst = this;
 
         uiManager = GetComponent<UIManager>();
-        _cutSceneManager = GetComponent<CutSceneManager>();
     }
 
     private void Start()
@@ -102,8 +100,4 @@ public class GameManager : MonoBehaviour
         return _textDatas.FindTextData(id);
     }
 
-    public void PlayCutScene(string cutSceneID)
-    {
-        _cutSceneManager.PlayCutScene(cutSceneID);
-    }
 }
