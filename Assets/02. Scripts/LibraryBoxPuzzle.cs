@@ -4,18 +4,31 @@ using UnityEngine;
 
 public class LibraryBoxPuzzle : MonoBehaviour
 {
-    public Vector3 boxSize = new Vector3(3f, 3f, 3f);
+    public LayerMask layer;
 
-    public Collider2D[] colliders;
+    [SerializeField]
+    private Transform coliderTransform;
+    [SerializeField] 
+    private Letter key;
 
     private void Update()
     {
-        Debug.Log(Physics2D.OverlapBoxNonAlloc(transform.position, boxSize, 0, colliders));
+        BoxColliderCheck();
     }
+
+    void BoxColliderCheck()
+    {
+        Collider2D[] boxCol = Physics2D.OverlapBoxAll(
+             coliderTransform.position, new Vector2(.03f, 6), 0f, layer);
+    
+        if(boxCol.Length == 5)
+            key.Fallling();
+    }
+
     void OnDrawGizmos()
     {
-        Gizmos.matrix = transform.localToWorldMatrix;
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireCube(Vector3.zero, boxSize);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(coliderTransform.position, new Vector3(.03f, 6, 0));
+
     }
 }
