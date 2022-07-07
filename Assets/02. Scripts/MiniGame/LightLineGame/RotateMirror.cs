@@ -8,11 +8,14 @@ public class RotateMirror : MonoBehaviour
     [SerializeField] private Sprite _leftSprite = null;
     [SerializeField] private Sprite _rightSprite = null;
 
-    private SpriteRenderer _spriteRenderer= null;
+    private Image _image = null;
+    [SerializeField]
+    private RectTransform _recTrm = null;
 
     private void Awake()
     {
-        _spriteRenderer = GetComponent<SpriteRenderer>();
+        _recTrm = GetComponent<RectTransform>();
+        _image = GetComponent<Image>();
     }
 
     public enum State
@@ -26,26 +29,48 @@ public class RotateMirror : MonoBehaviour
     private void Update()
     {
         if (_state == State.Left)
-            _spriteRenderer.sprite = _leftSprite;
+            _image.sprite = _leftSprite;
         else if (_state == State.Right)
-            _spriteRenderer.sprite = _rightSprite;
+            _image.sprite = _rightSprite;
+    }
+
+    public void ClickMirror()
+    {
+        if (_state == State.Left)
+            _state = State.Right;
+        else if (_state == State.Right)
+            _state = State.Left;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        float rotation = 45f;
+        switch (_state)
         {
-            float rotation = 45f;
-            switch (_state)
-            {
-                case State.Left:
-                    rotation = 45f;
-                    break;
-                case State.Right:
-                    rotation = -45f;
-                    break;
-            }
-            collision.transform.Rotate(0,0,rotation);
+            case State.Left:
+                rotation = 45f;
+                break;
+            case State.Right:
+                rotation = -45f;
+                break;
         }
+
+        collision.transform.Rotate(0, 0, rotation);
+
+        //if (collision.gameObject.CompareTag("Player"))
+        //{
+        //    float rotation = 45f;
+        //    switch (_state)
+        //    {
+        //        case State.Left:
+        //            rotation = 45f;
+        //            break;
+        //        case State.Right:
+        //            rotation = -45f;
+        //            break;
+        //    }
+
+        //    collision.transform.Rotate(0,0,rotation);
+        //}
     }
 }
