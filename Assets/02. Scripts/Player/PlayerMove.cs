@@ -26,6 +26,7 @@ public class PlayerMove : MonoBehaviour
         _rigid = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _walkParticle = GetComponentInChildren<ParticleSystem>();
+
     }
 
     // 실행되는 동안 반복 => 1 프레임 한번씩 호출
@@ -103,8 +104,19 @@ public class PlayerMove : MonoBehaviour
         {
             if (_isWarping) return;
             WarpZone warpZone = collision.gameObject.GetComponent<WarpZone>();
+            if (warpZone.isLock) return;
+
             Vector2 warpPoint = warpZone.WarpPoint;
             _isWarping = true;
+
+           
+
+            if (warpZone._targetRoom == WarpZone.ERoomType.YoungerBrotherRoom)
+            {
+                WarpZone targetWarpZone = warpZone._warpPoint.GetComponent<WarpZone>();
+                targetWarpZone.isLock = true;
+            }
+
             StartCoroutine(WarpPlayer(warpPoint, warpZone.RoomName));
             // 맵 바꿀 때까지는 임시로 주석 해놓을게요
             //if (_movementDir.x == warpZone._offset.x ||

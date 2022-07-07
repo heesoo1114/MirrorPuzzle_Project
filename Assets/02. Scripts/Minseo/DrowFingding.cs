@@ -64,7 +64,7 @@ public class DrowFingding : MonoBehaviour
             }
             else if(GameManager.Inst.WorldType == WorldType.MirrorWorld)
             {
-                draws[4].gameObject.transform.localScale = new Vector3(-30, 30, 30);
+                draws[4].gameObject.transform.localScale = new Vector3(120, 120, 120);
             }                                                                                                           
         }
     }
