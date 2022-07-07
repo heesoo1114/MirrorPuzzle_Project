@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
     public bool OnUI;
 
 
+
     public Light2D globalLight;
     public List<Room> rooms;
     public Transform map;
@@ -49,6 +50,9 @@ public class GameManager : MonoBehaviour
             // Room Type¿∫ ¿”Ω√
             rooms.Add(new Room(map.GetChild(i).gameObject, RoomType.BigBrother));
         }
+
+
+
     }
 
     private void Update()

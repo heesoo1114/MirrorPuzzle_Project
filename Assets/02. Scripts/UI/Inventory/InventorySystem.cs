@@ -26,7 +26,7 @@ public class InventorySystem : MonoBehaviour
     private float _timer;
     private float _axisValue;
 
-    private void Awake()
+    private void Start()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
         _itemPanelList = GetComponentInChildren<GenerateItemPanel>().GeneratePanel();

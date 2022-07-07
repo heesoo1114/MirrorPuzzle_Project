@@ -7,6 +7,7 @@ using UnityEngine.UI;
 public class ItemPanel : MonoBehaviour
 {
     private InventoryItemData _inventoryItemData;
+    private Image _frameImage;
     private Image _itemImage;
 
     public bool IsEmpty => _inventoryItemData == null;
@@ -16,19 +17,22 @@ public class ItemPanel : MonoBehaviour
 
     private void Awake()
     {
-        _itemImage = GetComponent<Image>();
+        _frameImage = GetComponent<Image>();
     }
 
     public void Init(InventoryItemData data)
     {
-        if(_itemImage == null)
-            _itemImage = GetComponent<Image>();
+        if(_frameImage == null)
+            _frameImage = GetComponent<Image>();
+        if (_itemImage == null)
+            _itemImage = transform.Find("ItemImage").GetComponent<Image>();
 
         _inventoryItemData = data;
+        _itemImage.sprite = _inventoryItemData.itemData.sprite;
     }
 
     public void SetSprite(Sprite sprite)
     {
-        _itemImage.sprite = sprite;
+        _frameImage.sprite = sprite;
     }
 }
