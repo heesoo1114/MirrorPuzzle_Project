@@ -103,6 +103,9 @@ public class PlayerMove : MonoBehaviour
         {
             if (_isWarping) return;
             WarpZone warpZone = collision.gameObject.GetComponent<WarpZone>();
+
+            Debug.Log(warpZone);
+            Debug.Log(warpZone.WarpPoint);
             Vector2 warpPoint = warpZone.WarpPoint;
             _isWarping = true;
             StartCoroutine(WarpPlayer(warpPoint, warpZone.RoomName));
