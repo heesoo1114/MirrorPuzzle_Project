@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class LightLineGameManager : MonoBehaviour
 {
     public UnityEvent gameEndEvent;
+    public UnityEvent gameResetEvent;
 
     private bool _isStart = false;
 
@@ -16,6 +17,11 @@ public class LightLineGameManager : MonoBehaviour
         _isStart = true;
         gameObject.SetActive(true);
         transform.DOScale(Vector3.one, 0.8f).SetEase(Ease.InOutBounce);
+    }
+
+    public void ResetGame()
+    {
+        gameResetEvent?.Invoke();
     }
 
     public void GameEnd()

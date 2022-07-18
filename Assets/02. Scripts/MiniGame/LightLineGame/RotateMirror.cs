@@ -55,6 +55,7 @@ public class RotateMirror : MonoBehaviour
                 break;
         }
 
+        collision.transform.position = transform.position;
         collision.transform.Rotate(0, 0, rotation);
 
         //if (collision.gameObject.CompareTag("Player"))
