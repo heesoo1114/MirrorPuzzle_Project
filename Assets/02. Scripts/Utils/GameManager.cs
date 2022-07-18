@@ -20,7 +20,6 @@ public class GameManager : MonoBehaviour
     public static GameManager Inst;
 
     private UIManager uiManager;
-    private CutSceneManager _cutSceneManager;
 
     private GameState _currentGameState;
 
@@ -32,6 +31,7 @@ public class GameManager : MonoBehaviour
     public WorldType WorldType { get { return worldType; } set { worldType = value; } }
 
     [SerializeField] private TextDatas _textDatas;
+
 
     public Light2D globalLight;
     public List<Room> rooms;
@@ -46,14 +46,16 @@ public class GameManager : MonoBehaviour
     {
         if(Inst != null)
         {
-            Debug.LogError("°ÔÀÓ ¸Å´ÏÀú 2°³ ÀÌ»óÀÓ");
+            Debug.LogError("ï¿½ï¿½ï¿½ï¿½ ï¿½Å´ï¿½ï¿½ï¿½ 2ï¿½ï¿½ ï¿½Ì»ï¿½ï¿½ï¿½");
         }
         Inst = this;
 
         uiManager = GetComponent<UIManager>();
+
         _cutSceneManager = GetComponent<CutSceneManager>();
 
         _currentGameState = GameState.Game;
+
     }
 
     private void Start()
@@ -62,9 +64,12 @@ public class GameManager : MonoBehaviour
 
         for (int i = 0; i < map.childCount; i++)
         {
-            // Room TypeÀº ÀÓ½Ã
+            // Room Typeï¿½ï¿½ ï¿½Ó½ï¿½
             rooms.Add(new Room(map.GetChild(i).gameObject, RoomType.BigBrother));
         }
+
+
+
     }
 
     private void Update()
@@ -115,6 +120,7 @@ public class GameManager : MonoBehaviour
         Debug.Log(id);
         return _textDatas.FindTextData(id);
     }
+
 
     public void PlayCutScene(string cutSceneID)
     {
