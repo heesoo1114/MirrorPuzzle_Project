@@ -52,8 +52,6 @@ public class GameManager : MonoBehaviour
 
         uiManager = GetComponent<UIManager>();
 
-        _cutSceneManager = GetComponent<CutSceneManager>();
-
         _currentGameState = GameState.Game;
 
     }
@@ -121,11 +119,6 @@ public class GameManager : MonoBehaviour
         return _textDatas.FindTextData(id);
     }
 
-
-    public void PlayCutScene(string cutSceneID)
-    {
-        _cutSceneManager.PlayCutScene(cutSceneID);
-    }
 
     public void SetGameState(bool onUI)
     {
