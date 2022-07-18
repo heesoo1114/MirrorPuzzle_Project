@@ -1,19 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using DG.Tweening;
 using TMPro;
 
 public class InventorySystem : MonoBehaviour
 {
+    public static ItemData EquipItemData;
+
     [SerializeField] private TMP_Text _itemNameText;
     [SerializeField] private TMP_Text _itemInfoText;
     [SerializeField] private TargetPicker _targetPicker;
     [SerializeField] private Sprite _defaultSprite;
     [SerializeField] private Sprite _selectSprite;
 
-    [SerializeField] private float _changeItemDelay;
+    [SerializeField] private Image _equipItemIamge;
 
+    [SerializeField] private float _changeItemDelay;
+    [SerializeField] private int _maxShowPanelCnt = 6;
     private CanvasGroup _canvasGroup;
 
     private List<ItemPanel> _itemPanelList = new List<ItemPanel>();
@@ -31,6 +36,32 @@ public class InventorySystem : MonoBehaviour
         _canvasGroup = GetComponent<CanvasGroup>();
         _itemPanelList = GetComponentInChildren<GenerateItemPanel>().GeneratePanel();
         _timer = _changeItemDelay;
+
+        SetActiveItemPanel();
+        SettingCurrentItemPanel();
+    }
+
+    private void SetActiveItemPanel()
+    {
+        if (_itemPanelList.Count < _maxShowPanelCnt) return;
+
+        int currentPanelIndex = CurrentItemPanel.Index;
+
+            for (int i = 0; i < _itemPanelList.Count; i++)
+            {
+                if (_itemPanelList[i].Index <= Mathf.Max(currentPanelIndex, _maxShowPanelCnt - 1) &&
+                   _itemPanelList[i].Index > currentPanelIndex - _maxShowPanelCnt)
+                {
+                    _itemPanelList[i].gameObject.SetActive(true);
+                }
+
+                else
+                {
+                    _itemPanelList[i].gameObject.SetActive(false);
+                }
+            }
+
+
     }
 
     public void Update()
@@ -44,7 +75,9 @@ public class InventorySystem : MonoBehaviour
             _canvasGroup.blocksRaycasts = _isActive;
 
             if (_isActive)
-                _targetPicker.SetPos(CurrentItemPanel.transform.position);
+            {
+                SettingCurrentItemPanel();
+            }
         }
         if (!_isActive) return;
 
@@ -55,7 +88,7 @@ public class InventorySystem : MonoBehaviour
             if (_timer >= _changeItemDelay)
             {
                 _timer = 0f;
-                SetSelectItem(_selectItemIndex + (int)_axisValue);
+                StartCoroutine(SetSelectItem(_selectItemIndex + (int)_axisValue));
             }
         }
 
@@ -67,17 +100,29 @@ public class InventorySystem : MonoBehaviour
 
     }
 
-    public void SetSelectItem(int idx)
+    public IEnumerator SetSelectItem(int idx)
     {
-        if (idx >= _itemPanelList.Count || idx < 0) return;
+        if (idx >= _itemPanelList.Count || idx < 0) yield break;
 
         CurrentItemPanel.SetSprite(_defaultSprite);
 
         _selectItemIndex = idx;
 
+        SetActiveItemPanel();
+
+        yield return new WaitForEndOfFrame();
+
+        SettingCurrentItemPanel();
+    }
+
+    private void SettingCurrentItemPanel()
+    {
         CurrentItemPanel.SetSprite(_selectSprite);
+        _equipItemIamge.sprite = CurrentItemPanel.ItemData.itemData.sprite;
         _targetPicker.SetPos(CurrentItemPanel.transform.position);
         SetItemText();
+
+        EquipItemData = CurrentItemPanel.ItemData.itemData; 
     }
 
     public void SetItemText()
