@@ -69,6 +69,7 @@ public class ChestScripts : InteractionObject
         chestImage.SetActive(false);
         hintImage.gameObject.SetActive(true);
 
+        GameManager.Inst.librayChestPuzzleClear = true;
         answerCheck = true;
     }
 

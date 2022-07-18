@@ -18,11 +18,14 @@ public class LibraryBoxPuzzle : MonoBehaviour
 
     void BoxColliderCheck()
     {
-        Collider2D[] boxCol = Physics2D.OverlapBoxAll(
-             coliderTransform.position, new Vector2(.03f, 6), 0f, layer);
-    
-        if(boxCol.Length == 5)
-            key.Fallling();
+        if(GameManager.Inst.librayChestPuzzleClear)
+        {
+            Collider2D[] boxCol = Physics2D.OverlapBoxAll(
+                                  coliderTransform.position, new Vector2(.03f, 6), 0f, layer);
+
+            if (boxCol.Length == 5)
+                key.Fallling();
+        }
     }
 
     void OnDrawGizmos()
