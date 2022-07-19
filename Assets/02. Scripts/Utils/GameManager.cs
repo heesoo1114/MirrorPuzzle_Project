@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -45,13 +46,7 @@ public class GameManager : MonoBehaviour
     {
         ChangeGlobalLight();
 
-        for (int i = 0; i < map.childCount; i++)
-        {
-            // Room TypeÀº ÀÓ½Ã
-            rooms.Add(new Room(map.GetChild(i).gameObject, RoomType.BigBrother));
-        }
-
-
+        rooms = map.GetComponentsInChildren<Room>().ToList();
 
     }
 
@@ -70,13 +65,13 @@ public class GameManager : MonoBehaviour
         if (worldType == WorldType.MirrorWorld)
         {
             worldType = WorldType.RealWorld;
-            rooms.ForEach(x => x.roomObject.transform.localScale = Vector3.one);
+            rooms.ForEach(x => x.transform.localScale = Vector3.one);
             ChangeRealWorld?.Invoke();
         }
         else
         {
             worldType = WorldType.MirrorWorld;
-            rooms.ForEach(x => x.roomObject.transform.localScale = new Vector3(-1f, 1f, 1f));
+            rooms.ForEach(x => x.transform.localScale = new Vector3(-1f, 1f, 1f));
             ChangeMirrorWorld?.Invoke();
         }
 
@@ -100,7 +95,6 @@ public class GameManager : MonoBehaviour
 
     public string FindTextData(string id)
     {
-        Debug.Log(id);
         return _textDatas.FindTextData(id);
     }
 
