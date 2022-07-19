@@ -5,9 +5,9 @@ using UnityEngine.UI;
 using DG.Tweening;
 using TMPro;
 
-public class InventorySystem : MonoBehaviour
+public class InventorySystem : MonoSingleton<InventorySystem>
 {
-    public static ItemData EquipItemData;
+    public InventoryItemData equipInventoryData;
 
     [SerializeField] private TMP_Text _itemNameText;
     [SerializeField] private TMP_Text _itemInfoText;
@@ -122,7 +122,7 @@ public class InventorySystem : MonoBehaviour
         _targetPicker.SetPos(CurrentItemPanel.transform.position);
         SetItemText();
 
-        EquipItemData = CurrentItemPanel.ItemData.itemData; 
+       equipInventoryData = CurrentItemPanel.ItemData; 
     }
 
     public void SetItemText()
