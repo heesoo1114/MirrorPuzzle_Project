@@ -4,22 +4,19 @@ using UnityEngine;
 [System.Serializable]
 public class ItemData
 {
+    public string itemID;
+
     public string name;
     [TextArea(5, 10)] public string info;
     [Space]
     public Sprite sprite;
 
+
     public ItemData(ItemData data)
     {
+        itemID = data.itemID;
         name = data.name;
         info = data.info;
-    }
-
-    public ItemData(string name, string info, Sprite sprite)
-    {
-        this.name = name;
-        this.info = info;
-        this.sprite = sprite;
     }
 }
 
@@ -38,12 +35,6 @@ public class InventoryItemData
     public InventoryItemData(ItemData data, int cnt)
     {
         itemData = data;
-        itemCount = cnt;
-    }
-
-    public InventoryItemData(string name, string info, int cnt)
-    {
-        itemData = new ItemData(name, info, null);
         itemCount = cnt;
     }
 }

@@ -22,8 +22,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private TextDatas _textDatas;
     public bool OnUI;
 
-
-
     public Light2D globalLight;
     public List<Room> rooms;
     public Transform map;

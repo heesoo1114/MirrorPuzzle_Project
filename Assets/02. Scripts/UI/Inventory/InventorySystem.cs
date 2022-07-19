@@ -115,6 +115,30 @@ public class InventorySystem : MonoBehaviour
         SettingCurrentItemPanel();
     }
 
+    public void AddItem(string itemID)
+    {
+       ItemData itemData =   DataManager.Inst.ItemDataList.Find(x => x.itemID.Equals(itemID));
+
+        if(itemData == null)
+        {
+            Debug.LogError("해당 ID의 아이템이 없어요.");
+        }
+
+        foreach(var panel in _itemPanelList)
+        {
+            if (panel.IsEmpty)
+            {
+                panel.SetItem(new InventoryItemData(itemData, 1));
+            }
+
+            else if (panel.ItemData.itemData.itemID.Equals(itemID))
+            {
+                panel.SetItemCount(1);
+            }
+        }
+    }
+
+
     private void SettingCurrentItemPanel()
     {
         CurrentItemPanel.SetSprite(_selectSprite);

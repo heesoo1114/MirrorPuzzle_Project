@@ -31,6 +31,7 @@ public class DataManager : MonoSingleton<DataManager>
     private PlayerData _player;
 
     public PlayerData CurrentPlayer => _player;
+    public List<ItemData> ItemDataList => _itemDataList.itemDataList;
 
     private string SAVE_PATH = "";
     private const string SAVE_FILE = "/SaveFile.Json";
