@@ -4,23 +4,9 @@ using UnityEngine;
 
 public class WarpZone : MonoBehaviour
 {
-    public enum ERoomType
-    {
-        LivingRoom,
-        Kitchen,
-        Toilet,
-        SecondFloorHallway,
-        ElderBrotherRoom,
-        YoungerBrotherRoom,
-        Library,
-        InnerRoom,
-        Veranda,
-        Celler
-    }
-
     public Transform _warpPoint;
     public EFaceType spawnType;
-    public ERoomType _targetRoom;
+    public RoomType _targetRoom;
     [HideInInspector]
     public Vector2 _offset;
 
@@ -50,43 +36,43 @@ public class WarpZone : MonoBehaviour
 
         switch (_targetRoom)
         {
-            case ERoomType.LivingRoom:
+            case RoomType.LivingRoom:
                 _roomName = "거실";
                 break;
 
-            case ERoomType.Kitchen:
+            case RoomType.Kitchen:
                 _roomName = "부엌";
                 break;
 
-            case ERoomType.Toilet:
+            case RoomType.Toilet:
                 _roomName = "화장실";
                 break;
 
-            case ERoomType.SecondFloorHallway:
+            case RoomType.HallWay:
                 _roomName = "2층 복도";
                 break;
 
-            case ERoomType.ElderBrotherRoom:
+            case RoomType.BigBrother:
                 _roomName = "형 방";
                 break;
 
-            case ERoomType.YoungerBrotherRoom:
+            case RoomType.SmallBrother:
                 _roomName = "동생 방";
                 break;
 
-            case ERoomType.Library:
+            case RoomType.Library:
                 _roomName = "서재";
                 break;
 
-            case ERoomType.InnerRoom:
+            case RoomType.BedRoom:
                 _roomName = "안방";
                 break;
 
-            case ERoomType.Veranda:
+            case RoomType.Veranda:
                 _roomName = "베란다";
                 break;
 
-            case ERoomType.Celler:
+            case RoomType.Celler:
                 _roomName = "지하실";
                 break;
         }
