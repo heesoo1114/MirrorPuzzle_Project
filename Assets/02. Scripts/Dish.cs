@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using System;
+using Random = UnityEngine.Random;
 
-public class MiniGameDish : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
+public class Dish : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
 {
     [SerializeField] int defaultCnt;
     [SerializeField] int randnessCnt;
@@ -18,6 +20,8 @@ public class MiniGameDish : MonoBehaviour, IPointerDownHandler, IPointerEnterHan
     private bool isMouseDown = false;
     private bool isMouseExit = false;
     private bool isMouseEnter = false;
+
+    public Action OnDishClear;
 
 
     void Start()
@@ -47,7 +51,8 @@ public class MiniGameDish : MonoBehaviour, IPointerDownHandler, IPointerEnterHan
 
                 if (cnt >= sum)
                 {
-                    Debug.Log("¡¢Ω√ ¥Ÿ ¥€¿Ω");
+                    OnDishClear?.Invoke(); 
+                    Destroy(gameObject);
                 }
             }
         }
@@ -55,6 +60,7 @@ public class MiniGameDish : MonoBehaviour, IPointerDownHandler, IPointerEnterHan
 
     public void OnPointerDown(PointerEventData eventData)
     {
+        Debug.Log(11);
         if (isMouseDown == true) return;
         isMouseDown = true;
 
