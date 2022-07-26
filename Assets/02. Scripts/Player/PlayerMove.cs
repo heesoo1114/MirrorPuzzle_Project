@@ -41,11 +41,7 @@ public class PlayerMove : MonoBehaviour
 
     void FixedUpdate()
     {
-<<<<<<< HEAD
-        if (GameManager.Inst.IsUI) return;
-=======
         if (GameManager.Inst.gameState != EGameState.Game) return;
->>>>>>> OIF
 
         InputDirection();
 

@@ -74,10 +74,6 @@ public class TextPanel : MonoBehaviour
         _nameTextPanal.gameObject.SetActive(false);
         _currentText.text = "";
 
-<<<<<<< HEAD:Assets/02. Scripts/UI/TextPanal/TextPanal.cs
-        GameManager.Inst.SetGameState(false);
-=======
         GameManager.Inst.gameState = EGameState.Game;
->>>>>>> OIF:Assets/02. Scripts/UI/TextPanal/TextPanel.cs
     }
 }

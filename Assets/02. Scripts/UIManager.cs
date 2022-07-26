@@ -220,21 +220,14 @@ public class UIManager : MonoBehaviour
 
     public void StartMiniGame()
     {
-<<<<<<< HEAD
-        GameManager.Inst.SetGameState(true);
-=======
         GameManager.Inst.gameState = EGameState.UI;
->>>>>>> OIF
+
         _minigameManager.Init();
     }
 
     public void StartSwitchOnGame(int value)
     {
-<<<<<<< HEAD
-        GameManager.Inst.SetGameState(true);
-=======
         GameManager.Inst.gameState = EGameState.UI;
->>>>>>> OIF
         if (value == 1)
             _switchMiniGameManager1.Init();
         else if (value == 2)
@@ -243,7 +236,7 @@ public class UIManager : MonoBehaviour
 
     public void StartLightLineGame()
     {
-        GameManager.Inst.OnUI = true;
+        GameManager.Inst.gameState = EGameState.UI;
         _lightLineGameManager.Init();
     }
 }

@@ -6,18 +6,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering.Universal;
 
-<<<<<<< HEAD
-
-public class GameManager : MonoBehaviour
-{
-    enum GameState
-    {
-        Game,
-        UI
-    }
-
-
-=======
 public enum EGameState
 {
     Game,
@@ -28,28 +16,21 @@ public enum EGameState
 public class GameManager : MonoSingleton<GameManager>
 {
     public EGameState gameState;
->>>>>>> OIF
     public eColiderState coliderState;
 
 
     private UIManager uiManager;
 
-    private GameState _currentGameState;
-
     public UIManager UI { get { return uiManager; } }
-    public bool IsUI => _currentGameState == GameState.UI;
 
 
     private WorldType worldType = WorldType.RealWorld;
     public WorldType WorldType { get { return worldType; } set { worldType = value; } }
 
     [SerializeField] private TextDatas _textDatas;
-<<<<<<< HEAD
-=======
 
     // ÃßÈÄ ¿¡µðÅÍÀ©µµ¿ì·Î µû·Î –E ¿¹Á¤
     [SerializeField] private List<CamState> _virtualCamList;
->>>>>>> OIF
 
 
     public Light2D globalLight;
@@ -72,21 +53,10 @@ public class GameManager : MonoSingleton<GameManager>
     {
         foreach(var camState in _virtualCamList) 
         {
-<<<<<<< HEAD
-            Debug.LogError("ï¿½ï¿½ï¿½ï¿½ ï¿½Å´ï¿½ï¿½ï¿½ 2ï¿½ï¿½ ï¿½Ì»ï¿½ï¿½ï¿½");
-=======
             CameraManager.SubscribeCamera(camState.state, camState.cam);
->>>>>>> OIF
         }
 
-<<<<<<< HEAD
-        uiManager = GetComponent<UIManager>();
-
-        _currentGameState = GameState.Game;
-
-=======
         CameraManager.SwitchCamera(ECameraState.TimelineCam);
->>>>>>> OIF
     }
 
     private void Start() 
@@ -143,11 +113,5 @@ public class GameManager : MonoSingleton<GameManager>
     public string FindTextData(string id)
     {
         return _textDatas.FindTextData(id);
-    }
-
-
-    public void SetGameState(bool onUI)
-    {
-        _currentGameState = onUI ? GameState.UI : GameState.Game;
     }
 }
