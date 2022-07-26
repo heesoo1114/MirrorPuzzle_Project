@@ -4,12 +4,14 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public class TextPanal : MonoBehaviour
+public class TextPanel : MonoBehaviour
 {
     [SerializeField] private NameTextPanal _nameTextPanal;
     [SerializeField] private Text _currentText;
+    [SerializeField] private float _textSpeed = 0.05f;
     private bool _isOutput;
     private string _currentStr;
+
 
     public void ShowTextPanal(string outputText, string name = "")
     {
@@ -53,7 +55,7 @@ public class TextPanal : MonoBehaviour
         transform.DOScaleX(1f, 0.5f);
         yield return new WaitForSeconds(0.5f);
 
-        float time = _currentStr.Length * 0.03f;
+        float time = _currentStr.Length * _textSpeed;
 
         _currentText.DOKill();
         _currentText.DOText(_currentStr, time);
@@ -72,6 +74,10 @@ public class TextPanal : MonoBehaviour
         _nameTextPanal.gameObject.SetActive(false);
         _currentText.text = "";
 
+<<<<<<< HEAD:Assets/02. Scripts/UI/TextPanal/TextPanal.cs
         GameManager.Inst.SetGameState(false);
+=======
+        GameManager.Inst.gameState = EGameState.Game;
+>>>>>>> OIF:Assets/02. Scripts/UI/TextPanal/TextPanel.cs
     }
 }

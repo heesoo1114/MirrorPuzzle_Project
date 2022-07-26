@@ -69,7 +69,7 @@ public class InventorySystem : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             _isActive = !_isActive;
-            GameManager.Inst.OnUI = _isActive;
+            GameManager.Inst.gameState = _isActive ? EGameState.UI : EGameState.Game;
             _canvasGroup.DOFade(_isActive ? 1f : 0f, 0.5f);
             _canvasGroup.interactable = _isActive;
             _canvasGroup.blocksRaycasts = _isActive;
@@ -114,6 +114,30 @@ public class InventorySystem : MonoBehaviour
 
         SettingCurrentItemPanel();
     }
+
+    public void AddItem(string itemID)
+    {
+       ItemData itemData =   DataManager.Inst.ItemDataList.Find(x => x.itemID.Equals(itemID));
+
+        if(itemData == null)
+        {
+            Debug.LogError("해당 ID의 아이템이 없어요.");
+        }
+
+        foreach(var panel in _itemPanelList)
+        {
+            if (panel.IsEmpty)
+            {
+                panel.SetItem(new InventoryItemData(itemData, 1));
+            }
+
+            else if (panel.ItemData.itemData.itemID.Equals(itemID))
+            {
+                panel.SetItemCount(1);
+            }
+        }
+    }
+
 
     private void SettingCurrentItemPanel()
     {
