@@ -5,9 +5,15 @@ using UnityEngine.UI;
 
 public class PasswardScript : MonoBehaviour
 {
-    [SerializeField] private InputField pswdInput;
-    [SerializeField] private Text text;
-    [SerializeField] private Image password;
+    [SerializeField] 
+    private InputField pswdInput;
+    [SerializeField] 
+    private Text text;
+    [SerializeField] 
+    private Image password_Img;
+    [SerializeField] 
+    private GameObject password_Obj;
+
 
     private bool Check;
 
@@ -19,12 +25,12 @@ public class PasswardScript : MonoBehaviour
     {
         if (collision.collider.CompareTag("Player") && !Check)
         {
-            password.gameObject.SetActive(true);
+            password_Img.gameObject.SetActive(true);
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
-        password.gameObject.SetActive(false);
+        password_Img.gameObject.SetActive(false);
     }
     public void EnterClick()
     {
@@ -34,21 +40,22 @@ public class PasswardScript : MonoBehaviour
         }
         else
         {
-            StartCoroutine("WronAnswer");
+            StartCoroutine("NotAnswer");
         }
     }
     IEnumerator Answer()
     {
-        text.text = "정답입니다";
         yield return new WaitForSeconds(1.0f);
         Check = true;
         text.text = "정답을 입력하세요";
+        password_Obj.gameObject.SetActive(false);
     }
 
     IEnumerator NotAnswer()
     {
-        text.text = "오답입니다";
+        text.color = Color.red;
         yield return new WaitForSeconds(1.0f);
+        text.color = Color.white;
         Check = true;
         text.text = "정답을 입력하세요";
     }
