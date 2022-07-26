@@ -27,11 +27,6 @@ public class BugManager : MonoBehaviour
         transform.DOScale(Vector3.one, 0.8f).SetEase(Ease.InOutBounce).OnComplete(GenerateBug);
     }
 
-    void Start()
-    {
-
-    }
-
     public void GenerateBug()
     {
         for (int i = 0; i < generateCnt; i++)
@@ -57,6 +52,5 @@ public class BugManager : MonoBehaviour
             transform.DOScale(Vector3.zero, 0.8f).SetEase(Ease.InOutBounce).OnComplete(() => gameObject.SetActive(false));
         }
     }
-
 }
 // 积己 - 罚待 积己
