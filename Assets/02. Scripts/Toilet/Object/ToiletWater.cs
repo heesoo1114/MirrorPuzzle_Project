@@ -7,7 +7,7 @@ public class ToiletWater : MonoBehaviour
 
     public GameObject waterYes;
     public GameObject waterNo;
-    public GameObject WaterPosition;
+    // public GameObject WaterPosition;
 
     public void water()
     {
@@ -15,15 +15,15 @@ public class ToiletWater : MonoBehaviour
         waterNo.SetActive(true);
         waterYes.SetActive(false);
 
-        StartCoroutine("heesoo");
+        // StartCoroutine("heesoo");
 
     }
 
-    IEnumerator heesoo()
+/*    IEnumerator heesoo()
     {
         WaterPosition.SetActive(true);
         yield return new WaitForSeconds(5f);
         WaterPosition.SetActive(false);
     }
-
+*/
 }
