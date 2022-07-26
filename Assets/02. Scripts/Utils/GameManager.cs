@@ -1,26 +1,37 @@
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering.Universal;
 
+
 public class GameManager : MonoBehaviour
 {
+    enum GameState
+    {
+        Game,
+        UI
+    }
+
+
     public eColiderState coliderState;
 
     public static GameManager Inst;
 
     private UIManager uiManager;
-    private CutSceneManager _cutSceneManager;
+
+    private GameState _currentGameState;
 
     public UIManager UI { get { return uiManager; } }
+    public bool IsUI => _currentGameState == GameState.UI;
+
 
     private WorldType worldType = WorldType.RealWorld;
     public WorldType WorldType { get { return worldType; } set { worldType = value; } }
 
     [SerializeField] private TextDatas _textDatas;
-    public bool OnUI;
 
 
     public Light2D globalLight;
@@ -30,27 +41,27 @@ public class GameManager : MonoBehaviour
     public UnityEvent ChangeMirrorWorld;
     public UnityEvent ChangeRealWorld;
 
+    public bool librayChestPuzzleClear = false;
+
     private void Awake()
     {
         if(Inst != null)
         {
-            Debug.LogError("°ÔÀÓ ¸Å´ÏÀú 2°³ ÀÌ»óÀÓ");
+            Debug.LogError("ï¿½ï¿½ï¿½ï¿½ ï¿½Å´ï¿½ï¿½ï¿½ 2ï¿½ï¿½ ï¿½Ì»ï¿½ï¿½ï¿½");
         }
         Inst = this;
 
         uiManager = GetComponent<UIManager>();
-        _cutSceneManager = GetComponent<CutSceneManager>();
+
+        _currentGameState = GameState.Game;
+
     }
 
     private void Start()
     {
         ChangeGlobalLight();
 
-        for (int i = 0; i < map.childCount; i++)
-        {
-            // Room TypeÀº ÀÓ½Ã
-            rooms.Add(new Room(map.GetChild(i).gameObject, RoomType.BigBrother));
-        }
+        rooms = map.GetComponentsInChildren<Room>().ToList();
     }
 
     private void Update()
@@ -68,13 +79,13 @@ public class GameManager : MonoBehaviour
         if (worldType == WorldType.MirrorWorld)
         {
             worldType = WorldType.RealWorld;
-            rooms.ForEach(x => x.roomObject.transform.localScale = Vector3.one);
+            rooms.ForEach(x => x.transform.localScale = Vector3.one);
             ChangeRealWorld?.Invoke();
         }
         else
         {
             worldType = WorldType.MirrorWorld;
-            rooms.ForEach(x => x.roomObject.transform.localScale = new Vector3(-1f, 1f, 1f));
+            rooms.ForEach(x => x.transform.localScale = new Vector3(-1f, 1f, 1f));
             ChangeMirrorWorld?.Invoke();
         }
 
@@ -98,12 +109,12 @@ public class GameManager : MonoBehaviour
 
     public string FindTextData(string id)
     {
-        Debug.Log(id);
         return _textDatas.FindTextData(id);
     }
 
-    public void PlayCutScene(string cutSceneID)
+
+    public void SetGameState(bool onUI)
     {
-        _cutSceneManager.PlayCutScene(cutSceneID);
+        _currentGameState = onUI ? GameState.UI : GameState.Game;
     }
 }
