@@ -80,6 +80,6 @@ public class WarpZone : MonoBehaviour
 
     public Vector2 WarpPoint
     {
-        get => (Vector2)_warpPoint.position + _offset * 1.5f;
+        get =>(Vector2)_warpPoint.position + _offset * 1.5f;
     }
 }

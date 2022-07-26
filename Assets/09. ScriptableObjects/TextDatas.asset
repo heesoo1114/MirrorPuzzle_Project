@@ -22,7 +22,12 @@ MonoBehaviour:
     text: "\uBBF8\uAD6C\uD604\uB418\uC5C8\uC2B5\uB2C8\uB2E4."
   - dataID: INTERACTION_BOOK_REALWORLD
     text: "\uC54C \uC218 \uC5C6\uB294 \uBB38\uC790\uB4E4\uB85C \uAC00\uB4DD\uD558\uB2E4"
-  - dataID: Wow_CARPET
+  - dataID: Carpet_Wow
     text: "\uBB50\uC9C0!? \uCE74\uD3AB\uC758 \uC0C9\uAE54\uC774 \uBC14\uB00C\uC5C8\uC5B4!"
-  - dataID: FLOWER_CRACK
-    text: "\uAF43\uBCD1\uC5D0\uC11C \uBB34\uC5B8\uAC00\uAC00 \uB098\uC654\uC5B4!"
+  - dataID: Flower_CRACK
+    text: "\uAF43\uBCD1 \uC548\uC5D0 \uBB34\uC5B8\uAC00\uAC00 \uC788\uB2E4."
+  - dataID: Tub_KeyOut
+    text: "\uC695\uC870\uC758 \uBC14\uB2E5\uC5D0 \uBB34\uC5B8\uAC00\uAC00 \uC788\uB2E4."
+  - dataID: Drawer_Letter
+    text: "\uD558\uB298\uC0C9 \uBD09\uD22C\uC5D0 \uB2F4\uAE34 \uD3B8\uC9C0\uAC00
+      \uC788\uB2E4."

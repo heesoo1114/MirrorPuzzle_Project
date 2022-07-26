@@ -23,7 +23,7 @@ public class Carpet : ToiletObjectManager
         _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public void ColorChange()
+    public void NowColorChange()
     {
         if(isBlue == false)
         {
@@ -37,6 +37,23 @@ public class Carpet : ToiletObjectManager
         }
         
     }
+
+    public void MirrorColorChange()
+    {
+        if (isBlue == true)
+        {
+            _spriteRenderer.color = Color.white;
+            isBlue = true;
+        }
+        else if (isBlue == false)
+        {
+            _spriteRenderer.color = Color.green;
+            isBlue = false;
+        }
+
+    }
+
+
 
     private IEnumerator DelayText()
     {
