@@ -48,7 +48,6 @@ public class PasswardScript : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         Check = true;
         text.text = "정답을 입력하세요";
-        password_Obj.gameObject.SetActive(false);
     }
 
     IEnumerator NotAnswer()
