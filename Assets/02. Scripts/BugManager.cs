@@ -52,7 +52,7 @@ public class BugManager : MonoBehaviour
 
         if(bugs.Count <= 0)
         {
-            GameManager.Inst.OnUI = false;
+            GameManager.Inst.gameState = EGameState.Game;
             _isStart = false;
             transform.DOScale(Vector3.zero, 0.8f).SetEase(Ease.InOutBounce).OnComplete(() => gameObject.SetActive(false));
         }

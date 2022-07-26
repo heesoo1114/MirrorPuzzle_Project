@@ -12,7 +12,7 @@ public class UIManager : MonoBehaviour
     public GameObject _interactionImage;
     public Vector3 _interactionOffset = new Vector2(0.2f, 0.2f);
 
-    [SerializeField] private TextPanal _textPanal;
+    [SerializeField] private TextPanel _textPanal;
 
 
     private bool _showImage;
@@ -219,13 +219,13 @@ public class UIManager : MonoBehaviour
 
     public void StartMiniGame()
     {
-        GameManager.Inst.OnUI = true;
+        GameManager.Inst.gameState = EGameState.UI;
         _minigameManager.Init();
     }
 
     public void StartSwitchOnGame(int value)
     {
-        GameManager.Inst.OnUI = true;
+        GameManager.Inst.gameState = EGameState.UI;
         if (value == 1)
             _switchMiniGameManager1.Init();
         else if (value == 2)

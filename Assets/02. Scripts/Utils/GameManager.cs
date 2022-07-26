@@ -6,11 +6,18 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering.Universal;
 
-public class GameManager : MonoBehaviour
+public enum EGameState
 {
+    Game,
+    UI,
+    Timeline
+}
+
+public class GameManager : MonoSingleton<GameManager>
+{
+    public EGameState gameState;
     public eColiderState coliderState;
 
-    public static GameManager Inst;
 
     private UIManager uiManager;
 
@@ -20,7 +27,10 @@ public class GameManager : MonoBehaviour
     public WorldType WorldType { get { return worldType; } set { worldType = value; } }
 
     [SerializeField] private TextDatas _textDatas;
-    public bool OnUI;
+
+    // 추후 에디터윈도우로 따로 뺼 예정
+    [SerializeField] private List<CamState> _virtualCamList;
+
 
     public Light2D globalLight;
     public List<Room> rooms;
@@ -31,16 +41,22 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if(Inst != null)
-        {
-            Debug.LogError("게임 매니저 2개 이상임");
-        }
-        Inst = this;
-
         uiManager = GetComponent<UIManager>();
+
+        InitCameraManager();
     }
 
-    private void Start()
+    private void InitCameraManager()
+    {
+        foreach(var camState in _virtualCamList) 
+        {
+            CameraManager.SubscribeCamera(camState.state, camState.cam);
+        }
+
+        CameraManager.SwitchCamera(ECameraState.TimelineCam);
+    }
+
+    private void Start() 
     {
         ChangeGlobalLight();
 
@@ -50,6 +66,7 @@ public class GameManager : MonoBehaviour
 
     private void Update()
     {
+        if (gameState != EGameState.Game) return;
         if (Input.GetKeyDown(KeyCode.E))
         {
             ChangeWorld();

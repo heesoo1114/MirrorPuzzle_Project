@@ -32,7 +32,7 @@ public class SwitchManager : MonoBehaviour
 
     private void GameEnd()
     {
-        GameManager.Inst.OnUI = false;
+        GameManager.Inst.gameState = EGameState.Game;
         _isStart = false;
         transform.DOScale(Vector3.zero, 0.8f).SetEase(Ease.InOutBounce)
             .OnComplete(() => gameEndEvent?.Invoke()).OnComplete(() => gameObject.SetActive(false));
