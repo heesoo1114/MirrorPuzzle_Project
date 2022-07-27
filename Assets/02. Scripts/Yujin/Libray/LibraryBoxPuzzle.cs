@@ -24,7 +24,10 @@ public class LibraryBoxPuzzle : MonoBehaviour
                                   coliderTransform.position, new Vector2(.03f, 6), 0f, layer);
 
             if (boxCol.Length == 5)
+            {
+                Debug.Log("Å¬¸®¾î");
                 key.Fallling();
+            }
         }
     }
 

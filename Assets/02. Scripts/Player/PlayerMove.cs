@@ -24,7 +24,7 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         _rigid = GetComponent<Rigidbody2D>();
-        _visualAnimator = transform.Find("VisualSprite").GetComponent<Animator>();
+        _visualAnimator = GetComponent<Animator>();
         _walkParticle = GetComponentInChildren<ParticleSystem>();
     }
 

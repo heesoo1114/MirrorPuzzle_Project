@@ -51,6 +51,7 @@ public class ChestScripts : InteractionObject
     {
         if (chestInput.text == "A 도장" || chestInput.text == "a 도장" )
         {
+            Debug.Log("정답");
             StartCoroutine("CorrectAnswer");
         }
         else

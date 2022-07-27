@@ -46,10 +46,7 @@ public class GameManager : MonoSingleton<GameManager>
     {
         uiManager = GetComponent<UIManager>();
 
-        _currentGameState = GameState.Game;
-
         InitCameraManager();
-         main
     }
 
     private void InitCameraManager()
@@ -116,11 +113,5 @@ public class GameManager : MonoSingleton<GameManager>
     public string FindTextData(string id)
     {
         return _textDatas.FindTextData(id);
-    }
-
-
-    public void SetGameState(bool onUI)
-    {
-        _currentGameState = onUI ? GameState.UI : GameState.Game;
     }
 }

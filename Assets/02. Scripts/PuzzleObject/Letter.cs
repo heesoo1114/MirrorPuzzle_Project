@@ -27,7 +27,7 @@ public class Letter : MonoBehaviour
 
     private void OnMouseDown()
     {
-        Debug.Log(Vector2.Distance(transform.position, playerTranform.transform.position));
+       // Debug.Log(Vector2.Distance(transform.position, playerTranform.transform.position));
 
         if (Vector2.Distance(transform.position, playerTranform.transform.position) < 2f)
         {
