@@ -13,6 +13,8 @@ TagManager:
   - Objectbed
   - ObjectLaker
   - ObjectTable
+  - BlueBullet
+  - RedBullet
   layers:
   - Default
   - TransparentFX

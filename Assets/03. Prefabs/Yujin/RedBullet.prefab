@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 7562445475130450749}
   m_Layer: 5
   m_Name: RedBullet
-  m_TagString: RedBear
+  m_TagString: RedBullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

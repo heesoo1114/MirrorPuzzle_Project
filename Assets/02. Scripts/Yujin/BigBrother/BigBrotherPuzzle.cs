@@ -2,10 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class BigBrotherPuzzle : MonoBehaviour
 {
-    public int equipPanelCnt = 0;
+    private int equipPanelCnt;
+
+    private int checkRedBear;
+    private int checkBlueBear;
 
     [SerializeField]
     private Transform checkEquipPanel;
@@ -13,6 +17,12 @@ public class BigBrotherPuzzle : MonoBehaviour
     private Image puzzleImage;
     [SerializeField]
     private Image gunReloadImage;
+
+    private void OnEnable()
+    {
+        equipPanelCnt = Random.Range(0, 9);
+        Debug.Log(equipPanelCnt);
+    }
 
     bool Check()
     {
@@ -27,7 +37,6 @@ public class BigBrotherPuzzle : MonoBehaviour
 
     public void StartRulletGame()
     {
-        Debug.Log(Check());
         if(Check())
         {
             puzzleImage.gameObject.SetActive(true);
@@ -37,14 +46,44 @@ public class BigBrotherPuzzle : MonoBehaviour
 
     public void BlueBearClick()
     {
-        if(checkEquipPanel.GetChild(equipPanelCnt).GetChild(0).gameObject.CompareTag(""))
-        {
+        GameObject clickBear = EventSystem.current.currentSelectedGameObject;
+        clickBear.SetActive(false);
 
+        if (checkEquipPanel.GetChild(equipPanelCnt).GetChild(0).gameObject.CompareTag("RedBullet"))
+        {
+            Debug.Log("파란곰을 빨간 총알로 쐈다.");
         }
+
+        checkBlueBear++;
+
+        equipPanelCnt++;
+        if (equipPanelCnt >= 9)
+            equipPanelCnt = 0;
+
+        if (checkRedBear + checkBlueBear >= 9)
+            Debug.Log("퍼즐 클리어");
     }
 
     public void RedBearClick()
     {
+        GameObject clickBear = EventSystem.current.currentSelectedGameObject;
 
+        if (checkEquipPanel.GetChild(equipPanelCnt).GetChild(0).gameObject.CompareTag("BlueBullet"))
+        {
+            checkRedBear++;
+            clickBear.SetActive(false);
+        }
+        else if (checkEquipPanel.GetChild(equipPanelCnt).GetChild(0).gameObject.CompareTag("RedBullet"))
+        {
+            Debug.Log("실패");
+            clickBear.SetActive(false);
+        }
+
+        equipPanelCnt++;
+        if (equipPanelCnt >= 9)
+            equipPanelCnt = 0;
+
+        if (checkRedBear + checkBlueBear >= 9)
+            Debug.Log("퍼즐 클리어");
     }
 }
