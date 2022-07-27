@@ -12,7 +12,7 @@ public class UIManager : MonoBehaviour
     public GameObject _interactionImage;
     public Vector3 _interactionOffset = new Vector2(0.2f, 0.2f);
 
-    [SerializeField] private TextPanal _textPanal;
+    [SerializeField] private TextPanel _textPanal;
 
 
     private bool _showImage;
@@ -38,6 +38,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private BugManager _minigameManager;
     [SerializeField] private SwitchManager _switchMiniGameManager1;
     [SerializeField] private SwitchManager _switchMiniGameManager2;
+    [SerializeField] private LightLineGameManager _lightLineGameManager;
 
     private Coroutine _textCoroutine;
 
@@ -219,16 +220,23 @@ public class UIManager : MonoBehaviour
 
     public void StartMiniGame()
     {
-        GameManager.Inst.SetGameState(true);
+        GameManager.Inst.gameState = EGameState.UI;
+
         _minigameManager.Init();
     }
 
     public void StartSwitchOnGame(int value)
     {
-        GameManager.Inst.SetGameState(true);
+        GameManager.Inst.gameState = EGameState.UI;
         if (value == 1)
             _switchMiniGameManager1.Init();
         else if (value == 2)
             _switchMiniGameManager2.Init();
+    }
+
+    public void StartLightLineGame()
+    {
+        GameManager.Inst.gameState = EGameState.UI;
+        _lightLineGameManager.Init();
     }
 }

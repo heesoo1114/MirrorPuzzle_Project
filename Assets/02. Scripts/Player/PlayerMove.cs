@@ -16,7 +16,7 @@ public class PlayerMove : MonoBehaviour
     private bool _isWarping;
     private bool _findMirror;
 
-    private Animator _animator;
+    private Animator _visualAnimator;
 
     private ParticleSystem _walkParticle;
     public UnityEvent OnTriggerInteraction;
@@ -24,13 +24,15 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         _rigid = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
+        _visualAnimator = transform.Find("VisualSprite").GetComponent<Animator>();
         _walkParticle = GetComponentInChildren<ParticleSystem>();
     }
 
     // 실행되는 동안 반복 => 1 프레임 한번씩 호출
     private void Update()
     {
+        if (GameManager.Inst.gameState != EGameState.Game) return;
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             OnTriggerInteraction?.Invoke();
@@ -39,7 +41,7 @@ public class PlayerMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (GameManager.Inst.IsUI) return;
+        if (GameManager.Inst.gameState != EGameState.Game) return;
 
         InputDirection();
 
@@ -99,10 +101,15 @@ public class PlayerMove : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (GameManager.Inst.gameState != EGameState.Game) return;
+
         if (collision.gameObject.CompareTag("Trigger"))
         {
             if (_isWarping) return;
             WarpZone warpZone = collision.gameObject.GetComponent<WarpZone>();
+
+            Debug.Log(warpZone);
+            Debug.Log(warpZone.WarpPoint);
             Vector2 warpPoint = warpZone.WarpPoint;
             _isWarping = true;
             StartCoroutine(WarpPlayer(warpPoint, warpZone.RoomName));
@@ -117,7 +124,7 @@ public class PlayerMove : MonoBehaviour
         {
             GameManager.Inst.coliderState = eColiderState.Closet;
         }
-        else if(collision.collider.CompareTag("ObjectBox")) 
+        else if (collision.collider.CompareTag("ObjectBox"))
         {
             GameManager.Inst.coliderState = eColiderState.Box;
         }
@@ -151,22 +158,44 @@ public class PlayerMove : MonoBehaviour
     {
         if (_rigid.velocity.x > 0.05f)
         {
-            _animator.Play("RightWalk");
+            _visualAnimator.Play("RightWalk");
         }
 
         else if (_rigid.velocity.x < -0.05f)
         {
-            _animator.Play("LeftWalk");
+            _visualAnimator.Play("LeftWalk");
         }
 
         else if (_rigid.velocity.y > 0.05f)
         {
-            _animator.Play("UpWalk");
+            _visualAnimator.Play("UpWalk");
         }
 
         else if (_rigid.velocity.y < -0.05f)
         {
-            _animator.Play("DownWalk");
+            _visualAnimator.Play("DownWalk");
+        }
+    }
+
+    // 추후 개선
+    public enum WalkType { RightWalk, LeftWalk, UpWalk, DownWalk }
+    public void PlayAnimation(int walkType)
+    {
+        if (_visualAnimator == null) return;
+        StopAllCoroutines();
+
+        WalkType type = (WalkType)walkType;
+        GameManager.Inst.gameState = EGameState.Timeline;
+        StartCoroutine(PlayAnimationCoroutine(type.ToString()));
+    }
+
+    private IEnumerator PlayAnimationCoroutine(string walkType)
+    {
+        while(GameManager.Inst.gameState == EGameState.Timeline)
+        {
+            _visualAnimator.Play(walkType);
+
+            yield return new WaitForFixedUpdate();
         }
     }
 }

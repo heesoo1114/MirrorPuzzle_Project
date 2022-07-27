@@ -35,14 +35,16 @@ public class ChestScripts : InteractionObject
     {
         if(!answerCheck)
         {
-            GameManager.Inst.SetGameState(true);
+        GameManager.Inst.gameState = EGameState.UI;
+
             passWord.gameObject.SetActive(true);
         }
     }
 
     public override void ExitInteraction()
     {
-        GameManager.Inst.SetGameState(false);
+        GameManager.Inst.gameState = EGameState.Game;
+
         passWord.gameObject.SetActive(false);
     }
     public void EnterClick()

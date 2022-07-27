@@ -12,6 +12,7 @@ public class SwitchManager : MonoBehaviour
 
     private bool _isStart = false;
     private int _isCheck = 0;
+    private bool _isEnd = false;
 
     public void Init()
     {
@@ -23,18 +24,24 @@ public class SwitchManager : MonoBehaviour
 
     private void Update()
     {
-        foreach(Switch swi in switches)
+        foreach (Switch swi in switches)
             if (swi.isOn == true) _isCheck++;
 
-        if (_isCheck == 5) GameEnd();
+        if (_isCheck == 5 && _isEnd == false)
+        {
+            _isEnd = true;
+            GameEnd();
+        }
         else _isCheck = 0;
     }
 
     private void GameEnd()
     {
-        GameManager.Inst.SetGameState(false);
+        GameManager.Inst.gameState = EGameState.Game;
         _isStart = false;
-        transform.DOScale(Vector3.zero, 0.8f).SetEase(Ease.InOutBounce)
-            .OnComplete(() => gameEndEvent?.Invoke()).OnComplete(() => gameObject.SetActive(false));
+        Sequence seq = DOTween.Sequence();
+        seq.Append(transform.DOScale(Vector3.zero, 0.8f).SetEase(Ease.InOutBounce));
+        seq.AppendCallback(() => gameEndEvent?.Invoke());
+        seq.AppendCallback(() => gameObject.SetActive(false));
     }
 }

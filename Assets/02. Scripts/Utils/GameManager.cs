@@ -1,36 +1,36 @@
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering.Universal;
 
-
-public class GameManager : MonoBehaviour
+public enum EGameState
 {
-    enum GameState
-    {
-        Game,
-        UI
-    }
+    Game,
+    UI,
+    Timeline
+}
 
-
+public class GameManager : MonoSingleton<GameManager>
+{
+    public EGameState gameState;
     public eColiderState coliderState;
 
-    public static GameManager Inst;
 
     private UIManager uiManager;
 
-    private GameState _currentGameState;
-
     public UIManager UI { get { return uiManager; } }
-    public bool IsUI => _currentGameState == GameState.UI;
 
 
     private WorldType worldType = WorldType.RealWorld;
     public WorldType WorldType { get { return worldType; } set { worldType = value; } }
 
     [SerializeField] private TextDatas _textDatas;
+
+    // ���� ������������� ���� �E ����
+    [SerializeField] private List<CamState> _virtualCamList;
 
 
     public Light2D globalLight;
@@ -44,34 +44,34 @@ public class GameManager : MonoBehaviour
 
     private void Awake()
     {
-        if(Inst != null)
-        {
-            Debug.LogError("���� �Ŵ��� 2�� �̻���");
-        }
-        Inst = this;
-
         uiManager = GetComponent<UIManager>();
 
         _currentGameState = GameState.Game;
 
+        InitCameraManager();
+         main
     }
 
-    private void Start()
+    private void InitCameraManager()
+    {
+        foreach(var camState in _virtualCamList) 
+        {
+            CameraManager.SubscribeCamera(camState.state, camState.cam);
+        }
+
+        CameraManager.SwitchCamera(ECameraState.TimelineCam);
+    }
+
+    private void Start() 
     {
         ChangeGlobalLight();
 
-        for (int i = 0; i < map.childCount; i++)
-        {
-            // Room Type�� �ӽ�
-            rooms.Add(new Room(map.GetChild(i).gameObject, RoomType.BigBrother));
-        }
-
-
-
+        rooms = map.GetComponentsInChildren<Room>().ToList();
     }
 
     private void Update()
     {
+        if (gameState != EGameState.Game) return;
         if (Input.GetKeyDown(KeyCode.E))
         {
             ChangeWorld();
@@ -85,13 +85,13 @@ public class GameManager : MonoBehaviour
         if (worldType == WorldType.MirrorWorld)
         {
             worldType = WorldType.RealWorld;
-            rooms.ForEach(x => x.roomObject.transform.localScale = Vector3.one);
+            rooms.ForEach(x => x.transform.localScale = Vector3.one);
             ChangeRealWorld?.Invoke();
         }
         else
         {
             worldType = WorldType.MirrorWorld;
-            rooms.ForEach(x => x.roomObject.transform.localScale = new Vector3(-1f, 1f, 1f));
+            rooms.ForEach(x => x.transform.localScale = new Vector3(-1f, 1f, 1f));
             ChangeMirrorWorld?.Invoke();
         }
 
@@ -115,7 +115,6 @@ public class GameManager : MonoBehaviour
 
     public string FindTextData(string id)
     {
-        Debug.Log(id);
         return _textDatas.FindTextData(id);
     }
 

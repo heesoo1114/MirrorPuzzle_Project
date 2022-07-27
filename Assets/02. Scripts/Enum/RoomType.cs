@@ -4,5 +4,10 @@ public enum RoomType
     SmallBrother,
     Veranda,
     Library,
-    SecondFloor
+    LivingRoom,
+    HallWay,
+    BedRoom,
+    Toilet,
+    Kitchen,
+    Celler,
 }
