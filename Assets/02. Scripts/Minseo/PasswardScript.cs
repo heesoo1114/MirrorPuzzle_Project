@@ -34,7 +34,7 @@ public class PasswardScript : MonoBehaviour
     }
     public void EnterClick()
     {
-        if (pswdInput.text == "chips" || pswdInput.text == "CHIPS")
+        if (pswdInput.text == "chips" || pswdInput.text == "CHIPS" || pswdInput.text == "Chips")
         {
             StartCoroutine("Answer");
         }
@@ -46,6 +46,7 @@ public class PasswardScript : MonoBehaviour
     IEnumerator Answer()
     {
         yield return new WaitForSeconds(1.0f);
+        password_Obj.gameObject.SetActive(false);
         Check = true;
         text.text = "정답을 입력하세요";
     }

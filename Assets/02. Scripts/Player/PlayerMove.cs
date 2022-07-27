@@ -108,13 +108,12 @@ public class PlayerMove : MonoBehaviour
 
             Vector2 warpPoint = warpZone.WarpPoint;
             _isWarping = true;
-
            
 
             if (warpZone._targetRoom == WarpZone.ERoomType.YoungerBrotherRoom)
             {
                 WarpZone targetWarpZone = warpZone._warpPoint.GetComponent<WarpZone>();
-                targetWarpZone.isLock = true;
+                //targetWarpZone.isLock = true;
             }
 
             StartCoroutine(WarpPlayer(warpPoint, warpZone.RoomName));
