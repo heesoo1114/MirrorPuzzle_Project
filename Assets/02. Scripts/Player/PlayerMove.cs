@@ -120,11 +120,11 @@ public class PlayerMove : MonoBehaviour
             _isWarping = true;
            
 
-            if (warpZone._targetRoom == WarpZone.ERoomType.YoungerBrotherRoom)
-            {
-                WarpZone targetWarpZone = warpZone._warpPoint.GetComponent<WarpZone>();
-                //targetWarpZone.isLock = true;
-            }
+            //if (warpZone._targetRoom == WarpZone.ERoomType.YoungerBrotherRoom)
+            //{
+            //    WarpZone targetWarpZone = warpZone._warpPoint.GetComponent<WarpZone>();
+            //    //targetWarpZone.isLock = true;
+            //}
 
             StartCoroutine(WarpPlayer(warpPoint, warpZone.RoomName));
             // �� �ٲ� �������� �ӽ÷� �ּ� �س����Կ�
