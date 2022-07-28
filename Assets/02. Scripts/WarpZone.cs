@@ -10,11 +10,14 @@ public class WarpZone : MonoBehaviour
     [HideInInspector]
     public Vector2 _offset;
 
+    public bool isLock;
+
     private string _roomName = "";
     public string RoomName
     {
         get => _roomName;
     }
+
 
     private void Start()
     {

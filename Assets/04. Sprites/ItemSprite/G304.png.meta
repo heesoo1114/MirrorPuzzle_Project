@@ -1,5 +1,9 @@
 fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/04. Sprites/ItemSprite/G304.png.meta
 guid: 23b4e9af85893314a9d7df3aa881ad36
+========
+guid: 195fef3236dc7a44bb32561fe4caee1e
+>>>>>>>> Minseo:Assets/04. Sprites/S 1.jpg.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
