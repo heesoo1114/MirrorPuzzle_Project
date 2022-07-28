@@ -15,13 +15,14 @@ public class Dish : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IP
     private Camera camera = null;
     private int cnt;
     private Vector2 mousePos;
+    private bool isClear;
 
     private int sum;
     private bool isMouseDown = false;
     private bool isMouseExit = false;
     private bool isMouseEnter = false;
 
-    public Action OnDishClear;
+    public Action<Transform> OnDishClear;
 
 
     void Start()
@@ -32,6 +33,9 @@ public class Dish : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IP
 
     void Update()
     {
+        if (isClear)
+            return;
+
         if (isMouseDown == false) return;
 
         Vector2 currentPos = camera.ScreenToWorldPoint(Input.mousePosition);
@@ -51,8 +55,9 @@ public class Dish : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IP
 
                 if (cnt >= sum)
                 {
-                    OnDishClear?.Invoke(); 
-                    Destroy(gameObject);
+                    isClear = true;
+                    OnDishClear?.Invoke(transform);
+                    GetComponent<Image>().raycastTarget = false;
                 }
             }
         }
