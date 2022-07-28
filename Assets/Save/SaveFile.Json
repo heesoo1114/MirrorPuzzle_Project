@@ -20,7 +20,7 @@
                 "name": "박가온의 쿠폰",
                 "info": "박가온의 소중한 이터널리턴 쿠폰이다",
                 "sprite": {
-                    "instanceID": 10210
+                    "instanceID": 42154
                 }
             },
             "itemCount": 1
@@ -31,7 +31,7 @@
                 "name": "유하준의 스티커",
                 "info": "유하준의 한정판 금사향 스티커이다",
                 "sprite": {
-                    "instanceID": 10212
+                    "instanceID": 42202
                 }
             },
             "itemCount": 1
@@ -42,7 +42,7 @@
                 "name": "채민서의 마우스",
                 "info": "채민서의 로지텍 G304 라일락 마우스이다",
                 "sprite": {
-                    "instanceID": 10214
+                    "instanceID": 33868
                 }
             },
             "itemCount": 1
@@ -53,7 +53,7 @@
                 "name": "윤희수의 축구화",
                 "info": "윤희수의 축구실력을 올려줄 축구화다",
                 "sprite": {
-                    "instanceID": 10216
+                    "instanceID": 48240
                 }
             },
             "itemCount": 1
@@ -64,120 +64,21 @@
                 "name": "김혜연의 휴대폰",
                 "info": "김혜연의 (잘 깨지는 아이폰이지만) 깨진 흔적이 없는 아이폰이다.",
                 "sprite": {
-                    "instanceID": 10218
+                    "instanceID": 33564
                 }
             },
             "itemCount": 1
         },
         {
             "itemData": {
-                "itemID": "",
-                "name": "김혜연의 휴대폰",
-                "info": "김혜연의 (잘 깨지는 아이폰이지만) 깨진 흔적이 없는 아이폰이다.",
+                "itemID": "10",
+                "name": "지하실 키",
+                "info": "지하실 문을 열 수 있는 키다.",
                 "sprite": {
-                    "instanceID": 10218
+                    "instanceID": 28426
                 }
             },
-            "itemCount": 1
-        },
-        {
-            "itemData": {
-                "itemID": "",
-                "name": "김혜연의 휴대폰",
-                "info": "김혜연의 (잘 깨지는 아이폰이지만) 깨진 흔적이 없는 아이폰이다.",
-                "sprite": {
-                    "instanceID": 10218
-                }
-            },
-            "itemCount": 1
-        },
-        {
-            "itemData": {
-                "itemID": "",
-                "name": "김혜연의 휴대폰",
-                "info": "김혜연의 (잘 깨지는 아이폰이지만) 깨진 흔적이 없는 아이폰이다.",
-                "sprite": {
-                    "instanceID": 10218
-                }
-            },
-            "itemCount": 1
-        },
-        {
-            "itemData": {
-                "itemID": "",
-                "name": "김혜연의 휴대폰",
-                "info": "김혜연의 (잘 깨지는 아이폰이지만) 깨진 흔적이 없는 아이폰이다.",
-                "sprite": {
-                    "instanceID": 10218
-                }
-            },
-            "itemCount": 1
-        },
-        {
-            "itemData": {
-                "itemID": "",
-                "name": "김혜연의 휴대폰",
-                "info": "김혜연의 (잘 깨지는 아이폰이지만) 깨진 흔적이 없는 아이폰이다.",
-                "sprite": {
-                    "instanceID": 10218
-                }
-            },
-            "itemCount": 1
-        },
-        {
-            "itemData": {
-                "itemID": "",
-                "name": "김혜연의 휴대폰",
-                "info": "김혜연의 (잘 깨지는 아이폰이지만) 깨진 흔적이 없는 아이폰이다.",
-                "sprite": {
-                    "instanceID": 10218
-                }
-            },
-            "itemCount": 1
-        },
-        {
-            "itemData": {
-                "itemID": "",
-                "name": "김혜연의 휴대폰",
-                "info": "김혜연의 (잘 깨지는 아이폰이지만) 깨진 흔적이 없는 아이폰이다.",
-                "sprite": {
-                    "instanceID": 10218
-                }
-            },
-            "itemCount": 1
-        },
-        {
-            "itemData": {
-                "itemID": "",
-                "name": "김혜연의 휴대폰",
-                "info": "김혜연의 (잘 깨지는 아이폰이지만) 깨진 흔적이 없는 아이폰이다.",
-                "sprite": {
-                    "instanceID": 10218
-                }
-            },
-            "itemCount": 1
-        },
-        {
-            "itemData": {
-                "itemID": "",
-                "name": "김혜연의 휴대폰",
-                "info": "김혜연의 (잘 깨지는 아이폰이지만) 깨진 흔적이 없는 아이폰이다.",
-                "sprite": {
-                    "instanceID": 10218
-                }
-            },
-            "itemCount": 1
-        },
-        {
-            "itemData": {
-                "itemID": "",
-                "name": "김혜연의 휴대폰",
-                "info": "김혜연의 (잘 깨지는 아이폰이지만) 깨진 흔적이 없는 아이폰이다.",
-                "sprite": {
-                    "instanceID": 10218
-                }
-            },
-            "itemCount": 1
+            "itemCount": 2
         }
     ]
 }

@@ -10,7 +10,7 @@ public class InteractionKey : InteractionObject
     public override void InteractionEvent()
     {
         GetKeyEvent?.Invoke();
-
+        InventorySystem.Inst.AddItem("10");
         Destroy(gameObject);
     }
 }
