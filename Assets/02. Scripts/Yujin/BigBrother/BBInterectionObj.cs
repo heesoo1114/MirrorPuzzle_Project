@@ -19,6 +19,7 @@ public class BBInterectionObj : InteractionObject
     {
         if (eObject == EObjectName.SmallPlant)
         {
+            
             Debug.Log("작은화분");
         }
         else if (eObject == EObjectName.PocketClock)
