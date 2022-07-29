@@ -141,11 +141,11 @@ public class PlayerMove : MonoBehaviour
 
     private IEnumerator WarpPlayer(Vector2 warpPoint, string roomName)
     {
-        GameManager.Inst.UI.FadeScreen(true);
+        GameManager.Inst.UI.StartFadeIn(0.5f);
         yield return new WaitForSeconds(0.5f);
         transform.position = warpPoint;
         yield return new WaitForSeconds(0.1f);
-        GameManager.Inst.UI.FadeScreen(false);
+        GameManager.Inst.UI.StartFadeOut(0.5f);
         yield return new WaitForSeconds(0.5f);
         GameManager.Inst.UI.ActiveRoomText(roomName);
         _isWarping = false;
@@ -175,22 +175,23 @@ public class PlayerMove : MonoBehaviour
     }
 
     // 추후 개선
-    public enum WalkType { RightWalk, LeftWalk, UpWalk, DownWalk }
-    public void PlayAnimation(int walkType)
+    public void PlayAnimation(string walkType)
     {
         if (_visualAnimator == null) return;
+        if (walkType == null) return;
         StopAllCoroutines();
 
-        WalkType type = (WalkType)walkType;
+        // 위치 변경
         GameManager.Inst.gameState = EGameState.Timeline;
-        StartCoroutine(PlayAnimationCoroutine(type.ToString()));
+
+        StartCoroutine(PlayAnimationCoroutine(Animator.StringToHash(walkType)));
     }
 
-    private IEnumerator PlayAnimationCoroutine(string walkType)
+    private IEnumerator PlayAnimationCoroutine(int hash)
     {
-        while(GameManager.Inst.gameState == EGameState.Timeline)
+        while (GameManager.Inst.gameState == EGameState.Timeline)
         {
-            _visualAnimator.Play(walkType);
+            _visualAnimator.Play(hash);
 
             yield return new WaitForFixedUpdate();
         }

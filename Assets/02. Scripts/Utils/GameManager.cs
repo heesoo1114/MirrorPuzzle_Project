@@ -53,7 +53,7 @@ public class GameManager : MonoSingleton<GameManager>
             CameraManager.SubscribeCamera(camState.state, camState.cam);
         }
 
-        CameraManager.SwitchCamera(ECameraState.TimelineCam);
+        //CameraManager.SwitchCamera(ECameraState.TimelineCam);
     }
 
     private void Start() 

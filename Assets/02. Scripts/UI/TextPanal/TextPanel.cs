@@ -10,14 +10,18 @@ public class TextPanel : MonoBehaviour
     [SerializeField] private Text _currentText;
     [SerializeField] private float _textSpeed = 0.05f;
     private bool _isOutput;
-    private string _currentStr;
+    private string _textMessage;
+
+    public bool IsOutput => _isOutput;
 
 
     public void ShowTextPanal(string outputText, string name = "")
     {
         if (_isOutput) return;
-        
-        if(name != "")
+
+
+
+        if (name != "")
         {
             _nameTextPanal.ChangeNameText(name);
             _nameTextPanal.gameObject.SetActive(true);
@@ -28,11 +32,20 @@ public class TextPanel : MonoBehaviour
         }
 
         _isOutput = true;
-        _currentStr = outputText;
+        _textMessage = outputText;
         _currentText.text = "";
         transform.DOScaleX(0f, 0f);
         gameObject.SetActive(true);
         StartCoroutine(Co_ShowTextPanal());
+    }
+
+    public void ImmediatelyEndOutput()
+    {
+        if (_isOutput == false) return;
+
+        _currentText.DOKill();
+        _currentText.text = _textMessage;
+        _isOutput = false;
     }
 
     public void UnShowTextPanal()
@@ -55,10 +68,10 @@ public class TextPanel : MonoBehaviour
         transform.DOScaleX(1f, 0.5f);
         yield return new WaitForSeconds(0.5f);
 
-        float time = _currentStr.Length * _textSpeed;
+        float time = _textMessage.Length * _textSpeed;
 
         _currentText.DOKill();
-        _currentText.DOText(_currentStr, time);
+        _currentText.DOText(_textMessage, time);
 
         yield return new WaitForSeconds(time);
 
