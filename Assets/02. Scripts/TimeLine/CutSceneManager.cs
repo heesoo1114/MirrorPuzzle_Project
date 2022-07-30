@@ -24,7 +24,7 @@ public class CutSceneManager : MonoBehaviour
 
     public void Update()
     {
-        if(_isPlaying && _isScriptStarted)
+        if (_isPlaying && _isScriptStarted)
         {
             if(Input.GetKeyDown(KeyCode.Space))
             {
@@ -59,17 +59,30 @@ public class CutSceneManager : MonoBehaviour
         }
         if (_currentLineIdx >= _currentCutScene.Count)
         {
-            _isPlaying = false;
-            Destroy(_currentDirector.gameObject);
-            _currentDirector = null;
+            _isScriptStarted = false;
+            _textPanel.UnShowTextPanal();
+            _currentDirector.Play();
             return;
         }
         if (_isScriptStarted == false)
             _isScriptStarted = true;
 
+        if(!_currentDirector.IsPuased)
+        {
+            _currentDirector.Pause();
+        }
 
         _textPanel.ShowTextPanal(CurrentLine.lineText, CurrentLine.name);
         _currentLineIdx++;
     }
 
+    public void EndCutScene()
+    {
+        _isPlaying = false;
+        _isScriptStarted = false;
+        _currentDirector.Pause();
+        _currentDirector = null;
+        _currentLineIdx = 0;
+        _currentCutScene = null;
+    }
 }

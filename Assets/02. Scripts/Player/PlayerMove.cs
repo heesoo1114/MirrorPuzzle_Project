@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using DG.Tweening;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class PlayerMove : MonoBehaviour
     private bool _isWarping;
     private bool _findMirror;
 
+    private Animator _timeLineAnimator;
     private Animator _visualAnimator;
 
     private ParticleSystem _walkParticle;
@@ -24,6 +26,7 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         _rigid = GetComponent<Rigidbody2D>();
+        _timeLineAnimator = GetComponent<Animator>();
         _visualAnimator = transform.Find("VisualSprite").GetComponent<Animator>();
         _walkParticle = GetComponentInChildren<ParticleSystem>();
     }
@@ -175,6 +178,12 @@ public class PlayerMove : MonoBehaviour
     }
 
     // 추후 개선
+    public void ShakeObject()
+    {
+        _timeLineAnimator.enabled = false;
+        transform.DOShakePosition(0.5f,0.5f).OnComplete(()=> _timeLineAnimator.enabled = true);
+    }
+
     public void PlayAnimation(string walkType)
     {
         if (_visualAnimator == null) return;

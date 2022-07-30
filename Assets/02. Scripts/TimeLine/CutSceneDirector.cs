@@ -8,6 +8,8 @@ public class CutSceneDirector : MonoBehaviour
     public string cutSceneID;
 
     private PlayableDirector _playableDirector;
+    private bool _isPaused = false;
+    public bool IsPuased => _isPaused;
 
     private void Awake()
     {
@@ -16,7 +18,14 @@ public class CutSceneDirector : MonoBehaviour
 
     public void Play()
     {
-        _playableDirector.Play();
+        _playableDirector.Play(); 
+        _isPaused = false;
+    }
+
+    public void Pause()
+    {
+        _playableDirector.Pause();
+        _isPaused = true;
     }
 
 }
