@@ -6,13 +6,18 @@ public class InteractionToKitchenTrigger : InteractionObject
 {
     public override void InteractionEvent()
     {
-        Debug.Log(InventorySystem.Inst.equipItemData.itemID);
         if (InventorySystem.Inst.equipItemData.itemID == "10")
         {
-            Debug.Log("인벤");
             GameManager.Inst.UI.ActiveTextPanal("문이 열렸다.");
-            this.gameObject.SetActive(false);
+            StartCoroutine(ImmediatelyStop());
         }
+    }
+
+    IEnumerator ImmediatelyStop()
+    {
+
+        yield return new WaitForSeconds(1.5f);
+        this.gameObject.SetActive(false);
     }
 
     public override void EnterInteraction()

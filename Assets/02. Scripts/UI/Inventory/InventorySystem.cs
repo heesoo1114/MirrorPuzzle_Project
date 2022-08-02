@@ -117,7 +117,7 @@ public class InventorySystem : MonoSingleton<InventorySystem>
 
     public void AddItem(string itemID)
     {
-       ItemData itemData =   DataManager.Inst.ItemDataList.Find(x => x.itemID.Equals(itemID));
+       ItemData itemData = DataManager.Inst.ItemDataList.Find(x => x.itemID.Equals(itemID));
 
         if(itemData == null)
         {

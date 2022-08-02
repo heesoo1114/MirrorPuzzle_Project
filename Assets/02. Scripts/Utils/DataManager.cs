@@ -69,17 +69,17 @@ public class DataManager : MonoSingleton<DataManager>
 
     private void LoadFromJson()
     {
-        if (File.Exists(SAVE_PATH + SAVE_FILE))
-        {
-            string stringJson = File.ReadAllText(SAVE_PATH + SAVE_FILE);
-            _player = JsonUtility.FromJson<PlayerData>(stringJson);
-        }
-        else
-        {
-            _player = new PlayerData(defaultSound);
+        //if (File.Exists(SAVE_PATH + SAVE_FILE))
+        //{
+        //    string stringJson = File.ReadAllText(SAVE_PATH + SAVE_FILE);
+        //    _player = JsonUtility.FromJson<PlayerData>(stringJson);
+        //}
+        //else
+        //{
             
-        }
-        SaveToJson();
+        //}
+        //SaveToJson();
+            _player = new PlayerData(defaultSound);
     }
     public void SaveToJson()
     {
