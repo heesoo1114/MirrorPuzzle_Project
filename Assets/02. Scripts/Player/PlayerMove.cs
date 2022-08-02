@@ -24,11 +24,12 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         _rigid = GetComponent<Rigidbody2D>();
-        _visualAnimator = transform.Find("VisualSprite").GetComponent<Animator>();
+        _visualAnimator = GetComponent<Animator>();
         _walkParticle = GetComponentInChildren<ParticleSystem>();
+
     }
 
-    // ½ÇÇàµÇ´Â µ¿¾È ¹Ýº¹ => 1 ÇÁ·¹ÀÓ ÇÑ¹ø¾¿ È£Ãâ
+    // ï¿½ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ýºï¿½ => 1 ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ï¿½ï¿½ È£ï¿½ï¿½
     private void Update()
     {
         if (GameManager.Inst.gameState != EGameState.Game) return;
@@ -57,14 +58,14 @@ public class PlayerMove : MonoBehaviour
 
         if (dir.sqrMagnitude > 0)
         {
-            // ³»°¡ °¡·Á°í ÇÑ ¹æÇâÀÌ Áö±Ý ÇâÇÏ°í ÀÖ´Â ¹æÇâÀÇ ¹Ý´ë¸é 
-            // ¼Óµµ¸¦ 0À¸·Î ÃÊ±âÈ­¸¦ ½ÃÅ²´Ù
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ý´ï¿½ï¿½ 
+            // ï¿½Óµï¿½ï¿½ï¿½ 0ï¿½ï¿½ï¿½ï¿½ ï¿½Ê±ï¿½È­ï¿½ï¿½ ï¿½ï¿½Å²ï¿½ï¿½
             if (Vector2.Dot(dir, _movementDir) < 0)
             {
                 _currentVelocity = 0f;
             }
 
-            // °ªÀ» º¯°æ ½ÃÅ´
+            // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å´
             _movementDir = dir.normalized;
             _walkParticle.gameObject.SetActive(true);
         }
@@ -72,13 +73,13 @@ public class PlayerMove : MonoBehaviour
         {
             _walkParticle.gameObject.SetActive(false);
         }
-        // °ªÀ» º¯°æ ½ÃÅ´
+        // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å´
 
         _movementDir = dir.normalized;
 
         _currentVelocity = CalcSpeed(dir.normalized);
-        // (0,0) == ¿òÁ÷ÀÏ ¹æÇâÀÌ ¾ø´Ù¸é
-        // °ª º¯È­°¡ ¾ø´Ù
+        // (0,0) == ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ù¸ï¿½
+        // ï¿½ï¿½ ï¿½ï¿½È­ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     }
 
     private float CalcSpeed(Vector2 dir)
@@ -108,12 +109,25 @@ public class PlayerMove : MonoBehaviour
             if (_isWarping) return;
             WarpZone warpZone = collision.gameObject.GetComponent<WarpZone>();
 
+
             Debug.Log(warpZone);
             Debug.Log(warpZone.WarpPoint);
+
+            if (warpZone.isLock) return;
+
+
             Vector2 warpPoint = warpZone.WarpPoint;
             _isWarping = true;
+           
+
+            //if (warpZone._targetRoom == WarpZone.ERoomType.YoungerBrotherRoom)
+            //{
+            //    WarpZone targetWarpZone = warpZone._warpPoint.GetComponent<WarpZone>();
+            //    //targetWarpZone.isLock = true;
+            //}
+
             StartCoroutine(WarpPlayer(warpPoint, warpZone.RoomName));
-            // ¸Ê ¹Ù²Ü ¶§±îÁö´Â ÀÓ½Ã·Î ÁÖ¼® ÇØ³õÀ»°Ô¿ä
+            // ï¿½ï¿½ ï¿½Ù²ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ó½Ã·ï¿½ ï¿½Ö¼ï¿½ ï¿½Ø³ï¿½ï¿½ï¿½ï¿½Ô¿ï¿½
             //if (_movementDir.x == warpZone._offset.x ||
             //    _movementDir.y == warpZone._offset.y)
             //{
@@ -177,7 +191,7 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    // ÃßÈÄ °³¼±
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
     public enum WalkType { RightWalk, LeftWalk, UpWalk, DownWalk }
     public void PlayAnimation(int walkType)
     {

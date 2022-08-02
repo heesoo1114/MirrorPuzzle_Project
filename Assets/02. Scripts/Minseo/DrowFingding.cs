@@ -8,10 +8,9 @@ public class DrowFingding : MonoBehaviour
     public int count = 0;
 
     [SerializeField]
-    private Image invenImage;
-
-    [SerializeField]
-    private SpriteRenderer[] draws;
+    private Image chips_Image;
+    //[SerializeField]
+    //private SpriteRenderer[] draws;
     
 
     // Start is called before the first frame update
@@ -26,49 +25,6 @@ public class DrowFingding : MonoBehaviour
         
     }
 
-    public void Clickmerrer()
-    {
-        if(GameManager.Inst.coliderState == eColiderState.Locker)
-        {
-            if (GameManager.Inst.WorldType == WorldType.RealWorld)
-            {
-                draws[0].gameObject.SetActive(true);
-            }
-        }
-        else if(GameManager.Inst.coliderState == eColiderState.Box)
-        {
-            if (GameManager.Inst.WorldType == WorldType.RealWorld)
-            {
-                draws[1].gameObject.SetActive(true);
-            }
-        }
-        else if(GameManager.Inst.coliderState == eColiderState.Table)
-        {
-            if (GameManager.Inst.WorldType == WorldType.RealWorld)
-            {
-                draws[2].gameObject.SetActive(true);
-            }
-        }
-        else if (GameManager.Inst.coliderState == eColiderState.Closet)
-        {
-            if(GameManager.Inst.WorldType == WorldType.RealWorld)
-            {
-                draws[3].gameObject.SetActive(true);
-            }
-        }
-        else if (GameManager.Inst.coliderState == eColiderState.Bed) 
-        {
-            if(GameManager.Inst.WorldType == WorldType.RealWorld)
-            {
-                draws[4].gameObject.SetActive(true);
-            }
-            else if(GameManager.Inst.WorldType == WorldType.MirrorWorld)
-            {
-                draws[4].gameObject.transform.localScale = new Vector3(-30, 30, 30);
-            }                                                                                                           
-        }
-    }
-
     public void ObjectFind()
     {
         count++;
@@ -78,17 +34,66 @@ public class DrowFingding : MonoBehaviour
     {
         if (collision.collider.CompareTag("Player"))
         {
-            Debug.Log("´ê");
-            invenImage.gameObject.SetActive(true);
+            if (GameManager.Inst.WorldType == WorldType.RealWorld)
+            {
+                chips_Image.gameObject.SetActive(true);
+            }
+            else if (GameManager.Inst.WorldType == WorldType.MirrorWorld)
+            {
+                chips_Image.gameObject.transform.localScale = new Vector3(-1, 1, 1);
+                chips_Image.gameObject.SetActive(true);
+            }
+            
         }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Player"))
         {
-            invenImage.gameObject.SetActive(false);
+            chips_Image.gameObject.SetActive(false);
         }
 
     }
-
+    //public void Clickmerrer()
+    //{
+    //    if(GameManager.Inst.coliderState == eColiderState.Locker)
+    //    {
+    //        if (GameManager.Inst.WorldType == WorldType.RealWorld)
+    //        {
+    //            draws[0].gameObject.SetActive(true);
+    //        }
+    //    }
+    //    else if(GameManager.Inst.coliderState == eColiderState.Box)
+    //    {
+    //        if (GameManager.Inst.WorldType == WorldType.RealWorld)
+    //        {
+    //            draws[1].gameObject.SetActive(true);
+    //        }
+    //    }
+    //    else if(GameManager.Inst.coliderState == eColiderState.Table)
+    //    {
+    //        if (GameManager.Inst.WorldType == WorldType.RealWorld)
+    //        {
+    //            draws[2].gameObject.SetActive(true);
+    //        }
+    //    }
+    //    else if (GameManager.Inst.coliderState == eColiderState.Closet)
+    //    {
+    //        if(GameManager.Inst.WorldType == WorldType.RealWorld)
+    //        {
+    //            draws[3].gameObject.SetActive(true);
+    //        }
+    //    }
+    //    else if (GameManager.Inst.coliderState == eColiderState.Bed) 
+    //    {
+    //        if(GameManager.Inst.WorldType == WorldType.RealWorld)
+    //        {
+    //            draws[4].gameObject.SetActive(true);
+    //        }
+    //        else if(GameManager.Inst.WorldType == WorldType.MirrorWorld)
+    //        {
+    //            draws[4].gameObject.transform.localScale = new Vector3(1, 1, 1);
+    //        }                                                                                                           
+    //    }
+    //}
 }

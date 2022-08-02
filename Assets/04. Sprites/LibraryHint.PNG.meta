@@ -1,5 +1,9 @@
 fileFormatVersion: 2
-guid: c1a1aa4914170374a9386d3b69406ea8
+<<<<<<<< HEAD:Assets/04. Sprites/LibraryHint.PNG.meta
+guid: dc78c32ee27e89d49b9806d2c9d6a27d
+========
+guid: 5753c490ca30d65449ec90289f8b51c6
+>>>>>>>> Minseo:Assets/04. Sprites/C 1.jpg.meta
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}

@@ -22,12 +22,6 @@ public class MirrorPuzzle : InteractionObject
     [SerializeField]
     private Button bookButton;
 
-
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         if(!(gameObjects[0].activeSelf)) // µµ¿Â
@@ -47,6 +41,7 @@ public class MirrorPuzzle : InteractionObject
 
     public override void InteractionEvent()
     {
+        Debug.Log("§ª§©");
         mirrorUI.gameObject.SetActive(true);
     }
 
