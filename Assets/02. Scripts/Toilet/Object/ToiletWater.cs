@@ -2,28 +2,50 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ToiletWater : MonoBehaviour
+public class ToiletWater : ToiletObjectManager
 {
 
     public GameObject waterYes;
     public GameObject waterNo;
-    // public GameObject WaterPosition;
+
+    public bool isAction = false;
+    public bool isNow = false;
+
+    public override void InteractionEvent()
+    {
+        interect?.Invoke();
+        StartCoroutine(NoneText());
+    }
 
     public void water()
     {
-        
         waterNo.SetActive(true);
         waterYes.SetActive(false);
-
-        // StartCoroutine("heesoo");
-
+        isAction = true;
     }
 
-/*    IEnumerator heesoo()
+    public void noWater()
     {
-        WaterPosition.SetActive(true);
-        yield return new WaitForSeconds(5f);
-        WaterPosition.SetActive(false);
+        waterNo.SetActive(false);
+        waterYes.SetActive(true); 
     }
-*/
+
+    IEnumerator NoneText()
+    {
+        if (isAction == true)
+        {
+            string text = GameManager.Inst.FindTextData(_textDataID = "Toilet_Mirror");
+
+            if (text.CompareTo("") == 0 || text == null) yield return null;
+            GameManager.Inst.UI.ActiveTextPanal(text);
+        }
+        else if (isNow == true)
+        {
+            string text = GameManager.Inst.FindTextData(_textDataID = "Toilet_Now");
+
+            if (text.CompareTo("") == 0 || text == null) yield return null;
+            GameManager.Inst.UI.ActiveTextPanal(text);
+        }
+        yield return null;
+    }
 }

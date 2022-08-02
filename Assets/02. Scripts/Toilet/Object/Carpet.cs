@@ -4,19 +4,16 @@ using UnityEngine;
 
 public class Carpet : ToiletObjectManager
 {
-    [SerializeField] private float waitTime = 2f;
-    
-    public override void InteractionEvent()
-    {
-        if (isCheck) return;
-        interect?.Invoke();
-        StartCoroutine(DelayText());
-        isCheck = true;
-    }
-
     SpriteRenderer _spriteRenderer;
 
-    private bool isBlue = true;
+    public bool isAction = false;
+    public bool isNow = false;
+
+    public override void InteractionEvent()
+    {
+        interect?.Invoke();
+        StartCoroutine(NoneText());
+    }
 
     private void Start()
     {
@@ -25,43 +22,32 @@ public class Carpet : ToiletObjectManager
 
     public void NowColorChange()
     {
-        if(isBlue == false)
-        {
-            _spriteRenderer.color = Color.white;
-            isBlue = true;
-        }
-        else if(isBlue == true)
-        {
-            _spriteRenderer.color = Color.green;
-            isBlue = false;
-        }
-        
+        _spriteRenderer.color = Color.green;
+        isAction = true;
     }
 
     public void MirrorColorChange()
     {
-        if (isBlue == true)
-        {
-            _spriteRenderer.color = Color.white;
-            isBlue = true;
-        }
-        else if (isBlue == false)
-        {
-            _spriteRenderer.color = Color.green;
-            isBlue = false;
-        }
-
+        _spriteRenderer.color = Color.white;
     }
 
-
-
-    private IEnumerator DelayText()
+    IEnumerator NoneText()
     {
-        yield return new WaitForSeconds(waitTime);
-        string text = GameManager.Inst.FindTextData(_textDataID);
+        if (isAction == true)
+        {
+            string text = GameManager.Inst.FindTextData(_textDataID = "Carpet_Mirror");
 
-        if (text.CompareTo("") == 0 || text == null) yield return null;
-        GameManager.Inst.UI.ActiveTextPanal(text);
+            if (text.CompareTo("") == 0 || text == null) yield return null;
+            GameManager.Inst.UI.ActiveTextPanal(text);
+        }
+        else if (isNow == true)
+        {
+            string text = GameManager.Inst.FindTextData(_textDataID = "Carpet_Now");
+
+            if (text.CompareTo("") == 0 || text == null) yield return null;
+            GameManager.Inst.UI.ActiveTextPanal(text);
+        }
+        yield return null;
     }
 
 }
