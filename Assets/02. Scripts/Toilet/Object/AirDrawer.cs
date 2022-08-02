@@ -6,7 +6,6 @@ public class AirDrawer : MonoBehaviour
 {
     public Sprite Open;
     public Sprite Close;
-    private bool isClose = false;
 
     private SpriteRenderer _sprite = null;
 
@@ -15,21 +14,14 @@ public class AirDrawer : MonoBehaviour
         _sprite = GetComponent<SpriteRenderer>();
     }
 
-    public void OpenClose()
+    public void MirrorClose()
     {
-        /*Close.SetActive(false);
-        Open.SetActive(true);*/
+         _sprite.sprite = Close;
+    }
 
-        if(isClose == true)
-        {
-            _sprite.sprite = Close;
-            isClose = false;
-        }
-        else if(isClose == false)
-        {
-            _sprite.sprite = Open;
-            isClose = true;
-        }
+    public void NowOpen()
+    {
+        _sprite.sprite = Open;
     }
 
 }
