@@ -13926,7 +13926,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &259366228
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16008,7 +16008,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 420212201}
         m_TargetAssemblyTypeName: AntSound, Assembly-CSharp
-        m_MethodName: BugStepSound
+        m_MethodName: BugDieSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -16090,6 +16090,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _randnessPitch: 0.2
   antDieClip: {fileID: 8300000, guid: 1a3aa12acc48c7541a50f93fe4007595, type: 3}
+  antStepClip: {fileID: 8300000, guid: 6e445c44b58e8e142b216ad78bcff758, type: 3}
 --- !u!82 &420212202
 AudioSource:
   m_ObjectHideFlags: 0
@@ -16099,9 +16100,9 @@ AudioSource:
   m_GameObject: {fileID: 420212195}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -8588348231464064206, guid: 35696cee5083acf46ba97ce36b0778df, type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -37961,7 +37962,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &914770608
 RectTransform:
   m_ObjectHideFlags: 0
