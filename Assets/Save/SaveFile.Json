@@ -5,14 +5,14 @@
     "inventoryList": [
         {
             "itemData": {
-                "itemID": "",
-                "name": "",
-                "info": "",
+                "itemID": "2065",
+                "name": "Letter",
+                "info": "from brother",
                 "sprite": {
                     "instanceID": 0
                 }
             },
-            "itemCount": 0
+            "itemCount": 1
         },
         {
             "itemData": {

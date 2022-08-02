@@ -40,3 +40,11 @@ MonoBehaviour:
     info: "\uAE40\uD61C\uC5F0\uC758 (\uC798 \uAE68\uC9C0\uB294 \uC544\uC774\uD3F0\uC774\uC9C0\uB9CC)
       \uAE68\uC9C4 \uD754\uC801\uC774 \uC5C6\uB294 \uC544\uC774\uD3F0\uC774\uB2E4."
     sprite: {fileID: 21300000, guid: c2b5bba51c53a0b40957fa96499eaf40, type: 3}
+  - itemID: 1114
+    name: ToiletKey
+    info: Could you open the locked bathroom door with this key?
+    sprite: {fileID: 21300000, guid: c73c5cf045df3b44a97a9464d20585cc, type: 3}
+  - itemID: 2065
+    name: Letter
+    info: from brother
+    sprite: {fileID: 21300000, guid: 19b76006ed86c3949a74435d97740e93, type: 3}
