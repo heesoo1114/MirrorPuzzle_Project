@@ -34,7 +34,7 @@ public class ChestScripts : InteractionObject
         if(Input.GetKey(KeyCode.Escape) && answerCheck)
         {
             hintImage.gameObject.SetActive(false);
-            GameManager.Inst.gameState = EGameState.Game;
+            GameManager.Inst.ChangeGameState(EGameState.Game);
         }
     }
 
@@ -42,24 +42,14 @@ public class ChestScripts : InteractionObject
     {
         if(!answerCheck)
         {
-<<<<<<< HEAD:Assets/02. Scripts/Yujin/Libray/ChestScripts.cs
-            GameManager.Inst.gameState = EGameState.UI;
-=======
         GameManager.Inst.ChangeGameState(EGameState.UI);
-
->>>>>>> OIF:Assets/02. Scripts/Library/ChestScripts.cs
             passWord.gameObject.SetActive(true);
         }
     }
 
     public override void ExitInteraction()
     {
-<<<<<<< HEAD:Assets/02. Scripts/Yujin/Libray/ChestScripts.cs
-        GameManager.Inst.gameState = EGameState.Game;
-=======
         GameManager.Inst.ChangeGameState(EGameState.Game);
-
->>>>>>> OIF:Assets/02. Scripts/Library/ChestScripts.cs
         passWord.gameObject.SetActive(false);
     }
 
@@ -94,7 +84,8 @@ public class ChestScripts : InteractionObject
 
         GameManager.Inst.librayChestPuzzleClear = true;
         answerCheck = true;
-        GameManager.Inst.gameState = EGameState.Game;
+        GameManager.Inst.ChangeGameState(EGameState.Game);
+
     }
 
     IEnumerator NotCorrectAnswer()
@@ -113,6 +104,6 @@ public class ChestScripts : InteractionObject
     public void OutChest()
     {
         passWord.gameObject.SetActive(false);
-        GameManager.Inst.gameState = EGameState.Game;
+        GameManager.Inst.ChangeGameState(EGameState.Game);
     }
 }

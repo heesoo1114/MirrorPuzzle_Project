@@ -5,9 +5,6 @@ using UnityEngine.UI;
 
 public class DrowFingding : InteractionObject
 {
-<<<<<<< HEAD
-    public override void InteractionEvent()
-=======
     public int count = 0;
 
     [SerializeField]
@@ -38,7 +35,6 @@ public class DrowFingding : InteractionObject
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
->>>>>>> OIF
     {
         Debug.Log(".");
     }
