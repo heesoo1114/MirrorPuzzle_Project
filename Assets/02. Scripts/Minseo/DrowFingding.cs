@@ -28,45 +28,6 @@ public class DrowFingding : MonoBehaviour
 
     public void Clickmerrer()
     {
-        if(GameManager.Inst.coliderState == eColiderState.Locker)
-        {
-            if (GameManager.Inst.WorldType == WorldType.RealWorld)
-            {
-                draws[0].gameObject.SetActive(true);
-            }
-        }
-        else if(GameManager.Inst.coliderState == eColiderState.Box)
-        {
-            if (GameManager.Inst.WorldType == WorldType.RealWorld)
-            {
-                draws[1].gameObject.SetActive(true);
-            }
-        }
-        else if(GameManager.Inst.coliderState == eColiderState.Table)
-        {
-            if (GameManager.Inst.WorldType == WorldType.RealWorld)
-            {
-                draws[2].gameObject.SetActive(true);
-            }
-        }
-        else if (GameManager.Inst.coliderState == eColiderState.Closet)
-        {
-            if(GameManager.Inst.WorldType == WorldType.RealWorld)
-            {
-                draws[3].gameObject.SetActive(true);
-            }
-        }
-        else if (GameManager.Inst.coliderState == eColiderState.Bed) 
-        {
-            if(GameManager.Inst.WorldType == WorldType.RealWorld)
-            {
-                draws[4].gameObject.SetActive(true);
-            }
-            else if(GameManager.Inst.WorldType == WorldType.MirrorWorld)
-            {
-                draws[4].gameObject.transform.localScale = new Vector3(-30, 30, 30);
-            }                                                                                                           
-        }
     }
 
     public void ObjectFind()

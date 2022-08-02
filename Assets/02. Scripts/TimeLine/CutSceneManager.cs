@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class CutSceneManager : MonoBehaviour
 {
     [SerializeField] private List<CutSceneSO> _cutSceneDataList;
     [SerializeField] private TextPanel _textPanel;
     [SerializeField] private List<CutSceneDirector> _cutSceneDirectorList;
+    [SerializeField] private CinemachineVirtualCameraBase _timeLineCam;
 
     private CutSceneSO _currentCutScene;
     private CutSceneDirector _currentDirector;
@@ -42,12 +44,15 @@ public class CutSceneManager : MonoBehaviour
 
         _isPlaying = true;
         _isScriptStarted = false;
+        GameManager.Inst.gameState = EGameState.Timeline;
 
         _currentCutScene = _cutSceneDataList.Find( x =>x.cutSceneID.Equals(cutSceneID));
         
         _scriptIdx = 0;
 
         _currentDirector = _cutSceneDirectorList.Find(x => x.cutSceneID.Equals(_currentCutScene.cutSceneID));
+
+        _timeLineCam.m_Priority = 20;
 
         _currentDirector?.Play();
     }   
@@ -99,6 +104,7 @@ public class CutSceneManager : MonoBehaviour
         _lineIdx = 0;
         _currentCutScene = null;
 
+        _timeLineCam.m_Priority = 0;
         GameManager.Inst.UI.StartFadeOut(0f);
         GameManager.Inst.gameState = EGameState.Game;
     }

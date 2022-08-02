@@ -16,8 +16,6 @@ public enum EGameState
 public class GameManager : MonoSingleton<GameManager>
 {
     public EGameState gameState;
-    public eColiderState coliderState;
-
 
     private UIManager uiManager;
 

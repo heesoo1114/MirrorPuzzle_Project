@@ -120,26 +120,6 @@ public class PlayerMove : MonoBehaviour
 
             //}
         }
-        else if (collision.collider.CompareTag("Closet"))
-        {
-            GameManager.Inst.coliderState = eColiderState.Closet;
-        }
-        else if (collision.collider.CompareTag("ObjectBox"))
-        {
-            GameManager.Inst.coliderState = eColiderState.Box;
-        }
-        else if (collision.collider.CompareTag("Objectbed"))
-        {
-            GameManager.Inst.coliderState = eColiderState.Bed;
-        }
-        else if (collision.collider.CompareTag("ObjectLaker"))
-        {
-            GameManager.Inst.coliderState = eColiderState.Locker;
-        }
-        else if (collision.collider.CompareTag("ObjectTable"))
-        {
-            GameManager.Inst.coliderState = eColiderState.Table;
-        }
     }
 
     private IEnumerator WarpPlayer(Vector2 warpPoint, string roomName)
