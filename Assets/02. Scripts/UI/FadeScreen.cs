@@ -11,6 +11,8 @@ public class FadeScreen : MonoBehaviour
 
     private bool _isFade;
 
+    public bool IsFade => _isFade;
+
     private void Awake()
     {
         _fadeImage = GetComponent<Image>();
@@ -31,12 +33,14 @@ public class FadeScreen : MonoBehaviour
 
     public void FadeIn(float duration = 1f)
     {
+        if (!_isFade) return;
         _isFade = false;
         FadeEffect(duration);
     }
 
     public void FadeOut(float duration = 1f)
     {
+        if (_isFade) return;
         _isFade = true;
         FadeEffect(duration);
     }

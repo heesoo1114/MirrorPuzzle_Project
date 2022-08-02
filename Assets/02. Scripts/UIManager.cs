@@ -57,6 +57,7 @@ public class UIManager : MonoBehaviour
     }
 
 
+
     // 디폴트 파라메터, 기본 매개변수, 매개변수에 값이 들어온다면 그 값으로 초기화가 되고
     // 아무 값도 들어오지않는다면 선언되있는 값으로 초기화
     public void ActiveTextPanal(string value = "")

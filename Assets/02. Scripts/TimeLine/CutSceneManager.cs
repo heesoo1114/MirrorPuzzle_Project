@@ -10,9 +10,11 @@ public class CutSceneManager : MonoBehaviour
 
     private CutSceneSO _currentCutScene;
     private CutSceneDirector _currentDirector;
-    private int _currentLineIdx;
+    private int _scriptIdx;
+    private int _lineIdx;
 
-    private CutSceneLine CurrentLine => _currentCutScene[_currentLineIdx];
+    private CutSceneScript _currentScript;
+    private CutSceneLine _currentLine;
 
     private bool _isPlaying;
     private bool _isScriptStarted;
@@ -36,17 +38,36 @@ public class CutSceneManager : MonoBehaviour
     public void StartCutScene(string cutSceneID)
     {
         if (_isPlaying) return;
-        if (_currentCutScene != null && _currentLineIdx < _currentCutScene.Count) return; 
+        if (_currentCutScene != null && _lineIdx < _currentCutScene.Count) return; 
 
         _isPlaying = true;
         _isScriptStarted = false;
 
         _currentCutScene = _cutSceneDataList.Find( x =>x.cutSceneID.Equals(cutSceneID));
-        _currentLineIdx = 0;
+        
+        _scriptIdx = 0;
 
         _currentDirector = _cutSceneDirectorList.Find(x => x.cutSceneID.Equals(_currentCutScene.cutSceneID));
 
         _currentDirector?.Play();
+    }   
+
+    public void StartTextScene()
+    {
+        if (_isPlaying == false) return;
+        if (_isScriptStarted) return;
+       
+        if (_isScriptStarted == false)
+            _isScriptStarted = true;
+
+        if (!_currentDirector.IsPuased)
+        {
+            _currentDirector.Pause();
+        }
+
+        _lineIdx = 0;
+        _currentScript = _currentCutScene[_scriptIdx++];
+        PlayCutSceneAct();
     }
 
     public void PlayCutSceneAct()
@@ -57,23 +78,16 @@ public class CutSceneManager : MonoBehaviour
             _textPanel.ImmediatelyEndOutput();
             return;
         }
-        if (_currentLineIdx >= _currentCutScene.Count)
+        if (_lineIdx >= _currentScript.Count)
         {
             _isScriptStarted = false;
             _textPanel.UnShowTextPanal();
             _currentDirector.Play();
             return;
         }
-        if (_isScriptStarted == false)
-            _isScriptStarted = true;
 
-        if(!_currentDirector.IsPuased)
-        {
-            _currentDirector.Pause();
-        }
-
-        _textPanel.ShowTextPanal(CurrentLine.lineText, CurrentLine.name);
-        _currentLineIdx++;
+        _currentLine = _currentScript[_lineIdx++];
+        _textPanel.ShowTextPanal(_currentLine.lineText, _currentLine.name);
     }
 
     public void EndCutScene()
@@ -82,7 +96,10 @@ public class CutSceneManager : MonoBehaviour
         _isScriptStarted = false;
         _currentDirector.Pause();
         _currentDirector = null;
-        _currentLineIdx = 0;
+        _lineIdx = 0;
         _currentCutScene = null;
+
+        GameManager.Inst.UI.StartFadeOut(0f);
+        GameManager.Inst.gameState = EGameState.Game;
     }
 }

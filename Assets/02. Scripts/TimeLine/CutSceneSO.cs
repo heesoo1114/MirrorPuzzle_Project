@@ -11,10 +11,9 @@ public class CutSceneLine
     public string lineText;
 }
 
-[CreateAssetMenu(menuName ="SO/CutScene/Script")]
-public class CutSceneSO : ScriptableObject
+[System.Serializable]
+public class CutSceneScript
 {
-    public string cutSceneID;
     public List<CutSceneLine> cutSceneLineList;
 
     public int Count => cutSceneLineList.Count;
@@ -23,5 +22,17 @@ public class CutSceneSO : ScriptableObject
     {
         get => cutSceneLineList[idx];
     }
-    
+}
+
+[CreateAssetMenu(menuName ="SO/CutScene")]
+public class CutSceneSO : ScriptableObject
+{
+    public string cutSceneID;
+    public List<CutSceneScript> cutSceneScriptList;
+    public int Count => cutSceneScriptList.Count;
+
+    public CutSceneScript this[int idx]
+    {
+        get => cutSceneScriptList[idx];
+    }
 }
