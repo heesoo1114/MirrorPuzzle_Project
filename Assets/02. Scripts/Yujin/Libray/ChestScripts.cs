@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class ChestScripts : InteractionObject
 {
+    public UnityEvent answerChestSound;
+    public UnityEvent notAnswerChestSound;
+
     [SerializeField]
     private Image passWord;
     [SerializeField]
@@ -66,7 +70,11 @@ public class ChestScripts : InteractionObject
     {
         toggleText.color = Color.cyan;
         toggleText.text = "정답입니다.";
+        
+        answerChestSound?.Invoke();
+
         yield return new WaitForSeconds(1.0f);
+        
         answerCheck = true;
         toggleText.color = Color.white;
         toggleText.text = "정답을 입력하세요.";
@@ -83,7 +91,11 @@ public class ChestScripts : InteractionObject
     {
         toggleText.color = Color.red;
         toggleText.text = "오답입니다.";
+
+        notAnswerChestSound?.Invoke();
+
         yield return new WaitForSeconds(1.0f);
+        
         toggleText.color = Color.white;
         toggleText.text = "정답을 입력하세요.";
     }

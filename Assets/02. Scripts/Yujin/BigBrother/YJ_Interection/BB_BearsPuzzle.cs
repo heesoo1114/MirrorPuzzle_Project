@@ -10,11 +10,16 @@ public class BB_BearsPuzzle : InteractionObject
 
     public override void InteractionEvent()
     {
-        // √—¿Ã∂˚ √—æÀ¿Ã ¥Ÿ ¿÷¥Ÿ∏È if
-        reloadPanel.gameObject.SetActive(true);
-
-        //else 
-        base.InteractionEvent();
-
+        if(InventorySystem.Inst.EqualsItem("BB_BlueBullet") &&
+           InventorySystem.Inst.EqualsItem("BB_RedBullet") &&
+           InventorySystem.Inst.EqualsItem("BB_NotRealGun"))
+        {
+            // √—¿Ã∂˚ √—æÀ¿Ã ¥Ÿ ¿÷¥Ÿ∏È if
+            reloadPanel.gameObject.SetActive(true);
+        }
+        else
+        {
+            base.InteractionEvent();
+        }
     }
 }
