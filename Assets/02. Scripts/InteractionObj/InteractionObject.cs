@@ -29,7 +29,7 @@ public class InteractionObject : MonoBehaviour
     public virtual void InteractionEvent()
     {
         string text = GameManager.Inst.FindTextData(_textDataID);
-
+        Debug.Log(text);
         if (text.CompareTo("") == 0 || text == null) return;
         GameManager.Inst.UI.ActiveTextPanal(text);
     }

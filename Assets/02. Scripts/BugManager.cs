@@ -14,6 +14,11 @@ public class BugManager : MonoBehaviour
 
     private bool _isStart;
 
+    private void Start()
+    {
+        Init();
+    }
+
     public void Init()
     {
         if (_isStart) return;
