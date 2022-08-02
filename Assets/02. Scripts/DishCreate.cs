@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 using TMPro;
 
@@ -17,12 +18,8 @@ public class DishCreate : MonoBehaviour
     [SerializeField] private Image background;
     [SerializeField] private Transform holder;
 
+    public UnityEvent OnGameClear;
     private List<Dish> dishs = new List<Dish>();
-
-    private void Start()
-    {
-        StartGame();
-    }
 
     void StartGame()
     {
@@ -66,6 +63,7 @@ public class DishCreate : MonoBehaviour
 
         if(dishCkeck >= spawnCnt)
         {
+            OnGameClear.Invoke();
             StartCoroutine(Clear());
         }
     }

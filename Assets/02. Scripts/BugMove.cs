@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using DG.Tweening;
+using UnityEngine.UI;
 
 public class BugMove : MonoBehaviour
 {
@@ -13,8 +15,15 @@ public class BugMove : MonoBehaviour
 
     private float targetAngle;
 
+    private Animator animator;
+    private Image image;
+
+    public UnityEvent OnBugDie;
+
     void Start()
     {
+        animator = GetComponent<Animator>();
+        image = GetComponent<Image>();
 
         RandomDir();
     }
@@ -77,8 +86,10 @@ public class BugMove : MonoBehaviour
     public void Click()
     {
         bugManager.DeadBug(this);
-        Destroy(gameObject);
+        animator.speed = 0f;
+        OnBugDie.Invoke();
+        image.enabled =false;
+        Destroy(gameObject, 1f); //
     }
-
 }
 // 움직임, 클릭시 사라짐
