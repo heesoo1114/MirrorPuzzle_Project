@@ -15,15 +15,15 @@ public class MirrorPuzzle : InteractionObject
 
     public override void InteractionEvent()
     {
-        if (InventorySystem.Inst.equipItemData.itemID == "Library_A_Stamp")
+        if (InventorySystem.Inst.equipItemDataID == "Library_A_Stamp")
         {
             aStampImage.gameObject.SetActive(true);
         }
-        else if (InventorySystem.Inst.equipItemData.itemID == "Library_B_GoldBar")
+        else if (InventorySystem.Inst.equipItemDataID == "Library_B_GoldBar")
         {
             bGoldImage.gameObject.SetActive(true);
         }
-        else if (InventorySystem.Inst.equipItemData.itemID == "Library_C_Book")
+        else if (InventorySystem.Inst.equipItemDataID == "Library_C_Book")
         {
             cBookImage.gameObject.SetActive(true);
         }
