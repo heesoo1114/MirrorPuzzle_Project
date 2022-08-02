@@ -42,14 +42,24 @@ public class ChestScripts : InteractionObject
     {
         if(!answerCheck)
         {
+<<<<<<< HEAD:Assets/02. Scripts/Yujin/Libray/ChestScripts.cs
             GameManager.Inst.gameState = EGameState.UI;
+=======
+        GameManager.Inst.ChangeGameState(EGameState.UI);
+
+>>>>>>> OIF:Assets/02. Scripts/Library/ChestScripts.cs
             passWord.gameObject.SetActive(true);
         }
     }
 
     public override void ExitInteraction()
     {
+<<<<<<< HEAD:Assets/02. Scripts/Yujin/Libray/ChestScripts.cs
         GameManager.Inst.gameState = EGameState.Game;
+=======
+        GameManager.Inst.ChangeGameState(EGameState.Game);
+
+>>>>>>> OIF:Assets/02. Scripts/Library/ChestScripts.cs
         passWord.gameObject.SetActive(false);
     }
 

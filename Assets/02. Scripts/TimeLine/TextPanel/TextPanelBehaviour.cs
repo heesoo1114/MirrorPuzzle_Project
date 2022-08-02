@@ -6,8 +6,10 @@ using UnityEngine.Timeline;
 [Serializable]
 public class TextPanelBehaviour : PlayableBehaviour
 {
+    [HideInInspector]
     public TextPanel textPanel;
 
+    public string nameText;
     public string textMessage;
     public bool isPlayClip;
 
@@ -23,7 +25,7 @@ public class TextPanelBehaviour : PlayableBehaviour
 
         base.OnBehaviourPlay(playable, info);
 
-        textPanel.ShowTextPanal(textMessage);
+        textPanel.ShowTextPanal(textMessage, nameText);
     }
 
 }

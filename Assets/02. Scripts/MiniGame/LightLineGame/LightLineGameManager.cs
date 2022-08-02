@@ -26,9 +26,13 @@ public class LightLineGameManager : MonoBehaviour
 
     public void GameEnd()
     {
+<<<<<<< HEAD
         GameManager.Inst.gameState = EGameState.Game;
 
         Sequence seq = DOTween.Sequence();
+=======
+        GameManager.Inst.ChangeGameState(EGameState.UI);
+>>>>>>> OIF
 
         _isStart = false;
         seq.Append(transform.DOScale(Vector3.zero, 0.8f).SetEase(Ease.InOutBounce));

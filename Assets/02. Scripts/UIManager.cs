@@ -7,7 +7,7 @@ using DG.Tweening;
 
 public class UIManager : MonoBehaviour
 {
-    public Image _fadeImage;
+    public FadeScreen _fadeScreen;
 
     public GameObject _interactionImage;
     public Vector3 _interactionOffset = new Vector2(0.2f, 0.2f);
@@ -42,10 +42,22 @@ public class UIManager : MonoBehaviour
 
     private Coroutine _textCoroutine;
 
-    public void FadeScreen(bool isFade)
+    public void StartFade(float duration = 1f)
     {
-        _fadeImage.DOFade(isFade ? 1f : 0f, 0.5f);
+        _fadeScreen.StartFade(duration);
     }
+
+    public void StartFadeIn(float duration = 1f)
+    {
+        _fadeScreen.FadeIn(duration);
+    }
+
+    public void StartFadeOut(float duration = 1f)
+    {
+        _fadeScreen.FadeOut(duration);
+    }
+
+
 
     // 디폴트 파라메터, 기본 매개변수, 매개변수에 값이 들어온다면 그 값으로 초기화가 되고
     // 아무 값도 들어오지않는다면 선언되있는 값으로 초기화
@@ -155,7 +167,7 @@ public class UIManager : MonoBehaviour
 
     public void InputPassword(string number)
     {
-        if(currentPw.Contains(number))
+        if (currentPw.Contains(number))
         {
             keypad.transform.GetChild(0).DOShakePosition(0.5f, 20);
             return;
@@ -190,7 +202,7 @@ public class UIManager : MonoBehaviour
         {
             worldText.text = "현실세계";
         }
-        if(_textCoroutine != null)
+        if (_textCoroutine != null)
         {
             StopCoroutine(_textCoroutine);
         }
@@ -220,14 +232,14 @@ public class UIManager : MonoBehaviour
 
     public void StartMiniGame()
     {
-        GameManager.Inst.gameState = EGameState.UI;
+        GameManager.Inst.ChangeGameState(EGameState.UI);
 
         _minigameManager.Init();
     }
 
     public void StartSwitchOnGame(int value)
     {
-        GameManager.Inst.gameState = EGameState.UI;
+        GameManager.Inst.ChangeGameState(EGameState.UI);
         if (value == 1)
             _switchMiniGameManager1.Init();
         else if (value == 2)
@@ -236,7 +248,7 @@ public class UIManager : MonoBehaviour
 
     public void StartLightLineGame()
     {
-        GameManager.Inst.gameState = EGameState.UI;
+        GameManager.Inst.ChangeGameState(EGameState.UI);
         _lightLineGameManager.Init();
     }
 }

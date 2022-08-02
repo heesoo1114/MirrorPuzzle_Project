@@ -72,15 +72,12 @@ public class InventorySystem : MonoSingleton<InventorySystem>
 
     public void Update()
     {
-        if (Input.GetKeyDown(KeyCode.U))
-        {
-            AddItem("ddd");
-        }
+        if (GameManager.Inst.GameState == EGameState.Timeline) return;
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             _isActive = !_isActive;
-            GameManager.Inst.gameState = _isActive ? EGameState.UI : EGameState.Game;
+            GameManager.Inst.ChangeGameState(_isActive ? EGameState.UI : EGameState.Game);
             _canvasGroup.DOFade(_isActive ? 1f : 0f, 0.5f);
             _canvasGroup.interactable = _isActive;
             _canvasGroup.blocksRaycasts = _isActive;

@@ -37,7 +37,7 @@ public class SwitchManager : MonoBehaviour
 
     private void GameEnd()
     {
-        GameManager.Inst.gameState = EGameState.Game;
+        GameManager.Inst.ChangeGameState(EGameState.Game);
         _isStart = false;
         Sequence seq = DOTween.Sequence();
         seq.Append(transform.DOScale(Vector3.zero, 0.8f).SetEase(Ease.InOutBounce));

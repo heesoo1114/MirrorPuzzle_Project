@@ -4,13 +4,18 @@ using UnityEngine;
 
 public class WarpZone : MonoBehaviour
 {
-    public Transform _warpPoint;
+    public Transform warpPoint;
     public EFaceType spawnType;
-    public RoomType _targetRoom;
-    [HideInInspector]
-    public Vector2 _offset;
 
+    public RoomType currentRoom;
+    public RoomType targetRoom;
+    
+    [HideInInspector]
+    public Vector2 offset;
+    [HideInInspector]
     public bool isLock;
+    [HideInInspector]
+    public string lockMessage;
 
     private string _roomName = "";
     public string RoomName
@@ -18,26 +23,25 @@ public class WarpZone : MonoBehaviour
         get => _roomName;
     }
 
-
     private void Start()
     {
         switch (spawnType)
         {
             case EFaceType.Right:
-                _offset = Vector2.right;
+                offset = Vector2.right;
                 break;
             case EFaceType.Left:
-                _offset = Vector2.left;
+                offset = Vector2.left;
                 break;
             case EFaceType.Up:
-                _offset = Vector2.up;
+                offset = Vector2.up;
                 break;
             case EFaceType.Down:
-                _offset = Vector2.down;
+                offset = Vector2.down;
                 break;
         }
 
-        switch (_targetRoom)
+        switch (targetRoom)
         {
             case RoomType.LivingRoom:
                 _roomName = "°Å½Ç";
@@ -83,6 +87,6 @@ public class WarpZone : MonoBehaviour
 
     public Vector2 WarpPoint
     {
-        get =>(Vector2)_warpPoint.position + _offset * 1.5f;
+        get => (Vector2)warpPoint.position + offset * 1.5f;
     }
 }
