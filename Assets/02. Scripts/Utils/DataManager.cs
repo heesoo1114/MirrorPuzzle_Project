@@ -55,12 +55,6 @@ public class DataManager : MonoSingleton<DataManager>
         }
 
         LoadFromJson();
-
-        _player.inventoryList.Clear();
-        foreach (var item in _itemDataList.itemDataList)
-        {
-            _player.inventoryList.Add(new InventoryItemData(item, 1));
-        }
     }
 
     private void Start()
@@ -69,6 +63,7 @@ public class DataManager : MonoSingleton<DataManager>
 
     private void LoadFromJson()
     {
+        _player = new PlayerData(defaultSound);
         //if (File.Exists(SAVE_PATH + SAVE_FILE))
         //{
         //    string stringJson = File.ReadAllText(SAVE_PATH + SAVE_FILE);
@@ -76,10 +71,9 @@ public class DataManager : MonoSingleton<DataManager>
         //}
         //else
         //{
-            
+
         //}
         //SaveToJson();
-            _player = new PlayerData(defaultSound);
     }
     public void SaveToJson()
     {
