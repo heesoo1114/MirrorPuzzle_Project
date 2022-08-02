@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,12 +15,41 @@ public class TextPanel : MonoBehaviour
 
     public bool IsOutput => _isOutput;
 
+    public Action OnKeyDownSpace;
+
+    private EGameState _beforeGameState;
+
+
+    public void Update()
+    {
+        if (GameManager.Inst.GameState != EGameState.UI) return;
+        if (gameObject.activeSelf == false) return;
+
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            if (OnKeyDownSpace != null)
+            {
+                OnKeyDownSpace?.Invoke();
+            }
+
+            else
+            {
+                if (_isOutput)
+                {
+                    ImmediatelyEndOutput();
+                }
+
+                else
+                {
+                    UnShowTextPanal();
+                }
+            }
+        }
+    }
 
     public void ShowTextPanal(string outputText, string name = "")
     {
         if (_isOutput) return;
-
-
 
         if (name != "")
         {
@@ -29,6 +59,11 @@ public class TextPanel : MonoBehaviour
         else
         {
             _nameTextPanal.gameObject.SetActive(false);
+        }
+        if (GameManager.Inst.GameState != EGameState.UI)
+        {
+            _beforeGameState = GameManager.Inst.GameState;
+            GameManager.Inst.ChangeGameState(EGameState.UI);
         }
 
         _isOutput = true;
@@ -87,6 +122,8 @@ public class TextPanel : MonoBehaviour
         _nameTextPanal.gameObject.SetActive(false);
         _currentText.text = "";
 
-        GameManager.Inst.gameState = EGameState.Game;
+        if(GameManager.Inst.GameState == EGameState.UI)
+            GameManager.Inst.ChangeGameState(_beforeGameState);
+
     }
 }

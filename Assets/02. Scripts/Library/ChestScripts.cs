@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ChestScripts : MonoBehaviour
+public class ChestScripts : InteractionObject
 {
     [SerializeField]
     private Image passWord;
@@ -20,29 +20,38 @@ public class ChestScripts : MonoBehaviour
 
     private bool answerCheck;
 
-    void Awake()
+    void Start()
     {
         answerCheck = false;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void Update()
     {
-        if (collision.collider.CompareTag("Player") && !answerCheck)
+        if(Input.GetKey(KeyCode.Escape) && answerCheck)
+            hintImage.gameObject.SetActive(false);
+    }
+
+    public override void InteractionEvent()
+    {
+        if(!answerCheck)
         {
+        GameManager.Inst.ChangeGameState(EGameState.UI);
+
             passWord.gameObject.SetActive(true);
         }
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    public override void ExitInteraction()
     {
+        GameManager.Inst.ChangeGameState(EGameState.Game);
+
         passWord.gameObject.SetActive(false);
     }
-
-
     public void EnterClick()
     {
         if (chestInput.text == "A 도장" || chestInput.text == "a 도장" )
         {
+            Debug.Log("정답");
             StartCoroutine("CorrectAnswer");
         }
         else
@@ -50,6 +59,7 @@ public class ChestScripts : MonoBehaviour
             StartCoroutine("NotCorrectAnswer");
         }
     }
+
     IEnumerator CorrectAnswer()
     {
         toggleText.color = Color.cyan;
@@ -61,6 +71,9 @@ public class ChestScripts : MonoBehaviour
 
         chestImage.SetActive(false);
         hintImage.gameObject.SetActive(true);
+
+        GameManager.Inst.librayChestPuzzleClear = true;
+        answerCheck = true;
     }
 
     IEnumerator NotCorrectAnswer()

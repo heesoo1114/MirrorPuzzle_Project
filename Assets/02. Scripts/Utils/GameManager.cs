@@ -15,20 +15,19 @@ public enum EGameState
 
 public class GameManager : MonoSingleton<GameManager>
 {
-    public EGameState gameState;
+    private EGameState _beforeGameState;
+    private EGameState _gameState;
+    public EGameState GameState => _gameState;
 
     private UIManager uiManager;
 
     public UIManager UI { get { return uiManager; } }
 
+
     private WorldType worldType = WorldType.RealWorld;
     public WorldType WorldType { get { return worldType; } set { worldType = value; } }
 
     [SerializeField] private TextDatas _textDatas;
-
-    // 추후 에디터윈도우로 따로 뺼 예정
-    [SerializeField] private List<CamState> _virtualCamList;
-
 
     public Light2D globalLight;
     public List<Room> rooms;
@@ -37,34 +36,28 @@ public class GameManager : MonoSingleton<GameManager>
     public UnityEvent ChangeMirrorWorld;
     public UnityEvent ChangeRealWorld;
 
+    public bool librayChestPuzzleClear = false;
+
     private void Awake()
     {
         uiManager = GetComponent<UIManager>();
 
-        InitCameraManager();
     }
 
-    private void InitCameraManager()
-    {
-        foreach(var camState in _virtualCamList) 
-        {
-            CameraManager.SubscribeCamera(camState.state, camState.cam);
-        }
-
-        //CameraManager.SwitchCamera(ECameraState.TimelineCam);
-    }
-
-    private void Start() 
+    private IEnumerator Start() 
     {
         ChangeGlobalLight();
 
         rooms = map.GetComponentsInChildren<Room>().ToList();
 
+        yield return new WaitForEndOfFrame();
+
+        CutSceneManager.Inst.StartCutScene("START");
     }
 
     private void Update()
     {
-        if (gameState != EGameState.Game) return;
+        if (GameState != EGameState.Game) return;
         if (Input.GetKeyDown(KeyCode.E))
         {
             ChangeWorld();
@@ -111,4 +104,14 @@ public class GameManager : MonoSingleton<GameManager>
         return _textDatas.FindTextData(id);
     }
 
+    public void ChangeGameState(EGameState state)
+    {
+        _beforeGameState = _gameState;
+        _gameState = state;
+    }
+
+    public void SetBackGameState()
+    {
+        _gameState = _beforeGameState;
+    }
 }

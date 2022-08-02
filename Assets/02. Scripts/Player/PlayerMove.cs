@@ -1,4 +1,4 @@
-using System.Collections;
+癤퓎sing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
@@ -26,15 +26,16 @@ public class PlayerMove : MonoBehaviour
     void Start()
     {
         _rigid = GetComponent<Rigidbody2D>();
+
         _timeLineAnimator = GetComponent<Animator>();
         _visualAnimator = transform.Find("VisualSprite").GetComponent<Animator>();
         _walkParticle = GetComponentInChildren<ParticleSystem>();
+
     }
 
-    // 실행되는 동안 반복 => 1 프레임 한번씩 호출
     private void Update()
     {
-        if (GameManager.Inst.gameState != EGameState.Game) return;
+        if (GameManager.Inst.GameState != EGameState.Game) return;
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -44,7 +45,11 @@ public class PlayerMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (GameManager.Inst.gameState != EGameState.Game) return;
+        if (GameManager.Inst.GameState != EGameState.Game)
+        {
+            _rigid.velocity = Vector2.zero;
+            return;
+        }
 
         InputDirection();
 
@@ -60,14 +65,11 @@ public class PlayerMove : MonoBehaviour
 
         if (dir.sqrMagnitude > 0)
         {
-            // 내가 가려고 한 방향이 지금 향하고 있는 방향의 반대면 
-            // 속도를 0으로 초기화를 시킨다
             if (Vector2.Dot(dir, _movementDir) < 0)
             {
                 _currentVelocity = 0f;
             }
 
-            // 값을 변경 시킴
             _movementDir = dir.normalized;
             _walkParticle.gameObject.SetActive(true);
         }
@@ -75,13 +77,10 @@ public class PlayerMove : MonoBehaviour
         {
             _walkParticle.gameObject.SetActive(false);
         }
-        // 값을 변경 시킴
 
         _movementDir = dir.normalized;
 
         _currentVelocity = CalcSpeed(dir.normalized);
-        // (0,0) == 움직일 방향이 없다면
-        // 값 변화가 없다
     }
 
     private float CalcSpeed(Vector2 dir)
@@ -104,21 +103,25 @@ public class PlayerMove : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (GameManager.Inst.gameState != EGameState.Game) return;
+        if (GameManager.Inst.GameState != EGameState.Game) return;
 
         if (collision.gameObject.CompareTag("Trigger"))
         {
             if (_isWarping) return;
             WarpZone warpZone = collision.gameObject.GetComponent<WarpZone>();
+
+            if (warpZone.isLock)
+            {
+                GameManager.Inst.UI.ActiveTextPanal(warpZone.lockMessage);
+                return;
+            }
+
+
             Vector2 warpPoint = warpZone.WarpPoint;
             _isWarping = true;
-            StartCoroutine(WarpPlayer(warpPoint, warpZone.RoomName));
-            // 맵 바꿀 때까지는 임시로 주석 해놓을게요
-            //if (_movementDir.x == warpZone._offset.x ||
-            //    _movementDir.y == warpZone._offset.y)
-            //{
+           
 
-            //}
+            StartCoroutine(WarpPlayer(warpPoint, warpZone.RoomName));
         }
     }
 
@@ -157,28 +160,26 @@ public class PlayerMove : MonoBehaviour
         }
     }
 
-    // 추후 개선
     public void ShakeObject()
     {
         _timeLineAnimator.enabled = false;
         transform.DOShakePosition(0.5f,0.5f).OnComplete(()=> _timeLineAnimator.enabled = true);
     }
 
+    public enum WalkType { RightWalk, LeftWalk, UpWalk, DownWalk }
     public void PlayAnimation(string walkType)
+
     {
         if (_visualAnimator == null) return;
-        if (walkType == null) return;
+        if (walkType == null || walkType == "") return;
         StopAllCoroutines();
-
-        // 위치 변경
-        GameManager.Inst.gameState = EGameState.Timeline;
 
         StartCoroutine(PlayAnimationCoroutine(Animator.StringToHash(walkType)));
     }
 
     private IEnumerator PlayAnimationCoroutine(int hash)
     {
-        while (GameManager.Inst.gameState == EGameState.Timeline)
+        while (GameManager.Inst.GameState == EGameState.Timeline)
         {
             _visualAnimator.Play(hash);
 

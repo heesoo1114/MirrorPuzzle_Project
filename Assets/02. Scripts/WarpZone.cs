@@ -6,18 +6,22 @@ public class WarpZone : MonoBehaviour
 {
     public Transform warpPoint;
     public EFaceType spawnType;
+
+    public RoomType currentRoom;
     public RoomType targetRoom;
+    
     [HideInInspector]
     public Vector2 offset;
+    [HideInInspector]
+    public bool isLock;
+    [HideInInspector]
+    public string lockMessage;
 
     private string _roomName = "";
     public string RoomName
     {
         get => _roomName;
     }
-    private bool _isLocked = true;
-
-    public bool IsLocked => _isLocked;
 
     private void Start()
     {

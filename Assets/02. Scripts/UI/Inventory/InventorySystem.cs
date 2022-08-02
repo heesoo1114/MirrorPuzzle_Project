@@ -5,9 +5,12 @@ using UnityEngine.UI;
 using DG.Tweening;
 using TMPro;
 
-public class InventorySystem : MonoBehaviour
+public class InventorySystem : MonoSingleton<InventorySystem>
 {
-    public static ItemData EquipItemData;
+    public string equipItemDataID;
+
+    [SerializeField] private ItemPanel _itemPanelTemp;
+    [SerializeField] private int _defaultGenerateCnt = 5;
 
     [SerializeField] private TMP_Text _itemNameText;
     [SerializeField] private TMP_Text _itemInfoText;
@@ -34,8 +37,12 @@ public class InventorySystem : MonoBehaviour
     private void Start()
     {
         _canvasGroup = GetComponent<CanvasGroup>();
-        _itemPanelList = GetComponentInChildren<GenerateItemPanel>().GeneratePanel();
         _timer = _changeItemDelay;
+
+        _itemNameText.text = "";
+        _itemInfoText.text = "";
+
+        GeneratePanel();
 
         SetActiveItemPanel();
         SettingCurrentItemPanel();
@@ -47,29 +54,30 @@ public class InventorySystem : MonoBehaviour
 
         int currentPanelIndex = CurrentItemPanel.Index;
 
-            for (int i = 0; i < _itemPanelList.Count; i++)
+        for (int i = 0; i < _itemPanelList.Count; i++)
+        {
+            if (_itemPanelList[i].Index <= Mathf.Max(currentPanelIndex, _maxShowPanelCnt - 1) &&
+               _itemPanelList[i].Index > currentPanelIndex - _maxShowPanelCnt)
             {
-                if (_itemPanelList[i].Index <= Mathf.Max(currentPanelIndex, _maxShowPanelCnt - 1) &&
-                   _itemPanelList[i].Index > currentPanelIndex - _maxShowPanelCnt)
-                {
-                    _itemPanelList[i].gameObject.SetActive(true);
-                }
-
-                else
-                {
-                    _itemPanelList[i].gameObject.SetActive(false);
-                }
+                _itemPanelList[i].gameObject.SetActive(true);
             }
 
+            else
+            {
+                _itemPanelList[i].gameObject.SetActive(false);
+            }
+        }
 
     }
 
     public void Update()
     {
+        if (GameManager.Inst.GameState == EGameState.Timeline) return;
+
         if (Input.GetKeyDown(KeyCode.Tab))
         {
             _isActive = !_isActive;
-            GameManager.Inst.gameState = _isActive ? EGameState.UI : EGameState.Game;
+            GameManager.Inst.ChangeGameState(_isActive ? EGameState.UI : EGameState.Game);
             _canvasGroup.DOFade(_isActive ? 1f : 0f, 0.5f);
             _canvasGroup.interactable = _isActive;
             _canvasGroup.blocksRaycasts = _isActive;
@@ -96,8 +104,6 @@ public class InventorySystem : MonoBehaviour
         {
             _timer = _changeItemDelay;
         }
-
-
     }
 
     public IEnumerator SetSelectItem(int idx)
@@ -115,38 +121,73 @@ public class InventorySystem : MonoBehaviour
         SettingCurrentItemPanel();
     }
 
-    public void AddItem(string itemID)
+    public void AddItem(string itemID, int addCount = 1)
     {
-       ItemData itemData =   DataManager.Inst.ItemDataList.Find(x => x.itemID.Equals(itemID));
-
-        if(itemData == null)
+        ItemData itemData = DataManager.Inst.ItemDataList.Find(x => x.itemID.Equals(itemID));
+        if (itemData == null)
         {
             Debug.LogError("해당 ID의 아이템이 없어요.");
         }
 
-        foreach(var panel in _itemPanelList)
+        foreach (var panel in _itemPanelList)
         {
             if (panel.IsEmpty)
             {
-                panel.SetItem(new InventoryItemData(itemData, 1));
+                panel.SetItem(new ItemData(itemData));
+                return;
             }
 
-            else if (panel.ItemData.itemData.itemID.Equals(itemID))
+            else if (panel.InventoryData.itemData.itemID.Equals(itemID))
             {
-                panel.SetItemCount(1);
+                panel.SetItemCount(addCount);
+                return;
             }
         }
+
+        AddPanel(new InventoryItemData(itemData, addCount));
     }
 
+    public bool EqualsItem(string itemID)
+    {
+        foreach (var panel in _itemPanelList)
+        {
+            if (panel.IsEmpty == false)
+            {
+                if (panel.InventoryData.itemData.itemID.Equals(itemID))
+                {
+                    return true;
+                }
+            }
+        }
+
+        return false;
+    }
 
     private void SettingCurrentItemPanel()
     {
         CurrentItemPanel.SetSprite(_selectSprite);
-        _equipItemIamge.sprite = CurrentItemPanel.ItemData.itemData.sprite;
+
+        if (CurrentItemPanel.IsEmpty)
+        {
+            _equipItemIamge.enabled = false;
+            equipItemDataID = "";
+        }
+
+        else
+        {
+            _equipItemIamge.sprite = CurrentItemPanel.InventoryData.itemData.sprite;
+            _equipItemIamge.enabled = true;
+            equipItemDataID = CurrentItemPanel.InventoryData.itemData.itemID;
+        }
+
         _targetPicker.SetPos(CurrentItemPanel.transform.position);
         SetItemText();
 
-        EquipItemData = CurrentItemPanel.ItemData.itemData; 
+    }
+
+    public void UseEquipItem(int useCount = 1)
+    {
+        CurrentItemPanel.SetItemCount(useCount * -1);
     }
 
     public void SetItemText()
@@ -156,4 +197,41 @@ public class InventorySystem : MonoBehaviour
         _itemInfoText.text = CurrentItemPanel.ItemInfo;
     }
 
+
+
+
+    public void GeneratePanel()
+    {
+        var list = DataManager.Inst.CurrentPlayer.inventoryList;
+
+        int cnt = list.Count < _defaultGenerateCnt ? _defaultGenerateCnt : list.Count;
+        for (int i = 0; i < cnt; i++)
+        {
+            if (i < list.Count)
+            {
+                AddPanel(list[i]);
+            }
+
+            else
+            {
+                AddPanel(new InventoryItemData(null, 0));
+            }
+        }
+    }
+
+    public ItemPanel AddPanel(InventoryItemData data)
+    {
+        ItemPanel panel = Instantiate(_itemPanelTemp, _itemPanelTemp.transform.parent);
+
+        panel.Init(data);
+
+        if (!DataManager.Inst.CurrentPlayer.inventoryList.Equals(data))
+        {
+            DataManager.Inst.CurrentPlayer.inventoryList.Add(data);
+        }
+
+        _itemPanelList.Add(panel);
+        panel.gameObject.SetActive(true);
+        return panel;
+    }
 }

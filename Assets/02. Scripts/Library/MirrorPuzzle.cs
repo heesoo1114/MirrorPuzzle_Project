@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MirrorPuzzle : MonoBehaviour
+public class MirrorPuzzle : InteractionObject
 {
     private bool isStampOff;
     private bool isGoldOff;
@@ -22,12 +22,6 @@ public class MirrorPuzzle : MonoBehaviour
     [SerializeField]
     private Button bookButton;
 
-
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
         if(!(gameObjects[0].activeSelf)) // µµ¿Â
@@ -45,31 +39,20 @@ public class MirrorPuzzle : MonoBehaviour
             bookButton.gameObject.SetActive(isBookOff);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    public override void InteractionEvent()
     {
-        if(collision.collider.CompareTag("Player"))
-        {
-            mirrorUI.gameObject.SetActive(true);
-        }
+        Debug.Log("§ª§©");
+        mirrorUI.gameObject.SetActive(true);
     }
 
-    private void OnCollisionExit2D(Collision2D collision)
+    public override void ExitInteraction() 
     {
         mirrorUI.gameObject.SetActive(false);
     }
 
-    public void StampButtonClick()
+
+    private void OnCollisionExit2D(Collision2D collision)
     {
-
-    }
-
-    public void GoldButtonClick()
-    {
-
-    }
-
-    public void BookButtonClick()
-    {
-
+        mirrorUI.gameObject.SetActive(false);
     }
 }

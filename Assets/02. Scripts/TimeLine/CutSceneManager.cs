@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 
-public class CutSceneManager : MonoBehaviour
+public class CutSceneManager : MonoSingleton<CutSceneManager>
 {
     [SerializeField] private List<CutSceneSO> _cutSceneDataList;
     [SerializeField] private TextPanel _textPanel;
@@ -21,33 +21,20 @@ public class CutSceneManager : MonoBehaviour
     private bool _isPlaying;
     private bool _isScriptStarted;
 
-    private void Start()
-    {
-        StartCutScene("START");
-    }
-
-    public void Update()
-    {
-        if (_isPlaying && _isScriptStarted)
-        {
-            if(Input.GetKeyDown(KeyCode.Space))
-            {
-                PlayCutSceneAct();
-            }
-        }
-    }
-
     public void StartCutScene(string cutSceneID)
     {
         if (_isPlaying) return;
-        if (_currentCutScene != null && _lineIdx < _currentCutScene.Count) return; 
+        if (_currentCutScene != null && _lineIdx < _currentCutScene.Count) return;
 
         _isPlaying = true;
         _isScriptStarted = false;
-        GameManager.Inst.gameState = EGameState.Timeline;
 
-        _currentCutScene = _cutSceneDataList.Find( x =>x.cutSceneID.Equals(cutSceneID));
-        
+        GameManager.Inst.ChangeGameState(EGameState.Timeline);
+
+        _currentCutScene = _cutSceneDataList.Find(x => x.cutSceneID.Equals(cutSceneID));
+        EventManager.TriggerEvent($"START_{_currentCutScene.cutSceneID}CUTSCENE");
+        _textPanel.OnKeyDownSpace += PlayCutSceneAct;
+
         _scriptIdx = 0;
 
         _currentDirector = _cutSceneDirectorList.Find(x => x.cutSceneID.Equals(_currentCutScene.cutSceneID));
@@ -55,13 +42,13 @@ public class CutSceneManager : MonoBehaviour
         _timeLineCam.m_Priority = 20;
 
         _currentDirector?.Play();
-    }   
+    }
 
     public void StartTextScene()
     {
         if (_isPlaying == false) return;
         if (_isScriptStarted) return;
-       
+
         if (_isScriptStarted == false)
             _isScriptStarted = true;
 
@@ -75,10 +62,27 @@ public class CutSceneManager : MonoBehaviour
         PlayCutSceneAct();
     }
 
+    public void EndTextScene()
+    {
+        if (_isPlaying == false) return;
+
+        if (_isScriptStarted)
+        {
+            _isScriptStarted = false;
+        }
+
+        _textPanel.UnShowTextPanal();
+
+        if (_currentDirector.IsPuased)
+        {
+            _currentDirector.Play();
+        }
+    }
+
     public void PlayCutSceneAct()
     {
         if (_isPlaying == false) return;
-        if(_textPanel.IsOutput)
+        if (_textPanel.IsOutput)
         {
             _textPanel.ImmediatelyEndOutput();
             return;
@@ -86,7 +90,6 @@ public class CutSceneManager : MonoBehaviour
         if (_lineIdx >= _currentScript.Count)
         {
             _isScriptStarted = false;
-            _textPanel.UnShowTextPanal();
             _currentDirector.Play();
             return;
         }
@@ -97,15 +100,21 @@ public class CutSceneManager : MonoBehaviour
 
     public void EndCutScene()
     {
+        if (_isPlaying == false) return;
+
         _isPlaying = false;
+        EventManager.TriggerEvent($"END_{_currentCutScene.cutSceneID}CUTSCENE");
+
         _isScriptStarted = false;
         _currentDirector.Pause();
         _currentDirector = null;
         _lineIdx = 0;
         _currentCutScene = null;
-
+        _textPanel.OnKeyDownSpace -= PlayCutSceneAct;
         _timeLineCam.m_Priority = 0;
+
         GameManager.Inst.UI.StartFadeOut(0f);
-        GameManager.Inst.gameState = EGameState.Game;
+
+        GameManager.Inst.ChangeGameState(EGameState.Game);
     }
 }

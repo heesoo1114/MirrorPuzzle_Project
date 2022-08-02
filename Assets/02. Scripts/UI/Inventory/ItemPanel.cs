@@ -15,11 +15,11 @@ public class ItemPanel : MonoBehaviour
 
     public int Index => _currentIndex;
 
-    public bool IsEmpty => _inventoryItemData == null;
+    public bool IsEmpty => _inventoryItemData.itemData == null;
 
     public string ItemName => _inventoryItemData.itemData.name;
     public string ItemInfo => _inventoryItemData.itemData.info;
-    public InventoryItemData ItemData => _inventoryItemData;
+    public InventoryItemData InventoryData => _inventoryItemData;
 
     private void Awake()
     {
@@ -35,19 +35,27 @@ public class ItemPanel : MonoBehaviour
         if (_itemCountText == null)
             _itemCountText = transform.Find("ItemCountText").GetComponent<Text>();
 
-            SetItem(data);
         _currentIndex = transform.GetSiblingIndex() - 1;
+
+        _inventoryItemData = data;
+
+        SetItem(data.itemData);
     }
 
-    public void SetItem(InventoryItemData data)
+    public void SetItem(ItemData data)
     {
-        if(data == null)
+        if (data == null)
         {
-            _inventoryItemData = null;
+            _inventoryItemData.itemData = null;
+            _itemImage.enabled = false;
+            _itemCountText.text = "";
             return;
         }
 
-        _inventoryItemData = data;
+        _inventoryItemData.itemData = data;
+        _inventoryItemData.itemCount = 1;
+        _itemImage.enabled = true;
+
         _itemImage.sprite = _inventoryItemData.itemData.sprite;
         SetCountText();
     }
@@ -55,6 +63,13 @@ public class ItemPanel : MonoBehaviour
     public void SetItemCount(int value)
     {
         _inventoryItemData.itemCount += value;
+
+        if (_inventoryItemData.itemCount <= 0)
+        {
+            _inventoryItemData.itemCount = 0;
+            SetItem(null);
+        }
+
 
         SetCountText();
     }

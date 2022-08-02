@@ -38,6 +38,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private BugManager _minigameManager;
     [SerializeField] private SwitchManager _switchMiniGameManager1;
     [SerializeField] private SwitchManager _switchMiniGameManager2;
+    [SerializeField] private LightLineGameManager _lightLineGameManager;
 
     private Coroutine _textCoroutine;
 
@@ -231,16 +232,23 @@ public class UIManager : MonoBehaviour
 
     public void StartMiniGame()
     {
-        GameManager.Inst.gameState = EGameState.UI;
+        GameManager.Inst.ChangeGameState(EGameState.UI);
+
         _minigameManager.Init();
     }
 
     public void StartSwitchOnGame(int value)
     {
-        GameManager.Inst.gameState = EGameState.UI;
+        GameManager.Inst.ChangeGameState(EGameState.UI);
         if (value == 1)
             _switchMiniGameManager1.Init();
         else if (value == 2)
             _switchMiniGameManager2.Init();
+    }
+
+    public void StartLightLineGame()
+    {
+        GameManager.Inst.ChangeGameState(EGameState.UI);
+        _lightLineGameManager.Init();
     }
 }

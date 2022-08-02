@@ -17,26 +17,22 @@ public class OliverAnimation : MonoBehaviour
         if (walkType == null) return;
         StopAllCoroutines();
 
-        // 위치 변경
-        GameManager.Inst.gameState = EGameState.Timeline;
-        int hash = Animator.StringToHash(walkType);
-
         if (walkType.Contains("Walk"))
         {
-            StartCoroutine(PlayAnimationCoroutine(hash));
+            StartCoroutine(PlayAnimationCoroutine(walkType));
         }
 
         else
         {
-            _visualAnimator.Play(hash);
+            _visualAnimator.Play(walkType);
         }
     }
 
-    private IEnumerator PlayAnimationCoroutine(int hash)
+    private IEnumerator PlayAnimationCoroutine(string walkType)
     {
-        while (GameManager.Inst.gameState == EGameState.Timeline)
+        while (GameManager.Inst.GameState == EGameState.Timeline)
         {
-            _visualAnimator.Play(hash);
+            _visualAnimator.Play(walkType);
 
             yield return new WaitForFixedUpdate();
         }
