@@ -29,7 +29,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     [SerializeField] private TextDatas _textDatas;
 
-    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½E ï¿½ï¿½ï¿½ï¿½
+    // ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿?ï¿½ï¿½ï¿½ï¿½ ï¿½E ï¿½ï¿½ï¿½ï¿½
     [SerializeField] private List<CamState> _virtualCamList;
 
 

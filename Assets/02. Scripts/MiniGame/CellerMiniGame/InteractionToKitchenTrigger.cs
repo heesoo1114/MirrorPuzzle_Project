@@ -6,7 +6,7 @@ public class InteractionToKitchenTrigger : InteractionObject
 {
     public override void InteractionEvent()
     {
-        if (InventorySystem.Inst.equipItemData.itemID == "10")
+        if (InventorySystem.Inst.equipItemDataID == "10")
         {
             GameManager.Inst.UI.ActiveTextPanal("πÆ¿Ã ø≠∑»¥Ÿ.");
             StartCoroutine(ImmediatelyStop());

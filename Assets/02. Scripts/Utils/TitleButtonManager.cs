@@ -2,32 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using DG.Tweening;
 
 public class TitleButtonManager : MonoBehaviour
 {
-    public bool isSettingPanel = false;
+    [SerializeField] private GameObject SettingPanel = null;
+    [SerializeField] private CanvasGroup canvasGroup = null;
+    private bool isSettingPanelOn = false;
 
     public void NewGame()
     {
         SceneManager.LoadScene("Gaon");
-    }
-
-    public void NewGameAsync()
-    {
-        // 비동기적으로 Scene을 불러오기 위해 Coroutine을 사용한다.
-        StartCoroutine(LoadMyAsyncScene());
-    }
-
-    IEnumerator LoadMyAsyncScene()
-    {
-        // AsyncOperation을 통해 Scene Load 정도를 알 수 있다.
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Main");
-
-        // Scene을 불러오는 것이 완료되면, AsyncOperation은 isDone 상태가 된다.
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
-        }
     }
 
     public void LoadGame()
@@ -35,9 +20,12 @@ public class TitleButtonManager : MonoBehaviour
 
     }
 
-    public void Setting()
+    public void SettingPanelOnOff()
     {
-
+        if (isSettingPanelOn == false) SettingPanel.SetActive(true);
+        canvasGroup.DOFade(isSettingPanelOn ? 0f : 1f, 0.5f);
+        isSettingPanelOn = !isSettingPanelOn;
+        if (isSettingPanelOn == false) SettingPanel.SetActive(false);
     }
 
     public void Quit()
