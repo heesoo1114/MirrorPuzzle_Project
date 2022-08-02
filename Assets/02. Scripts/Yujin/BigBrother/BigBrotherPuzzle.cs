@@ -3,9 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.Events;
 
 public class BigBrotherPuzzle : MonoBehaviour
 {
+    public UnityEvent bb_startEvent;
+    public UnityEvent bb_shootEvent;
+
     private int equipPanelCnt;
 
     private int checkRedBear;
@@ -39,6 +43,7 @@ public class BigBrotherPuzzle : MonoBehaviour
     {
         if(Check())
         {
+            bb_startEvent?.Invoke();
             puzzleImage.gameObject.SetActive(true);
             gunReloadImage.gameObject.SetActive(false);
         }
@@ -53,6 +58,8 @@ public class BigBrotherPuzzle : MonoBehaviour
         {
             Debug.Log("ÆÄ¶õ°õÀ» »¡°£ ÃÑ¾Ë·Î ½ú´Ù.");
         }
+
+        bb_shootEvent?.Invoke();
 
         checkBlueBear++;
 
@@ -78,6 +85,8 @@ public class BigBrotherPuzzle : MonoBehaviour
             Debug.Log("½ÇÆÐ");
             puzzleImage.gameObject.SetActive(false);
         }
+
+        bb_shootEvent?.Invoke();
 
         equipPanelCnt++;
         if (equipPanelCnt >= 9)
