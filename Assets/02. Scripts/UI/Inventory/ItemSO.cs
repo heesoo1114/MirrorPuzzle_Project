@@ -17,6 +17,7 @@ public class ItemData
         itemID = data.itemID;
         name = data.name;
         info = data.info;
+        sprite = data.sprite;
     }
 }
 

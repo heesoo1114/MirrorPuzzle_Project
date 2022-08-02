@@ -191,7 +191,7 @@ MonoBehaviour:
   m_MinSize: {x: 300, y: 100}
   m_MaxSize: {x: 24288, y: 8096}
   vertical: 0
-  controlID: 31399
+  controlID: 60279
 --- !u!114 &6
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -468,9 +468,9 @@ MonoBehaviour:
   m_PlayAudio: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: 170.94995, y: 180.93349, z: -2.413508}
+    m_Target: {x: 249.5, y: 140.5, z: 0}
     speed: 2
-    m_Value: {x: 170.94995, y: 180.93349, z: -2.413508}
+    m_Value: {x: 249.5, y: 140.5, z: 0}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -521,9 +521,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 207.8443
+    m_Target: 286.33984
     speed: 2
-    m_Value: 207.8443
+    m_Value: 286.33984
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -1019,20 +1019,20 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: 9cf50300
-      m_LastClickedID: 259484
-      m_ExpandedIDs: ec38fdff30c0fdff5cc1fdff26c6fdff96e0fdff86ecfdffda07feffea9efeffbcabfeff92acfeff34affeff60e1feff4e7fffffcaaeffffc0afffffe8b1ffffb8b3ffffe0fafffff4ffffff1a6500004c67000086670000806a0000c66a0000186c00007cf7000098fd0000cefe0000380201006c02010082d60100c0fc0100b40d0200961b0200801f0200b620020052240200ccc2020046c6020094fa020012580300fc5b03002e5d0300d46003009cf50300acf50300
+      m_SelectedIDs: 
+      m_LastClickedID: 0
+      m_ExpandedIDs: 7c9cfbff2ed5fbff8edbfbffc0e9fbff98f5fbff2efffbff6868fcffec38fdff30c0fdff5cc1fdff26c6fdff96e0fdff86ecfdffda07feffea9efeffbcabfeff92acfeff34affeff60e1feff4e7fffffcaaeffffc0afffffe8b1ffffb8b3ffffe0fafffff4ffffff1a6500004c67000086670000806a0000c66a0000186c00007cf7000098fd0000cefe0000380201006c02010082d60100c0fc0100b40d0200961b0200801f0200b620020052240200ccc2020046c6020094fa020012580300fc5b03002e5d0300d4600300acf50300a84704004c52040042540400bc6e0400a47204006a830400d08304002c89040082890400348b04004eb80400
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Effect
-        m_OriginalName: Effect
+        m_Name: Main Camera
+        m_OriginalName: Main Camera
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: -188348
+        m_UserData: 295764
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
         m_OriginalEventType: 0
@@ -1112,22 +1112,22 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/02. Scripts/UI/Inventory
+    - Assets/02. Scripts/UI
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/02. Scripts/UI/Inventory
+  - Assets/02. Scripts/UI
   m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\GitHub\MirrorPuzzle_Project
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 36}
-    m_SelectedIDs: 84a50000
-    m_LastClickedID: 42372
-    m_ExpandedIDs: 00000000c6750000c8750000ca750000cc750000ce750000e2750000087600005676000000ca9a3b
+    m_SelectedIDs: 08760000
+    m_LastClickedID: 30216
+    m_ExpandedIDs: 00000000c6750000c8750000ca750000cc750000ce750000e27500000876000000ca9a3b
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1180,24 +1180,24 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: 9cf50300
-    m_LastClickedInstanceID: 259484
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
-    m_ExpandedInstanceIDs: c6230000806d00007ae50000823a0000083600001c7c0000566900000c6900008694000004690000f8680000fe970000c469000078d80000c2380100a6b501008a740000a67200000000000078760000
+    m_ExpandedInstanceIDs: c6230000806d00007ae50000823a0000083600001c7c0000566900000c6900008694000004690000f8680000fe970000c469000078d80000c2380100a6b501008a7400000000000078760000a6720000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: UI
-      m_OriginalName: UI
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 30216
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 13}
     m_CreateAssetUtility:
@@ -1293,7 +1293,7 @@ MonoBehaviour:
     m_SaveData: []
   m_LockTracker:
     m_IsLocked: 0
-  m_LastSelectedObjectID: -188348
+  m_LastSelectedObjectID: 309384
 --- !u!114 &18
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -1379,23 +1379,23 @@ MonoBehaviour:
     m_SaveData: []
   m_MixersTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 78760000
+    m_SelectedIDs: 
     m_LastClickedID: 30328
     m_ExpandedIDs: 12eb343c
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: MainAudioMixer
-      m_OriginalName: MainAudioMixer
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 30328
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 18}
     m_SearchString: 

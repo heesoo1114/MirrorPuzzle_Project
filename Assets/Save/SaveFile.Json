@@ -9,7 +9,7 @@
                 "name": "지하실 키",
                 "info": "지하실 문을 열 수 있는 키다.",
                 "sprite": {
-                    "instanceID": 0
+                    "instanceID": 28534
                 }
             },
             "itemCount": 1
