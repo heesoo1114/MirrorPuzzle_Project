@@ -13,6 +13,7 @@ public class ToiletObjectManager : InteractionObject
     {
         //if (isCheck) return;
         base.InteractionEvent();
+        
         interect?.Invoke();
         //isCheck = true;
     }
