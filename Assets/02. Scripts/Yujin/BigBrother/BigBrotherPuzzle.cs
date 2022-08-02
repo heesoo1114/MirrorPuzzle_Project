@@ -76,7 +76,7 @@ public class BigBrotherPuzzle : MonoBehaviour
         else if (checkEquipPanel.GetChild(equipPanelCnt).GetChild(0).gameObject.CompareTag("RedBullet"))
         {
             Debug.Log("실패");
-            clickBear.SetActive(false);
+            puzzleImage.gameObject.SetActive(false);
         }
 
         equipPanelCnt++;
@@ -84,6 +84,9 @@ public class BigBrotherPuzzle : MonoBehaviour
             equipPanelCnt = 0;
 
         if (checkRedBear + checkBlueBear >= 9)
+        {
             Debug.Log("퍼즐 클리어");
+            puzzleImage.gameObject.SetActive(false);
+        }
     }
 }

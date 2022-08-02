@@ -5,54 +5,27 @@ using UnityEngine.UI;
 
 public class MirrorPuzzle : InteractionObject
 {
-    private bool isStampOff;
-    private bool isGoldOff;
-    private bool isBookOff;
-
     [SerializeField]
-    private GameObject[] gameObjects;
-
+    private Image aStampImage;
     [SerializeField]
-    private Image mirrorUI;
-
+    private Image bGoldImage;
     [SerializeField]
-    private Button stampButton;
-    [SerializeField]
-    private Button goldButton;
-    [SerializeField]
-    private Button bookButton;
+    private Image cBookImage;
 
-    void Update()
-    {
-        if(!(gameObjects[0].activeSelf)) // 도장
-            isStampOff = true;
-        if (!(gameObjects[1].activeSelf)) // 황금
-            isGoldOff = true;
-        if (!(gameObjects[2].activeSelf)) // 책
-            isBookOff = true;
-
-        if (isStampOff)
-            stampButton.gameObject.SetActive(isStampOff);
-        if (isGoldOff)
-            goldButton.gameObject.SetActive(isGoldOff);
-        if (isBookOff)
-            bookButton.gameObject.SetActive(isBookOff);
-    }
 
     public override void InteractionEvent()
     {
-        Debug.Log("ㅋㄹ");
-        mirrorUI.gameObject.SetActive(true);
-    }
-
-    public override void ExitInteraction() 
-    {
-        mirrorUI.gameObject.SetActive(false);
-    }
-
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        mirrorUI.gameObject.SetActive(false);
+        if (InventorySystem.Inst.equipItemData.itemID == "Library_A_Stamp")
+        {
+            aStampImage.gameObject.SetActive(true);
+        }
+        else if (InventorySystem.Inst.equipItemData.itemID == "Library_B_GoldBar")
+        {
+            bGoldImage.gameObject.SetActive(true);
+        }
+        else if (InventorySystem.Inst.equipItemData.itemID == "Library_C_Book")
+        {
+            cBookImage.gameObject.SetActive(true);
+        }
     }
 }

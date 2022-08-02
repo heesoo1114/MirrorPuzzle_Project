@@ -28,15 +28,17 @@ public class ChestScripts : InteractionObject
     private void Update()
     {
         if(Input.GetKey(KeyCode.Escape) && answerCheck)
+        {
             hintImage.gameObject.SetActive(false);
+            GameManager.Inst.gameState = EGameState.Game;
+        }
     }
 
     public override void InteractionEvent()
     {
         if(!answerCheck)
         {
-        GameManager.Inst.gameState = EGameState.UI;
-
+            GameManager.Inst.gameState = EGameState.UI;
             passWord.gameObject.SetActive(true);
         }
     }
@@ -44,9 +46,9 @@ public class ChestScripts : InteractionObject
     public override void ExitInteraction()
     {
         GameManager.Inst.gameState = EGameState.Game;
-
         passWord.gameObject.SetActive(false);
     }
+
     public void EnterClick()
     {
         if (chestInput.text == "A 도장" || chestInput.text == "a 도장" )
@@ -74,6 +76,7 @@ public class ChestScripts : InteractionObject
 
         GameManager.Inst.librayChestPuzzleClear = true;
         answerCheck = true;
+        GameManager.Inst.gameState = EGameState.Game;
     }
 
     IEnumerator NotCorrectAnswer()
@@ -83,5 +86,11 @@ public class ChestScripts : InteractionObject
         yield return new WaitForSeconds(1.0f);
         toggleText.color = Color.white;
         toggleText.text = "정답을 입력하세요.";
+    }
+
+    public void OutChest()
+    {
+        passWord.gameObject.SetActive(false);
+        GameManager.Inst.gameState = EGameState.Game;
     }
 }
