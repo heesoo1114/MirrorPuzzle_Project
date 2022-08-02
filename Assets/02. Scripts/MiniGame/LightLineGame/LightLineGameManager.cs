@@ -26,10 +26,14 @@ public class LightLineGameManager : MonoBehaviour
 
     public void GameEnd()
     {
-        GameManager.Inst.gameState = EGameState.UI;
+        GameManager.Inst.gameState = EGameState.Game;
+
+        Sequence seq = DOTween.Sequence();
 
         _isStart = false;
-        transform.DOScale(Vector3.zero, 0.8f).SetEase(Ease.InOutBounce)
-            .OnComplete(() => gameEndEvent?.Invoke()).OnComplete(() => gameObject.SetActive(false));
+        seq.Append(transform.DOScale(Vector3.zero, 0.8f).SetEase(Ease.InOutBounce));
+        seq.AppendCallback(() => gameEndEvent?.Invoke());
+        seq.AppendCallback(() => gameObject.SetActive(false));
+        
     }
 }
