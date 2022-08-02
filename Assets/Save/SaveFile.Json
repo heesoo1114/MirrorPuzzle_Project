@@ -16,14 +16,14 @@
         },
         {
             "itemData": {
-                "itemID": "",
-                "name": "",
-                "info": "",
+                "itemID": "20",
+                "name": "형의 쪽지",
+                "info": "읽을 수 없는 글자다. (추후 업데이트 할 예정)",
                 "sprite": {
-                    "instanceID": 0
+                    "instanceID": 29202
                 }
             },
-            "itemCount": 0
+            "itemCount": 1
         },
         {
             "itemData": {
