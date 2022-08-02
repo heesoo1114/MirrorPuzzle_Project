@@ -2,9 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class ChestScripts : InteractionObject
 {
+    public UnityEvent answerChestSound;
+    public UnityEvent notAnswerChestSound;
+
     [SerializeField]
     private Image passWord;
     [SerializeField]
@@ -28,15 +32,17 @@ public class ChestScripts : InteractionObject
     private void Update()
     {
         if(Input.GetKey(KeyCode.Escape) && answerCheck)
+        {
             hintImage.gameObject.SetActive(false);
+            GameManager.Inst.gameState = EGameState.Game;
+        }
     }
 
     public override void InteractionEvent()
     {
         if(!answerCheck)
         {
-        GameManager.Inst.gameState = EGameState.UI;
-
+            GameManager.Inst.gameState = EGameState.UI;
             passWord.gameObject.SetActive(true);
         }
     }
@@ -44,9 +50,9 @@ public class ChestScripts : InteractionObject
     public override void ExitInteraction()
     {
         GameManager.Inst.gameState = EGameState.Game;
-
         passWord.gameObject.SetActive(false);
     }
+
     public void EnterClick()
     {
         if (chestInput.text == "A 도장" || chestInput.text == "a 도장" )
@@ -64,7 +70,11 @@ public class ChestScripts : InteractionObject
     {
         toggleText.color = Color.cyan;
         toggleText.text = "정답입니다.";
+        
+        answerChestSound?.Invoke();
+
         yield return new WaitForSeconds(1.0f);
+        
         answerCheck = true;
         toggleText.color = Color.white;
         toggleText.text = "정답을 입력하세요.";
@@ -74,14 +84,25 @@ public class ChestScripts : InteractionObject
 
         GameManager.Inst.librayChestPuzzleClear = true;
         answerCheck = true;
+        GameManager.Inst.gameState = EGameState.Game;
     }
 
     IEnumerator NotCorrectAnswer()
     {
         toggleText.color = Color.red;
         toggleText.text = "오답입니다.";
+
+        notAnswerChestSound?.Invoke();
+
         yield return new WaitForSeconds(1.0f);
+        
         toggleText.color = Color.white;
         toggleText.text = "정답을 입력하세요.";
+    }
+
+    public void OutChest()
+    {
+        passWord.gameObject.SetActive(false);
+        GameManager.Inst.gameState = EGameState.Game;
     }
 }

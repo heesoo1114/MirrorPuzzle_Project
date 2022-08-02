@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Drawer : ToiletObjectManager
 {
+    private BoxCollider2D _boxCollider;
 
     public GameObject open;
     public GameObject close;
@@ -18,12 +19,18 @@ public class Drawer : ToiletObjectManager
         StartCoroutine(NoneText());
     }
 
+    private void Start()
+    {
+        _boxCollider = GetComponent<BoxCollider2D>();
+    }
+
     public void OpenDrawer()
     {
         open.SetActive(false);
         letter.SetActive(true);
         close.SetActive(true);
         isAction = true;
+        _boxCollider.enabled = false;
     }
 
     public void CloseDrawer()
@@ -38,7 +45,7 @@ public class Drawer : ToiletObjectManager
         if (isAction == true)
         {
             string text = GameManager.Inst.FindTextData(_textDataID = "Drawer_Mirror");
-
+            
             if (text.CompareTo("") == 0 || text == null) yield return null;
             GameManager.Inst.UI.ActiveTextPanal(text);
         }
@@ -51,5 +58,4 @@ public class Drawer : ToiletObjectManager
         }
         yield return null;
     }
-
 }

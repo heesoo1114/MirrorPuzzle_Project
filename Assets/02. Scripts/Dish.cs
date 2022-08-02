@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using System;
@@ -23,7 +24,8 @@ public class Dish : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IP
     private bool isMouseEnter = false;
 
     public Action<Transform> OnDishClear;
-
+    public UnityEvent OnWashDish;
+    public UnityEvent OnCleanDish;
 
     void Start()
     {
@@ -42,7 +44,8 @@ public class Dish : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IP
 
         if(Vector2.Distance(mousePos, currentPos) >= mDistance)
         {
-            mousePos = currentPos;/*현재의 포지션*/;
+            OnWashDish.Invoke();
+            mousePos = currentPos;/*현재의 포지션*/
 
             if(isMouseEnter)
             {
@@ -50,7 +53,7 @@ public class Dish : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IP
                 {
                     isMouseEnter = false;
                 }
-
+                OnCleanDish.Invoke();
                 cnt++;
 
                 if (cnt >= sum)
