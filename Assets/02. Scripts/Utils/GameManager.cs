@@ -52,21 +52,21 @@ public class GameManager : MonoSingleton<GameManager>
 
         yield return new WaitForEndOfFrame();
 
-        CutSceneManager.Inst.StartCutScene("START");
+        CutSceneManager.Inst.StartCutScene("CELLER");
     }
 
-    private void Update()
-    {
-        if (GameState != EGameState.Game) return;
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            ChangeWorld();
-        }
-    }
-
-    private void ChangeWorld()
+    public void ChangeWorld()
     {
         if (uiManager.isWorldBarMoving) return;
+
+        StartCoroutine(ChangeWorldCoroutine());
+    }
+
+    private IEnumerator ChangeWorldCoroutine()
+    {
+        uiManager.ColorFade(Color.white, false, 0.5f);
+        yield return new WaitForSeconds(0.5f);
+        uiManager.ColorFade(Color.white, true, 0.5f);
 
         if (worldType == WorldType.MirrorWorld)
         {
@@ -84,7 +84,6 @@ public class GameManager : MonoSingleton<GameManager>
         uiManager.ActiveWorldText(worldType);
 
         ChangeGlobalLight();
-        Debug.Log(worldType.ToString());
     }
 
     private void ChangeGlobalLight()

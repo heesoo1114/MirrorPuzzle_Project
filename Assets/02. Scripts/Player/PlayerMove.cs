@@ -119,22 +119,23 @@ public class PlayerMove : MonoBehaviour
 
             Vector2 warpPoint = warpZone.WarpPoint;
             _isWarping = true;
-           
 
-            StartCoroutine(WarpPlayer(warpPoint, warpZone.RoomName));
+            StartCoroutine(WarpPlayer(warpZone));
         }
     }
 
-    private IEnumerator WarpPlayer(Vector2 warpPoint, string roomName)
+    private IEnumerator WarpPlayer(WarpZone warpZone)
     {
         GameManager.Inst.UI.StartFadeIn(0.5f);
         yield return new WaitForSeconds(0.5f);
-        transform.position = warpPoint;
+        transform.position = warpZone.WarpPoint;
         yield return new WaitForSeconds(0.1f);
         GameManager.Inst.UI.StartFadeOut(0.5f);
         yield return new WaitForSeconds(0.5f);
-        GameManager.Inst.UI.ActiveRoomText(roomName);
+        GameManager.Inst.UI.ActiveRoomText(warpZone.RoomName);
         _isWarping = false;
+
+        EventManager.TriggerEvent($"ENTER_{warpZone.targetRoom.ToString()}");
     }
 
     private void PlayerAnimation()
@@ -163,25 +164,32 @@ public class PlayerMove : MonoBehaviour
     public void ShakeObject()
     {
         _timeLineAnimator.enabled = false;
-        transform.DOShakePosition(0.5f,0.5f).OnComplete(()=> _timeLineAnimator.enabled = true);
+        transform.DOShakePosition(0.5f, 0.5f).OnComplete(() => _timeLineAnimator.enabled = true);
     }
 
     public enum WalkType { RightWalk, LeftWalk, UpWalk, DownWalk }
     public void PlayAnimation(string walkType)
-
     {
         if (_visualAnimator == null) return;
         if (walkType == null || walkType == "") return;
         StopAllCoroutines();
 
-        StartCoroutine(PlayAnimationCoroutine(Animator.StringToHash(walkType)));
+        if (walkType.Contains("Walk"))
+        {
+            StartCoroutine(PlayAnimationCoroutine(walkType));
+        }
+
+        else
+        {
+            _visualAnimator.Play(walkType);
+        }
     }
 
-    private IEnumerator PlayAnimationCoroutine(int hash)
+    private IEnumerator PlayAnimationCoroutine(string walkType)
     {
-        while (GameManager.Inst.GameState == EGameState.Timeline)
+        while (true)
         {
-            _visualAnimator.Play(hash);
+            _visualAnimator.Play(walkType);
 
             yield return new WaitForFixedUpdate();
         }

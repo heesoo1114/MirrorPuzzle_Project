@@ -8,7 +8,7 @@ public class Toilet : MonoBehaviour
 
     private void Start()
     {
-        EventManager.StartListening("ENTER_TOILET", StartToiletCutScene);
+        EventManager.StartListening("ENTER_Toilet", StartToiletCutScene);
     }
 
     private void StartToiletCutScene()

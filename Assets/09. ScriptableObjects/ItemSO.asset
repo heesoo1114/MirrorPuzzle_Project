@@ -13,33 +13,6 @@ MonoBehaviour:
   m_Name: ItemSO
   m_EditorClassIdentifier: 
   itemDataList:
-  - itemID: 
-    name: "\uAE40\uC720\uC9C4\uC758 \uC548\uACBD"
-    info: "\uAE40\uC720\uC9C4\uC758 \uC5C6\uC73C\uBA74 \uC548\uB418\uB294 \uC548\uACBD\uC774\uB2E4."
-    sprite: {fileID: 0}
-  - itemID: 
-    name: "\uBC15\uAC00\uC628\uC758 \uCFE0\uD3F0"
-    info: "\uBC15\uAC00\uC628\uC758 \uC18C\uC911\uD55C \uC774\uD130\uB110\uB9AC\uD134
-      \uCFE0\uD3F0\uC774\uB2E4"
-    sprite: {fileID: 21300000, guid: 99dbe022c9d0e88409e96ddfaa499131, type: 3}
-  - itemID: 
-    name: "\uC720\uD558\uC900\uC758 \uC2A4\uD2F0\uCEE4"
-    info: "\uC720\uD558\uC900\uC758 \uD55C\uC815\uD310 \uAE08\uC0AC\uD5A5 \uC2A4\uD2F0\uCEE4\uC774\uB2E4"
-    sprite: {fileID: 21300000, guid: a9082e37911419d44a6c5a85e65b1d32, type: 3}
-  - itemID: 
-    name: "\uCC44\uBBFC\uC11C\uC758 \uB9C8\uC6B0\uC2A4"
-    info: "\uCC44\uBBFC\uC11C\uC758 \uB85C\uC9C0\uD14D G304 \uB77C\uC77C\uB77D \uB9C8\uC6B0\uC2A4\uC774\uB2E4"
-    sprite: {fileID: 21300000, guid: 23b4e9af85893314a9d7df3aa881ad36, type: 3}
-  - itemID: 
-    name: "\uC724\uD76C\uC218\uC758 \uCD95\uAD6C\uD654"
-    info: "\uC724\uD76C\uC218\uC758 \uCD95\uAD6C\uC2E4\uB825\uC744 \uC62C\uB824\uC904
-      \uCD95\uAD6C\uD654\uB2E4"
-    sprite: {fileID: 21300000, guid: afe8ec637b02bff488686c043a39463c, type: 3}
-  - itemID: 
-    name: "\uAE40\uD61C\uC5F0\uC758 \uD734\uB300\uD3F0"
-    info: "\uAE40\uD61C\uC5F0\uC758 (\uC798 \uAE68\uC9C0\uB294 \uC544\uC774\uD3F0\uC774\uC9C0\uB9CC)
-      \uAE68\uC9C4 \uD754\uC801\uC774 \uC5C6\uB294 \uC544\uC774\uD3F0\uC774\uB2E4."
-    sprite: {fileID: 21300000, guid: c2b5bba51c53a0b40957fa96499eaf40, type: 3}
   - itemID: BB_BlueBullet
     name: "\uD30C\uB780\uC0C9 \uC7A5\uB09C\uAC10 \uCD1D\uC54C"
     info: "\uD30C\uB780\uC0C9 \uC789\uD06C\uAC00 \uB4E4\uC5B4\uAC00\uC788\uB294 \uC7A5\uB09C\uAC10
@@ -82,3 +55,11 @@ MonoBehaviour:
     name: "\uD615\uC758\uD3B8\uC9C0"
     info: "\uD615\uC774 \uB0A8\uAE34 \uD3B8\uC9C0,\n \uB0B4\uC6A9\uC744 \uD655\uC778\uD574\uBCF4\uC790."
     sprite: {fileID: 21300000, guid: 19b76006ed86c3949a74435d97740e93, type: 3}
+  - itemID: 20
+    name: "\uD615\uC758 \uCABD\uC9C0"
+    info: "\uC77D\uC744 \uC218 \uC5C6\uB294 \uAE00\uC790\uB85C \uAC00\uB4DD\uD558\uB2E4"
+    sprite: {fileID: 21300000, guid: 979c4c05fdc9ef342a5ee50bcc3216fe, type: 3}
+  - itemID: 10
+    name: "\uC9C0\uD558\uC2E4 \uC5F4\uC1E0"
+    info: "\uC9C0\uD558\uC2E4 \uBB38\uC744 \uC5F4 \uC218 \uC788\uB294 \uD0A4\uB2E4."
+    sprite: {fileID: 21300000, guid: ea8a0996d9ea44e40b3555f28b0b8ea1, type: 3}

@@ -8,8 +8,10 @@ public class CutSceneDirector : MonoBehaviour
     public string cutSceneID;
 
     private PlayableDirector _playableDirector;
+    [SerializeField] private CutSceneSO _currentCutScene;
     private bool _isPaused = false;
     public bool IsPuased => _isPaused;
+    public CutSceneSO CurrentCutScene => _currentCutScene;
 
     private void Awake()
     {

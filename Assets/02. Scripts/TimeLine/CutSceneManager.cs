@@ -5,7 +5,6 @@ using Cinemachine;
 
 public class CutSceneManager : MonoSingleton<CutSceneManager>
 {
-    [SerializeField] private List<CutSceneSO> _cutSceneDataList;
     [SerializeField] private TextPanel _textPanel;
     [SerializeField] private List<CutSceneDirector> _cutSceneDirectorList;
     [SerializeField] private CinemachineVirtualCameraBase _timeLineCam;
@@ -18,7 +17,7 @@ public class CutSceneManager : MonoSingleton<CutSceneManager>
     private CutSceneScript _currentScript;
     private CutSceneLine _currentLine;
 
-    private bool _isPlaying;
+    private bool _isPlaying = false;
     private bool _isScriptStarted;
 
     public void StartCutScene(string cutSceneID)
@@ -31,13 +30,14 @@ public class CutSceneManager : MonoSingleton<CutSceneManager>
 
         GameManager.Inst.ChangeGameState(EGameState.Timeline);
 
-        _currentCutScene = _cutSceneDataList.Find(x => x.cutSceneID.Equals(cutSceneID));
+        _currentDirector = _cutSceneDirectorList.Find(x => x.cutSceneID.Equals(cutSceneID));
+        _currentCutScene = _currentDirector.CurrentCutScene;
+
         EventManager.TriggerEvent($"START_{_currentCutScene.cutSceneID}CUTSCENE");
+        
         _textPanel.OnKeyDownSpace += PlayCutSceneAct;
 
         _scriptIdx = 0;
-
-        _currentDirector = _cutSceneDirectorList.Find(x => x.cutSceneID.Equals(_currentCutScene.cutSceneID));
 
         _timeLineCam.m_Priority = 20;
 
@@ -102,7 +102,8 @@ public class CutSceneManager : MonoSingleton<CutSceneManager>
     {
         if (_isPlaying == false) return;
 
-        _isPlaying = false;
+        GameManager.Inst.UI.StartFadeOut(0f);
+        GameManager.Inst.ChangeGameState(EGameState.Game);
         EventManager.TriggerEvent($"END_{_currentCutScene.cutSceneID}CUTSCENE");
 
         _isScriptStarted = false;
@@ -113,8 +114,6 @@ public class CutSceneManager : MonoSingleton<CutSceneManager>
         _textPanel.OnKeyDownSpace -= PlayCutSceneAct;
         _timeLineCam.m_Priority = 0;
 
-        GameManager.Inst.UI.StartFadeOut(0f);
-
-        GameManager.Inst.ChangeGameState(EGameState.Game);
+        _isPlaying = false;
     }
 }

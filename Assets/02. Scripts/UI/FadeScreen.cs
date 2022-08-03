@@ -18,6 +18,8 @@ public class FadeScreen : MonoBehaviour
         _fadeImage = GetComponent<Image>();
     }
 
+
+
     public void StartFade(float duration = 1f)
     {
         if(_isFade)
@@ -47,12 +49,13 @@ public class FadeScreen : MonoBehaviour
 
     private void FadeEffect(float duration)
     {
+        Debug.Log("dd");
         Color color = fadeColor;
         color.a = _isFade ? 1f : 0f;
 
         _fadeImage.color = color;
 
-        _fadeImage.DOFade(_isFade ? 0f : 1f, duration).SetEase(Ease.InCubic);
+        _fadeImage.DOFade(_isFade ? 0f : 1f, duration).SetEase(Ease.InCubic).OnComplete(() => fadeColor =Color.black);
     }
 
 }

@@ -26,6 +26,8 @@ public class PlayerInteractionTrigger : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (GameManager.Inst.GameState != EGameState.Game) return;
+
         if (collision.gameObject.CompareTag("Interaction"))
         {
             _interactionObject = collision.transform.GetComponent<InteractionObject>();
@@ -34,6 +36,7 @@ public class PlayerInteractionTrigger : MonoBehaviour
                 _interactionObject.EnterInteraction();
             }
         }
+
     }
 
     private void OnTriggerExit2D(Collider2D collision)
@@ -48,6 +51,7 @@ public class PlayerInteractionTrigger : MonoBehaviour
                 _interactionObject = null;
             }
         }
+
     }
 
 }

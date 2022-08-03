@@ -7,7 +7,7 @@ using DG.Tweening;
 
 public class UIManager : MonoBehaviour
 {
-    public FadeScreen _fadeScreen;
+    public FadeScreen fadeScreen;
 
     public GameObject _interactionImage;
     public Vector3 _interactionOffset = new Vector2(0.2f, 0.2f);
@@ -42,19 +42,33 @@ public class UIManager : MonoBehaviour
 
     private Coroutine _textCoroutine;
 
+    public void ColorFade(Color color, bool isFade, float duration = 1f)
+    {
+        if (isFade)
+        {
+            fadeScreen.fadeColor = color;
+            StartFadeOut(duration);
+        }
+
+        else
+        {
+            StartFadeIn(duration);
+        }
+    }
+
     public void StartFade(float duration = 1f)
     {
-        _fadeScreen.StartFade(duration);
+        fadeScreen.StartFade(duration);
     }
 
     public void StartFadeIn(float duration = 1f)
     {
-        _fadeScreen.FadeIn(duration);
+        fadeScreen.FadeIn(duration);
     }
 
     public void StartFadeOut(float duration = 1f)
     {
-        _fadeScreen.FadeOut(duration);
+        fadeScreen.FadeOut(duration);
     }
 
 

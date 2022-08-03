@@ -45,7 +45,7 @@ public class DataManager : MonoSingleton<DataManager>
             return;
         }
 
-        DontDestroyOnLoad(this);
+        //DontDestroyOnLoad(this);
 
         SAVE_PATH = Application.dataPath + "/Save";
 
