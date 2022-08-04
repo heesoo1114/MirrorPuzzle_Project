@@ -22,6 +22,12 @@ public class BigBrotherPuzzle : MonoBehaviour
     [SerializeField]
     private Image gunReloadImage;
 
+    [SerializeField]
+    private Image clearImage;
+    [SerializeField]
+    private Image faliedImage;
+
+
     private void OnEnable()
     {
         equipPanelCnt = Random.Range(0, 9);
@@ -102,6 +108,7 @@ public class BigBrotherPuzzle : MonoBehaviour
         else if (checkEquipPanel.GetChild(equipPanelCnt).GetChild(0).gameObject.CompareTag("RedBullet"))
         {
             puzzleImage.gameObject.SetActive(false);
+            faliedImage.gameObject.SetActive(true);
         }
 
         bb_shootEvent?.Invoke();
@@ -120,7 +127,12 @@ public class BigBrotherPuzzle : MonoBehaviour
     {
         CutSceneManager.Inst.StartCutScene("ENDGAME");
 
-        puzzleImage.gameObject.SetActive(false);
+        puzzleImage.gameObject.SetActive(false); 
+        clearImage.gameObject.SetActive(false);
     }
 
+    public void RestartGame()
+    {
+
+    }
 }
