@@ -16,12 +16,14 @@ public class PlayerInteractionTrigger : MonoBehaviour
     public void TriggerEvent()
     {
         if (GameManager.Inst.UI.IsActiveTextPanal()) return;
-
-        if (_interactionObject != null)
+        if (InventorySystem.Inst.equipItemDataID == "HAND_MIRROR")
+        {
+            GameManager.Inst.ChangeWorld();
+        }
+        else if (_interactionObject != null)
         {
             _interactionObject.InteractionEvent();
         }
-
         else
         {
             string equipItemID = InventorySystem.Inst.equipItemDataID;
