@@ -11,7 +11,7 @@ public class BigBrotherRoomKey : InteractionObject
 
     public override void InteractionEvent()
     {
-        InventorySystem.Inst.AddItem("BBROOMKEY");
+        InventorySystem.Inst.AddItem("SBROOMKEY");
         Destroy(gameObject);
     }
 

@@ -77,3 +77,5 @@ MonoBehaviour:
       \uC720\uB9AC\uC870\uAC01\uC774 \uB9E4\uC6B0 \uB0A0\uCE74\uB85C\uC6CC \uBCF4\uC778\uB2E4."
   - dataID: Flower_Now
     text: "\uD654\uBD84\uC774 \uB9E4\uC6B0 \uBE44\uC2F8 \uBCF4\uC778\uB2E4."
+  - dataID: TAKEPICTURE
+    text: "\uC0AC\uC9C4\uC744 \uCC0D\uC5C8\uB2E4"

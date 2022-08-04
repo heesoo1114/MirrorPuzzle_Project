@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class FilmPuzzle : InteractionObject
 {
@@ -40,6 +41,15 @@ public class FilmPuzzle : InteractionObject
             color.a -= 0.1f;
             btn_img.color = color;
 
+            if(btn_img.color.a <= 0f)
+            {
+                Sequence seq = DOTween.Sequence();
+                seq.Append(film_Img.transform.DOShakePosition(1f, 1, 3));
+                seq.AppendCallback(()=> film_Img.gameObject.SetActive(false));
+                seq.AppendCallback(()=> GameManager.Inst.ChangeGameState(EGameState.Game));
+
+                return;
+            }
             audioSource.PlayOneShot(clickSound);
         }
     }
@@ -48,12 +58,13 @@ public class FilmPuzzle : InteractionObject
     {
         if (GameManager.Inst.WorldType == WorldType.RealWorld)
         {
-            film_Img.gameObject.SetActive(true);
+            GameManager.Inst.UI.ActiveTextPanal("밝아서 잘 보이지 않는다.");
+            return;
         }
-        else
-        {
-            film_Img.gameObject.SetActive(false);
-        }
+
+        GameManager.Inst.ChangeGameState(EGameState.UI);
+        film_Img.gameObject.SetActive(true);
+
         hint.SetActive(true);
     }
 

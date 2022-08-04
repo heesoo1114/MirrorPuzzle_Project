@@ -15,22 +15,15 @@ public class PasswardScript : MonoBehaviour
     private GameObject password_Obj;
 
 
-    private bool Check;
+    private bool Check = false;
 
-    private void Awake()
-    { 
-        Check = false;
-    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.CompareTag("Player") && !Check)
         {
-            password_Img.gameObject.SetActive(true);
+            GameManager.Inst.ChangeGameState(EGameState.UI);
+            password_Obj.SetActive(true);
         }
-    }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        password_Img.gameObject.SetActive(false);
     }
     public void EnterClick()
     {
@@ -45,14 +38,19 @@ public class PasswardScript : MonoBehaviour
     }
     IEnumerator Answer()
     {
+        text.text = "정답입니다!";
         yield return new WaitForSeconds(1.0f);
         password_Obj.gameObject.SetActive(false);
         Check = true;
-        text.text = "정답을 입력하세요";
+        InventorySystem.Inst.AddItem("BBROOMKEY");
+        GameManager.Inst.ChangeGameState(EGameState.Game);
+        gameObject.SetActive(false);
+
     }
 
     IEnumerator NotAnswer()
     {
+        text.text = "오답입니다";
         text.color = Color.red;
         yield return new WaitForSeconds(1.0f);
         text.color = Color.white;

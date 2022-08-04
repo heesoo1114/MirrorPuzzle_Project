@@ -11,6 +11,7 @@ public class CameraPuzzle : InteractionObject
     public override void InteractionEvent()
     {
         Film_spr.gameObject.SetActive(true);
+        base.InteractionEvent();
     }
 
 }
