@@ -54,9 +54,20 @@ public class BigBrotherPuzzle : MonoBehaviour
         GameObject clickBear = EventSystem.current.currentSelectedGameObject;
         clickBear.SetActive(false);
 
-        if (checkEquipPanel.GetChild(equipPanelCnt).GetChild(0).gameObject.CompareTag("RedBullet"))
+        if (checkEquipPanel.GetChild(equipPanelCnt).GetChild(0).gameObject.CompareTag("BlueBullet"))
         {
-            Debug.Log("ÆÄ¶õ°õÀ» »¡°£ ÃÑ¾Ë·Î ½ú´Ù.");
+            checkBlueBear++;
+            // clickBearÀÇ »ö±òÀº ±×´ë·Î µÒ
+        }
+        else if (checkEquipPanel.GetChild(equipPanelCnt).GetChild(0).gameObject.CompareTag("RedBullet"))
+        {
+            checkBlueBear++;
+            Image clickBearImage = clickBear.GetComponent<Image>();
+
+            Color color = clickBearImage.color;
+            color.r = 1;
+            clickBearImage.color = color;
+            // clickBearÀÇ »ö±òÀÇ R°ªÀ» 255·Î
         }
 
         bb_shootEvent?.Invoke();
@@ -68,7 +79,9 @@ public class BigBrotherPuzzle : MonoBehaviour
             equipPanelCnt = 0;
 
         if (checkRedBear + checkBlueBear >= 9)
-            Debug.Log("ÆÛÁñ Å¬¸®¾î");
+        {
+            PuzzleClear();
+        }
     }
 
     public void RedBearClick()
@@ -78,11 +91,16 @@ public class BigBrotherPuzzle : MonoBehaviour
         if (checkEquipPanel.GetChild(equipPanelCnt).GetChild(0).gameObject.CompareTag("BlueBullet"))
         {
             checkRedBear++;
-            clickBear.SetActive(false);
+
+            Image clickBearImage = clickBear.GetComponent<Image>();
+
+            Color color = clickBearImage.color;
+            color.r = 0;
+            clickBearImage.color = color;
+            // clickBearÀÇ »ö±òÀÇ R°ªÀ» 0À¸·Î
         }
         else if (checkEquipPanel.GetChild(equipPanelCnt).GetChild(0).gameObject.CompareTag("RedBullet"))
         {
-            Debug.Log("½ÇÆÐ");
             puzzleImage.gameObject.SetActive(false);
         }
 
@@ -94,8 +112,15 @@ public class BigBrotherPuzzle : MonoBehaviour
 
         if (checkRedBear + checkBlueBear >= 9)
         {
-            Debug.Log("ÆÛÁñ Å¬¸®¾î");
-            puzzleImage.gameObject.SetActive(false);
+            PuzzleClear();
         }
     }
+
+    public void PuzzleClear()
+    {
+        CutSceneManager.Inst.StartCutScene("ENDGAME");
+
+        puzzleImage.gameObject.SetActive(false);
+    }
+
 }

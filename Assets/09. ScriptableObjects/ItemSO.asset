@@ -45,7 +45,7 @@ MonoBehaviour:
     name: "C\uC758 \uCC45"
     info: "C\uC528\uAC00 \uAC00\uC9C0\uACE0 \uC788\uB358 \uCC45,\n\uBB34\uC5B8\uAC00
       \uC774\uC0C1\uD55C\uAC8C \uC5C6\uB294\uC9C0 \uC798 \uC0B4\uD3B4\uBCF4\uC790."
-    sprite: {fileID: 217203734871373376, guid: 989e90d3f9a5ada4db8cd36c5fc9556a, type: 3}
+    sprite: {fileID: 8384347943025416157, guid: 989e90d3f9a5ada4db8cd36c5fc9556a, type: 3}
   - itemID: 1114
     name: "\uD654\uC7A5\uC2E4\uBB38\uC5F4\uC1E0"
     info: "\uC774 \uC5F4\uC1E0\uB85C \uD654\uC7A5\uC2E4\uC758 \uBB38\uC744 \uC5F4
@@ -65,5 +65,17 @@ MonoBehaviour:
     sprite: {fileID: 21300000, guid: ea8a0996d9ea44e40b3555f28b0b8ea1, type: 3}
   - itemID: BEDROOMKEY
     name: "\uC548\uBC29 \uC5F4\uC1E0"
-    info: "\uC548\uBC29 \uBB38\uC744 \uC5F4 \uC218 \uC788\uB294 \uD0A4\uB2E4."
+    info: "\uC548\uBC29 \uBB38\uC744 \uC5F4 \uC218 \uC788\uB294 \uC5F4\uC1E0\uB2E4."
     sprite: {fileID: 21300000, guid: ea8a0996d9ea44e40b3555f28b0b8ea1, type: 3}
+  - itemID: LIBRARYKEY
+    name: "\uC11C\uC7AC \uC5F4\uC1E0"
+    info: "\uC11C\uC7AC \uBB38\uC744 \uC5F4 \uC218 \uC788\uB294 \uC5F4\uC1E0\uB2E4."
+    sprite: {fileID: 21300000, guid: c73c5cf045df3b44a97a9464d20585cc, type: 3}
+  - itemID: BBROOMKEY
+    name: "\uD615 \uBC29 \uC5F4\uC1E0"
+    info: "\uD615 \uBC29 \uBB38\uC744 \uC5F4 \uC218 \uC788\uB294 \uC5F4\uC1E0\uB2E4."
+    sprite: {fileID: 21300000, guid: c73c5cf045df3b44a97a9464d20585cc, type: 3}
+  - itemID: SBROOMKEY
+    name: "\uB3D9\uC0DD \uBC29 \uC5F4\uC1E0"
+    info: "\uB3D9\uC0DD \uBC29 \uBB38\uC744 \uC5F4 \uC218 \uC788\uB294 \uC5F4\uC1E0\uB2E4."
+    sprite: {fileID: 21300000, guid: c73c5cf045df3b44a97a9464d20585cc, type: 3}

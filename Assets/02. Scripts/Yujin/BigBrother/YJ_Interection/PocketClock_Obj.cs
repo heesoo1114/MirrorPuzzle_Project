@@ -4,11 +4,15 @@ using UnityEngine;
 
 public class PocketClock_Obj : InteractionObject
 {
+    private bool _getItem;
+
     public override void InteractionEvent()
     {
+        if (_getItem) return;
+        _getItem = true;
         base.InteractionEvent();
 
-        InventorySystem.Inst.AddItem("BB_BlueBullet");
+        InventorySystem.Inst.AddItem("BB_BlueBullet",3);
     }
 
 }

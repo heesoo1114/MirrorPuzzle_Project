@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LibraryBoxPuzzle : MonoBehaviour
 {
@@ -8,8 +9,8 @@ public class LibraryBoxPuzzle : MonoBehaviour
 
     [SerializeField]
     private Transform coliderTransform;
-    [SerializeField]
-    private Letter key;
+
+    public UnityEvent OnClearPuzzle;
 
     private void Update()
     {
@@ -25,8 +26,7 @@ public class LibraryBoxPuzzle : MonoBehaviour
 
             if (boxCol.Length == 5)
             {
-                Debug.Log("Å¬¸®¾î");
-                key.Fallling();
+                OnClearPuzzle?.Invoke();
             }
         }
     }

@@ -5,25 +5,25 @@
     "inventoryList": [
         {
             "itemData": {
-                "itemID": "20",
-                "name": "형의 쪽지",
-                "info": "읽을 수 없는 글자로 가득하다",
+                "itemID": "BB_NotRealGun",
+                "name": "장난감 총",
+                "info": "꽤나 살벌하게 생긴 장난감 총이다.\n총알을 넣는 곳 까지 세세하게 구현돼있다.",
                 "sprite": {
-                    "instanceID": 29564
+                    "instanceID": 29314
                 }
             },
             "itemCount": 1
         },
         {
             "itemData": {
-                "itemID": "BEDROOMKEY",
-                "name": "안방 열쇠",
-                "info": "안방 문을 열 수 있는 키다.",
+                "itemID": "BB_RedBullet",
+                "name": "빨간색 장난감 총알",
+                "info": "빨간색 잉크가 들어가있는 장난감 총알이다.\n어딘가에 쓸 일이 있지 않을까?",
                 "sprite": {
-                    "instanceID": 29678
+                    "instanceID": 30706
                 }
             },
-            "itemCount": 1
+            "itemCount": 19
         },
         {
             "itemData": {

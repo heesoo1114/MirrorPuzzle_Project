@@ -34,9 +34,4 @@ public class DrowFingding : InteractionObject
         count++;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        Debug.Log(".");
-    }
-    
 }

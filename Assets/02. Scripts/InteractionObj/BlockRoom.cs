@@ -13,7 +13,7 @@ public class BlockRoom : InteractionObject
         {
             _isOpen = true;
             GameManager.Inst.UI.ActiveTextPanal("문이 열렸습니다");
-            StartCoroutine(ImmediatelyStop());
+            StartCoroutine(ImmediatelyStop());  
         }
 
         else

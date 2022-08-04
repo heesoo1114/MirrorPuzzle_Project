@@ -160,6 +160,8 @@ public class UIManager : MonoBehaviour
         letterImage.transform.localScale = Vector3.zero;
         letterImage.transform.DOScale(1f, 0.3f);
 
+        GameManager.Inst.ChangeGameState(EGameState.UI);
+
         letterText.text = letter;
     }
 
