@@ -76,16 +76,7 @@ public class InventorySystem : MonoSingleton<InventorySystem>
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
-            _isActive = !_isActive;
-            GameManager.Inst.ChangeGameState(_isActive ? EGameState.UI : EGameState.Game);
-            _canvasGroup.DOFade(_isActive ? 1f : 0f, 0.5f);
-            _canvasGroup.interactable = _isActive;
-            _canvasGroup.blocksRaycasts = _isActive;
-
-            if (_isActive)
-            {
-                SettingCurrentItemPanel();
-            }
+            ActiveInventory();
         }
         if (!_isActive) return;
 
@@ -96,7 +87,7 @@ public class InventorySystem : MonoSingleton<InventorySystem>
             if (_timer >= _changeItemDelay)
             {
                 _timer = 0f;
-                StartCoroutine(SetSelectItem(_selectItemIndex + (int)_axisValue));
+                ChangeSelect();
             }
         }
 
@@ -104,6 +95,34 @@ public class InventorySystem : MonoSingleton<InventorySystem>
         {
             _timer = _changeItemDelay;
         }
+    }
+
+    public void ActiveInventory()
+    {
+        _isActive = !_isActive;
+        if (GameManager.Inst.GameState != EGameState.Timeline)
+        {
+            GameManager.Inst.ChangeGameState(_isActive ? EGameState.UI : EGameState.Game);
+        }
+
+        _canvasGroup.DOFade(_isActive ? 1f : 0f, 0.5f);
+        _canvasGroup.interactable = _isActive;
+        _canvasGroup.blocksRaycasts = _isActive;
+
+        if (_isActive)
+        {
+            SettingCurrentItemPanel();
+        }
+    }
+
+    public void ChangeSelect(int axis = -1)
+    {
+        if (axis != -1)
+        {
+            _axisValue = axis;
+        }
+
+        StartCoroutine(SetSelectItem(_selectItemIndex + (int)_axisValue));
     }
 
     public IEnumerator SetSelectItem(int idx)
@@ -169,14 +188,14 @@ public class InventorySystem : MonoSingleton<InventorySystem>
 
         if (CurrentItemPanel.IsEmpty)
         {
-            _equipItemIamge.enabled = false;
+            ActiveEquipPanel(false);
             equipItemDataID = "";
         }
 
         else
         {
             _equipItemIamge.sprite = CurrentItemPanel.InventoryData.itemData.sprite;
-            _equipItemIamge.enabled = true;
+            ActiveEquipPanel(true);
             equipItemDataID = CurrentItemPanel.InventoryData.itemData.itemID;
         }
 
@@ -187,14 +206,26 @@ public class InventorySystem : MonoSingleton<InventorySystem>
 
     public void UseEquipItem(int useCount = 1)
     {
+        Debug.Log("dd");
         CurrentItemPanel.SetItemCount(useCount * -1);
     }
 
     public void SetItemText()
     {
-        if (CurrentItemPanel.IsEmpty) return;
+        if (CurrentItemPanel.IsEmpty)
+        {
+            _itemNameText.text = "";
+            _itemInfoText.text = "";
+
+            return;
+        }
         _itemNameText.text = CurrentItemPanel.ItemName;
         _itemInfoText.text = CurrentItemPanel.ItemInfo;
+    }
+
+    public void ActiveEquipPanel(bool isActive)
+    {
+        _equipItemIamge.enabled = isActive;
     }
 
 

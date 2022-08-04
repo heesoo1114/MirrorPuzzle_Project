@@ -22,7 +22,6 @@ public class TextPanel : MonoBehaviour
 
     public void Update()
     {
-        if (GameManager.Inst.GameState != EGameState.UI) return;
         if (gameObject.activeSelf == false) return;
 
         if (Input.GetKeyDown(KeyCode.Space))
@@ -50,7 +49,6 @@ public class TextPanel : MonoBehaviour
     public void ShowTextPanal(string outputText, string name = "")
     {
         if (_isOutput) return;
-
         if (name != "")
         {
             _nameTextPanal.ChangeNameText(name);
@@ -60,9 +58,8 @@ public class TextPanel : MonoBehaviour
         {
             _nameTextPanal.gameObject.SetActive(false);
         }
-        if (GameManager.Inst.GameState != EGameState.UI)
+        if (GameManager.Inst.GameState != EGameState.Timeline)
         {
-            _beforeGameState = GameManager.Inst.GameState;
             GameManager.Inst.ChangeGameState(EGameState.UI);
         }
 
@@ -106,6 +103,7 @@ public class TextPanel : MonoBehaviour
         float time = _textMessage.Length * _textSpeed;
 
         _currentText.DOKill();
+        _currentText.text = "";
         _currentText.DOText(_textMessage, time);
 
         yield return new WaitForSeconds(time);

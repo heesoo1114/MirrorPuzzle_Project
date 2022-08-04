@@ -9,7 +9,7 @@ public class WarpZone : MonoBehaviour
 
     public RoomType currentRoom;
     public RoomType targetRoom;
-    
+
     [HideInInspector]
     public Vector2 offset;
     [HideInInspector]
@@ -87,6 +87,20 @@ public class WarpZone : MonoBehaviour
 
     public Vector2 WarpPoint
     {
-        get => (Vector2)warpPoint.position + offset * 1.5f;
+        get
+        {
+            Vector2 warpPoint = this.warpPoint.position;
+            Vector2 offset = this.offset;
+
+            if (offset.x != 0)
+            {
+                if (GameManager.Inst.WorldType == WorldType.MirrorWorld)
+                    offset.x *= -1f;
+            }
+
+            warpPoint += offset * 1.5f;
+
+            return warpPoint;
+        }
     }
 }

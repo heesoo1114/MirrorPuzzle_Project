@@ -31,8 +31,11 @@ public class LightLineGameManager : MonoBehaviour
 
         _isStart = false;
         seq.Append(transform.DOScale(Vector3.zero, 0.8f).SetEase(Ease.InOutBounce));
-        seq.AppendCallback(() => gameEndEvent?.Invoke());
-        seq.AppendCallback(() => gameObject.SetActive(false));
+        seq.AppendCallback(() => {
+            gameEndEvent?.Invoke();
+            InventorySystem.Inst.AddItem("LIBRARYKEY");
+            gameObject.SetActive(false);
+            });
         
     }
 }

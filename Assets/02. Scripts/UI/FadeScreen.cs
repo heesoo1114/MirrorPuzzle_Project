@@ -49,7 +49,6 @@ public class FadeScreen : MonoBehaviour
 
     private void FadeEffect(float duration)
     {
-        Debug.Log("dd");
         Color color = fadeColor;
         color.a = _isFade ? 1f : 0f;
 

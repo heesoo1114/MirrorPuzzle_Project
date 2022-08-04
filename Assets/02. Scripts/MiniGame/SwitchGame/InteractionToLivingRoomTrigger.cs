@@ -18,6 +18,6 @@ public class InteractionToLivingRoomTrigger : InteractionObject
 
     public override void EnterInteraction()
     {
-        GameManager.Inst.UI.ActiveTextPanal("왼쪽 위에 있는 쪽지를 얻고 가자.");
+        GameManager.Inst.UI.ActiveTextPanal("빛나고있는 쪽지를 얻고 가자.");
     }
 }

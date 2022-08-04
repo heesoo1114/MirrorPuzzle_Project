@@ -21,8 +21,9 @@ public class DishCreate : MonoBehaviour
     public UnityEvent OnGameClear;
     private List<Dish> dishs = new List<Dish>();
 
-    void StartGame()
+    public void StartGame()
     {
+        gameObject.SetActive(true);
         background.gameObject.SetActive(true);
         holder.gameObject.SetActive(true);
 
@@ -71,7 +72,8 @@ public class DishCreate : MonoBehaviour
     IEnumerator Clear()
     {
         success.gameObject.SetActive(true);
-        yield return new WaitForSeconds(4f);
+        InventorySystem.Inst.AddItem("BEDROOMKEY");
+        yield return new WaitForSeconds(1f);
 
         foreach(Dish dish in dishs)
         {
@@ -79,8 +81,11 @@ public class DishCreate : MonoBehaviour
         }
         dishs.Clear();
 
+
         success.gameObject.SetActive(false);
         holder.gameObject.SetActive(false);
         background.gameObject.SetActive(false);
+
+        gameObject.SetActive(false);
     }
 }

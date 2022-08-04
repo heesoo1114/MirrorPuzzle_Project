@@ -63,3 +63,7 @@ MonoBehaviour:
     name: "\uC9C0\uD558\uC2E4 \uC5F4\uC1E0"
     info: "\uC9C0\uD558\uC2E4 \uBB38\uC744 \uC5F4 \uC218 \uC788\uB294 \uD0A4\uB2E4."
     sprite: {fileID: 21300000, guid: ea8a0996d9ea44e40b3555f28b0b8ea1, type: 3}
+  - itemID: BEDROOMKEY
+    name: "\uC548\uBC29 \uC5F4\uC1E0"
+    info: "\uC548\uBC29 \uBB38\uC744 \uC5F4 \uC218 \uC788\uB294 \uD0A4\uB2E4."
+    sprite: {fileID: 21300000, guid: ea8a0996d9ea44e40b3555f28b0b8ea1, type: 3}

@@ -32,10 +32,12 @@ public class UIManager : MonoBehaviour
 
     [SerializeField]
     private Text worldText;
+    [SerializeField] private GameObject _toiletLetterUI;
+
 
     public bool isWorldBarMoving = false;
 
-    [SerializeField] private BugManager _minigameManager;
+    [SerializeField] private DishCreate _kitchenMinigameManager;
     [SerializeField] private SwitchManager _switchMiniGameManager1;
     [SerializeField] private SwitchManager _switchMiniGameManager2;
     [SerializeField] private LightLineGameManager _lightLineGameManager;
@@ -220,6 +222,7 @@ public class UIManager : MonoBehaviour
         {
             StopCoroutine(_textCoroutine);
         }
+        isWorldBarMoving = true;
 
         _textCoroutine = StartCoroutine(MoveUIBar(rectTransform));
     }
@@ -234,7 +237,7 @@ public class UIManager : MonoBehaviour
     private IEnumerator MoveUIBar(RectTransform rectTransform)
     {
         rectTransform.gameObject.SetActive(true);
-        isWorldBarMoving = true;
+        
         rectTransform.DOKill();
         rectTransform.DOAnchorPosX(0f, 0.3f).SetEase(Ease.OutQuad);
         yield return new WaitForSeconds(2f);
@@ -244,12 +247,7 @@ public class UIManager : MonoBehaviour
         _textCoroutine = null;
     }
 
-    public void StartMiniGame()
-    {
-        GameManager.Inst.ChangeGameState(EGameState.UI);
 
-        _minigameManager.Init();
-    }
 
     public void StartSwitchOnGame(int value)
     {
@@ -264,5 +262,16 @@ public class UIManager : MonoBehaviour
     {
         GameManager.Inst.ChangeGameState(EGameState.UI);
         _lightLineGameManager.Init();
+    }
+
+    public void ToiletLetterUI()
+    {
+        _toiletLetterUI.SetActive(true);
+    }
+
+    public void StartKitchenMingame()
+    {
+        GameManager.Inst.ChangeGameState(EGameState.UI);
+        _kitchenMinigameManager.StartGame();
     }
 }

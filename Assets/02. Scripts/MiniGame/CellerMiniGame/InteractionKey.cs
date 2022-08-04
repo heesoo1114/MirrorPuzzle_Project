@@ -11,6 +11,8 @@ public class InteractionKey : InteractionObject
     {
         GetKeyEvent?.Invoke();
         InventorySystem.Inst.AddItem("10");
+
+        CutSceneManager.Inst.StartCutScene("INVENTORY");
         Destroy(gameObject);
     }
 }

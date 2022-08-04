@@ -49,6 +49,8 @@ public class ItemPanel : MonoBehaviour
             _inventoryItemData.itemData = null;
             _itemImage.enabled = false;
             _itemCountText.text = "";
+
+            InventorySystem.Inst.ActiveEquipPanel(false);
             return;
         }
 

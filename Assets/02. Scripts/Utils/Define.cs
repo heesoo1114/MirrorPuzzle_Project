@@ -19,18 +19,18 @@ public static class Define
         }
     }
 
-    private static Transform _playerTrs;
+    private static PlayerMove _playerRef;
 
-    public static Transform PlayerTransform
+    public static PlayerMove PlayerRef
     {
         get
         {
-            if (_playerTrs == null)
+            if (_playerRef == null)
             {
-                _playerTrs = GameObject.FindGameObjectWithTag("Player").transform;
+                _playerRef = GameObject.FindObjectOfType<PlayerMove>();
             }
 
-            return _playerTrs;
+            return _playerRef;
         }
     }
 

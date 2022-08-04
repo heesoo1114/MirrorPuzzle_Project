@@ -21,6 +21,20 @@ public class PlayerInteractionTrigger : MonoBehaviour
         {
             _interactionObject.InteractionEvent();
         }
+
+        else
+        {
+            string equipItemID = InventorySystem.Inst.equipItemDataID;
+
+            switch(equipItemID)
+            {
+                case "2065":
+                    GameManager.Inst.UI.ToiletLetterUI();
+                    InventorySystem.Inst.UseEquipItem();
+                    break;
+
+            }
+        }
     }
 
 

@@ -8,7 +8,7 @@ public class LibraryBoxPuzzle : MonoBehaviour
 
     [SerializeField]
     private Transform coliderTransform;
-    [SerializeField] 
+    [SerializeField]
     private Letter key;
 
     private void Update()
@@ -18,7 +18,7 @@ public class LibraryBoxPuzzle : MonoBehaviour
 
     void BoxColliderCheck()
     {
-        if(GameManager.Inst.librayChestPuzzleClear)
+        if (GameManager.Inst.librayChestPuzzleClear)
         {
             Collider2D[] boxCol = Physics2D.OverlapBoxAll(
                                   coliderTransform.position, new Vector2(.03f, 6), 0f, layer);
@@ -31,10 +31,14 @@ public class LibraryBoxPuzzle : MonoBehaviour
         }
     }
 
+#if UNITY_EDITOR
+
     void OnDrawGizmos()
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(coliderTransform.position, new Vector3(.03f, 6, 0));
 
     }
+
+#endif
 }

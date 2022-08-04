@@ -20,6 +20,8 @@ public class CutSceneManager : MonoSingleton<CutSceneManager>
     private bool _isPlaying = false;
     private bool _isScriptStarted;
 
+    private EGameState _beforeState;
+
     public void StartCutScene(string cutSceneID)
     {
         if (_isPlaying) return;
@@ -28,13 +30,17 @@ public class CutSceneManager : MonoSingleton<CutSceneManager>
         _isPlaying = true;
         _isScriptStarted = false;
 
-        GameManager.Inst.ChangeGameState(EGameState.Timeline);
 
         _currentDirector = _cutSceneDirectorList.Find(x => x.cutSceneID.Equals(cutSceneID));
+
+        if (_currentDirector == null) return;
+
         _currentCutScene = _currentDirector.CurrentCutScene;
 
+        _beforeState = GameManager.Inst.GameState;
+        GameManager.Inst.ChangeGameState(EGameState.Timeline);
         EventManager.TriggerEvent($"START_{_currentCutScene.cutSceneID}CUTSCENE");
-        
+
         _textPanel.OnKeyDownSpace += PlayCutSceneAct;
 
         _scriptIdx = 0;
@@ -103,7 +109,15 @@ public class CutSceneManager : MonoSingleton<CutSceneManager>
         if (_isPlaying == false) return;
 
         GameManager.Inst.UI.StartFadeOut(0f);
-        GameManager.Inst.ChangeGameState(EGameState.Game);
+        if (_beforeState != EGameState.Timeline)
+        {
+            GameManager.Inst.ChangeGameState(_beforeState);
+        }
+
+        else
+        {
+            GameManager.Inst.ChangeGameState(EGameState.Game);
+        }
         EventManager.TriggerEvent($"END_{_currentCutScene.cutSceneID}CUTSCENE");
 
         _isScriptStarted = false;

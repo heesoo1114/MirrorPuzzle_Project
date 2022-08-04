@@ -38,6 +38,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public bool librayChestPuzzleClear = false;
 
+
     private void Awake()
     {
         uiManager = GetComponent<UIManager>();
@@ -52,7 +53,7 @@ public class GameManager : MonoSingleton<GameManager>
 
         yield return new WaitForEndOfFrame();
 
-        CutSceneManager.Inst.StartCutScene("CELLER");
+        //CutSceneManager.Inst.StartCutScene("TOILET");
     }
 
     public void ChangeWorld()
@@ -64,6 +65,8 @@ public class GameManager : MonoSingleton<GameManager>
 
     private IEnumerator ChangeWorldCoroutine()
     {
+        PlayerMove player = Define.PlayerRef;
+
         uiManager.ColorFade(Color.white, false, 0.5f);
         yield return new WaitForSeconds(0.5f);
         uiManager.ColorFade(Color.white, true, 0.5f);
@@ -71,13 +74,35 @@ public class GameManager : MonoSingleton<GameManager>
         if (worldType == WorldType.MirrorWorld)
         {
             worldType = WorldType.RealWorld;
-            rooms.ForEach(x => x.transform.localScale = Vector3.one);
+
+            foreach(var room in rooms)
+            {
+                if(room.roomType == player.CurrentRoom)
+                {
+                    player.transform.SetParent(room.transform);
+                }
+
+                room.transform.localScale = Vector3.one;
+            }
+
+            player.transform.SetParent(null);
+            player.transform.localScale = Vector3.one;
             ChangeRealWorld?.Invoke();
         }
         else
         {
             worldType = WorldType.MirrorWorld;
-            rooms.ForEach(x => x.transform.localScale = new Vector3(-1f, 1f, 1f));
+            foreach (var room in rooms)
+            {
+                if (room.roomType == player.CurrentRoom)
+                {
+                    player.transform.SetParent(room.transform);
+                }
+
+                room.transform.localScale = new Vector3(-1f, 1f, 1f);
+            }
+            player.transform.SetParent(null);
+            player.transform.localScale = Vector3.one;
             ChangeMirrorWorld?.Invoke();
         }
 

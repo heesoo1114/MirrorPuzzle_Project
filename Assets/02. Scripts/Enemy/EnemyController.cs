@@ -13,7 +13,7 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
-        _tagetTrs = Define.PlayerTransform;
+        _tagetTrs = Define.PlayerRef.transform;
         _rigid = GetComponent<Rigidbody2D>();
     }
 

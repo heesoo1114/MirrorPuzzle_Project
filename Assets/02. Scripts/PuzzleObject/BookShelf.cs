@@ -21,7 +21,7 @@ public class BookShelf : MonoBehaviour
 
     private void Start()
     {
-        playerTransform = Define.PlayerTransform;
+        playerTransform = Define.PlayerRef.transform;
         firstPosition = transform.position;
     }
     private void OnMouseDown()

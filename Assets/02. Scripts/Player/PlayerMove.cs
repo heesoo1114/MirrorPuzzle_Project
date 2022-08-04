@@ -23,6 +23,10 @@ public class PlayerMove : MonoBehaviour
     private ParticleSystem _walkParticle;
     public UnityEvent OnTriggerInteraction;
 
+    private RoomType _currentRoomType;
+
+    public RoomType CurrentRoom => _currentRoomType;
+
     void Start()
     {
         _rigid = GetComponent<Rigidbody2D>();
@@ -30,6 +34,8 @@ public class PlayerMove : MonoBehaviour
         _timeLineAnimator = GetComponent<Animator>();
         _visualAnimator = transform.Find("VisualSprite").GetComponent<Animator>();
         _walkParticle = GetComponentInChildren<ParticleSystem>();
+
+        _currentRoomType = RoomType.Toilet;
 
     }
 
@@ -115,10 +121,9 @@ public class PlayerMove : MonoBehaviour
                 GameManager.Inst.UI.ActiveTextPanal(warpZone.lockMessage);
                 return;
             }
-
-
-            Vector2 warpPoint = warpZone.WarpPoint;
             _isWarping = true;
+
+            _currentRoomType = warpZone.targetRoom;
 
             StartCoroutine(WarpPlayer(warpZone));
         }
