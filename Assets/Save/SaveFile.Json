@@ -23,18 +23,18 @@
                     "instanceID": 30706
                 }
             },
-            "itemCount": 19
+            "itemCount": 1
         },
         {
             "itemData": {
-                "itemID": "",
-                "name": "",
-                "info": "",
+                "itemID": "BB_BlueBullet",
+                "name": "파란색 장난감 총알",
+                "info": "파란색 잉크가 들어가있는 장난감 총알이다.\n어딘가에 쓸 일이 있지 않을까?",
                 "sprite": {
-                    "instanceID": 0
+                    "instanceID": 30704
                 }
             },
-            "itemCount": 0
+            "itemCount": 4
         },
         {
             "itemData": {
