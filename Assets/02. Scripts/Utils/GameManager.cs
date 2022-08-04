@@ -132,7 +132,18 @@ public class GameManager : MonoSingleton<GameManager>
     {
         _beforeGameState = _gameState;
         _gameState = state;
+
+        if(_gameState != EGameState.Game)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
+
 
     public void SetBackGameState()
     {

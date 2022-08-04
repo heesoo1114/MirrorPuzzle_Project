@@ -4,8 +4,12 @@ using UnityEngine;
 
 public class GunScripts : InteractionObject
 {
+    private bool _getItem;
+
     public override void InteractionEvent()
     {
+        if (_getItem) return;
+        _getItem = true;
         base.InteractionEvent();
 
         StartCoroutine("GetNorealGun");
