@@ -16,6 +16,7 @@ public class BB_BearsPuzzle : InteractionObject
         {
             // √—¿Ã∂˚ √—æÀ¿Ã ¥Ÿ ¿÷¥Ÿ∏È if
             reloadPanel.gameObject.SetActive(true);
+            CutSceneManager.Inst.StartCutScene("BEAR");
         }
         else
         {

@@ -5,36 +5,36 @@
     "inventoryList": [
         {
             "itemData": {
-                "itemID": "BB_NotRealGun",
-                "name": "장난감 총",
-                "info": "꽤나 살벌하게 생긴 장난감 총이다.\n총알을 넣는 곳 까지 세세하게 구현돼있다.",
+                "itemID": "",
+                "name": "",
+                "info": "",
                 "sprite": {
-                    "instanceID": 29314
+                    "instanceID": 0
                 }
             },
-            "itemCount": 1
+            "itemCount": 0
         },
         {
             "itemData": {
-                "itemID": "BB_RedBullet",
-                "name": "빨간색 장난감 총알",
-                "info": "빨간색 잉크가 들어가있는 장난감 총알이다.\n어딘가에 쓸 일이 있지 않을까?",
+                "itemID": "",
+                "name": "",
+                "info": "",
                 "sprite": {
-                    "instanceID": 30706
+                    "instanceID": 0
                 }
             },
-            "itemCount": 1
+            "itemCount": 0
         },
         {
             "itemData": {
-                "itemID": "BB_BlueBullet",
-                "name": "파란색 장난감 총알",
-                "info": "파란색 잉크가 들어가있는 장난감 총알이다.\n어딘가에 쓸 일이 있지 않을까?",
+                "itemID": "",
+                "name": "",
+                "info": "",
                 "sprite": {
-                    "instanceID": 30704
+                    "instanceID": 0
                 }
             },
-            "itemCount": 4
+            "itemCount": 0
         },
         {
             "itemData": {

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using UnityEngine.SceneManagement;
 
 public class UIManager : MonoBehaviour
 {
@@ -43,6 +44,18 @@ public class UIManager : MonoBehaviour
     [SerializeField] private LightLineGameManager _lightLineGameManager;
 
     private Coroutine _textCoroutine;
+
+    [SerializeField] private GameObject _settingPanel;
+    [SerializeField] private CanvasGroup _canvasGroup;
+    private bool _isSettingPanelOn;
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Escape))
+        {
+            SettingPanelOnOff();
+        }
+    }
 
     public void ColorFade(Color color, bool isFade, float duration = 1f)
     {
@@ -275,5 +288,34 @@ public class UIManager : MonoBehaviour
     {
         GameManager.Inst.ChangeGameState(EGameState.UI);
         _kitchenMinigameManager.StartGame();
+    }
+
+    private bool isSettingPanelOn = false;
+
+    public void NewGame()
+    {
+        SceneManager.LoadScene("Main");
+    }
+
+    public void LoadGame()
+    {
+
+    }
+
+    public void SettingPanelOnOff()
+    {
+        if (isSettingPanelOn == false) _settingPanel.SetActive(true);
+        _canvasGroup.DOFade(_isSettingPanelOn ? 0f : 1f, 0.5f);
+        _isSettingPanelOn = !_isSettingPanelOn;
+        if (_isSettingPanelOn == false) _settingPanel.SetActive(false);
+    }
+
+    public void Quit()
+    {
+#if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+#else
+    Application.Quit();
+#endif
     }
 }

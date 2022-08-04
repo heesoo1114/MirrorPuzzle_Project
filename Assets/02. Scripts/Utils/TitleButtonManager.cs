@@ -12,7 +12,7 @@ public class TitleButtonManager : MonoBehaviour
 
     public void NewGame()
     {
-        SceneManager.LoadScene("Gaon");
+        SceneManager.LoadScene("Main");
     }
 
     public void LoadGame()
