@@ -19,13 +19,7 @@ public class CurtainsAnimation : MonoBehaviour
 
     public void Open()
     {
-
-        isCurtain = false;
-        anim.SetBool("isOpen", isCurtain);
-        
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        closeCurtatin.GetComponent<PolygonCollider2D>().enabled = true;
-        
+        anim.SetBool("isOpen", false);
     }
 
     public void Curtains()
@@ -35,13 +29,7 @@ public class CurtainsAnimation : MonoBehaviour
 
     public void Close()
     {
-
-        isCurtain = false;
-        anim.SetBool("isOpen", isCurtain);
-
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        closeCurtatin.GetComponent<PolygonCollider2D>().enabled = true;
-
+        anim.SetBool("isOpen", false);
     }
 
     private void OnEnable()
