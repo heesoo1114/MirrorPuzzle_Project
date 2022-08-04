@@ -13,9 +13,9 @@ public class Dropable : MonoBehaviour, IDropHandler
         rectTransform = GetComponent<RectTransform>();
     }
 
-    public void OnDrop(PointerEventData eventData) // µå·ÓÇÒ¶§
+    public void OnDrop(PointerEventData eventData) // ë“œë¡­í• ë•Œ
     {
-        if(eventData.pointerDrag != null) // µå·¡±×ÇÏ°í ÀÖ´Â°Ô ³ÎÀÌ ¾Æ´Ï¸é
+        if(eventData.pointerDrag != null && transform.childCount == 0) // ë“œë˜ê·¸í•˜ê³  ìˆëŠ”ê²Œ ë„ì´ì•„ë‹ˆê³  ìì‹ì´ ì—†ìœ¼ë©´
         {
             eventData.pointerDrag.transform.SetParent(transform);
             eventData.pointerDrag.GetComponent<RectTransform>().position = rectTransform.position; 
