@@ -31,6 +31,7 @@ public class PlayerInteractionTrigger : MonoBehaviour
             switch(equipItemID)
             {
                 case "2065":
+                    GameManager.Inst.ChangeGameState(EGameState.UI);
                     GameManager.Inst.UI.ToiletLetterUI();
                     InventorySystem.Inst.UseEquipItem();
                     break;
