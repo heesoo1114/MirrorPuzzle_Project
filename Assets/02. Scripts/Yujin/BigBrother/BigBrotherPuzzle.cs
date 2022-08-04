@@ -58,12 +58,11 @@ public class BigBrotherPuzzle : MonoBehaviour
     public void BlueBearClick()
     {
         GameObject clickBear = EventSystem.current.currentSelectedGameObject;
-        clickBear.SetActive(false);
 
         if (checkEquipPanel.GetChild(equipPanelCnt).GetChild(0).gameObject.CompareTag("BlueBullet"))
         {
+            clickBear.SetActive(false);
             checkBlueBear++;
-            // clickBearÀÇ »ö±òÀº ±×´ë·Î µÒ
         }
         else if (checkEquipPanel.GetChild(equipPanelCnt).GetChild(0).gameObject.CompareTag("RedBullet"))
         {
@@ -71,16 +70,14 @@ public class BigBrotherPuzzle : MonoBehaviour
             Image clickBearImage = clickBear.GetComponent<Image>();
 
             Color color = clickBearImage.color;
-            color.r = 1;
+            color = Color.red;
             clickBearImage.color = color;
             // clickBearÀÇ »ö±òÀÇ R°ªÀ» 255·Î
         }
 
         bb_shootEvent?.Invoke();
-
-        checkBlueBear++;
-
         equipPanelCnt++;
+
         if (equipPanelCnt >= 9)
             equipPanelCnt = 0;
 
@@ -128,11 +125,11 @@ public class BigBrotherPuzzle : MonoBehaviour
         CutSceneManager.Inst.StartCutScene("ENDGAME");
 
         puzzleImage.gameObject.SetActive(false); 
-        clearImage.gameObject.SetActive(false);
+        clearImage.gameObject.SetActive(true);
     }
 
     public void RestartGame()
     {
-
+        
     }
 }
