@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class CameraPuzzle : MonoBehaviour
+public class CameraPuzzle : InteractionObject
 {
     [SerializeField]
     private GameObject Film_spr;
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public override void InteractionEvent()
     {
-         Film_spr.gameObject.SetActive(true);
+        Film_spr.gameObject.SetActive(true);
     }
 
 }

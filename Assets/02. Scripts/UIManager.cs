@@ -51,6 +51,8 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
+        if (GameManager.Inst.GameState == EGameState.Timeline) return;
+
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             SettingPanelOnOff();
@@ -306,6 +308,7 @@ public class UIManager : MonoBehaviour
     {
         if (isSettingPanelOn == false) _settingPanel.SetActive(true);
         _canvasGroup.DOFade(_isSettingPanelOn ? 0f : 1f, 0.5f);
+        GameManager.Inst.ChangeGameState(_isSettingPanelOn ? EGameState.UI : EGameState.Game);
         _isSettingPanelOn = !_isSettingPanelOn;
         if (_isSettingPanelOn == false) _settingPanel.SetActive(false);
     }

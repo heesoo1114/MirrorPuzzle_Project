@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class FilmPuzzle : MonoBehaviour
+public class FilmPuzzle : InteractionObject
 {
     [SerializeField]
     private Animator Shake_anim;
@@ -33,14 +33,8 @@ public class FilmPuzzle : MonoBehaviour
         color.a = 1f;
     }
 
-    private void Update()
-    {
-        
-    }
-
     public void OnClick()
     {
-        Debug.Log(color.a);
         if (GameManager.Inst.WorldType == WorldType.MirrorWorld)
         {
             color.a -= 0.1f;
@@ -49,9 +43,10 @@ public class FilmPuzzle : MonoBehaviour
             audioSource.PlayOneShot(clickSound);
         }
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    public override void InteractionEvent()
     {
-        if(GameManager.Inst.WorldType == WorldType.RealWorld)
+        if (GameManager.Inst.WorldType == WorldType.RealWorld)
         {
             film_Img.gameObject.SetActive(true);
         }
@@ -62,8 +57,4 @@ public class FilmPuzzle : MonoBehaviour
         hint.SetActive(true);
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        film_Img.gameObject.SetActive(false);
-    }
 }
