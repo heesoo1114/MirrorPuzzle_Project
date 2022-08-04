@@ -68,6 +68,7 @@ public class ChestScripts : InteractionObject
 
     IEnumerator CorrectAnswer()
     {
+        answerCheck = true;
         toggleText.color = Color.cyan;
         toggleText.text = "정답입니다.";
         
@@ -75,7 +76,6 @@ public class ChestScripts : InteractionObject
 
         yield return new WaitForSeconds(1.0f);
         
-        answerCheck = true;
         toggleText.color = Color.white;
         toggleText.text = "정답을 입력하세요.";
 
@@ -83,9 +83,6 @@ public class ChestScripts : InteractionObject
         hintImage.gameObject.SetActive(true);
 
         GameManager.Inst.librayChestPuzzleClear = true;
-        answerCheck = true;
-        GameManager.Inst.ChangeGameState(EGameState.Game);
-
     }
 
     IEnumerator NotCorrectAnswer()
@@ -103,6 +100,8 @@ public class ChestScripts : InteractionObject
 
     public void OutChest()
     {
+        if (answerCheck) return;
+
         passWord.gameObject.SetActive(false);
         GameManager.Inst.ChangeGameState(EGameState.Game);
     }

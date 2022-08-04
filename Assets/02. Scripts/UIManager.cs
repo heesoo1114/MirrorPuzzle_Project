@@ -51,7 +51,7 @@ public class UIManager : MonoBehaviour
 
     private void Update()
     {
-        if (GameManager.Inst.GameState == EGameState.Timeline) return;
+        if (GameManager.Inst.GameState == EGameState.Timeline || isWorldBarMoving) return;
 
         if(Input.GetKeyDown(KeyCode.Escape))
         {
@@ -246,6 +246,7 @@ public class UIManager : MonoBehaviour
 
     public void ActiveRoomText(string roomName)
     {
+        isWorldBarMoving = true;
         RectTransform rectTransform = worldText.transform.parent.GetComponent<RectTransform>();
         worldText.text = roomName;
         StartCoroutine(MoveUIBar(rectTransform));
@@ -292,8 +293,6 @@ public class UIManager : MonoBehaviour
         _kitchenMinigameManager.StartGame();
     }
 
-    private bool isSettingPanelOn = false;
-
     public void NewGame()
     {
         SceneManager.LoadScene("Main");
@@ -306,7 +305,9 @@ public class UIManager : MonoBehaviour
 
     public void SettingPanelOnOff()
     {
-        if (isSettingPanelOn == false) _settingPanel.SetActive(true);
+        if (!_isSettingPanelOn && GameManager.Inst.GameState == EGameState.UI) return;
+
+        if (_isSettingPanelOn == false) _settingPanel.SetActive(true);
         _canvasGroup.DOFade(_isSettingPanelOn ? 0f : 1f, 0.5f);
         _isSettingPanelOn = !_isSettingPanelOn;
         GameManager.Inst.ChangeGameState(_isSettingPanelOn ? EGameState.UI : EGameState.Game);

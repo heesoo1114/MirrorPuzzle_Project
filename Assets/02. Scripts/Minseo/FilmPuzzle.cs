@@ -50,7 +50,9 @@ public class FilmPuzzle : InteractionObject
 
                 return;
             }
-            audioSource.PlayOneShot(clickSound);
+
+            //오류 있어서 일단 꺼놨어요
+            //audioSource.PlayOneShot(clickSound);
         }
     }
 

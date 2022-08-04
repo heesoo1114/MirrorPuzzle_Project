@@ -17,14 +17,17 @@ public class MirrorPuzzle : InteractionObject
     {
         if (InventorySystem.Inst.equipItemDataID == "Library_A_Stamp")
         {
+            GameManager.Inst.ChangeGameState(EGameState.UI);
             aStampImage.gameObject.SetActive(true);
         }
         else if (InventorySystem.Inst.equipItemDataID == "Library_B_GoldBar")
         {
+            GameManager.Inst.ChangeGameState(EGameState.UI);
             bGoldImage.gameObject.SetActive(true);
         }
         else if (InventorySystem.Inst.equipItemDataID == "Library_C_Book")
         {
+            GameManager.Inst.ChangeGameState(EGameState.UI);
             cBookImage.gameObject.SetActive(true);
         }
     }

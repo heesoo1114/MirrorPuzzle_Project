@@ -86,6 +86,8 @@ public class DishCreate : MonoBehaviour
         holder.gameObject.SetActive(false);
         background.gameObject.SetActive(false);
 
+        GameManager.Inst.ChangeGameState(EGameState.Game);
+
         gameObject.SetActive(false);
     }
 }

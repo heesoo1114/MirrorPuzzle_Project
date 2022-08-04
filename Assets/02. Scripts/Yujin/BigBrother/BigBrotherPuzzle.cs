@@ -122,7 +122,8 @@ public class BigBrotherPuzzle : MonoBehaviour
 
     public void PuzzleClear()
     {
-        CutSceneManager.Inst.StartCutScene("ENDGAME");
+        Debug.Log("dd");
+        CutSceneManager.Inst.StartCutScene("END");
 
         puzzleImage.gameObject.SetActive(false); 
         clearImage.gameObject.SetActive(true);

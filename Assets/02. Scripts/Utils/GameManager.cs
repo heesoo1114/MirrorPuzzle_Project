@@ -48,12 +48,13 @@ public class GameManager : MonoSingleton<GameManager>
     private IEnumerator Start() 
     {
         ChangeGlobalLight();
+        Cursor.lockState = CursorLockMode.Locked;
 
         rooms = map.GetComponentsInChildren<Room>().ToList();
 
         yield return new WaitForEndOfFrame();
 
-        //CutSceneManager.Inst.StartCutScene("START");
+        CutSceneManager.Inst.StartCutScene("START");
     }
 
     public void ChangeWorld()
@@ -148,5 +149,10 @@ public class GameManager : MonoSingleton<GameManager>
     public void SetBackGameState()
     {
         _gameState = _beforeGameState;
+    }
+
+    public void SetGameStateToUI()
+    {
+        ChangeGameState(EGameState.Game);
     }
 }
