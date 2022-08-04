@@ -11,6 +11,7 @@ public class BgmSound : AudioPlayer
     {
         PlayClip(activeWorldBgm);
     }
+
     public void MirrorWorldBgm()
     {
         PlayClip(mirrorWorldBgm);
