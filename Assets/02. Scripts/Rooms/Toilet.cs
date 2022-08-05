@@ -13,6 +13,6 @@ public class Toilet : MonoBehaviour
     {
         CutSceneManager.Inst.StartCutScene("TOILET");
         
-        EventManager.StopListening("ENTER_TOILET", StartToiletCutScene);
+        EventManager.StopListening("ENTER_Toilet", StartToiletCutScene);
     }
 }
