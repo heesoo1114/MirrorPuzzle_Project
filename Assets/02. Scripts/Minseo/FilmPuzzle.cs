@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 using DG.Tweening;
 
 public class FilmPuzzle : InteractionObject
@@ -28,6 +29,8 @@ public class FilmPuzzle : InteractionObject
     [SerializeField]
     private AudioSource audioSource;
 
+    public UnityEvent OnFilmClear;
+
     private void Start()
     {
         btn.onClick.AddListener(OnClick);
@@ -36,6 +39,8 @@ public class FilmPuzzle : InteractionObject
 
     public void OnClick()
     {
+        if (btn_img.color.a <= 0f) return;
+
         if (GameManager.Inst.WorldType == WorldType.MirrorWorld)
         {
             color.a -= 0.1f;
@@ -47,6 +52,7 @@ public class FilmPuzzle : InteractionObject
                 seq.Append(film_Img.transform.DOShakePosition(1f, 1, 3));
                 seq.AppendCallback(()=> film_Img.gameObject.SetActive(false));
                 seq.AppendCallback(()=> GameManager.Inst.ChangeGameState(EGameState.Game));
+                seq.AppendCallback(() => OnFilmClear?.Invoke());
 
                 return;
             }

@@ -5,11 +5,11 @@
     "inventoryList": [
         {
             "itemData": {
-                "itemID": "20",
-                "name": "형의 쪽지",
-                "info": "읽을 수 없는 글자로 가득하다",
+                "itemID": "LIBRARYKEY",
+                "name": "서재 열쇠",
+                "info": "서재 문을 열 수 있는 열쇠다.",
                 "sprite": {
-                    "instanceID": 30048
+                    "instanceID": 30974
                 }
             },
             "itemCount": 1

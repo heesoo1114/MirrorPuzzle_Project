@@ -16,9 +16,17 @@ public class PasswardScript : MonoBehaviour
 
 
     private bool Check = false;
+    private bool filmClear = false;
+
+    public void FilmClear()
+    {
+        filmClear = true;
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (!filmClear) return;
+
         if (collision.collider.CompareTag("Player") && !Check)
         {
             GameManager.Inst.ChangeGameState(EGameState.UI);

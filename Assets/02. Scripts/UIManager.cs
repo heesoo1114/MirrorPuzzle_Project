@@ -278,6 +278,8 @@ public class UIManager : MonoBehaviour
 
     public void StartLightLineGame()
     {
+        if (_lightLineGameManager.IsClear) return;
+
         GameManager.Inst.ChangeGameState(EGameState.UI);
         _lightLineGameManager.Init();
     }
