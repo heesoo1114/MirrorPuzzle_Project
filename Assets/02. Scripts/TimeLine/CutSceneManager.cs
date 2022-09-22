@@ -54,7 +54,7 @@ public class CutSceneManager : MonoSingleton<CutSceneManager>
     {
         if (_isPlaying == false) return;
         if (_isScriptStarted) return;
-
+         
         if (_isScriptStarted == false)
             _isScriptStarted = true;
 

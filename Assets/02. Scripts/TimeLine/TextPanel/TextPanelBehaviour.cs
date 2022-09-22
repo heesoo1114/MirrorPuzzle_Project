@@ -12,6 +12,7 @@ public class TextPanelBehaviour : PlayableBehaviour
     public string nameText;
     public string textMessage;
     public bool isPlayClip;
+    public Vector3 destPos;
 
 
     public override void OnPlayableCreate (Playable playable)
@@ -24,6 +25,8 @@ public class TextPanelBehaviour : PlayableBehaviour
     {
 
         base.OnBehaviourPlay(playable, info);
+
+        GameObject target;
 
         textPanel.ShowTextPanal(textMessage, nameText);
     }
