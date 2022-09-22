@@ -6,7 +6,7 @@ using UnityEngine;
 [System.Serializable]
 public class PopupUI
 {
-    public GameObject puzzlePref;
+    public Popup puzzlePref;
     public string keyID;
 }
 
@@ -27,7 +27,7 @@ public class PopupUISO : ScriptableObject
         set => popupUIList[idx] = value;
     }
 
-    public GameObject this[string key]
+    public Popup this[string key]
     {
         get
         {
