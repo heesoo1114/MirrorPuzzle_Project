@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +17,7 @@ public class RotateMirror : MonoBehaviour
     {
         _recTrm = GetComponent<RectTransform>();
         _image = GetComponent<Image>();
+        _state = State.Left;
     }
 
     public enum State
@@ -26,20 +28,18 @@ public class RotateMirror : MonoBehaviour
 
     public State _state;
 
-    private void Update()
-    {
-        if (_state == State.Left)
-            _image.sprite = _leftSprite;
-        else if (_state == State.Right)
-            _image.sprite = _rightSprite;
-    }
-
     public void ClickMirror()
     {
         if (_state == State.Left)
+        {
             _state = State.Right;
+            transform.DORotate(new Vector3(0, 0, 90), 1f);
+        }
         else if (_state == State.Right)
+        {
             _state = State.Left;
+            transform.DORotate(new Vector3(0, 0, 0), 1f);
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

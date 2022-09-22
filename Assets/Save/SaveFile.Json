@@ -5,11 +5,11 @@
     "inventoryList": [
         {
             "itemData": {
-                "itemID": "BEDROOMKEY",
-                "name": "안방 열쇠",
-                "info": "안방 문을 열 수 있는 열쇠다.",
+                "itemID": "LIBRARYKEY",
+                "name": "서재 열쇠",
+                "info": "서재 문을 열 수 있는 열쇠다.",
                 "sprite": {
-                    "instanceID": 30128
+                    "instanceID": 30898
                 }
             },
             "itemCount": 1
