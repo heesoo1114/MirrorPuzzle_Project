@@ -26,6 +26,7 @@ public class TextPanel : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+
             if (OnKeyDownSpace != null)
             {
                 OnKeyDownSpace?.Invoke();
@@ -33,22 +34,26 @@ public class TextPanel : MonoBehaviour
 
             else
             {
+                Debug.Log("dd");
+
                 if (_isOutput)
                 {
+                    Debug.Log("ImmediatelyEndOutput");
                     ImmediatelyEndOutput();
                 }
 
                 else
                 {
+                    Debug.Log("UnShowTextPanal");
                     UnShowTextPanal();
                 }
             }
         }
     }
 
-    public void ShowTextPanal(string outputText, string name = "")
+    public bool ShowTextPanal(string outputText, string name = "")
     {
-        if (_isOutput) return;
+        if (_isOutput) return false;
         if (name != "")
         {
             _nameTextPanal.ChangeNameText(name);
@@ -65,19 +70,25 @@ public class TextPanel : MonoBehaviour
 
         _isOutput = true;
         _textMessage = outputText;
-        _currentText.text = "";
-        transform.DOScaleX(0f, 0f);
-        gameObject.SetActive(true);
+
+        if (!gameObject.activeSelf)
+        {
+            transform.DOScaleX(0f, 0f);
+            gameObject.SetActive(true);
+        }
+
+        StopAllCoroutines();
         StartCoroutine(Co_ShowTextPanal());
+        return true;
     }
 
     public void ImmediatelyEndOutput()
     {
         if (_isOutput == false) return;
 
-        _currentText.DOKill();
-        _currentText.text = _textMessage;
         _isOutput = false;
+        _currentText.DOKill(true);
+        _currentText.text = _textMessage;
     }
 
     public void UnShowTextPanal()
@@ -87,7 +98,7 @@ public class TextPanel : MonoBehaviour
         if (_isOutput)
         {
             StopAllCoroutines();
-            _currentText.DOKill();
+            _currentText.DOKill(true);
             _isOutput = false;
         }
 
@@ -96,9 +107,11 @@ public class TextPanel : MonoBehaviour
 
     private IEnumerator Co_ShowTextPanal()
     {
-        transform.DOKill();
-        transform.DOScaleX(1f, 0.5f);
-        yield return new WaitForSeconds(0.5f);
+        if(transform.localScale.x != 1f)
+        {
+            transform.DOScaleX(1f, 0.5f);
+            yield return new WaitForSeconds(0.5f);
+        }
 
         float time = _textMessage.Length * _textSpeed;
 
@@ -113,14 +126,13 @@ public class TextPanel : MonoBehaviour
 
     private IEnumerator Co_UnShowTextPanal()
     {
-        transform.DOKill();
         transform.DOScaleX(0f, 0.5f);
         yield return new WaitForSeconds(0.5f);
         gameObject.SetActive(false);
         _nameTextPanal.gameObject.SetActive(false);
         _currentText.text = "";
 
-        if(GameManager.Inst.GameState == EGameState.UI)
+        if (GameManager.Inst.GameState == EGameState.UI)
             GameManager.Inst.ChangeGameState(_beforeGameState);
 
     }

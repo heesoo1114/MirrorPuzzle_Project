@@ -9,6 +9,10 @@ public class TargetPicker : MonoBehaviour
 
     public bool IsMove => _isMove;
 
+    private void OnDisable()
+    {
+        transform.DOKill(true);
+    }
     public void SetPos(Vector2 pos, float duration = 0.25f)
     {
         _isMove = true;

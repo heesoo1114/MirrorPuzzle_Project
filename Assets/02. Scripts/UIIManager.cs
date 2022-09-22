@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 
-public class UIManager : MonoBehaviour
+public class UIIManager : MonoBehaviour
 {
     public FadeScreen fadeScreen;
 

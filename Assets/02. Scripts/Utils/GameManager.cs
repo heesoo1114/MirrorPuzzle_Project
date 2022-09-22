@@ -19,9 +19,9 @@ public class GameManager : MonoSingleton<GameManager>
     private EGameState _gameState;
     public EGameState GameState => _gameState;
 
-    private UIManager uiManager;
+    private UIIManager uiManager;
 
-    public UIManager UI { get { return uiManager; } }
+    public UIIManager UI { get { return uiManager; } }
 
 
     private WorldType worldType = WorldType.RealWorld;
@@ -41,7 +41,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Awake()
     {
-        uiManager = GetComponent<UIManager>();
+        uiManager = GetComponent<UIIManager>();
 
     }
 
