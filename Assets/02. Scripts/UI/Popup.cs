@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Popup : MonoBehaviour
+public class Popup : UIBase
 {
     public enum EManageState
     {
@@ -15,4 +15,19 @@ public class Popup : MonoBehaviour
     protected EManageState _manageState;
 
     public EManageState ManageState => _manageState;
+
+    public override bool Init()
+    {
+        if(base.Init() == false)
+        {
+            return false;
+        }
+
+        return true;
+    }
+
+    public virtual void ClosePopupUI()
+    {
+        UIManager.Inst.ClosePopupUI(this);
+    }
 }
