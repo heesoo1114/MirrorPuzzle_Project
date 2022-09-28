@@ -38,7 +38,6 @@ public class UIManager : MonoBehaviour
 
     public bool isWorldBarMoving = false;
 
-    [SerializeField] private DishCreate _kitchenMinigameManager;
     [SerializeField] private SwitchManager _switchMiniGameManager1;
     [SerializeField] private SwitchManager _switchMiniGameManager2;
     [SerializeField] private LightLineGameManager _lightLineGameManager;
@@ -289,12 +288,8 @@ public class UIManager : MonoBehaviour
         _toiletLetterUI.SetActive(true);
     }
 
-    public void StartKitchenMingame()
-    {
-        GameManager.Inst.ChangeGameState(EGameState.UI);
-        _kitchenMinigameManager.StartGame();
-    }
-
+    private bool isSettingPanelOn = false;
+    
     public void NewGame()
     {
         SceneManager.LoadScene("Main");
