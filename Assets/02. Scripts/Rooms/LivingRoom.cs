@@ -16,7 +16,7 @@ public class LivingRoom : MonoBehaviour
     {
         if(_hallWayWarpZone.isLock)
         {
-            if (InventorySystem.Inst.EqualsItem("LibaryKey"))
+            if (InventorySystem.Inst.EqualsItem("LIBRARYKEY"))
             {
                 _hallWayWarpZone.isLock = false;
                 _hallWayWarpZone.lockMessage = "";

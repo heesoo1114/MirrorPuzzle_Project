@@ -79,3 +79,8 @@ MonoBehaviour:
     name: "\uB3D9\uC0DD \uBC29 \uC5F4\uC1E0"
     info: "\uB3D9\uC0DD \uBC29 \uBB38\uC744 \uC5F4 \uC218 \uC788\uB294 \uC5F4\uC1E0\uB2E4."
     sprite: {fileID: 21300000, guid: c73c5cf045df3b44a97a9464d20585cc, type: 3}
+  - itemID: HAND_MIRROR
+    name: "\uC190\uAC70\uC6B8"
+    info: "\uAC70\uC6B8 \uC138\uACC4\uB85C \uC774\uB3D9\uD560 \uC218 \uC788\uB294
+      \uC190\uAC70\uC6B8\uC774\uB2E4."
+    sprite: {fileID: 21300000, guid: 00420a98ce29a18429d5eeeae9b248ea, type: 3}

@@ -8,15 +8,21 @@ public class BB_BearsPuzzle : InteractionObject
     [SerializeField]
     private Image reloadPanel;
 
+    private bool _isTuto;
     public override void InteractionEvent()
     {
-        if(InventorySystem.Inst.EqualsItem("BB_BlueBullet") &&
+        if (InventorySystem.Inst.EqualsItem("BB_BlueBullet") &&
            InventorySystem.Inst.EqualsItem("BB_RedBullet") &&
            InventorySystem.Inst.EqualsItem("BB_NotRealGun"))
         {
             // √—¿Ã∂˚ √—æÀ¿Ã ¥Ÿ ¿÷¥Ÿ∏È if
+            GameManager.Inst.ChangeGameState(EGameState.UI);
             reloadPanel.gameObject.SetActive(true);
-            CutSceneManager.Inst.StartCutScene("BEAR");
+            if (_isTuto == false)
+            {
+                _isTuto = true;
+                CutSceneManager.Inst.StartCutScene("BEAR");
+            }
         }
         else
         {

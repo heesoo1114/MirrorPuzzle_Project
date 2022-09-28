@@ -35,8 +35,7 @@ public class PlayerMove : MonoBehaviour
         _visualAnimator = transform.Find("VisualSprite").GetComponent<Animator>();
         _walkParticle = GetComponentInChildren<ParticleSystem>();
 
-        _currentRoomType = RoomType.Toilet;
-
+        _currentRoomType = RoomType.Kitchen;
     }
 
     private void Update()

@@ -1,14 +1,30 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInteractionTrigger : MonoBehaviour
 {
-    private InteractionObject _interactionObject;
+    private List<InteractionObject> _interactionObjectList = new List<InteractionObject>();
+    private InteractionObject CurrentObject
+    {
+        get
+        {
+            int cnt = _interactionObjectList.Count;
+            if (cnt <= 0)
+                return null;
+
+
+
+            return _interactionObjectList[cnt - 1];
+        }
+    }
+
 
     public void LateUpdate()
     {
-        if (_interactionObject != null)
+        if (CurrentObject != null)
         {
-            Vector3 objPos = _interactionObject.transform.position;
+            Vector3 objPos = CurrentObject.transform.position;
             GameManager.Inst.UI.ShowInteractionUI(objPos);
         }
     }
@@ -20,15 +36,15 @@ public class PlayerInteractionTrigger : MonoBehaviour
         {
             GameManager.Inst.ChangeWorld();
         }
-        else if (_interactionObject != null)
-        {
-            _interactionObject.InteractionEvent();
+        else if (CurrentObject != null)
+        { 
+            CurrentObject.InteractionEvent();
         }
         else
         {
             string equipItemID = InventorySystem.Inst.equipItemDataID;
 
-            switch(equipItemID)
+            switch (equipItemID)
             {
                 case "2065":
                     GameManager.Inst.ChangeGameState(EGameState.UI);
@@ -47,14 +63,16 @@ public class PlayerInteractionTrigger : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Interaction"))
         {
-            _interactionObject = collision.transform.GetComponent<InteractionObject>();
-            if(_interactionObject)
+            InteractionObject obj = collision.transform.GetComponent<InteractionObject>();
+
+            if (obj != null)
             {
-                _interactionObject.EnterInteraction();
+                _interactionObjectList.Add(obj);
+                obj.EnterInteraction();
             }
         }
-
     }
+
 
     private void OnTriggerExit2D(Collider2D collision)
     {
@@ -62,13 +80,14 @@ public class PlayerInteractionTrigger : MonoBehaviour
         {
             GameManager.Inst.UI.UnShowInteractionUI();
 
-            if (_interactionObject != null)
+            InteractionObject obj = collision.transform.GetComponent<InteractionObject>();
+
+            if (obj != null && _interactionObjectList.Find(x => x == obj) != null)
             {
-                _interactionObject.ExitInteraction();
-                _interactionObject = null;
+                obj.ExitInteraction();
+                _interactionObjectList.Remove(obj);
             }
         }
 
     }
-
 }

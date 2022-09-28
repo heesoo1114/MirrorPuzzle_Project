@@ -6,7 +6,10 @@ public class InteractionHandMirror : InteractionObject
 {
     public override void InteractionEvent()
     {
+        GameManager.Inst.UI.ActiveTextPanal("º’∞≈øÔ¿ª »πµÊ«ﬂ¥Ÿ");
         InventorySystem.Inst.AddItem("HAND_MIRROR");
-        Destroy(gameObject);
+
+        GameManager.Inst.UI.UnShowInteractionUI();
+        Destroy(gameObject,1f);
     }
 }

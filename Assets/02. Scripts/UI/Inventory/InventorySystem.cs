@@ -73,6 +73,7 @@ public class InventorySystem : MonoSingleton<InventorySystem>
     public void Update()
     {
         if (GameManager.Inst.GameState == EGameState.Timeline) return;
+        if (GameManager.Inst.GameState == EGameState.UI && !_isActive) return;
 
         if (Input.GetKeyDown(KeyCode.Tab))
         {
