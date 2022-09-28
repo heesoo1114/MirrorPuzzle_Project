@@ -6,8 +6,8 @@ public class LightMove : MonoBehaviour
 {
     // 여러개를 배치하고 돌리기만 가능하게?
 
-    private bool isMove = false;
-    private bool isEnd = false;
+    public bool isMove = false;
+    public bool isEnd = false;
     private TrailRenderer trail = null;
 
     [SerializeField]

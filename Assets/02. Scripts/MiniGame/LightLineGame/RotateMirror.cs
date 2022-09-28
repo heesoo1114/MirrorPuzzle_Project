@@ -13,10 +13,15 @@ public class RotateMirror : MonoBehaviour
     [SerializeField]
     private RectTransform _recTrm = null;
 
+    private LightMove lightMove;
+
     private void Awake()
     {
         _recTrm = GetComponent<RectTransform>();
         _image = GetComponent<Image>();
+
+        lightMove = gameObject.transform.parent.GetChild(0).GetComponent<LightMove>();
+
         _state = State.Left;
     }
 
@@ -30,6 +35,9 @@ public class RotateMirror : MonoBehaviour
 
     public void ClickMirror()
     {
+        if (lightMove.isMove)
+            return;
+
         if (_state == State.Left)
         {
             _state = State.Right;
