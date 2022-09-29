@@ -7,13 +7,16 @@ public class MinigameStarter : InteractionObject
     private bool _isClear =false;
     private bool _isPlaying = false;
 
+    [SerializeField]
+    private GameObject dishPuzzle;
+
     public override void InteractionEvent()
     {
         if (_isClear) return;
         if (_isPlaying) return;
         _isPlaying = true;
 
-        GameManager.Inst.UI.StartKitchenMingame();
+        dishPuzzle.SetActive(true);
     }
 
     private void GameClear()
