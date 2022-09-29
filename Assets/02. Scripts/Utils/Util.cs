@@ -13,6 +13,10 @@ public static class Util
     {
         Move,
         GameClear,
-        KeyAdd
+        KeyAdd,
+        Drawer_Open,
+        Drawer_Close,
+        Click_Kitchen_Button,
+        Change_World
     }
 }
