@@ -130,4 +130,33 @@ public class CutSceneManager : MonoSingleton<CutSceneManager>
 
         _isPlaying = false;
     }
+
+    public void CountinueNextCutScene(string cutsceneID)
+    {
+        if (_isPlaying == false) return;
+
+        GameManager.Inst.UI.StartFadeOut(0f);
+        if (_beforeState != EGameState.Timeline)
+        {
+            GameManager.Inst.ChangeGameState(_beforeState);
+        }
+
+        else
+        {
+            GameManager.Inst.ChangeGameState(EGameState.Game);
+        }
+        EventManager.TriggerEvent($"END_{_currentCutScene.cutSceneID}CUTSCENE");
+
+        _isScriptStarted = false;
+        _currentDirector.Pause();
+        _currentDirector = null;
+        _lineIdx = 0;
+        _currentCutScene = null;
+        _textPanel.OnKeyDownSpace -= PlayCutSceneAct;
+        _timeLineCam.m_Priority = 0;
+
+        _isPlaying = false;
+
+        Inst.StartCutScene(cutsceneID.ToString());
+    }
 }
