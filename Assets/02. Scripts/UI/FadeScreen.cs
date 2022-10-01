@@ -18,15 +18,12 @@ public class FadeScreen : MonoBehaviour
         _fadeImage = GetComponent<Image>();
     }
 
-
-
     public void StartFade(float duration = 1f)
     {
         if(_isFade)
         {
             FadeIn(duration);
         }
-
         else
         {
             FadeOut(duration);
@@ -35,14 +32,14 @@ public class FadeScreen : MonoBehaviour
 
     public void FadeIn(float duration = 1f)
     {
-        if (!_isFade) return;
+        // if (_isFade == false) return; // 항상 _isFade는 false로 설정되어 있음
         _isFade = false;
         FadeEffect(duration);
     }
 
     public void FadeOut(float duration = 1f)
     {
-        if (_isFade) return;
+        if (_isFade) return; // FadeOut 사용하면 다음 컷신 FadeOut 사용할 때 여기서 return 되서 수정
         _isFade = true;
         FadeEffect(duration);
     }
@@ -54,7 +51,7 @@ public class FadeScreen : MonoBehaviour
 
         _fadeImage.color = color;
 
-        _fadeImage.DOFade(_isFade ? 0f : 1f, duration).SetEase(Ease.InCubic).OnComplete(() => fadeColor =Color.black);
+        _fadeImage.DOFade(_isFade ? 0f : 1f, duration).SetEase(Ease.InCubic).OnComplete(() => fadeColor = Color.black);
+        _isFade = false; // FadeOut 사용하면 다음 컷신 FadeOut 사용할 때 여기서 return 되서 수정
     }
-
 }
