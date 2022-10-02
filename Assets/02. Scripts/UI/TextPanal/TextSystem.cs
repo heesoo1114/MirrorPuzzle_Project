@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public class TextPanel : MonoBehaviour
+public class TextSystem : MonoSingleton<TextSystem>
 {
     [SerializeField] private NameTextPanal _nameTextPanal;
     [SerializeField] private Text _currentText;
@@ -18,6 +18,38 @@ public class TextPanel : MonoBehaviour
     public Action OnKeyDownSpace;
 
     private EGameState _beforeGameState;
+
+    private void Awake()
+    {
+        if (inst != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        inst = this;
+    }
+
+    public void ActiveTextPanal(string value = "")
+    {
+        if (value == "")
+        {
+            if (gameObject.activeSelf)
+            {
+                UnShowTextPanal();
+            }
+
+            else
+            {
+                return;
+            }
+        }
+
+        else
+        {
+            ShowTextPanal(value);
+        }
+    }
 
 
     public void Update()
@@ -34,17 +66,13 @@ public class TextPanel : MonoBehaviour
 
             else
             {
-                Debug.Log("dd");
-
                 if (_isOutput)
                 {
-                    Debug.Log("ImmediatelyEndOutput");
                     ImmediatelyEndOutput();
                 }
 
                 else
                 {
-                    Debug.Log("UnShowTextPanal");
                     UnShowTextPanal();
                 }
             }
@@ -107,7 +135,7 @@ public class TextPanel : MonoBehaviour
 
     private IEnumerator Co_ShowTextPanal()
     {
-        if(transform.localScale.x != 1f)
+        if (transform.localScale.x != 1f)
         {
             transform.DOScaleX(1f, 0.5f);
             yield return new WaitForSeconds(0.5f);

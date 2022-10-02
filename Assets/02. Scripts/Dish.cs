@@ -13,7 +13,7 @@ public class Dish : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IP
     [SerializeField] int randnessCnt;
     [SerializeField] float mDistance;
 
-    private Camera camera = null;
+    private Camera mainCam = null;
     private int cnt;
     private Vector2 mousePos;
     private bool isClear;
@@ -30,7 +30,7 @@ public class Dish : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IP
     void Start()
     {
         sum = defaultCnt + Random.Range(-randnessCnt, randnessCnt);
-        camera = Camera.main;
+        mainCam = Camera.main;
     }
 
     void Update()
@@ -40,7 +40,7 @@ public class Dish : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IP
 
         if (isMouseDown == false) return;
 
-        Vector2 currentPos = camera.ScreenToWorldPoint(Input.mousePosition);
+        Vector2 currentPos = mainCam.ScreenToWorldPoint(Input.mousePosition);
 
         if(Vector2.Distance(mousePos, currentPos) >= mDistance)
         {
@@ -72,7 +72,7 @@ public class Dish : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IP
         if (isMouseDown == true) return;
         isMouseDown = true;
 
-        mousePos = camera.ScreenToWorldPoint(Input.mousePosition);
+        mousePos = mainCam.ScreenToWorldPoint(Input.mousePosition);
     }
 
     public void OnPointerEnter(PointerEventData eventData)

@@ -8,14 +8,14 @@ public class InteractionToKitchenTrigger : InteractionObject
     {
         if (InventorySystem.Inst.equipItemDataID == "10")
         {
-            GameManager.Inst.UI.ActiveTextPanal("문이 열렸다.");
+            TextSystem.Inst.ActiveTextPanal("문이 열렸다.");
             InventorySystem.Inst.UseEquipItem();
             StartCoroutine(ImmediatelyStop());
         }
 
         else
         {
-            GameManager.Inst.UI.ActiveTextPanal("문이 잠겨있다. \n 열쇠를 찾아보자.");
+            TextSystem.Inst.ActiveTextPanal("문이 잠겨있다. \n 열쇠를 찾아보자.");
         }
     }
 

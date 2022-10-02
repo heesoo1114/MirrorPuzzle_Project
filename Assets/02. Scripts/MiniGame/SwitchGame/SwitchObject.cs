@@ -11,7 +11,7 @@ public class SwitchObject : InteractionObject
 
     public override void InteractionEvent()
     {
-        GameManager.Inst.UI.StartSwitchOnGame(switchNum);
+        SwitchGameManager.Inst.StartSwitchGame(switchNum);
     }
 
 }

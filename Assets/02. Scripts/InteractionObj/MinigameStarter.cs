@@ -13,7 +13,7 @@ public class MinigameStarter : InteractionObject
         if (_isPlaying) return;
         _isPlaying = true;
 
-        GameManager.Inst.UI.StartKitchenMingame();
+        //GameManager.Inst.UI.StartKitchenMingame();
     }
 
     private void GameClear()
