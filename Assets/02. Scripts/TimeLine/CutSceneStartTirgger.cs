@@ -21,5 +21,7 @@ public class CutSceneStartTirgger : InteractionObject
 
         startCutscene(cutSceneID);
         isPlayed = true;
+
+        Destroy(gameObject);
     }
 }
