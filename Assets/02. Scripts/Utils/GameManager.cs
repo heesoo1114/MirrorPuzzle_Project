@@ -27,6 +27,8 @@ public class GameManager : MonoBehaviour
     public UnityEvent ChangeMirrorWorld;
     public UnityEvent ChangeRealWorld;
 
+    public GameObject player;
+
     private void Awake()
     {
         if(Inst != null)
@@ -40,6 +42,7 @@ public class GameManager : MonoBehaviour
 
     private void Start()
     {
+        GameLoad();
         ChangeGlobalLight();
 
         for (int i = 0; i < map.childCount; i++)
@@ -96,5 +99,16 @@ public class GameManager : MonoBehaviour
     {
         Debug.Log(id);
         return _textDatas.FindTextData(id);
+    }
+
+    public void GameSave()
+    {
+        PlayerPrefs.SetFloat("PlayerX", player.transform.position.x);
+        PlayerPrefs.SetFloat("PlayerY", player.transform.position.y);
+    }
+
+    public void GameLoad()
+    {
+
     }
 }
