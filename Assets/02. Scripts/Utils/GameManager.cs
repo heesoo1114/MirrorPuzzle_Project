@@ -53,8 +53,8 @@ public class GameManager : MonoSingleton<GameManager>
         rooms = map.GetComponentsInChildren<Room>().ToList();
 
         yield return new WaitForEndOfFrame();
-        //ChangeGameState(EGameState.UI);
-        CutSceneManager.Inst.StartCutScene("START");
+
+        //CutSceneManager.Inst.StartCutScene("START");
     }
 
     public void ChangeWorld()
