@@ -14,7 +14,7 @@ public class SoundClips : MonoBehaviour
     {
         effectClip = clipList.effectClips.Find(x => x.effectName == effectName);
 
-        if (effectClip == null) Debug.Log($"{effectName} is can't found");
+        if (effectClip == null) Debug.Log($"{effectName} Clip is can't found");
         return effectClip.clip;
     }
 
@@ -22,7 +22,7 @@ public class SoundClips : MonoBehaviour
     {
         bgmClip = clipList.bgmClips.Find(x => x.bgmName == bgmName);
 
-        if (bgmClip == null) Debug.Log($"{bgmName} is can't found");
+        if (bgmClip == null) Debug.Log($"{bgmName} Clip is can't found");
         return bgmClip.clip;
     }
 }

@@ -6,6 +6,7 @@ public class SoundPlayer : PoolableMono
 {
     private AudioSource _audioSource;
     private float time = 0;
+    public Util.Bgm nowLoopBgm = Util.Bgm.None;
 
     private void Awake()
     {
@@ -19,11 +20,21 @@ public class SoundPlayer : PoolableMono
         _audioSource.Play();
     }
 
-    public void PlayLoopSound(AudioClip clip)
+    public void PlayLoopSound(AudioClip clip, Util.Bgm bgmName)
     {
+        nowLoopBgm = bgmName;
         _audioSource.clip = clip;
         _audioSource.loop = true;
         _audioSource.Play();
+    }
+
+    public void PlayStopAndPush()
+    {
+        Reset();
+        time = 0;
+        nowLoopBgm = Util.Bgm.None;
+        _audioSource.Stop();
+        PoolManager.Instance.Push(this);
     }
 
     private void Update()
@@ -32,11 +43,7 @@ public class SoundPlayer : PoolableMono
 
         time += Time.deltaTime;
         if (time >= _audioSource.clip.length)
-        {
-            Reset();
-            _audioSource.Stop();
-            PoolManager.Instance.Push(this);
-        }
+            PlayStopAndPush();
     }
 
     public override void Reset()

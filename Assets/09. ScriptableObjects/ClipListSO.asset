@@ -28,5 +28,5 @@ MonoBehaviour:
   - effectName: 6
     clip: {fileID: 8300000, guid: 5f5ec8fb242b4434890c43a2f5179485, type: 3}
   bgmClips:
-  - bgmName: 0
+  - bgmName: 1
     clip: {fileID: 8300000, guid: 83fe308a0b00f3348b0c81118c1129a2, type: 3}
