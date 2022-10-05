@@ -105,10 +105,14 @@ public class GameManager : MonoBehaviour
     {
         PlayerPrefs.SetFloat("PlayerX", player.transform.position.x);
         PlayerPrefs.SetFloat("PlayerY", player.transform.position.y);
+        PlayerPrefs.Save();
     }
 
     public void GameLoad()
     {
+        float x = PlayerPrefs.GetFloat("PlayerX");
+        float y = PlayerPrefs.GetFloat("PlayerY");
 
+        player.transform.position = new Vector3(x, y, 0f);
     }
 }
