@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class LightLineGameManager : MonoBehaviour
+public class LightLineGameManager : SingleUI<LightLineGameManager>
 {
     public UnityEvent gameEndEvent;
     public UnityEvent gameResetEvent;
@@ -14,13 +14,36 @@ public class LightLineGameManager : MonoBehaviour
     private bool _isClear = false;
 
     public bool IsClear => _isClear;
-    public void Init()
+
+    public static void StartGame()
+    {
+        if (CheckInstance()) return;
+
+        inst.StartLightGame();
+    }
+
+    public override bool Init()
+    {
+        if (base.Init())
+        {
+            return false;
+        }
+
+        _isStart = false;
+        _isClear = false;
+        transform.localScale = Vector3.zero;
+        gameObject.SetActive(false);
+
+        return true;
+    }
+
+    public void StartLightGame()
     {
         if (_isStart == true) return;
         if (_isClear) return;
         _isStart = true;
         gameObject.SetActive(true);
-        transform.DOScale(Vector3.one, 0.8f).SetEase(Ease.InOutBounce);
+        transform.localScale = Vector3.one;
     }
 
     public void ResetGame()
@@ -30,17 +53,15 @@ public class LightLineGameManager : MonoBehaviour
 
     public void GameEnd()
     {
-        Sequence seq = DOTween.Sequence();
         GameManager.Inst.ChangeGameState(EGameState.Game);
 
         _isStart = false;
-        seq.Append(transform.DOScale(Vector3.zero, 0.8f).SetEase(Ease.InOutBounce));
-        seq.AppendCallback(() => {
-            _isClear = true;
-            gameEndEvent?.Invoke();
-            InventorySystem.Inst.AddItem("LIBRARYKEY");
-            gameObject.SetActive(false);
-            });
-        
+        _isClear = true;
+
+        transform.localScale = Vector3.zero;
+        gameEndEvent?.Invoke();
+        InventorySystem.Inst.AddItem("LIBRARYKEY");
+        gameObject.SetActive(false);
+
     }
 }

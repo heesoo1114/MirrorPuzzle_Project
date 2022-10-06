@@ -16,7 +16,7 @@ public class ToiletLetterInteraction : InteractionObject
     public override void InteractionEvent()
     {
         InventorySystem.Inst.AddItem("2065");
-        GameManager.Inst.UI.ActiveTextPanal("하늘색 봉투에 담긴 편지가 있다.");
+        TextSystem.Inst.ActiveTextPanal("하늘색 봉투에 담긴 편지가 있다.");
         StartCoroutine("DestroyLetter");
     }
 

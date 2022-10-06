@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 
-public class TextPanel : MonoBehaviour
+public class TextSystem : MonoSingleton<TextSystem>
 {
     [SerializeField] private NameTextPanal _nameTextPanal;
     [SerializeField] private Text _currentText;
@@ -19,6 +19,38 @@ public class TextPanel : MonoBehaviour
 
     private EGameState _beforeGameState;
 
+    private void Awake()
+    {
+        if (inst != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        inst = this;
+    }
+
+    public void ActiveTextPanal(string value = "")
+    {
+        if (value == "")
+        {
+            if (gameObject.activeSelf)
+            {
+                UnShowTextPanal();
+            }
+
+            else
+            {
+                return;
+            }
+        }
+
+        else
+        {
+            ShowTextPanal(value);
+        }
+    }
+
 
     public void Update()
     {
@@ -26,6 +58,7 @@ public class TextPanel : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+
             if (OnKeyDownSpace != null)
             {
                 OnKeyDownSpace?.Invoke();
@@ -46,9 +79,9 @@ public class TextPanel : MonoBehaviour
         }
     }
 
-    public void ShowTextPanal(string outputText, string name = "")
+    public bool ShowTextPanal(string outputText, string name = "")
     {
-        if (_isOutput) return;
+        if (_isOutput) return false;
         if (name != "")
         {
             _nameTextPanal.ChangeNameText(name);
@@ -65,19 +98,25 @@ public class TextPanel : MonoBehaviour
 
         _isOutput = true;
         _textMessage = outputText;
-        _currentText.text = "";
-        transform.DOScaleX(0f, 0f);
-        gameObject.SetActive(true);
+
+        if (!gameObject.activeSelf)
+        {
+            transform.DOScaleX(0f, 0f);
+            gameObject.SetActive(true);
+        }
+
+        StopAllCoroutines();
         StartCoroutine(Co_ShowTextPanal());
+        return true;
     }
 
     public void ImmediatelyEndOutput()
     {
         if (_isOutput == false) return;
 
-        _currentText.DOKill();
-        _currentText.text = _textMessage;
         _isOutput = false;
+        _currentText.DOKill(true);
+        _currentText.text = _textMessage;
     }
 
     public void UnShowTextPanal()
@@ -87,7 +126,7 @@ public class TextPanel : MonoBehaviour
         if (_isOutput)
         {
             StopAllCoroutines();
-            _currentText.DOKill();
+            _currentText.DOKill(true);
             _isOutput = false;
         }
 
@@ -96,9 +135,11 @@ public class TextPanel : MonoBehaviour
 
     private IEnumerator Co_ShowTextPanal()
     {
-        transform.DOKill();
-        transform.DOScaleX(1f, 0.5f);
-        yield return new WaitForSeconds(0.5f);
+        if (transform.localScale.x != 1f)
+        {
+            transform.DOScaleX(1f, 0.5f);
+            yield return new WaitForSeconds(0.5f);
+        }
 
         float time = _textMessage.Length * _textSpeed;
 
@@ -113,14 +154,13 @@ public class TextPanel : MonoBehaviour
 
     private IEnumerator Co_UnShowTextPanal()
     {
-        transform.DOKill();
         transform.DOScaleX(0f, 0.5f);
         yield return new WaitForSeconds(0.5f);
         gameObject.SetActive(false);
         _nameTextPanal.gameObject.SetActive(false);
         _currentText.text = "";
 
-        if(GameManager.Inst.GameState == EGameState.UI)
+        if (GameManager.Inst.GameState == EGameState.UI)
             GameManager.Inst.ChangeGameState(_beforeGameState);
 
     }

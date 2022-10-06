@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class MonoSingleton<T> : MonoBehaviour where T : MonoBehaviour
 {
-    private static T inst;
+    protected static T inst;
     private static bool shuttingDown = false;
     private static object locker = new object();
 

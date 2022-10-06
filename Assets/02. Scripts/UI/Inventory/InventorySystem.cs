@@ -114,6 +114,7 @@ public class InventorySystem : MonoSingleton<InventorySystem>
         {
             SettingCurrentItemPanel();
         }
+
     }
 
     public void ChangeSelect(int axis = -1)
@@ -207,7 +208,6 @@ public class InventorySystem : MonoSingleton<InventorySystem>
 
     public void UseEquipItem(int useCount = 1)
     {
-        Debug.Log("dd");
         CurrentItemPanel.SetItemCount(useCount * -1);
     }
 
