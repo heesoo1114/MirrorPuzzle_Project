@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
+using UnityEngine.Rendering;
+using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceProviders;
 
 public class UIManager : MonoSingleton<UIManager>
 {
@@ -9,9 +13,29 @@ public class UIManager : MonoSingleton<UIManager>
     private Stack<Popup> _popupStack;
     private Canvas _mainCanvas = null;
 
+    [SerializeField]
+    private PopupListSO _popupListData = null;
+
     private void Awake()
     {
         _mainCanvas = GameObject.Find("UI Canvas").GetComponent<Canvas>();
+        SubstactPopupPref();
+    }
+
+    private void SubstactPopupPref()
+    {
+        if (_popupListData == null)
+        {
+            Addressables.LoadAssetAsync<PopupListSO>("PopupListSO").Completed += (handle) =>
+            {
+                if (handle.Status == AsyncOperationStatus.Succeeded)
+                {
+                    _popupListData = handle.Result;
+                }
+            };
+        }
+
+        _popupListData.popupList.ForEach(x => SubstactPopup(x));
     }
 
     public void SubstactPopup(Popup popup)
@@ -19,7 +43,7 @@ public class UIManager : MonoSingleton<UIManager>
         if (!popup.gameObject.name.Contains(popup.GetType().ToString()))
         {
             popup.gameObject.name = popup.GetType().ToString();
-        }
+        } 
 
         if (!_popupDict.ContainsKey(name))
         {
@@ -53,7 +77,7 @@ public class UIManager : MonoSingleton<UIManager>
 
         if (_popupDict.TryGetValue(name, out popup))
         {
-            if(popup.ManageType == Popup.EManageType.Default)
+            if (popup.ManageType == Popup.EManageType.Default)
             {
                 string popupName = popup.name;
                 popup = Instantiate(popup, _mainCanvas.transform);
@@ -66,7 +90,7 @@ public class UIManager : MonoSingleton<UIManager>
 
     public void ActivePopupUI(Popup ui)
     {
-        if(!_popupDict.ContainsValue(ui))
+        if (!_popupDict.ContainsValue(ui))
         {
             SubstactPopup(ui);
         }
