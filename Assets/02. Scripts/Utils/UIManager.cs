@@ -43,7 +43,7 @@ public class UIManager : MonoSingleton<UIManager>
         if (!popup.gameObject.name.Contains(popup.GetType().ToString()))
         {
             popup.gameObject.name = popup.GetType().ToString();
-        } 
+        }
 
         if (!_popupDict.ContainsKey(name))
         {
@@ -108,10 +108,14 @@ public class UIManager : MonoSingleton<UIManager>
         if (_popupStack.Count == 0)
             return;
 
-        if (_popupStack.Peek() != ui)
+        while (_popupStack.Peek() != ui)
         {
-            Debug.Log("Close Failed");
-            return;
+            if (_popupStack.Count == 0)
+            {
+                Debug.LogError("Popup Error");
+                return;
+            }
+            ClosePopupUI();
         }
 
         ClosePopupUI();

@@ -29,7 +29,7 @@ public class UIIManager : MonoBehaviour
 
     public bool isWorldBarMoving = false;
 
-    [SerializeField] private DishCreate _kitchenMinigameManager;
+    //[SerializeField] private DishCreate _kitchenMinigameManager;
     [SerializeField] private SwitchGame _switchMiniGameManager1;
     [SerializeField] private SwitchGame _switchMiniGameManager2;
     [SerializeField] private LightLineGameManager _lightLineGameManager;
@@ -121,7 +121,7 @@ public class UIIManager : MonoBehaviour
     public void StartKitchenMingame()
     {
         GameManager.Inst.ChangeGameState(EGameState.UI);
-        _kitchenMinigameManager.StartGame();
+        //_kitchenMinigameManager.StartGame();
     }
 
     public void NewGame()
