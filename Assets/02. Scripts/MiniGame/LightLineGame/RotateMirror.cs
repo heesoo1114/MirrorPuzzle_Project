@@ -14,6 +14,7 @@ public class RotateMirror : MonoBehaviour
     private RectTransform _recTrm = null;
 
     private LightMove lightMove;
+    public bool isOneTouchRemove = false; // 한번 닿으면 없어지는 거울 
 
     private void Awake()
     {
@@ -21,8 +22,6 @@ public class RotateMirror : MonoBehaviour
         _image = GetComponent<Image>();
 
         lightMove = gameObject.transform.parent.GetChild(0).GetComponent<LightMove>();
-
-        _state = State.Left;
     }
 
     public enum State
@@ -52,19 +51,31 @@ public class RotateMirror : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        float rotation = 45f;
+        int rotation = 0;
+        float z = collision.transform.rotation.eulerAngles.z;
+        z = Mathf.RoundToInt(z);
+        if (z >= 180)
+            z -= 180;
         switch (_state)
         {
             case State.Left:
-                rotation = 45f;
+                if ((int)z == 0 || (int)z == 90)
+                    rotation = 45;
+                else if ((int)z == 45 || (int)z == 135)
+                    rotation = -45;
                 break;
             case State.Right:
-                rotation = -45f;
+                if ((int)z == 0 || (int)z == 90)
+                    rotation = -45;
+                else if ((int)z == 45 || (int)z == 135)
+                    rotation = 45;
                 break;
         }
-
         collision.transform.position = transform.position;
         collision.transform.Rotate(0, 0, rotation);
+
+        if (isOneTouchRemove == true)
+            gameObject.SetActive(false);
 
         //if (collision.gameObject.CompareTag("Player"))
         //{

@@ -54,6 +54,7 @@ public class GameManager : MonoSingleton<GameManager>
 
         yield return new WaitForEndOfFrame();
 
+        ChangeGameState(EGameState.UI);
         //CutSceneManager.Inst.StartCutScene("START");
     }
 

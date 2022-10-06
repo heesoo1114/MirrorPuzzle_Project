@@ -5,14 +5,14 @@
     "inventoryList": [
         {
             "itemData": {
-                "itemID": "",
-                "name": "",
-                "info": "",
+                "itemID": "LIBRARYKEY",
+                "name": "서재 열쇠",
+                "info": "서재 문을 열 수 있는 열쇠다.",
                 "sprite": {
-                    "instanceID": 0
+                    "instanceID": 30970
                 }
             },
-            "itemCount": 0
+            "itemCount": 1
         },
         {
             "itemData": {
