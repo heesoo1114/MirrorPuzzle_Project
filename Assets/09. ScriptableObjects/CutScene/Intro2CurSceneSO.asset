@@ -27,6 +27,8 @@ MonoBehaviour:
   - cutSceneLineList:
     - name: "\uC62C\uB9AC\uBC84"
       lineText: "\uB4DC\uB514\uC5B4 \uAE30\uD68C\uAC00 \uC628 \uAC70\uC57C!"
+    - name: "\uC62C\uB9AC\uBC84"
+      lineText: "\uC774\uB798\uB3C4 \uB418\uB294 \uAC74\uAC00?"
   - cutSceneLineList:
     - name: "\uC62C\uB9AC\uBC84"
       lineText: ...
