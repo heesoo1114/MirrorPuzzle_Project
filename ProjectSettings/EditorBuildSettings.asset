@@ -8,4 +8,7 @@ EditorBuildSettings:
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/01. Scenes/hy.unity
+    guid: 54d82a7252b5c2a49951eeb2498e2ec3
   m_configObjects: {}
