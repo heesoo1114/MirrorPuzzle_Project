@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
     public UnityEvent ChangeMirrorWorld;
     public UnityEvent ChangeRealWorld;
 
-    public GameObject player;
+    [SerializeField] private GameObject player;
 
     private void Awake()
     {
