@@ -130,6 +130,7 @@ public class PlayerMove : MonoBehaviour
 
     private IEnumerator WarpPlayer(WarpZone warpZone)
     {
+
         GameManager.Inst.UI.StartFadeIn(0.5f);
         yield return new WaitForSeconds(0.5f);
         transform.position = warpZone.WarpPoint;
