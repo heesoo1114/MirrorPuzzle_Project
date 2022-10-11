@@ -9,6 +9,8 @@ public class Kitchen : MonoBehaviour
 
     [SerializeField] private Collider2D _minigameStarter;
 
+    private bool isKitchenCutSceneStart = false; // +저장
+
     private void Start()
     {
         EventManager.StartListening("START_STARTCUTSCENE", () => SetIsLockWarpzone(true, RoomType.LivingRoom, "형은 이 방향으로 가지 않았어!"));
@@ -18,6 +20,13 @@ public class Kitchen : MonoBehaviour
 
     private void StartKitchenPuzzle()
     {
+        if (GameManager.Inst.WorldType == WorldType.MirrorWorld) // 거울세계로 가고 처음 부엌으로 들어갔을 때 컷신 재생
+        {
+            if (isKitchenCutSceneStart) return;
+            CutSceneManager.Inst.StartCutScene("KITCHEN");
+            isKitchenCutSceneStart = true;
+        }
+
         _puzzleObjList.ForEach(x => x.Active(true));
         SetIsLockWarpzone(false, RoomType.LivingRoom);
         EventManager.StopListening("ENTER_Kitchen", StartKitchenPuzzle);

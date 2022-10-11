@@ -16,4 +16,10 @@ MonoBehaviour:
   cutSceneScriptList:
   - cutSceneLineList:
     - name: "\uB8E8\uCE74\uC2A4"
-      lineText: "\uC800\uAC8C \uBB50\uC9C0?"
+      lineText: "\uC800\uAC8C \uBB50\uC9C0? \uBB3C\uAC74\uC778\uAC00 \uC0AC\uB78C
+        \uAC19\uAE30\uB3C4 \uD558\uACE0.."
+  - cutSceneLineList:
+    - name: "\uB8E8\uCE74\uC2A4"
+      lineText: "\uC5D0\uC774 \uC798\uBABB \uBCF8 \uAC70\uACA0\uC9C0.. "
+    - name: "\uB8E8\uCE74\uC2A4"
+      lineText: "\uD53C\uACE4\uD574\uC11C \uC798 \uBABB \uBCF8\uAC70\uC77C \uAC70\uC57C "
