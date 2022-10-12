@@ -9,7 +9,7 @@ public class Kitchen : MonoBehaviour
 
     [SerializeField] private Collider2D _minigameStarter;
 
-    private bool isKitchenCutSceneStart = false; // +저장
+    private bool isKitchenCutScenePlayed = false; // +저장
 
     private void Start()
     {
@@ -22,9 +22,9 @@ public class Kitchen : MonoBehaviour
     {
         if (GameManager.Inst.WorldType == WorldType.MirrorWorld) // 거울세계로 가고 처음 부엌으로 들어갔을 때 컷신 재생
         {
-            if (isKitchenCutSceneStart) return;
+            if (isKitchenCutScenePlayed) return;
             CutSceneManager.Inst.StartCutScene("KITCHEN");
-            isKitchenCutSceneStart = true;
+            isKitchenCutScenePlayed = true;
         }
 
         _puzzleObjList.ForEach(x => x.Active(true));
