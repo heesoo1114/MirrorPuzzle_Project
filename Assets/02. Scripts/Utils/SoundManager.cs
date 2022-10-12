@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class SoundManager : MonoSingleton<SoundManager>
 {
-    SoundClips soundClips = null;
+    [SerializeField]
+    private SoundClips soundClips = null;
 
     private void Awake()
     {
-        soundClips = GameObject.Find("SoundManage").GetComponent<SoundClips>();
+        soundClips = GameObject.Find("SoundManage").GetComponent<SoundClips>(); // managers·Î ¹Ù²ã¾ßÇÔ
     }
 
     public void EffectStart(Util.Effect effectName)
