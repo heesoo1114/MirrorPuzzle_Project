@@ -8,7 +8,7 @@ public class TextPanelMixerBehaviour : PlayableBehaviour
     // NOTE: This function is called at runtime and edit time.  Keep that in mind when setting the values of properties.
     public override void ProcessFrame(Playable playable, FrameData info, object playerData)
     {
-        TextPanel trackBinding = playerData as TextPanel;
+        TextSystem trackBinding = playerData as TextSystem;
 
         if (!trackBinding)
             return;

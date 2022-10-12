@@ -47,14 +47,14 @@ public class DataManager : MonoSingleton<DataManager>
 
         //DontDestroyOnLoad(this);
 
-        SAVE_PATH = Application.dataPath + "/Save";
+            SAVE_PATH = Application.dataPath + "/Save";
 
-        if (!Directory.Exists(SAVE_PATH))
-        {
-            Directory.CreateDirectory(SAVE_PATH);
-        }
+            if (!Directory.Exists(SAVE_PATH))
+            {
+                Directory.CreateDirectory(SAVE_PATH);
+            }
 
-        LoadFromJson();
+            LoadFromJson();
     }
 
     private void Start()

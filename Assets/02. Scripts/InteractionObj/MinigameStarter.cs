@@ -17,6 +17,7 @@ public class MinigameStarter : InteractionObject
         _isPlaying = true;
 
         dishPuzzle.SetActive(true);
+        //GameManager.Inst.UI.StartKitchenMingame();
     }
 
     private void GameClear()

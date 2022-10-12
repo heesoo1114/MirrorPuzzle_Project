@@ -15,7 +15,7 @@ public class Locker : MonoBehaviour
     {
         if (Vector2.Distance(transform.position, playerTranform.transform.position) < 2f)
         {
-            GameManager.Inst.UI.SetActiveLocker(true);
+            UIManager.Inst.ActivePopupUI<LockerKeypad>();
         }
 
     }

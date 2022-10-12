@@ -7,7 +7,7 @@ using UnityEngine.Timeline;
 public class TextPanelBehaviour : PlayableBehaviour
 {
     [HideInInspector]
-    public TextPanel textPanel;
+    public TextSystem textPanel;
 
     public string nameText;
     public string textMessage;

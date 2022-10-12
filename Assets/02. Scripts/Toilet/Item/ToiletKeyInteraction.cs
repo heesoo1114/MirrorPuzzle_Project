@@ -17,7 +17,7 @@ public class ToiletKeyInteraction : InteractionObject
     {
         AddKeyEvent?.Invoke();
         InventorySystem.Inst.AddItem("1114");
-        GameManager.Inst.UI.ActiveTextPanal("øÂ¡∂¿« πŸ¥⁄ø° ≥Ï¿Ã Ωº ø≠ºË∞° ¿÷¥Ÿ.");
+        TextSystem.Inst.ActiveTextPanal("øÂ¡∂¿« πŸ¥⁄ø° ≥Ï¿Ã Ωº ø≠ºË∞° ¿÷¥Ÿ.");
         StartCoroutine("DestroyKey");
     }
 

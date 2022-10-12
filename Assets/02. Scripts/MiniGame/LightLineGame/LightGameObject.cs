@@ -6,6 +6,6 @@ public class LightGameObject : InteractionObject
 {
     public override void InteractionEvent()
     {
-        GameManager.Inst.UI.StartLightLineGame();
+        LightLineGameManager.StartGame();
     }
 }
