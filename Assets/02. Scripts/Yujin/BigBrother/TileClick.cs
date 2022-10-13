@@ -20,7 +20,7 @@ public class TileClick : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if(Vector2.Distance(emptyEmage.gameObject.transform.position, clickButtonTransform.position) <= 1.5f)
+        if(Vector2.Distance(emptyEmage.gameObject.transform.position, clickButtonTransform.position) <= 2f)
         {
             Vector2 changeTransform = emptyEmage.gameObject.transform.position;
 
