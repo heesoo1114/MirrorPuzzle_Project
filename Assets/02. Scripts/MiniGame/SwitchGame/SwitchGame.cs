@@ -5,7 +5,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Events;
 
-public class SwitchManager : MonoBehaviour
+public class SwitchGame : UIBase
 {
     public Switch[] switches;
     public UnityEvent gameEndEvent;
@@ -14,12 +14,28 @@ public class SwitchManager : MonoBehaviour
     private int _isCheck = 0;
     private bool _isEnd = false;
 
-    public void Init()
+    public override bool Init()
     {
-        if (_isStart == true) return;
+        if (base.Init() == false)
+        {
+            return false;
+        }
+
+        _isStart = false;
+        _isCheck = 0;
+        _isEnd = false;
+
+        transform.localScale = Vector3.zero;
+
+        return true;
+    }
+    public void GameStart()
+    {
+        if (_isStart) return;
         _isStart = true;
         gameObject.SetActive(true);
         transform.DOScale(Vector3.one, 0.8f).SetEase(Ease.InOutBounce);
+        GameManager.Inst.ChangeGameState(EGameState.UI);
     }
 
     private void Update()

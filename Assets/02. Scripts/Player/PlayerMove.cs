@@ -117,7 +117,7 @@ public class PlayerMove : MonoBehaviour
 
             if (warpZone.isLock)
             {
-                GameManager.Inst.UI.ActiveTextPanal(warpZone.lockMessage);
+                TextSystem.Inst.ActiveTextPanal(warpZone.lockMessage);
                 return;
             }
             _isWarping = true;
@@ -130,13 +130,13 @@ public class PlayerMove : MonoBehaviour
 
     private IEnumerator WarpPlayer(WarpZone warpZone)
     {
-        GameManager.Inst.UI.StartFadeIn(0.5f);
+        FadeScreen.FadeIn(0.5f);
         yield return new WaitForSeconds(0.5f);
         transform.position = warpZone.WarpPoint;
         yield return new WaitForSeconds(0.1f);
-        GameManager.Inst.UI.StartFadeOut(0.5f);
+        FadeScreen.FadeOut(0.5f);
         yield return new WaitForSeconds(0.5f);
-        GameManager.Inst.UI.ActiveRoomText(warpZone.RoomName);
+        LocationTextBar.ActiveRoomText(warpZone.RoomName);
         _isWarping = false;
 
         EventManager.TriggerEvent($"ENTER_{warpZone.targetRoom.ToString()}");

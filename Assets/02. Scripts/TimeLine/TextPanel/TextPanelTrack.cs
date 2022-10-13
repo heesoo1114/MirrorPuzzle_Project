@@ -4,7 +4,7 @@ using UnityEngine.Timeline;
 
 [TrackColor(0f, 0.5f, 1f)]
 [TrackClipType(typeof(TextPanelClip))]
-[TrackBindingType(typeof(TextPanel))]
+[TrackBindingType(typeof(TextSystem))]
 public class TextPanelTrack : TrackAsset
 {
     public override Playable CreateTrackMixer(PlayableGraph graph, GameObject go, int inputCount)

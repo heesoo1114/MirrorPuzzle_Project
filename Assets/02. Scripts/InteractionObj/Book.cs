@@ -33,6 +33,6 @@ public class Book : InteractionObject
         string text = GameManager.Inst.FindTextData(oirginID);
 
         if (text.CompareTo("") == 0 || text == null) return;
-        GameManager.Inst.UI.ActiveTextPanal(text);
+        TextSystem.Inst.ActiveTextPanal(text);
     }
 }

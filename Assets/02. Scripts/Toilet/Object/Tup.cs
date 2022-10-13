@@ -46,14 +46,14 @@ public class Tup : ToiletObjectManager
             string text = GameManager.Inst.FindTextData(_textDataID = "Tub_Mirror");
 
             if (text.CompareTo("") == 0 || text == null) yield return null;
-            GameManager.Inst.UI.ActiveTextPanal(text);
+            TextSystem.Inst.ActiveTextPanal(text);
         }
         else if (isNow == true)
         {
             string text = GameManager.Inst.FindTextData(_textDataID = "Tub_Now");
 
             if (text.CompareTo("") == 0 || text == null) yield return null;
-            GameManager.Inst.UI.ActiveTextPanal(text);
+            TextSystem.Inst.ActiveTextPanal(text);
         }
         yield return null;
     }

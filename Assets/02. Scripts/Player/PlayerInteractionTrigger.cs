@@ -25,13 +25,14 @@ public class PlayerInteractionTrigger : MonoBehaviour
         if (CurrentObject != null)
         {
             Vector3 objPos = CurrentObject.transform.position;
-            GameManager.Inst.UI.ShowInteractionUI(objPos);
+            InteractionImage.Show(objPos);
         }
     }
 
     public void TriggerEvent()
     {
-        if (GameManager.Inst.UI.IsActiveTextPanal()) return;
+        if (TextSystem.Inst.gameObject.activeSelf) return;
+
         if (InventorySystem.Inst.equipItemDataID == "HAND_MIRROR")
         {
             GameManager.Inst.ChangeWorld();
@@ -48,7 +49,7 @@ public class PlayerInteractionTrigger : MonoBehaviour
             {
                 case "2065":
                     GameManager.Inst.ChangeGameState(EGameState.UI);
-                    GameManager.Inst.UI.ToiletLetterUI();
+                    LetterUI.OpenLetter("형은 괜찮아.\n걱정하지마.\n그리고 조심해.");
                     InventorySystem.Inst.UseEquipItem();
                     break;
 
@@ -78,7 +79,7 @@ public class PlayerInteractionTrigger : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Interaction"))
         {
-            GameManager.Inst.UI.UnShowInteractionUI();
+            InteractionImage.UnShow();
 
             InteractionObject obj = collision.transform.GetComponent<InteractionObject>();
 

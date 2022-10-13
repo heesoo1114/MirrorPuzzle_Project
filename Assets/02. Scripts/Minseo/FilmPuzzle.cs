@@ -66,7 +66,7 @@ public class FilmPuzzle : InteractionObject
     {
         if (GameManager.Inst.WorldType == WorldType.RealWorld)
         {
-            GameManager.Inst.UI.ActiveTextPanal("밝아서 잘 보이지 않는다.");
+            TextSystem.Inst.ActiveTextPanal("밝아서 잘 보이지 않는다.");
             return;
         }
 

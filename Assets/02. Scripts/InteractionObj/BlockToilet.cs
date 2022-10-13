@@ -16,7 +16,7 @@ public class BlockToilet : InteractionObject
     {
         if (GameManager.Inst.WorldType == WorldType.RealWorld) return;
 
-        GameManager.Inst.UI.ActiveTextPanal("문이 열리지 않는다.\n다른 세계에서 한번 확인해보자!");
+        TextSystem.Inst.ActiveTextPanal("문이 열리지 않는다.\n다른 세계에서 한번 확인해보자!");
     }
 
 }

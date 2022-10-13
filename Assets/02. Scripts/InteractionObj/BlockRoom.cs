@@ -12,13 +12,13 @@ public class BlockRoom : InteractionObject
         if (InventorySystem.Inst.equipItemDataID.Equals(_keyItemID))
         {
             _isOpen = true;
-            GameManager.Inst.UI.ActiveTextPanal("문이 열렸습니다");
+            TextSystem.Inst.ActiveTextPanal("문이 열렸습니다");
             StartCoroutine(ImmediatelyStop());  
         }
 
         else
         {
-            GameManager.Inst.UI.ActiveTextPanal("열쇠가 필요하다");
+            TextSystem.Inst.ActiveTextPanal("열쇠가 필요하다");
         }
     }
 
