@@ -4,15 +4,20 @@ using UnityEngine;
 
 public class SpriteChange : MonoBehaviour
 {
-    public Sprite[] sprite = new Sprite[4];
-
-    [SerializeField]
-    private bool isCheck;
+    SpriteRenderer flowerpot;
+    public SpriteRenderer ChangeFlowerpot;
 
     void Start()
     {
-        SpriteRenderer spriteR = gameObject.GetComponent<SpriteRenderer>();
-        Sprite[] sprites = Resources.LoadAll<Sprite>("04.Sprites/Mins/Flowerpot");
-        spriteR.sprite = sprites[0];
+        flowerpot = GetComponent<SpriteRenderer>();
+    }
+        
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.tag == "LightCollider")
+        {
+            flowerpot = ChangeFlowerpot;
+            Debug.Log(".");
+        }
     }
 }
