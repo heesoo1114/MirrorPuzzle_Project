@@ -54,7 +54,7 @@ public class CutSceneManager : MonoSingleton<CutSceneManager>
     {
         if (_isPlaying == false) return;
         if (_isScriptStarted) return;
-         
+
         if (_isScriptStarted == false)
             _isScriptStarted = true;
 
@@ -102,7 +102,7 @@ public class CutSceneManager : MonoSingleton<CutSceneManager>
 
         _currentLine = _currentScript[_lineIdx];
 
-        if(_textPanel.ShowTextPanal(_currentLine.lineText, _currentLine.name))
+        if (_textPanel.ShowTextPanal(_currentLine.lineText, _currentLine.name))
         {
             _lineIdx++;
         }
@@ -135,34 +135,5 @@ public class CutSceneManager : MonoSingleton<CutSceneManager>
         _isPlaying = false;
 
     }
-
-    public void CountinueNextCutScene(string cutsceneID)
-    {
-        if (_isPlaying == false) return;
-
-        GameManager.Inst.UI.StartFadeOut(0f);
-        if (_beforeState != EGameState.Timeline)
-        {
-            GameManager.Inst.ChangeGameState(_beforeState);
-        }
-
-        else
-        {
-            GameManager.Inst.ChangeGameState(EGameState.Game);
-        }
-        EventManager.TriggerEvent($"END_{_currentCutScene.cutSceneID}CUTSCENE");
-
-        _isScriptStarted = false;
-        _currentDirector.Pause();
-        _currentDirector = null;
-        _lineIdx = 0;
-        _currentCutScene = null;
-        _textPanel.OnKeyDownSpace -= PlayCutSceneAct;
-        _timeLineCam.m_Priority = 0;
-
-        _isPlaying = false;
-
-        Inst.StartCutScene(cutsceneID.ToString());
-    }
 }
-        
+
