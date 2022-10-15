@@ -164,3 +164,4 @@ public class CutSceneManager : MonoSingleton<CutSceneManager>
         Inst.StartCutScene(cutsceneID.ToString());
     }
 }
+        
