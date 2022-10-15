@@ -10,6 +10,18 @@ public class GameManager : MonoBehaviour
     public static GameManager Inst;
 
     private UIManager uiManager;
+    // private InteractionKey interactionKey;
+    // private InteractionBrotherNote interactionBrotherNote;
+    // private ToiletLetterInteraction toiletLetterInteraction;
+    // private ToiletKeyInteraction toiletKeyInteraction;
+    // private InteractionHandMirror interactionHandMirror;
+    // private LightLineGameManager lightLineGameManager;
+    // private LibraryCloset libraryCloset;
+    // private ChestScripts chestScripts;
+    // private LibraryBoxPuzzle libraryBoxPuzzle;
+    // private BigBrotherRoomKey bigBrotherRoomKey;
+    // private FilmPuzzle filmPuzzle;
+    // private PasswardScript passwardScript;
 
     public UIManager UI { get { return uiManager; } }
 
@@ -105,6 +117,19 @@ public class GameManager : MonoBehaviour
     {
         PlayerPrefs.SetFloat("PlayerX", player.transform.position.x);
         PlayerPrefs.SetFloat("PlayerY", player.transform.position.y);
+        // PlayerPrefs.SetString("InteractionKey", InteractionKey.GetKeyEvent);
+        // PlayerPrefs.SetString("InteractionBrotherNote", InteractionBrotherNote.GetNoteEvent);
+        // PlayerPrefs.SetString("ToiletLetterInteraction", ToiletLetterInteraction.LetterEvent);
+        // PlayerPrefs.SetString("ToiletKeyInteraction", ToiletKeyInteraction.AddKeyEvent);
+        // PlayerPrefs.SetString("InteractionHandMirror", ToiletKeyInteraction.);
+        // PlayerPrefs.SetString("LightLineGameManager", LightLineGameManager.gameEndEvent);
+        // PlayerPrefs.SetInt("LibraryCloset", LibraryCloset.cnt);
+        // PlayerPrefs.SetString("ChestScripts", ChestScripts.answerCheck);
+        // PlayerPrefs.SetString("LibraryBoxPuzzle", LibraryBoxPuzzle.OnClearPuzzle);
+        // PlayerPrefs.SetString("BigBrotherRoomKey", BigBrotherRoomKey.);
+        // PlayerPrefs.SetString("FilmPuzzle", FilmPuzzle.OnFilmClear);
+        // PlayerPrefs.SetString("PasswardScript", PasswardScript.password_Obj);
+        // PlayerPrefs.SetString("PasswardScript", PasswardScript.Check);
         PlayerPrefs.Save();
     }
 
@@ -116,6 +141,19 @@ public class GameManager : MonoBehaviour
         }
         float x = PlayerPrefs.GetFloat("PlayerX");
         float y = PlayerPrefs.GetFloat("PlayerY");
+        // string getKeyEvent = GetString("InteractionKey");
+        // stirng getNoteEvent = GetString("InteractionBrotherNote");
+        // string letterEvent = GetString("ToiletLetterInteraction");
+        // string addKeyEvent = GetString("ToiletKeyInteraction");
+        // string toiletKeyInteraction = GetString("InteractionHandMirror"); °íÄ¡±â
+        // string ggameEndEvent = GetString("LightLineGameManager");
+        // int ccnt = GetInt("LibraryCloset");
+        // string aanswerCheck = GetString("ChestScripts");
+        // string onClearPuzzle = GetString("LibraryBoxPuzzle");
+        // string ? = GetString("BigBrotherRoomKey");
+        // string onFilmClear = GetString("FilmPuzzle");
+        // string ppassword_Obj = GetString("PasswardScript");
+        // string check = GetString("PasswardScript");
 
         player.transform.position = new Vector3(x, y, 0f);
     }
