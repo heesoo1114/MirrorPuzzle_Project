@@ -15,8 +15,10 @@ public class TestSound : MonoBehaviour
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Z))
-            SoundManager.Inst.EffectStart(Util.Effect.KeyAdd);
+            SoundManager.Inst.BgmStart(Util.Bgm.Main);
         if (Input.GetKeyDown(KeyCode.X))
             SoundManager.Inst.EffectStart(Util.Effect.GameClear);
+        if (Input.GetKeyDown(KeyCode.C))
+            SoundManager.Inst.BgmStop(Util.Bgm.Main);
     }
 }

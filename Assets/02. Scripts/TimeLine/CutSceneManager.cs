@@ -5,7 +5,7 @@ using Cinemachine;
 
 public class CutSceneManager : MonoSingleton<CutSceneManager>
 {
-    [SerializeField] private TextPanel _textPanel;
+    [SerializeField] private TextSystem _textPanel;
     [SerializeField] private List<CutSceneDirector> _cutSceneDirectorList;
     [SerializeField] private CinemachineVirtualCameraBase _timeLineCam;
 
@@ -100,15 +100,19 @@ public class CutSceneManager : MonoSingleton<CutSceneManager>
             return;
         }
 
-        _currentLine = _currentScript[_lineIdx++];
-        _textPanel.ShowTextPanal(_currentLine.lineText, _currentLine.name);
+        _currentLine = _currentScript[_lineIdx];
+
+        if(_textPanel.ShowTextPanal(_currentLine.lineText, _currentLine.name))
+        {
+            _lineIdx++;
+        }
     }
 
     public void EndCutScene()
     {
         if (_isPlaying == false) return;
 
-        GameManager.Inst.UI.StartFadeOut(0f);
+        FadeScreen.FadeOut(0f);
         if (_beforeState != EGameState.Timeline)
         {
             GameManager.Inst.ChangeGameState(_beforeState);

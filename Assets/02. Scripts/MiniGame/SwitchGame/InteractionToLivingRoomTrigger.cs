@@ -6,7 +6,7 @@ public class InteractionToLivingRoomTrigger : InteractionObject
 {
     public void OpenLivingRoom()
     {
-        GameManager.Inst.UI.ActiveTextPanal("이제 가보자.");
+        TextSystem.Inst.ActiveTextPanal("이제 가보자.");
         StartCoroutine(ImmediatelyStop());   
     }
 
@@ -18,6 +18,6 @@ public class InteractionToLivingRoomTrigger : InteractionObject
 
     public override void EnterInteraction()
     {
-        GameManager.Inst.UI.ActiveTextPanal("빛나고있는 쪽지를 얻고 가자.");
+        TextSystem.Inst.ActiveTextPanal("빛나고있는 쪽지를 얻고 가자.");
     }
 }

@@ -8,6 +8,6 @@ public class ToNoLight : InteractionObject
 
     public override void EnterInteraction()
     {
-        GameManager.Inst.UI.ActiveTextPanal("불이 꺼져 있다. \n 불을 켠 뒤 이동하자.");
+        TextSystem.Inst.ActiveTextPanal("불이 꺼져 있다. \n 불을 켠 뒤 이동하자.");
     }
 }

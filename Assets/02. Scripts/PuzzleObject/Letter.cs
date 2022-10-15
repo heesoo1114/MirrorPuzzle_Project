@@ -10,6 +10,6 @@ public class Letter : InteractionObject
     private string _letterMessage;
     public override void InteractionEvent()
     {
-        GameManager.Inst.UI.SetActiveLetter(_letterMessage);
+        LetterUI.OpenLetter(_letterMessage);
     }
 }

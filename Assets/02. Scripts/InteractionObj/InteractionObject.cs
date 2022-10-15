@@ -31,12 +31,12 @@ public class InteractionObject : MonoBehaviour
         string text = GameManager.Inst.FindTextData(_textDataID);
        
         if (text.CompareTo("") == 0 || text == null) return;
-        GameManager.Inst.UI.ActiveTextPanal(text);
+        TextSystem.Inst.ActiveTextPanal(text);
     }
 
     public virtual void ExitInteraction()
     {
-        GameManager.Inst.UI.ActiveTextPanal();
+        TextSystem.Inst.ActiveTextPanal();
     }
 }
 

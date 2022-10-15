@@ -6,13 +6,18 @@ public static class Util
 {
     public enum Bgm
     {
-        main
+        None, // 이거 끌 bgm찾을 떄 쓸거
+        Main
     }
 
     public enum Effect
     {
         Move,
         GameClear,
-        KeyAdd
+        KeyAdd,
+        Drawer_Open,
+        Drawer_Close,
+        Click_Kitchen_Button,
+        Change_World,
     }
 }

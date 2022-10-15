@@ -19,11 +19,6 @@ public class GameManager : MonoSingleton<GameManager>
     private EGameState _gameState;
     public EGameState GameState => _gameState;
 
-    private UIManager uiManager;
-
-    public UIManager UI { get { return uiManager; } }
-
-
     private WorldType worldType = WorldType.RealWorld;
     public WorldType WorldType { get { return worldType; } set { worldType = value; } }
 
@@ -36,32 +31,29 @@ public class GameManager : MonoSingleton<GameManager>
     public UnityEvent ChangeMirrorWorld;
     public UnityEvent ChangeRealWorld;
 
+    private bool _isChangingWorld = false;
     public bool librayChestPuzzleClear = false;
 
 
-    private void Awake()
-    {
-        uiManager = GetComponent<UIManager>();
-
-    }
 
     private IEnumerator Start() 
     {
         ChangeGlobalLight();
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.lockState = CursorLockMode.Locked;
 
         rooms = map.GetComponentsInChildren<Room>().ToList();
 
         yield return new WaitForEndOfFrame();
 
-        // CutSceneManager.Inst.StartCutScene("START");
-        // CutSceneManager.Inst.StartCutScene("END"); // Test
+        ChangeGameState(EGameState.UI);
+        //CutSceneManager.Inst.StartCutScene("START");
     }
 
     public void ChangeWorld()
     {
-        if (uiManager.isWorldBarMoving) return;
+        if (_isChangingWorld) return;
 
+        _isChangingWorld = true;
         StartCoroutine(ChangeWorldCoroutine());
     }
 
@@ -69,9 +61,10 @@ public class GameManager : MonoSingleton<GameManager>
     {
         PlayerMove player = Define.PlayerRef;
 
-        uiManager.ColorFade(Color.white, false, 0.5f);
+        FadeScreen.fadeColor = Color.white;
+        FadeScreen.FadeOut(0.5f);
         yield return new WaitForSeconds(0.5f);
-        uiManager.ColorFade(Color.white, true, 0.5f);
+        FadeScreen.FadeIn(0.5f);
 
         if (worldType == WorldType.MirrorWorld)
         {
@@ -108,9 +101,11 @@ public class GameManager : MonoSingleton<GameManager>
             ChangeMirrorWorld?.Invoke();
         }
 
-        uiManager.ActiveWorldText(worldType);
+        LocationTextBar.ActiveWorldText(worldType);
 
         ChangeGlobalLight();
+
+        _isChangingWorld = false;
     }
 
     private void ChangeGlobalLight()

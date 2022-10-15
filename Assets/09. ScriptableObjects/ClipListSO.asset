@@ -19,6 +19,14 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 6e445c44b58e8e142b216ad78bcff758, type: 3}
   - effectName: 2
     clip: {fileID: 8300000, guid: edb5d9d4d5f0dde42b207cd0838ec4e3, type: 3}
+  - effectName: 3
+    clip: {fileID: 8300000, guid: f0cdadfa13462c74e9632121a3f158f8, type: 3}
+  - effectName: 4
+    clip: {fileID: 8300000, guid: 24fef737cc5f42e48a2099bf6518f6c0, type: 3}
+  - effectName: 5
+    clip: {fileID: 8300000, guid: 16c5c7df379f2ad42b29da0d8a2014ab, type: 3}
+  - effectName: 6
+    clip: {fileID: 8300000, guid: 5f5ec8fb242b4434890c43a2f5179485, type: 3}
   bgmClips:
-  - bgmName: 0
+  - bgmName: 1
     clip: {fileID: 8300000, guid: 83fe308a0b00f3348b0c81118c1129a2, type: 3}
