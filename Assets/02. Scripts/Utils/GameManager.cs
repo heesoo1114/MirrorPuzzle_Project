@@ -34,8 +34,6 @@ public class GameManager : MonoSingleton<GameManager>
     private bool _isChangingWorld = false;
     public bool librayChestPuzzleClear = false;
 
-
-
     private IEnumerator Start() 
     {
         ChangeGlobalLight();
