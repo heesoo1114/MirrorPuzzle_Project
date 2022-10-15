@@ -13,6 +13,7 @@ public enum EGameState
     Timeline
 }
 
+
 public class GameManager : MonoSingleton<GameManager>
 {
     private EGameState _beforeGameState;

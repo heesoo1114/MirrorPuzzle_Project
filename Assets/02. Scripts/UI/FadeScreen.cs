@@ -22,6 +22,7 @@ public class FadeScreen : SingleUI<FadeScreen>
         }
     }
 
+
     private Image _fadeImage;
     private bool _isFade;
 
