@@ -7,11 +7,6 @@ public class SoundManager : MonoSingleton<SoundManager>
     [SerializeField]
     private SoundClips soundClips = null;
 
-    private void Awake()
-    {
-        soundClips = GameObject.Find("SoundManage").GetComponent<SoundClips>(); // managers로 바꿔야함
-    }
-
     public void EffectStart(Util.Effect effectName)
     {
         SoundPlayer g = PoolManager.Instance.Pop("SoundPlayer") as SoundPlayer;
@@ -28,7 +23,7 @@ public class SoundManager : MonoSingleton<SoundManager>
     {
         SoundPlayer stopPlayer = null;
         SoundPlayer[] playToStop = null;
-        playToStop = GameObject.Find("Test").GetComponentsInChildren<SoundPlayer>(); // 메인씬에선 poolManager잇는쪽으로 바꿔야함
+        playToStop = GameObject.Find("PoolManager").GetComponentsInChildren<SoundPlayer>(); // 메인씬에선 poolManager잇는쪽으로 바꿔야함
         foreach(SoundPlayer stop in playToStop)
         {
             if (stop.nowLoopBgm == bgmName)

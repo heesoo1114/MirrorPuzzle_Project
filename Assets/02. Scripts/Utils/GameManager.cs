@@ -13,6 +13,7 @@ public enum EGameState
     Timeline
 }
 
+
 public class GameManager : MonoSingleton<GameManager>
 {
     private EGameState _beforeGameState;
@@ -33,8 +34,6 @@ public class GameManager : MonoSingleton<GameManager>
 
     private bool _isChangingWorld = false;
     public bool librayChestPuzzleClear = false;
-
-
 
     private IEnumerator Start() 
     {

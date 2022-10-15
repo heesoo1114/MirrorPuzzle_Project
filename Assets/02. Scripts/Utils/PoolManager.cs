@@ -13,7 +13,7 @@ public class PoolManager
     public PoolManager(Transform trmParent)
     {
         _trmParent = trmParent;
-        //Instance = this;
+        Instance = this;
     }
 
     public void CreatePool(PoolableMono prefab, int count = 10)
