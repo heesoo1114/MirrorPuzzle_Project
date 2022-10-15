@@ -38,14 +38,14 @@ public class GameManager : MonoSingleton<GameManager>
     private IEnumerator Start() 
     {
         ChangeGlobalLight();
-        //Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
 
         rooms = map.GetComponentsInChildren<Room>().ToList();
 
         yield return new WaitForEndOfFrame();
 
         ChangeGameState(EGameState.UI);
-        //CutSceneManager.Inst.StartCutScene("START");
+        CutSceneManager.Inst.StartCutScene("START");
     }
 
     public void ChangeWorld()
