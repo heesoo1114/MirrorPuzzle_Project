@@ -55,7 +55,7 @@ public class GameManager : MonoSingleton<GameManager>
         yield return new WaitForEndOfFrame();
 
         // CutSceneManager.Inst.StartCutScene("START");
-        CutSceneManager.Inst.StartCutScene("SMALLBROTHER"); // Test
+        // CutSceneManager.Inst.StartCutScene("SMALLBROTHER"); // Test
     }
 
     public void ChangeWorld()
