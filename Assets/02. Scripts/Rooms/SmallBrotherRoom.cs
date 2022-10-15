@@ -23,11 +23,11 @@ public class SmallBrotherRoom : MonoBehaviour
         isSmallBrotheryCutscenePlayed = true;
     }
 
-    private void Update()
+    /*private void Update()
     {
         if (Input.GetKeyDown(KeyCode.L))
         {
             CutSceneManager.Inst.StartCutScene("SMALLBROTHER");
         }
-    }
+    }*/
 }
