@@ -17,6 +17,8 @@ public class InteractionObject : MonoBehaviour
         AwakeChild();
     }
 
+
+
     protected virtual void AwakeChild()
     {
     }

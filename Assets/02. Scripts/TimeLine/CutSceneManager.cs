@@ -133,6 +133,7 @@ public class CutSceneManager : MonoSingleton<CutSceneManager>
         _timeLineCam.m_Priority = 0;
 
         _isPlaying = false;
+
     }
 
     public void CountinueNextCutScene(string cutsceneID)
