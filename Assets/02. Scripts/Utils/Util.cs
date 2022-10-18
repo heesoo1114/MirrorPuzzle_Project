@@ -7,7 +7,12 @@ public static class Util
     public enum Bgm
     {
         None, // 이거 끌 bgm찾을 떄 쓸거
-        Main
+        Main,
+        MirrorWorld,
+        Dramadic,
+        FrozenWinter,
+        Hope,
+        SimilarMain,
     }
 
     public enum Effect

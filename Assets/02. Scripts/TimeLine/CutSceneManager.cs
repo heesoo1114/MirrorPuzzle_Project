@@ -30,6 +30,12 @@ public class CutSceneManager : MonoSingleton<CutSceneManager>
         _isPlaying = true;
         _isScriptStarted = false;
 
+        // Sound
+        if (GameManager.Inst.WorldType == WorldType.RealWorld)
+        {
+            SoundManager.Inst.BgmStop(Util.Bgm.Main);
+        }
+        else SoundManager.Inst.BgmStop(Util.Bgm.MirrorWorld);
 
         _currentDirector = _cutSceneDirectorList.Find(x => x.cutSceneID.Equals(cutSceneID));
 
@@ -124,6 +130,14 @@ public class CutSceneManager : MonoSingleton<CutSceneManager>
         }
         EventManager.TriggerEvent($"END_{_currentCutScene.cutSceneID}CUTSCENE");
 
+        // Sound
+        if (GameManager.Inst.WorldType == WorldType.RealWorld)
+        {
+            SoundManager.Inst.BgmStart(Util.Bgm.Main);
+        }
+        else SoundManager.Inst.BgmStart(Util.Bgm.MirrorWorld);
+
+
         _isScriptStarted = false;
         _currentDirector.Pause();
         _currentDirector = null;
@@ -134,6 +148,35 @@ public class CutSceneManager : MonoSingleton<CutSceneManager>
 
         _isPlaying = false;
 
+    }
+
+    public void CountinueNextCutScene(string cutsceneID)
+    {
+        if (_isPlaying == false) return;
+
+        FadeScreen.FadeOut(0f);
+        if (_beforeState != EGameState.Timeline)
+        {
+            GameManager.Inst.ChangeGameState(_beforeState);
+        }
+
+        else
+        {
+            GameManager.Inst.ChangeGameState(EGameState.Game);
+        }
+        EventManager.TriggerEvent($"END_{_currentCutScene.cutSceneID}CUTSCENE");
+
+        _isScriptStarted = false;
+        _currentDirector.Pause();
+        _currentDirector = null;
+        _lineIdx = 0;
+        _currentCutScene = null;
+        _textPanel.OnKeyDownSpace -= PlayCutSceneAct;
+        _timeLineCam.m_Priority = 0;
+
+        _isPlaying = false;
+
+        CutSceneManager.Inst.StartCutScene(cutsceneID);
     }
 }
 
