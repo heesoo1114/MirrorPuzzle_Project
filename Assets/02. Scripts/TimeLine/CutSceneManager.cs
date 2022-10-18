@@ -118,7 +118,7 @@ public class CutSceneManager : MonoSingleton<CutSceneManager>
     {
         if (_isPlaying == false) return;
 
-        FadeScreen.FadeOut(0f);
+        // FadeScreen.FadeOut(0f);
         if (_beforeState != EGameState.Timeline)
         {
             GameManager.Inst.ChangeGameState(_beforeState);
@@ -154,7 +154,7 @@ public class CutSceneManager : MonoSingleton<CutSceneManager>
     {
         if (_isPlaying == false) return;
 
-        FadeScreen.FadeOut(0f);
+        // FadeScreen.FadeOut(0f);
         if (_beforeState != EGameState.Timeline)
         {
             GameManager.Inst.ChangeGameState(_beforeState);

@@ -26,7 +26,7 @@ public class ToiletDoorTrigger : InteractionObject
 
     public void CanOut()
     {
-        EventManager.TriggerEvent("CLEAR_TOILET");
+        EventManager.TriggerEvent("CLEAR_0TOILET");
         gameObject.SetActive(false);
     }
 

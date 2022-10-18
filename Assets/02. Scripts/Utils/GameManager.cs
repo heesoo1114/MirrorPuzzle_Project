@@ -45,10 +45,8 @@ public class GameManager : MonoSingleton<GameManager>
         yield return new WaitForEndOfFrame();
 
         SoundManager.Inst.BgmStart(Util.Bgm.Main);
-        //SoundManager.Inst.BgmStop(Util.Bgm.Main);
 
-        ChangeGameState(EGameState.UI);
-        CutSceneManager.Inst.StartCutScene("START");
+        // CutSceneManager.Inst.StartCutScene("INTRO2");
     }
 
     public void ChangeWorld()
