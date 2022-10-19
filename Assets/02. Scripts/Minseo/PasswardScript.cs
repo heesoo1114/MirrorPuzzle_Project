@@ -32,6 +32,18 @@ public class PasswardScript : MonoBehaviour
             GameManager.Inst.ChangeGameState(EGameState.UI);
             password_Obj.SetActive(true);
         }
+
+
+        if (Check)
+        {
+            PlayerPrefs.SetInt("InteractionKey", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("InteractionKey", 0);
+        }
+
+        Check = (PlayerPrefs.GetInt("InteractionKey") == 1);
     }
     public void EnterClick()
     {

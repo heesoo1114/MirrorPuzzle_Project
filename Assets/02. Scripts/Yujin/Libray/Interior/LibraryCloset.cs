@@ -5,6 +5,7 @@ using UnityEngine;
 public class LibraryCloset : InteractionObject
 {
     int cnt = 0;
+    bool isPlaying;
 
     public override void InteractionEvent()
     {
