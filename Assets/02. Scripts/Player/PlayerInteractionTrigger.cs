@@ -1,54 +1,94 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInteractionTrigger : MonoBehaviour
 {
-    private InteractionObject _interactionObject;
+    private List<InteractionObject> _interactionObjectList = new List<InteractionObject>();
+    private InteractionObject CurrentObject
+    {
+        get
+        {
+            int cnt = _interactionObjectList.Count;
+            if (cnt <= 0)
+                return null;
+
+
+
+            return _interactionObjectList[cnt - 1];
+        }
+    }
+
 
     public void LateUpdate()
     {
-        if (_interactionObject != null)
+        if (CurrentObject != null)
         {
-            Vector3 objPos = _interactionObject.transform.position;
-            GameManager.Inst.UI.ShowInteractionUI(objPos);
+            Vector3 objPos = CurrentObject.transform.position;
+            InteractionImage.Show(objPos);
         }
     }
 
     public void TriggerEvent()
     {
-        if (GameManager.Inst.UI.IsActiveTextPanal()) return;
+        if (TextSystem.Inst.gameObject.activeSelf) return;
 
-        if (_interactionObject != null)
+        if (InventorySystem.Inst.equipItemDataID == "HAND_MIRROR")
         {
-            _interactionObject.InteractionEvent();
+            GameManager.Inst.ChangeWorld();
+        }
+        else if (CurrentObject != null)
+        { 
+            CurrentObject.InteractionEvent();
+        }
+        else
+        {
+            string equipItemID = InventorySystem.Inst.equipItemDataID;
+
+            switch (equipItemID)
+            {
+                case "2065":
+                    GameManager.Inst.ChangeGameState(EGameState.UI);
+                    LetterUI.OpenLetter("ÇüÀº ±¦Âú¾Æ.\n°ÆÁ¤ÇÏÁö¸¶.\n±×¸®°í Á¶½ÉÇØ.");
+                    InventorySystem.Inst.UseEquipItem();
+                    break;
+
+            }
         }
     }
 
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
+        if (GameManager.Inst.GameState != EGameState.Game) return;
+
         if (collision.gameObject.CompareTag("Interaction"))
         {
-            Debug.Log(11);
-            _interactionObject = collision.transform.GetComponent<InteractionObject>();
-            if(_interactionObject)
+            InteractionObject obj = collision.transform.GetComponent<InteractionObject>();
+
+            if (obj != null)
             {
-                _interactionObject.EnterInteraction();
+                _interactionObjectList.Add(obj);
+                obj.EnterInteraction();
             }
         }
     }
+
 
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Interaction"))
         {
-            GameManager.Inst.UI.UnShowInteractionUI();
+            InteractionImage.UnShow();
 
-            if (_interactionObject != null)
+            InteractionObject obj = collision.transform.GetComponent<InteractionObject>();
+
+            if (obj != null && _interactionObjectList.Find(x => x == obj) != null)
             {
-                _interactionObject.ExitInteraction();
-                _interactionObject = null;
+                obj.ExitInteraction();
+                _interactionObjectList.Remove(obj);
             }
         }
-    }
 
+    }
 }

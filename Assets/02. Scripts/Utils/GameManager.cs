@@ -1,36 +1,29 @@
 using System;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.Rendering.Universal;
 
-public class GameManager : MonoBehaviour
+public enum EGameState
 {
-    public static GameManager Inst;
+    Game,
+    UI,
+    Timeline
+}
 
-    private UIManager uiManager;
-    // private InteractionKey interactionKey;
-    // private InteractionBrotherNote interactionBrotherNote;
-    // private ToiletLetterInteraction toiletLetterInteraction;
-    // private ToiletKeyInteraction toiletKeyInteraction;
-    // private InteractionHandMirror interactionHandMirror;
-    // private LightLineGameManager lightLineGameManager;
-    // private LibraryCloset libraryCloset;
-    // private ChestScripts chestScripts;
-    // private LibraryBoxPuzzle libraryBoxPuzzle;
-    // private BigBrotherRoomKey bigBrotherRoomKey;
-    // private FilmPuzzle filmPuzzle;
-    // private PasswardScript passwardScript;
 
-    public UIManager UI { get { return uiManager; } }
+public class GameManager : MonoSingleton<GameManager>
+{
+    private EGameState _beforeGameState;
+    private EGameState _gameState;
+    public EGameState GameState => _gameState;
 
     private WorldType worldType = WorldType.RealWorld;
     public WorldType WorldType { get { return worldType; } set { worldType = value; } }
 
     [SerializeField] private TextDatas _textDatas;
-    public bool OnUI;
-
 
     public Light2D globalLight;
     public List<Room> rooms;
@@ -39,60 +32,81 @@ public class GameManager : MonoBehaviour
     public UnityEvent ChangeMirrorWorld;
     public UnityEvent ChangeRealWorld;
 
-    [SerializeField] private GameObject player;
+    private bool _isChangingWorld = false;
+    public bool librayChestPuzzleClear = false;
 
-    private void Awake()
+    private IEnumerator Start() 
     {
-        if(Inst != null)
-        {
-            Debug.LogError("게임 매니저 2개 이상임");
-        }
-        Inst = this;
-
-        uiManager = GetComponent<UIManager>();
-    }
-
-    private void Start()
-    {
-        GameLoad();
         ChangeGlobalLight();
+        Cursor.lockState = CursorLockMode.Locked;
 
-        for (int i = 0; i < map.childCount; i++)
-        {
-            // Room Type은 임시
-            rooms.Add(new Room(map.GetChild(i).gameObject, RoomType.BigBrother));
-        }
+        rooms = map.GetComponentsInChildren<Room>().ToList();
+
+        yield return new WaitForEndOfFrame();
+
+        SoundManager.Inst.BgmStart(Util.Bgm.Main);
+
+        
+        // CutSceneManager.Inst.StartCutScene("START");
     }
 
-    private void Update()
+    public void ChangeWorld()
     {
-        if (Input.GetKeyDown(KeyCode.E))
-        {
-            ChangeWorld();
-        }
+        if (_isChangingWorld) return;
+
+        _isChangingWorld = true;
+        StartCoroutine(ChangeWorldCoroutine());
     }
 
-    private void ChangeWorld()
+    private IEnumerator ChangeWorldCoroutine()
     {
-        if (uiManager.isWorldBarMoving) return;
+        PlayerMove player = Define.PlayerRef;
+
+        FadeScreen.fadeColor = Color.white;
+        FadeScreen.FadeOut(0.5f);
+        yield return new WaitForSeconds(0.5f);
+        FadeScreen.FadeIn(0.5f);
 
         if (worldType == WorldType.MirrorWorld)
         {
             worldType = WorldType.RealWorld;
-            rooms.ForEach(x => x.roomObject.transform.localScale = Vector3.one);
+
+            foreach(var room in rooms)
+            {
+                if(room.roomType == player.CurrentRoom)
+                {
+                    player.transform.SetParent(room.transform);
+                }
+
+                room.transform.localScale = Vector3.one;
+            }
+
+            player.transform.SetParent(null);
+            player.transform.localScale = Vector3.one;
             ChangeRealWorld?.Invoke();
         }
         else
         {
             worldType = WorldType.MirrorWorld;
-            rooms.ForEach(x => x.roomObject.transform.localScale = new Vector3(-1f, 1f, 1f));
+            foreach (var room in rooms)
+            {
+                if (room.roomType == player.CurrentRoom)
+                {
+                    player.transform.SetParent(room.transform);
+                }
+
+                room.transform.localScale = new Vector3(-1f, 1f, 1f);
+            }
+            player.transform.SetParent(null);
+            player.transform.localScale = Vector3.one;
             ChangeMirrorWorld?.Invoke();
         }
 
-        uiManager.ActiveWorldText(worldType);
+        LocationTextBar.ActiveWorldText(worldType);
 
         ChangeGlobalLight();
-        Debug.Log(worldType.ToString());
+
+        _isChangingWorld = false;
     }
 
     private void ChangeGlobalLight()
@@ -109,52 +123,33 @@ public class GameManager : MonoBehaviour
 
     public string FindTextData(string id)
     {
-        Debug.Log(id);
         return _textDatas.FindTextData(id);
     }
 
-    public void GameSave()
+    public void ChangeGameState(EGameState state)
     {
-        PlayerPrefs.SetFloat("PlayerX", player.transform.position.x);
-        PlayerPrefs.SetFloat("PlayerY", player.transform.position.y);
-        // PlayerPrefs.SetString("InteractionKey", InteractionKey.GetKeyEvent);
-        // PlayerPrefs.SetString("InteractionBrotherNote", InteractionBrotherNote.GetNoteEvent);
-        // PlayerPrefs.SetString("ToiletLetterInteraction", ToiletLetterInteraction.LetterEvent);
-        // PlayerPrefs.SetString("ToiletKeyInteraction", ToiletKeyInteraction.AddKeyEvent);
-        // PlayerPrefs.SetString("InteractionHandMirror", ToiletKeyInteraction.);
-        // PlayerPrefs.SetString("LightLineGameManager", LightLineGameManager.gameEndEvent);
-        // PlayerPrefs.SetInt("LibraryCloset", LibraryCloset.cnt);
-        // PlayerPrefs.SetString("ChestScripts", ChestScripts.answerCheck);
-        // PlayerPrefs.SetString("LibraryBoxPuzzle", LibraryBoxPuzzle.OnClearPuzzle);
-        // PlayerPrefs.SetString("BigBrotherRoomKey", BigBrotherRoomKey.);
-        // PlayerPrefs.SetString("FilmPuzzle", FilmPuzzle.OnFilmClear);
-        // PlayerPrefs.SetString("PasswardScript", PasswardScript.password_Obj);
-        // PlayerPrefs.SetString("PasswardScript", PasswardScript.Check);
-        PlayerPrefs.Save();
+        _beforeGameState = _gameState;
+        _gameState = state;
+
+        if(_gameState != EGameState.Game)
+        {
+            Cursor.lockState = CursorLockMode.None;
+        }
+
+        else
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+        }
     }
 
-    public void GameLoad()
-    {
-        if(!PlayerPrefs.HasKey("PlayerX"))
-        {
-            return;
-        }
-        float x = PlayerPrefs.GetFloat("PlayerX");
-        float y = PlayerPrefs.GetFloat("PlayerY");
-        // string getKeyEvent = GetString("InteractionKey");
-        // stirng getNoteEvent = GetString("InteractionBrotherNote");
-        // string letterEvent = GetString("ToiletLetterInteraction");
-        // string addKeyEvent = GetString("ToiletKeyInteraction");
-        // string toiletKeyInteraction = GetString("InteractionHandMirror"); 고치기
-        // string ggameEndEvent = GetString("LightLineGameManager");
-        // int ccnt = GetInt("LibraryCloset");
-        // string aanswerCheck = GetString("ChestScripts");
-        // string onClearPuzzle = GetString("LibraryBoxPuzzle");
-        // string ? = GetString("BigBrotherRoomKey");
-        // string onFilmClear = GetString("FilmPuzzle");
-        // string ppassword_Obj = GetString("PasswardScript");
-        // string check = GetString("PasswardScript");
 
-        player.transform.position = new Vector3(x, y, 0f);
+    public void SetBackGameState()
+    {
+        _gameState = _beforeGameState;
+    }
+
+    public void SetGameStateToUI()
+    {
+        ChangeGameState(EGameState.Game);
     }
 }

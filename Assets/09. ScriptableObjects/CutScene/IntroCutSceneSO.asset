@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6149846947dc2c14e86f0c74eceffc38, type: 3}
+  m_Name: IntroCutSceneSO
+  m_EditorClassIdentifier: 
+  cutSceneID: INTRO
+  cutSceneScriptList:
+  - cutSceneLineList:
+    - name: "\uC62C\uB9AC\uBC84"
+      lineText: ...
+  - cutSceneLineList:
+    - name: "\uB8E8\uCE74\uC2A4"
+      lineText: "\uD615, \uC774\uAC70 \uB9C8\uC154."
+  - cutSceneLineList:
+    - name: "\uB8E8\uCE74\uC2A4"
+      lineText: "\uD615?"
+    - name: "\uC62C\uB9AC\uBC84"
+      lineText: "\uC5B4? \uC544 \uBBF8\uC548. \uC880 \uD53C\uACE4\uD574\uC11C."
+    - name: "\uB8E8\uCE74\uC2A4"
+      lineText: "\uC5B4... \uC54C\uC558\uC5B4."
+  - cutSceneLineList:
+    - name: "\uB8E8\uCE74\uC2A4"
+      lineText: "\uC624\uB80C\uC9C0 \uC8FC\uC2A4 \uC5C6\uC774 \uBABB \uC0AC\uB294
+        \uD615\uC774 \uC800\uB7F4 \uB9AC\uAC00 \uC5C6\uB294\uB370..? "

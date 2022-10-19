@@ -42,7 +42,6 @@ public class EventManager
     public static void TriggerEvent(string eventName)
     {
         Action thisEvent;
-
         if (eventDictionary.TryGetValue(eventName, out thisEvent))
         {
             thisEvent?.Invoke();

@@ -14,6 +14,11 @@ public class BugManager : MonoBehaviour
 
     private bool _isStart;
 
+    private void Start()
+    {
+        Init();
+    }
+
     public void Init()
     {
         if (_isStart) return;
@@ -47,7 +52,7 @@ public class BugManager : MonoBehaviour
 
         if(bugs.Count <= 0)
         {
-            GameManager.Inst.OnUI = false;
+            GameManager.Inst.ChangeGameState(EGameState.Game);
             _isStart = false;
             transform.DOScale(Vector3.zero, 0.8f).SetEase(Ease.InOutBounce).OnComplete(() => gameObject.SetActive(false));
         }

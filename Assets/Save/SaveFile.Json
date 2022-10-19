@@ -1,0 +1,62 @@
+﻿{
+    "effectSoundVolume": 0.5,
+    "bgmSoundVolume": 0.5,
+    "isTutorial": false,
+    "inventoryList": [
+        {
+            "itemData": {
+                "itemID": "",
+                "name": "",
+                "info": "",
+                "sprite": {
+                    "instanceID": 0
+                }
+            },
+            "itemCount": 0
+        },
+        {
+            "itemData": {
+                "itemID": "",
+                "name": "",
+                "info": "",
+                "sprite": {
+                    "instanceID": 0
+                }
+            },
+            "itemCount": 0
+        },
+        {
+            "itemData": {
+                "itemID": "",
+                "name": "",
+                "info": "",
+                "sprite": {
+                    "instanceID": 0
+                }
+            },
+            "itemCount": 0
+        },
+        {
+            "itemData": {
+                "itemID": "",
+                "name": "",
+                "info": "",
+                "sprite": {
+                    "instanceID": 0
+                }
+            },
+            "itemCount": 0
+        },
+        {
+            "itemData": {
+                "itemID": "",
+                "name": "",
+                "info": "",
+                "sprite": {
+                    "instanceID": 0
+                }
+            },
+            "itemCount": 0
+        }
+    ]
+}

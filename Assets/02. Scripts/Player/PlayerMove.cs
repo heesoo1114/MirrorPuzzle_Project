@@ -1,7 +1,8 @@
-using System.Collections;
+癤퓎sing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using DG.Tweening;
 
 public class PlayerMove : MonoBehaviour
 {
@@ -16,21 +17,31 @@ public class PlayerMove : MonoBehaviour
     private bool _isWarping;
     private bool _findMirror;
 
-    private Animator _animator;
+    private Animator _timeLineAnimator;
+    private Animator _visualAnimator;
 
     private ParticleSystem _walkParticle;
     public UnityEvent OnTriggerInteraction;
 
+    private RoomType _currentRoomType;
+
+    public RoomType CurrentRoom => _currentRoomType;
+
     void Start()
     {
         _rigid = GetComponent<Rigidbody2D>();
-        _animator = GetComponent<Animator>();
+
+        _timeLineAnimator = GetComponent<Animator>();
+        _visualAnimator = transform.Find("VisualSprite").GetComponent<Animator>();
         _walkParticle = GetComponentInChildren<ParticleSystem>();
+
+        _currentRoomType = RoomType.Kitchen;
     }
 
-    // 실행되는 동안 반복 => 1 프레임 한번씩 호출
     private void Update()
     {
+        if (GameManager.Inst.GameState != EGameState.Game) return;
+
         if (Input.GetKeyDown(KeyCode.Space))
         {
             OnTriggerInteraction?.Invoke();
@@ -39,7 +50,11 @@ public class PlayerMove : MonoBehaviour
 
     void FixedUpdate()
     {
-        if (GameManager.Inst.OnUI) return;
+        if (GameManager.Inst.GameState != EGameState.Game)
+        {
+            _rigid.velocity = Vector2.zero;
+            return;
+        }
 
         InputDirection();
 
@@ -55,14 +70,11 @@ public class PlayerMove : MonoBehaviour
 
         if (dir.sqrMagnitude > 0)
         {
-            // 내가 가려고 한 방향이 지금 향하고 있는 방향의 반대면 
-            // 속도를 0으로 초기화를 시킨다
             if (Vector2.Dot(dir, _movementDir) < 0)
             {
                 _currentVelocity = 0f;
             }
 
-            // 값을 변경 시킴
             _movementDir = dir.normalized;
             _walkParticle.gameObject.SetActive(true);
         }
@@ -70,13 +82,10 @@ public class PlayerMove : MonoBehaviour
         {
             _walkParticle.gameObject.SetActive(false);
         }
-        // 값을 변경 시킴
 
         _movementDir = dir.normalized;
 
         _currentVelocity = CalcSpeed(dir.normalized);
-        // (0,0) == 움직일 방향이 없다면
-        // 값 변화가 없다
     }
 
     private float CalcSpeed(Vector2 dir)
@@ -97,59 +106,98 @@ public class PlayerMove : MonoBehaviour
     }
 
 
-    
-
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (GameManager.Inst.GameState != EGameState.Game) return;
+
         if (collision.gameObject.CompareTag("Trigger"))
         {
             if (_isWarping) return;
             WarpZone warpZone = collision.gameObject.GetComponent<WarpZone>();
-            Vector2 warpPoint = warpZone.WarpPoint;
-            _isWarping = true;
-            StartCoroutine(WarpPlayer(warpPoint, warpZone.RoomName));
-            // 맵 바꿀 때까지는 임시로 주석 해놓을게요
-            //if (_movementDir.x == warpZone._offset.x ||
-            //    _movementDir.y == warpZone._offset.y)
-            //{
 
-            //}
+            if (warpZone.isLock)
+            {
+                TextSystem.Inst.ActiveTextPanal(warpZone.lockMessage);
+                return;
+            }
+            _isWarping = true;
+
+            _currentRoomType = warpZone.targetRoom;
+
+            StartCoroutine(WarpPlayer(warpZone));
         }
     }
 
-    private IEnumerator WarpPlayer(Vector2 warpPoint, string roomName)
+    private IEnumerator WarpPlayer(WarpZone warpZone)
     {
-        GameManager.Inst.UI.FadeScreen(true);
+        FadeScreen.FadeIn(0.5f);
         yield return new WaitForSeconds(0.5f);
-        transform.position = warpPoint;
+        transform.position = warpZone.WarpPoint;
         yield return new WaitForSeconds(0.1f);
-        GameManager.Inst.UI.FadeScreen(false);
+        FadeScreen.FadeOut(0.5f);
         yield return new WaitForSeconds(0.5f);
-        GameManager.Inst.UI.ActiveRoomText(roomName);
+        LocationTextBar.ActiveRoomText(warpZone.RoomName);
         _isWarping = false;
+
+        EventManager.TriggerEvent($"ENTER_{warpZone.targetRoom.ToString()}");
     }
 
     private void PlayerAnimation()
     {
         if (_rigid.velocity.x > 0.05f)
         {
-            _animator.Play("RightWalk");
+            _visualAnimator.Play("RightWalk");
         }
 
         else if (_rigid.velocity.x < -0.05f)
         {
-            _animator.Play("LeftWalk");
+            _visualAnimator.Play("LeftWalk");
         }
 
         else if (_rigid.velocity.y > 0.05f)
         {
-            _animator.Play("UpWalk");
+            _visualAnimator.Play("UpWalk");
         }
 
         else if (_rigid.velocity.y < -0.05f)
         {
-            _animator.Play("DownWalk");
+            _visualAnimator.Play("DownWalk");
         }
     }
+
+    public void ShakeObject()
+    {
+        _timeLineAnimator.enabled = false;
+        transform.DOShakePosition(0.5f, 0.5f).OnComplete(() => _timeLineAnimator.enabled = true);
+    }
+
+    public enum WalkType { RightWalk, LeftWalk, UpWalk, DownWalk }
+    public void PlayAnimation(string walkType)
+    {
+        if (_visualAnimator == null) return;
+        if (walkType == null || walkType == "") return;
+        StopAllCoroutines();
+
+        if (walkType.Contains("Walk"))
+        {
+            StartCoroutine(PlayAnimationCoroutine(walkType));
+        }
+
+        else
+        {
+            _visualAnimator.Play(walkType);
+        }
+    }
+
+    private IEnumerator PlayAnimationCoroutine(string walkType)
+    {
+        while (true)
+        {
+            _visualAnimator.Play(walkType);
+
+            yield return new WaitForFixedUpdate();
+        }
+    }
+
 }
+

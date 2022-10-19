@@ -1,0 +1,86 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1ac06900ff103dd499bdea6b175fd6d6, type: 3}
+  m_Name: ItemSO
+  m_EditorClassIdentifier: 
+  itemDataList:
+  - itemID: BB_BlueBullet
+    name: "\uD30C\uB780\uC0C9 \uC7A5\uB09C\uAC10 \uCD1D\uC54C"
+    info: "\uD30C\uB780\uC0C9 \uC789\uD06C\uAC00 \uB4E4\uC5B4\uAC00\uC788\uB294 \uC7A5\uB09C\uAC10
+      \uCD1D\uC54C\uC774\uB2E4.\n\uC5B4\uB518\uAC00\uC5D0 \uC4F8 \uC77C\uC774 \uC788\uC9C0
+      \uC54A\uC744\uAE4C?"
+    sprite: {fileID: 21300000, guid: 064c1dae0ef977543a09985882d76f1d, type: 3}
+  - itemID: BB_RedBullet
+    name: "\uBE68\uAC04\uC0C9 \uC7A5\uB09C\uAC10 \uCD1D\uC54C"
+    info: "\uBE68\uAC04\uC0C9 \uC789\uD06C\uAC00 \uB4E4\uC5B4\uAC00\uC788\uB294 \uC7A5\uB09C\uAC10
+      \uCD1D\uC54C\uC774\uB2E4.\n\uC5B4\uB518\uAC00\uC5D0 \uC4F8 \uC77C\uC774 \uC788\uC9C0
+      \uC54A\uC744\uAE4C?"
+    sprite: {fileID: 21300000, guid: 33216fcb29d1ffa41bb5c63423ffa932, type: 3}
+  - itemID: BB_NotRealGun
+    name: "\uC7A5\uB09C\uAC10 \uCD1D"
+    info: "\uAF64\uB098 \uC0B4\uBC8C\uD558\uAC8C \uC0DD\uAE34 \uC7A5\uB09C\uAC10
+      \uCD1D\uC774\uB2E4.\n\uCD1D\uC54C\uC744 \uB123\uB294 \uACF3 \uAE4C\uC9C0 \uC138\uC138\uD558\uAC8C
+      \uAD6C\uD604\uB3FC\uC788\uB2E4."
+    sprite: {fileID: 21300000, guid: 7ded581dcdc21bb438e961f3aed6860e, type: 3}
+  - itemID: Library_A_Stamp
+    name: "A\uC758 \uB3C4\uC7A5"
+    info: "A\uC528\uAC00 \uAC00\uC9C0\uACE0 \uC788\uB358 \uB3C4\uC7A5,\n\uBB34\uC5B8\uAC00
+      \uC774\uC0C1\uD55C\uAC8C \uC5C6\uB294\uC9C0 \uC798 \uC0B4\uD3B4\uBCF4\uC790."
+    sprite: {fileID: 21300000, guid: 179e86a2efbc3824782662c4ffbd322c, type: 3}
+  - itemID: Library_B_GoldBar
+    name: "B\uC758 \uAE08\uAD34"
+    info: "B\uC528\uAC00 \uAC00\uC9C0\uACE0 \uC788\uB358 \uAE08\uAD34,\n\uBB34\uC5B8\uAC00
+      \uC774\uC0C1\uD55C\uAC8C \uC5C6\uB294\uC9C0 \uC798 \uC0B4\uD3B4\uBCF4\uC790."
+    sprite: {fileID: 21300000, guid: cbd54cb3386e69f438bec6eb9fc4dbbb, type: 3}
+  - itemID: Library_C_Book
+    name: "C\uC758 \uCC45"
+    info: "C\uC528\uAC00 \uAC00\uC9C0\uACE0 \uC788\uB358 \uCC45,\n\uBB34\uC5B8\uAC00
+      \uC774\uC0C1\uD55C\uAC8C \uC5C6\uB294\uC9C0 \uC798 \uC0B4\uD3B4\uBCF4\uC790."
+    sprite: {fileID: 8384347943025416157, guid: 989e90d3f9a5ada4db8cd36c5fc9556a, type: 3}
+  - itemID: 1114
+    name: "\uD654\uC7A5\uC2E4\uBB38\uC5F4\uC1E0"
+    info: "\uC774 \uC5F4\uC1E0\uB85C \uD654\uC7A5\uC2E4\uC758 \uBB38\uC744 \uC5F4
+      \uC218 \uC788\uC744\uC9C0\uB3C4?"
+    sprite: {fileID: 21300000, guid: c73c5cf045df3b44a97a9464d20585cc, type: 3}
+  - itemID: 2065
+    name: "\uD615\uC758\uD3B8\uC9C0"
+    info: "\uD615\uC774 \uB0A8\uAE34 \uD3B8\uC9C0,\n \uB0B4\uC6A9\uC744 \uD655\uC778\uD574\uBCF4\uC790."
+    sprite: {fileID: 21300000, guid: 19b76006ed86c3949a74435d97740e93, type: 3}
+  - itemID: 20
+    name: "\uD615\uC758 \uCABD\uC9C0"
+    info: "\uC77D\uC744 \uC218 \uC5C6\uB294 \uAE00\uC790\uB85C \uAC00\uB4DD\uD558\uB2E4"
+    sprite: {fileID: 21300000, guid: 979c4c05fdc9ef342a5ee50bcc3216fe, type: 3}
+  - itemID: 10
+    name: "\uC9C0\uD558\uC2E4 \uC5F4\uC1E0"
+    info: "\uC9C0\uD558\uC2E4 \uBB38\uC744 \uC5F4 \uC218 \uC788\uB294 \uD0A4\uB2E4."
+    sprite: {fileID: 21300000, guid: ea8a0996d9ea44e40b3555f28b0b8ea1, type: 3}
+  - itemID: BEDROOMKEY
+    name: "\uC548\uBC29 \uC5F4\uC1E0"
+    info: "\uC548\uBC29 \uBB38\uC744 \uC5F4 \uC218 \uC788\uB294 \uC5F4\uC1E0\uB2E4."
+    sprite: {fileID: 21300000, guid: ea8a0996d9ea44e40b3555f28b0b8ea1, type: 3}
+  - itemID: LIBRARYKEY
+    name: "\uC11C\uC7AC \uC5F4\uC1E0"
+    info: "\uC11C\uC7AC \uBB38\uC744 \uC5F4 \uC218 \uC788\uB294 \uC5F4\uC1E0\uB2E4."
+    sprite: {fileID: 21300000, guid: c73c5cf045df3b44a97a9464d20585cc, type: 3}
+  - itemID: BBROOMKEY
+    name: "\uD615 \uBC29 \uC5F4\uC1E0"
+    info: "\uD615 \uBC29 \uBB38\uC744 \uC5F4 \uC218 \uC788\uB294 \uC5F4\uC1E0\uB2E4."
+    sprite: {fileID: 21300000, guid: c73c5cf045df3b44a97a9464d20585cc, type: 3}
+  - itemID: SBROOMKEY
+    name: "\uB3D9\uC0DD \uBC29 \uC5F4\uC1E0"
+    info: "\uB3D9\uC0DD \uBC29 \uBB38\uC744 \uC5F4 \uC218 \uC788\uB294 \uC5F4\uC1E0\uB2E4."
+    sprite: {fileID: 21300000, guid: c73c5cf045df3b44a97a9464d20585cc, type: 3}
+  - itemID: HAND_MIRROR
+    name: "\uC190\uAC70\uC6B8"
+    info: "\uAC70\uC6B8 \uC138\uACC4\uB85C \uC774\uB3D9\uD560 \uC218 \uC788\uB294
+      \uC190\uAC70\uC6B8\uC774\uB2E4."
+    sprite: {fileID: 21300000, guid: 00420a98ce29a18429d5eeeae9b248ea, type: 3}

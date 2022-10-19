@@ -18,19 +18,21 @@ public class Book : InteractionObject
 
         if(GameManager.Inst.WorldType == WorldType.RealWorld)
         {
-            StringBuilder str = new StringBuilder(_textDataID);
+            StringBuilder str = new StringBuilder(oirginID);
             str.Append("_REALWORLD");
-            _textDataID = str.ToString();
+            oirginID = str.ToString();
         }
 
         else
         {
-            StringBuilder str = new StringBuilder(_textDataID);
+            StringBuilder str = new StringBuilder(oirginID);
             str.Append(_canRead ? "_READ" : "_NOTREAD");
-            _textDataID = str.ToString();
+            oirginID = str.ToString();
         }
-      
-        base.InteractionEvent();
-        _textDataID = oirginID;
+
+        string text = GameManager.Inst.FindTextData(oirginID);
+
+        if (text.CompareTo("") == 0 || text == null) return;
+        TextSystem.Inst.ActiveTextPanal(text);
     }
 }

@@ -6,6 +6,6 @@ public class Vase : InteractionObject
 {
     public override void InteractionEvent()
     {
-        GameManager.Inst.UI.StartMiniGame();
+        //GameManager.Inst.UI.StartMiniGame();
     }
 }

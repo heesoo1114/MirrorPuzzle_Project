@@ -8,14 +8,16 @@ public class InteractionObject : MonoBehaviour
 
     protected void Awake()
     {
-        if (gameObject.tag.CompareTo("Interaction") != 0)
+        /*if (gameObject.tag.CompareTo("Interaction") != 0)
         {
             Debug.LogError($"상호작용 오브젝트({name})의 태그가 Interaction으로 되어있지 않습니다.");
             gameObject.tag = "Interaction";
-        }
+        }*/
 
         AwakeChild();
     }
+
+
 
     protected virtual void AwakeChild()
     {
@@ -29,14 +31,14 @@ public class InteractionObject : MonoBehaviour
     public virtual void InteractionEvent()
     {
         string text = GameManager.Inst.FindTextData(_textDataID);
-
+       
         if (text.CompareTo("") == 0 || text == null) return;
-        GameManager.Inst.UI.ActiveTextPanal(text);
+        TextSystem.Inst.ActiveTextPanal(text);
     }
 
     public virtual void ExitInteraction()
     {
-        GameManager.Inst.UI.ActiveTextPanal();
+        TextSystem.Inst.ActiveTextPanal();
     }
 }
 

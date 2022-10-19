@@ -53,7 +53,7 @@ public class BoxButton : MonoBehaviour
     {
         if (collision.CompareTag("Box"))
         {
-            key.Fallling();
+            //key.Fallling();
         }
     }
 }

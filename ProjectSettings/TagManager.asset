@@ -8,6 +8,14 @@ TagManager:
   - Mirror
   - Box
   - Interaction
+  - Closet
+  - ObjectBox
+  - Objectbed
+  - ObjectLaker
+  - ObjectTable
+  - BlueBullet
+  - RedBullet
+  - LightCollider
   layers:
   - Default
   - TransparentFX
@@ -16,8 +24,8 @@ TagManager:
   - Water
   - UI
   - Trigger
-  - 
-  - 
+  - Box
+  - BigBrotherTile
   - 
   - 
   - 

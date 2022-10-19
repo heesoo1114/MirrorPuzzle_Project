@@ -1,0 +1,1376 @@
+fileFormatVersion: 2
+guid: 1580abba76c7ca7498be8383abf7d42d
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6014315069920326607
+    second: Serene Village - Inside_0
+  - first:
+      213: 2067567030578104112
+    second: Serene Village - Inside_1
+  - first:
+      213: 6511044237446201907
+    second: Serene Village - Inside_2
+  - first:
+      213: -556534586276014599
+    second: Serene Village - Inside_3
+  - first:
+      213: 8323114971710349901
+    second: Serene Village - Inside_4
+  - first:
+      213: 5455567077358282880
+    second: Serene Village - Inside_5
+  - first:
+      213: 5446349575687386950
+    second: Serene Village - Inside_6
+  - first:
+      213: -4089346673441411209
+    second: Serene Village - Inside_7
+  - first:
+      213: 5747463883645723470
+    second: Serene Village - Inside_8
+  - first:
+      213: 6200922121357579308
+    second: Serene Village - Inside_9
+  - first:
+      213: 5162204471176312510
+    second: Serene Village - Inside_10
+  - first:
+      213: -4324653487713414499
+    second: Serene Village - Inside_11
+  - first:
+      213: -183694218494403559
+    second: Serene Village - Inside_12
+  - first:
+      213: -8938020108410181371
+    second: Serene Village - Inside_13
+  - first:
+      213: 7933992403136786739
+    second: Serene Village - Inside_14
+  - first:
+      213: -2357323919035300786
+    second: Serene Village - Inside_15
+  - first:
+      213: 1047432878528945957
+    second: Serene Village - Inside_16
+  - first:
+      213: -7803252200996704471
+    second: Serene Village - Inside_17
+  - first:
+      213: 4143808036519307269
+    second: Serene Village - Inside_18
+  - first:
+      213: 3245211239010876928
+    second: Serene Village - Inside_19
+  - first:
+      213: -5452118481892461774
+    second: Serene Village - Inside_20
+  - first:
+      213: -951470732407958702
+    second: Serene Village - Inside_21
+  - first:
+      213: 9043754334407564230
+    second: Serene Village - Inside_22
+  - first:
+      213: -2202324824003373349
+    second: Serene Village - Inside_23
+  - first:
+      213: -96977020846821204
+    second: Serene Village - Inside_24
+  - first:
+      213: -4415093614913771477
+    second: Serene Village - Inside_25
+  - first:
+      213: 9083154180793861876
+    second: Serene Village - Inside_26
+  - first:
+      213: 5771224187666918654
+    second: Serene Village - Inside_27
+  - first:
+      213: -2072294544544698914
+    second: Serene Village - Inside_28
+  - first:
+      213: -4834857406510329231
+    second: Serene Village - Inside_29
+  - first:
+      213: 12968318040261197
+    second: Serene Village - Inside_30
+  - first:
+      213: -6446081373459720097
+    second: Serene Village - Inside_31
+  - first:
+      213: -4485536707225999505
+    second: Serene Village - Inside_32
+  - first:
+      213: 6515081584921212948
+    second: Serene Village - Inside_33
+  - first:
+      213: 963183899290736542
+    second: Serene Village - Inside_34
+  - first:
+      213: -1463579072915797892
+    second: Serene Village - Inside_35
+  - first:
+      213: -6316501198960264169
+    second: Serene Village - Inside_36
+  - first:
+      213: -5146909575439467610
+    second: Serene Village - Inside_37
+  - first:
+      213: 6231838889125522609
+    second: Serene Village - Inside_38
+  - first:
+      213: 5102365941007182695
+    second: Serene Village - Inside_39
+  - first:
+      213: -2011517722240862864
+    second: Serene Village - Inside_40
+  - first:
+      213: 736718018542171658
+    second: Serene Village - Inside_41
+  - first:
+      213: -7791023757784620120
+    second: Serene Village - Inside_42
+  - first:
+      213: 8391533669619478569
+    second: Serene Village - Inside_43
+  - first:
+      213: 8402088377737091822
+    second: Serene Village - Inside_44
+  - first:
+      213: -5130795664722596485
+    second: Serene Village - Inside_45
+  - first:
+      213: -1319016708082953033
+    second: Serene Village - Inside_46
+  - first:
+      213: 1934665651152266102
+    second: Serene Village - Inside_47
+  - first:
+      213: 3519158897075969290
+    second: Serene Village - Inside_48
+  - first:
+      213: -5486596690265995222
+    second: Serene Village - Inside_49
+  - first:
+      213: 719335424047432517
+    second: Serene Village - Inside_50
+  - first:
+      213: -7230146709018875693
+    second: Serene Village - Inside_51
+  - first:
+      213: -3808461116554651191
+    second: Serene Village - Inside_52
+  - first:
+      213: -6295505383593515816
+    second: Serene Village - Inside_53
+  - first:
+      213: 1906171106834056666
+    second: Serene Village - Inside_54
+  - first:
+      213: -1447603671782161841
+    second: Serene Village - Inside_55
+  - first:
+      213: -5277045300192999959
+    second: Serene Village - Inside_56
+  - first:
+      213: 301186974325330819
+    second: Serene Village - Inside_57
+  - first:
+      213: 8393836596551715569
+    second: Serene Village - Inside_58
+  - first:
+      213: 816861745758940345
+    second: Serene Village - Inside_59
+  - first:
+      213: -550725048505963025
+    second: Serene Village - Inside_60
+  - first:
+      213: 6916491774960089110
+    second: Serene Village - Inside_61
+  - first:
+      213: -4083102025247244704
+    second: Serene Village - Inside_62
+  - first:
+      213: -1223301975535283335
+    second: Serene Village - Inside_63
+  - first:
+      213: 1673967620406239674
+    second: Serene Village - Inside_64
+  - first:
+      213: -4746643581681984813
+    second: Serene Village - Inside_65
+  - first:
+      213: 453646608342627286
+    second: Serene Village - Inside_66
+  - first:
+      213: -683071993082384894
+    second: Serene Village - Inside_67
+  - first:
+      213: 3882611739623439150
+    second: Serene Village - Inside_68
+  - first:
+      213: -2728888667241494590
+    second: Serene Village - Inside_69
+  - first:
+      213: -7456482134436998646
+    second: Serene Village - Inside_70
+  - first:
+      213: 4097598153592444796
+    second: Serene Village - Inside_71
+  - first:
+      213: 6242474712788235705
+    second: Serene Village - Inside_72
+  - first:
+      213: -707205517727356926
+    second: Serene Village - Inside_73
+  - first:
+      213: 3732767746169594522
+    second: Serene Village - Inside_74
+  - first:
+      213: -1567852295340071207
+    second: Serene Village - Inside_75
+  - first:
+      213: -138998980717494735
+    second: Serene Village - Inside_76
+  - first:
+      213: 8136630168773817881
+    second: Serene Village - Inside_77
+  - first:
+      213: 689189840872729837
+    second: Serene Village - Inside_78
+  - first:
+      213: 1046596970527925168
+    second: Serene Village - Inside_79
+  - first:
+      213: 4501093906388674375
+    second: Serene Village - Inside_80
+  - first:
+      213: 3412676268156587774
+    second: Serene Village - Inside_81
+  - first:
+      213: 1306875163699923225
+    second: Serene Village - Inside_82
+  - first:
+      213: 8145928424555018685
+    second: Serene Village - Inside_83
+  - first:
+      213: 473684820988191038
+    second: Serene Village - Inside_84
+  - first:
+      213: 2618408710859120036
+    second: Serene Village - Inside_85
+  - first:
+      213: 1343923766382107951
+    second: Serene Village - Inside_86
+  - first:
+      213: 2777853152003959835
+    second: Serene Village - Inside_87
+  - first:
+      213: -8996350161494164876
+    second: Serene Village - Inside_88
+  - first:
+      213: -534304109667156166
+    second: Serene Village - Inside_89
+  - first:
+      213: 881229131615474039
+    second: Serene Village - Inside_90
+  - first:
+      213: 3951082184329000414
+    second: Serene Village - Inside_91
+  - first:
+      213: 1780339198754030866
+    second: Serene Village - Inside_92
+  - first:
+      213: -1673641940831297246
+    second: Serene Village - Inside_93
+  - first:
+      213: 2242754605963251724
+    second: Serene Village - Inside_94
+  - first:
+      213: -5367574518969296380
+    second: Serene Village - Inside_95
+  - first:
+      213: 695395074312478475
+    second: Serene Village - Inside_96
+  - first:
+      213: 1838151411320779184
+    second: Serene Village - Inside_97
+  - first:
+      213: 5013934884322380173
+    second: Serene Village - Inside_98
+  - first:
+      213: 4522877678001260810
+    second: Serene Village - Inside_99
+  - first:
+      213: 6500066050205196637
+    second: Serene Village - Inside_100
+  - first:
+      213: -3290385207071615134
+    second: Serene Village - Inside_101
+  - first:
+      213: 846912337773441611
+    second: Serene Village - Inside_102
+  - first:
+      213: 9138180242957681383
+    second: Serene Village - Inside_103
+  - first:
+      213: -4533913180840232688
+    second: Serene Village - Inside_104
+  - first:
+      213: 217203734871373376
+    second: Serene Village - Inside_105
+  - first:
+      213: 1053332811005889501
+    second: Serene Village - Inside_106
+  - first:
+      213: 5709806455251821233
+    second: Serene Village - Inside_107
+  - first:
+      213: 8234030765254443206
+    second: Serene Village - Inside_108
+  - first:
+      213: -2797099305215096775
+    second: Serene Village - Inside_109
+  - first:
+      213: 663494594960805801
+    second: Serene Village - Inside_110
+  - first:
+      213: -3860364922806738366
+    second: Serene Village - Inside_111
+  - first:
+      213: 8384347943025416157
+    second: Serene Village - Inside_112
+  - first:
+      213: -1084219042864355184
+    second: Serene Village - Inside_113
+  - first:
+      213: 2691789887399446728
+    second: Serene Village - Inside_114
+  - first:
+      213: -362963657075274117
+    second: Serene Village - Inside_115
+  - first:
+      213: -5579199838742257437
+    second: Serene Village - Inside_116
+  - first:
+      213: -7441675844841802587
+    second: Serene Village - Inside_117
+  - first:
+      213: 4322430499358433611
+    second: Serene Village - Inside_118
+  - first:
+      213: 7639964181226642016
+    second: Serene Village - Inside_119
+  - first:
+      213: 7536152230675157126
+    second: Serene Village - Inside_120
+  - first:
+      213: -1328701376546569250
+    second: Serene Village - Inside_121
+  - first:
+      213: -5415288531159743388
+    second: Serene Village - Inside_122
+  - first:
+      213: -8006578547122950414
+    second: Serene Village - Inside_123
+  - first:
+      213: 3339942672080339510
+    second: Serene Village - Inside_124
+  - first:
+      213: 9203051783139698116
+    second: Serene Village - Inside_125
+  - first:
+      213: -7507134705698348633
+    second: Serene Village - Inside_126
+  - first:
+      213: -5741386084486805627
+    second: Serene Village - Inside_127
+  - first:
+      213: 3306486855327403934
+    second: Serene Village - Inside_128
+  - first:
+      213: -117890232372642585
+    second: Serene Village - Inside_129
+  - first:
+      213: 5829790852560593750
+    second: Serene Village - Inside_130
+  - first:
+      213: -563166100016605688
+    second: Serene Village - Inside_131
+  - first:
+      213: 8186196290591001366
+    second: Serene Village - Inside_132
+  - first:
+      213: 743117308737034084
+    second: Serene Village - Inside_133
+  - first:
+      213: 2174917183450836795
+    second: Serene Village - Inside_134
+  - first:
+      213: -6834287507354394722
+    second: Serene Village - Inside_135
+  - first:
+      213: 8519419633203041662
+    second: Serene Village - Inside_136
+  - first:
+      213: 4341263306445092554
+    second: Serene Village - Inside_137
+  - first:
+      213: -264761966367561790
+    second: Serene Village - Inside_138
+  - first:
+      213: -8532340558777537836
+    second: Serene Village - Inside_139
+  - first:
+      213: -9055169361238604985
+    second: Serene Village - Inside_140
+  - first:
+      213: 529894343591746561
+    second: Serene Village - Inside_141
+  - first:
+      213: 7652320768288984749
+    second: Serene Village - Inside_142
+  - first:
+      213: -582477140206738662
+    second: Serene Village - Inside_143
+  - first:
+      213: 8112360957293657368
+    second: Serene Village - Inside_144
+  - first:
+      213: -4573006136940967796
+    second: Serene Village - Inside_145
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FurnitureS_3
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 112
+        width: 13
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2db3bbf6e7e0f1c42839132880e6d162
+      internalID: -1985519738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_6
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 97
+        width: 42
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f3e3de5bc97d06449a6dd5e223fff0b
+      internalID: 642122938
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_7
+      rect:
+        serializedVersion: 2
+        x: 3
+        y: 96
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3827a597eb682374fbd87151a62d2111
+      internalID: -564917544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_8
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 96
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a9774a7dfc691cf439c93c0f212afdfb
+      internalID: 360053104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_9
+      rect:
+        serializedVersion: 2
+        x: 2
+        y: 80
+        width: 11
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e71f4fa7c44abf40a6059548989a3c3
+      internalID: -687153948
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_10
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 80
+        width: 11
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d21dadd64c6f6ca439d7ea0800194a8a
+      internalID: -9973646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_11
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 64
+        width: 30
+        height: 22
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81376e8a034f4364f82981c2b15e9b61
+      internalID: 183267616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_12
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 80
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 38003b88e09592b4aa10e84639f6a2c6
+      internalID: -75987424
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_13
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 64
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea25905c83b74c14d90bb3a07225cc61
+      internalID: -901750104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_14
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 64
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d00b88595e054e4d97a3b9207ccd968
+      internalID: 2096661476
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_15
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 67
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 42bc2540ed54462449fec1fc7146a75d
+      internalID: -2104196343
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_16
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 67
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 87e696667e458f34699668af14a729f5
+      internalID: 1795177312
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_17
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 67
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 959ef7b6ec4dde44c84532e7bb747afc
+      internalID: 1213081436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_18
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 48
+        width: 9
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b5076da48d404b408968ab6f5b13866
+      internalID: -586454943
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_19
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 48
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2de6f09786b31e4d8486a618e1f0ec8
+      internalID: 790998200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_20
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 0
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae6e79467554cd14d8137c6b1c5f1ccc
+      internalID: 1123010765
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_21
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 48
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 453f9ed7364309b4db023f96fed197c3
+      internalID: -705639967
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_22
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 0
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 10eeb746fc7d60946ba9e6f938c9b170
+      internalID: -35035777
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_23
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 0
+        width: 24
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19df54fe97c060e4199dc7af50876597
+      internalID: -1281108092
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_0
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 96
+        width: 30
+        height: 21
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b0630cafc900ae409f42fc7679a77a0
+      internalID: 5238718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_1
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 176
+        width: 26
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55127266e48b3694785c7985095b9b08
+      internalID: 1139067796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_2
+      rect:
+        serializedVersion: 2
+        x: 96
+        y: 165
+        width: 16
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b187c40898110bd419d71e14aaeafa64
+      internalID: -782784599
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_4
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 161
+        width: 14
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a830ddfc81e8d1142b734679c73e513c
+      internalID: -129802212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_5
+      rect:
+        serializedVersion: 2
+        x: 67
+        y: 176
+        width: 26
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79c758c0f8f32954197d9572a9f3d029
+      internalID: 1729706523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_24
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 160
+        width: 24
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd343b37f38162343b679114c9b18efa
+      internalID: -1802343905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_25
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 160
+        width: 14
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b00d8aad6515a57479590cb00388a9ad
+      internalID: -1612231334
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_26
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 128
+        width: 24
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45021b014a24fad40ac75851c6792a8e
+      internalID: -213593172
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_27
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 128
+        width: 24
+        height: 30
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4259a4faccefb8f4393f1cdccf65880e
+      internalID: 217649107
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_28
+      rect:
+        serializedVersion: 2
+        x: 100
+        y: 147
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d02bbe4cf1115644a14a2c7f09ae0af
+      internalID: -1352113184
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_29
+      rect:
+        serializedVersion: 2
+        x: 84
+        y: 80
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79ba200171e29024b8b3e0d4ac8b5a8d
+      internalID: -166629231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_30
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 80
+        width: 9
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 910bef7c83702a741afd2655f651c5d4
+      internalID: -1446156297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_31
+      rect:
+        serializedVersion: 2
+        x: 68
+        y: 96
+        width: 25
+        height: 27
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f99d37422cfe6ad4f896b0f443e560d7
+      internalID: -389399074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_32
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 32
+        width: 13
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ead5e9e8d466ef46ae90cef3a8e030a
+      internalID: -671304113
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_33
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 32
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac27bb96a596f314fbed51c5ec64c0f1
+      internalID: -796815211
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_34
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 32
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e7bdc4613ec217478b7308ea368bffd
+      internalID: -333961267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FurnitureS_35
+      rect:
+        serializedVersion: 2
+        x: 65
+        y: 32
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e01725f907501cf4ea86ab57fb2be999
+      internalID: -176733025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      FurnitureS_1: 1139067796
+      FurnitureS_35: -176733025
+      FurnitureS_27: 217649107
+      FurnitureS_20: 1123010765
+      FurnitureS_34: -333961267
+      FurnitureS_28: -1352113184
+      FurnitureS_2: -782784599
+      FurnitureS_8: 360053104
+      FurnitureS_11: 183267616
+      FurnitureS_9: -687153948
+      FurnitureS_5: 1729706523
+      FurnitureS_0: 5238718
+      FurnitureS_19: 790998200
+      FurnitureS_31: -389399074
+      FurnitureS_17: 1213081436
+      FurnitureS_16: 1795177312
+      FurnitureS_4: -129802212
+      FurnitureS_25: -1612231334
+      FurnitureS_14: 2096661476
+      FurnitureS_10: -9973646
+      FurnitureS_15: -2104196343
+      FurnitureS_13: -901750104
+      FurnitureS_3: -1985519738
+      FurnitureS_7: -564917544
+      FurnitureS_23: -1281108092
+      FurnitureS_6: 642122938
+      FurnitureS_12: -75987424
+      FurnitureS_22: -35035777
+      FurnitureS_18: -586454943
+      FurnitureS_24: -1802343905
+      FurnitureS_21: -705639967
+      FurnitureS_29: -166629231
+      FurnitureS_32: -671304113
+      FurnitureS_30: -1446156297
+      FurnitureS_33: -796815211
+      FurnitureS_26: -213593172
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
