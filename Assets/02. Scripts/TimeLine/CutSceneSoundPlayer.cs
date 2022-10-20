@@ -63,5 +63,15 @@ public class CutSceneSoundPlayer : MonoBehaviour
     {
         SoundManager.Inst.BgmStop(Util.Bgm.SimilarMain);
     }
+
+    public void BgmScaryStart()
+    {
+        SoundManager.Inst.BgmStart(Util.Bgm.Scary);
+    }
+
+    public void BgmScaryStop()
+    {
+        SoundManager.Inst.BgmStop(Util.Bgm.Scary);
+    }
 }
 
