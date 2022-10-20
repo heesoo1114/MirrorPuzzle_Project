@@ -46,7 +46,7 @@ public class GameManager : MonoSingleton<GameManager>
 
         SoundManager.Inst.BgmStart(Util.Bgm.Main);
         
-        CutSceneManager.Inst.StartCutScene("LIBRARY");
+        //CutSceneManager.Inst.StartCutScene("INTRO");
     }
 
     public void ChangeWorld()
