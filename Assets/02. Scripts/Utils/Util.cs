@@ -13,6 +13,7 @@ public static class Util
         FrozenWinter,
         Hope,
         SimilarMain,
+        Scary,
     }
 
     public enum Effect

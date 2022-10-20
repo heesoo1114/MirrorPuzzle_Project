@@ -35,21 +35,7 @@ public class GameManager : MonoSingleton<GameManager>
     private bool _isChangingWorld = false;
     public bool librayChestPuzzleClear = false;
 
-    [SerializeField] GameObject player;
-    private InteractionKey interactionKey;
-    private InteractionBrotherNote interactionBrotherNote;
-    private ToiletLetterInteraction toiletLetterInteraction;
-    private ToiletKeyInteraction toiletKeyInteraction;
-    private InteractionHandMirror interactionHandMirror;
-    private LightLineGameManager lightLineGameManager;
-    private LibraryCloset libraryCloset;
-    private ChestScripts chestScripts;
-    private LibraryBoxPuzzle libraryBoxPuzzle;
-    private BigBrotherRoomKey bigBrotherRoomKey;
-    private FilmPuzzle filmPuzzle;
-    private PasswardScript passwardScript;
-
-    private IEnumerator Start()
+    private IEnumerator Start() 
     {
         ChangeGlobalLight();
         Cursor.lockState = CursorLockMode.Locked;
@@ -59,9 +45,8 @@ public class GameManager : MonoSingleton<GameManager>
         yield return new WaitForEndOfFrame();
 
         SoundManager.Inst.BgmStart(Util.Bgm.Main);
-
-
-        // CutSceneManager.Inst.StartCutScene("START");
+        
+        CutSceneManager.Inst.StartCutScene("LIBRARY");
     }
 
     public void ChangeWorld()
@@ -85,9 +70,9 @@ public class GameManager : MonoSingleton<GameManager>
         {
             worldType = WorldType.RealWorld;
 
-            foreach (var room in rooms)
+            foreach(var room in rooms)
             {
-                if (room.roomType == player.CurrentRoom)
+                if(room.roomType == player.CurrentRoom)
                 {
                     player.transform.SetParent(room.transform);
                 }
@@ -145,7 +130,7 @@ public class GameManager : MonoSingleton<GameManager>
         _beforeGameState = _gameState;
         _gameState = state;
 
-        if (_gameState != EGameState.Game)
+        if(_gameState != EGameState.Game)
         {
             Cursor.lockState = CursorLockMode.None;
         }
@@ -165,24 +150,5 @@ public class GameManager : MonoSingleton<GameManager>
     public void SetGameStateToUI()
     {
         ChangeGameState(EGameState.Game);
-    }
-
-    public void GameSave()
-    {
-        PlayerPrefs.SetFloat("PlayerX", player.transform.position.x);
-        PlayerPrefs.SetFloat("PlayerY", player.transform.position.y);
-        PlayerPrefs.Save();
-    }
-
-    public void GameLoad()
-    {
-        if (!PlayerPrefs.HasKey("PlayerX"))
-        {
-            return;
-        }
-        float x = PlayerPrefs.GetFloat("PlayerX");
-        float y = PlayerPrefs.GetFloat("PlayerY");
-
-        player.transform.position = new Vector3(x, y, 0f);
     }
 }
