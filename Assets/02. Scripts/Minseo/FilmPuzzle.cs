@@ -30,6 +30,8 @@ public class FilmPuzzle : InteractionObject
     private AudioSource audioSource;
 
     public UnityEvent OnFilmClear;
+    bool isPlaying;
+
 
     private void Start()
     {
@@ -74,6 +76,19 @@ public class FilmPuzzle : InteractionObject
         film_Img.gameObject.SetActive(true);
 
         hint.SetActive(true);
+
+        OnFilmClear.AddListener(() => { isPlaying = true; });
+
+        if (isPlaying)
+        {
+            PlayerPrefs.SetInt("InteractionKey", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("InteractionKey", 0);
+        }
+
+        isPlaying = (PlayerPrefs.GetInt("InteractionKey") == 1);
     }
 
 }

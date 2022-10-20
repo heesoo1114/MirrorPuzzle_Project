@@ -14,6 +14,7 @@ public class LightLineGameManager : SingleUI<LightLineGameManager>
     private bool _isClear = false;
 
     public bool IsClear => _isClear;
+    bool isPlaying;
 
     public static void StartGame()
     {
@@ -63,5 +64,17 @@ public class LightLineGameManager : SingleUI<LightLineGameManager>
         InventorySystem.Inst.AddItem("LIBRARYKEY");
         gameObject.SetActive(false);
 
+        gameEndEvent.AddListener(() => { isPlaying = true; });
+
+        if (isPlaying)
+        {
+            PlayerPrefs.SetInt("InteractionKey", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("InteractionKey", 0);
+        }
+
+        isPlaying = (PlayerPrefs.GetInt("InteractionKey") == 1);
     }
 }
