@@ -10,7 +10,7 @@ using UnityEngine.ResourceManagement.ResourceProviders;
 public class UIManager : MonoSingleton<UIManager>
 {
     private Dictionary<string, Popup> _popupDict = new Dictionary<string, Popup>();
-    private Stack<Popup> _popupStack;
+    private Stack<Popup> _popupStack = new Stack<Popup>();
     private Canvas _mainCanvas = null;
 
     [SerializeField]
@@ -19,6 +19,7 @@ public class UIManager : MonoSingleton<UIManager>
     private void Awake()
     {
         _mainCanvas = GameObject.Find("UI Canvas").GetComponent<Canvas>();
+        _popupStack = new Stack<Popup>();
         SubstactPopupPref();
     }
 
@@ -95,8 +96,11 @@ public class UIManager : MonoSingleton<UIManager>
             SubstactPopup(ui);
         }
 
-        if (_popupStack.Peek() == ui || ui.gameObject.activeSelf)
-            return;
+        if (_popupStack.Count != 0)
+        {
+            if (_popupStack?.Peek() == ui || ui.gameObject.activeSelf)
+                return;
+        }
 
         _popupStack.Push(ui);
         ui.OpenEvent();
