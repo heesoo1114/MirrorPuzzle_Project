@@ -89,3 +89,5 @@ MonoBehaviour:
   - dataID: INTERACTION_SB_Bed
     text: "\uC774 \uCE68\uB300 \uADFC\uCC98\uC5D0 \uBB34\uC5B8\uAC00 \uC801\uD78C
       \uCABD\uC9C0\uAC00 \uBCF4\uC778\uB2E4."
+  - dataID: BROTHER_NOTE
+    text: "\uC774\uC81C \uAC00\uBCF4\uC790."

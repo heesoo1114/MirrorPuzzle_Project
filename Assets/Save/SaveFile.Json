@@ -5,25 +5,25 @@
     "inventoryList": [
         {
             "itemData": {
-                "itemID": "20",
-                "name": "형의 쪽지",
-                "info": "읽을 수 없는 글자로 가득하다",
+                "itemID": "LIBRARYKEY",
+                "name": "서재 열쇠",
+                "info": "서재 문을 열 수 있는 열쇠다.",
                 "sprite": {
-                    "instanceID": 31784
+                    "instanceID": 33186
                 }
             },
             "itemCount": 1
         },
         {
             "itemData": {
-                "itemID": "HAND_MIRROR",
-                "name": "손거울",
-                "info": "거울 세계로 이동할 수 있는 손거울이다.",
+                "itemID": "",
+                "name": "",
+                "info": "",
                 "sprite": {
-                    "instanceID": 32398
+                    "instanceID": 0
                 }
             },
-            "itemCount": 1
+            "itemCount": 0
         },
         {
             "itemData": {

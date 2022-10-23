@@ -45,6 +45,7 @@ public class LightLineGameManager : SingleUI<LightLineGameManager>
         _isStart = true;
         gameObject.SetActive(true);
         transform.localScale = Vector3.one;
+        GameManager.Inst.ChangeGameState(EGameState.UI);
     }
 
     public void ResetGame()

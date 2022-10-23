@@ -12,7 +12,6 @@ public class InteractionBrotherNote : InteractionObject
     {
         GetNoteEvent?.Invoke();
         InventorySystem.Inst.AddItem("20");
-        Destroy(gameObject);
 
         GetNoteEvent.AddListener(() => { isPlaying = true; });
 
