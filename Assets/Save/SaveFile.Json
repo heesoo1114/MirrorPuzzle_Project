@@ -5,25 +5,25 @@
     "inventoryList": [
         {
             "itemData": {
-                "itemID": "",
-                "name": "",
-                "info": "",
+                "itemID": "20",
+                "name": "형의 쪽지",
+                "info": "읽을 수 없는 글자로 가득하다",
                 "sprite": {
-                    "instanceID": 0
+                    "instanceID": 31784
                 }
             },
-            "itemCount": 0
+            "itemCount": 1
         },
         {
             "itemData": {
-                "itemID": "",
-                "name": "",
-                "info": "",
+                "itemID": "HAND_MIRROR",
+                "name": "손거울",
+                "info": "거울 세계로 이동할 수 있는 손거울이다.",
                 "sprite": {
-                    "instanceID": 0
+                    "instanceID": 32398
                 }
             },
-            "itemCount": 0
+            "itemCount": 1
         },
         {
             "itemData": {

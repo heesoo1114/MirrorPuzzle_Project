@@ -4,7 +4,6 @@ using System;
 public class CutSceneStartTirgger : InteractionObject
 {
     [SerializeField] private bool isPlayed = false;
-
     [SerializeField] private string cutSceneID; // = ID
 
     Action<string> startCutscene;
@@ -13,15 +12,11 @@ public class CutSceneStartTirgger : InteractionObject
     {
         if (isPlayed) return;
 
-        startCutscene = (ID) =>
-        {
-            CutSceneManager.Inst.StartCutScene(ID); // ID = cutSceneID
-            print(ID);
-        };
+        startCutscene = (ID) => CutSceneManager.Inst.StartCutScene(ID); // ID = cutSceneID
 
         startCutscene(cutSceneID);
         isPlayed = true;
 
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }
