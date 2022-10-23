@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SpriteChange : MonoBehaviour
+public class VerandaPuzzle : MonoBehaviour
 {
     public Sprite[] sprites = new Sprite[4];
     public GameObject changeflower;
+    public GameObject key;
+
+    [SerializeField]
+    private bool isChangeing;
 
     void Start()
     {
@@ -23,10 +27,16 @@ public class SpriteChange : MonoBehaviour
 
     IEnumerator ChangeSprite()
     {
-        for(int i = 0; i < 4; i++)
+        if(isChangeing)
         {
-            yield return new WaitForSeconds(1f);
-            changeflower.GetComponent<SpriteRenderer>().sprite = sprites[i];
+            for (int i = 0; i < 4; i++)
+            {
+                yield return new WaitForSeconds(1f);
+                changeflower.GetComponent<SpriteRenderer>().sprite = sprites[i];
+            }
+            isChangeing = false;
+
+            key.SetActive(true);
         }
     }
 }
