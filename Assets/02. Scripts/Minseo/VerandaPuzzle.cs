@@ -8,6 +8,7 @@ public class VerandaPuzzle : MonoBehaviour
     public Sprite[] sprites = new Sprite[4];
     public GameObject changeflower;
     public GameObject key;
+    public GameObject hallwayLetter;
 
     [SerializeField]
     private bool isChangeing;
@@ -36,7 +37,8 @@ public class VerandaPuzzle : MonoBehaviour
             }
             isChangeing = false;
 
-            key.SetActive(true);
+            //key.SetActive(true);
+            hallwayLetter.SetActive(true);
         }
     }
 }

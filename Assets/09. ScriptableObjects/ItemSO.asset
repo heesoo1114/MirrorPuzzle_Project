@@ -84,3 +84,11 @@ MonoBehaviour:
     info: "\uAC70\uC6B8 \uC138\uACC4\uB85C \uC774\uB3D9\uD560 \uC218 \uC788\uB294
       \uC190\uAC70\uC6B8\uC774\uB2E4."
     sprite: {fileID: 21300000, guid: 00420a98ce29a18429d5eeeae9b248ea, type: 3}
+  - itemID: HALLWAY_LETTER_VERANDA
+    name: "\uC758\uBB38\uC758 \uCABD\uC9C0"
+    info: "\uC138\uBC88\uC9F8 \uCABD\uC9C0\uC774\uB2E4."
+    sprite: {fileID: 21300000, guid: 19b76006ed86c3949a74435d97740e93, type: 3}
+  - itemID: HALLWAY_LETTER_BEDROOM
+    name: "\uC758\uBB38\uC758 \uCABD\uC9C0"
+    info: "\uCCAB\uBC88\uC9F8 \uCABD\uC9C0\uC774\uB2E4."
+    sprite: {fileID: 21300000, guid: 19b76006ed86c3949a74435d97740e93, type: 3}

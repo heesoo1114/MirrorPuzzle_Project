@@ -53,7 +53,14 @@ public class PlayerInteractionTrigger : MonoBehaviour
                     LetterUI.OpenLetter("형은 괜찮아.\n걱정하지마.\n그리고 조심해.");
                     InventorySystem.Inst.UseEquipItem();
                     break;
-
+                case "HALLWAY_LETTER_VERANDA":
+                    GameManager.Inst.ChangeGameState(EGameState.UI);
+                    LetterUI.OpenLetter("ri");
+                    break;
+                case "HALLWAY_LETTER_BEDROOM":
+                    GameManager.Inst.ChangeGameState(EGameState.UI);
+                    LetterUI.OpenLetter("r");
+                    break;
             }
         }
     }

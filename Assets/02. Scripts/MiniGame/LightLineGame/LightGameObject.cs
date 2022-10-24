@@ -6,6 +6,7 @@ public class LightGameObject : InteractionObject
 {
     public bool isClear = false;
     public LightLineGameManager _firstGame;
+    public GameObject letterBedroom;
 
     public override void InteractionEvent()
     {
@@ -17,5 +18,6 @@ public class LightGameObject : InteractionObject
     public void GameClear()
     {
         isClear = true;
+        letterBedroom.gameObject.SetActive(true);
     }
 }
