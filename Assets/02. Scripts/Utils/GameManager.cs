@@ -34,6 +34,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private bool _isChangingWorld = false;
     public bool librayChestPuzzleClear = false;
+    public bool isCanUseHandMirror = true;
 
     private IEnumerator Start() 
     {
@@ -46,8 +47,7 @@ public class GameManager : MonoSingleton<GameManager>
 
         SoundManager.Inst.BgmStart(Util.Bgm.Main);
 
-        
-        // CutSceneManager.Inst.StartCutScene("START");
+        // CutSceneManager.Inst.StartCutScene("TOILET");
     }
 
     public void ChangeWorld()

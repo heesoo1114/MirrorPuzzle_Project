@@ -13,7 +13,7 @@ public class Kitchen : MonoBehaviour
 
     private void Start()
     {
-        EventManager.StartListening("START_STARTCUTSCENE", () => SetIsLockWarpzone(true, RoomType.LivingRoom, "형은 이 방향으로 가지 않았어!"));
+        EventManager.StartListening("START_STARTCUTSCENE", () => SetIsLockWarpzone(true, RoomType.LivingRoom, "다시 한 번 생각해보자.."));
         EventManager.StartListening("ENTER_Kitchen", StartKitchenPuzzle);
         EventManager.StartListening("CLEAR_TOILET", StartMinigame);
     }

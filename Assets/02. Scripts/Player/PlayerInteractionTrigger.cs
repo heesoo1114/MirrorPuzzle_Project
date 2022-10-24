@@ -35,7 +35,8 @@ public class PlayerInteractionTrigger : MonoBehaviour
 
         if (InventorySystem.Inst.equipItemDataID == "HAND_MIRROR")
         {
-            GameManager.Inst.ChangeWorld();
+            if (GameManager.Inst.isCanUseHandMirror == true)
+                GameManager.Inst.ChangeWorld();
         }
         else if (CurrentObject != null)
         { 

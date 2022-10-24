@@ -23,6 +23,7 @@ public class ChestScripts : InteractionObject
     private Image hintImage;
 
     private bool answerCheck;
+    
 
     void Start()
     {
@@ -104,5 +105,16 @@ public class ChestScripts : InteractionObject
 
         passWord.gameObject.SetActive(false);
         GameManager.Inst.ChangeGameState(EGameState.Game);
+
+        if (answerCheck)
+        {
+            PlayerPrefs.SetInt("InteractionKey", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("InteractionKey", 0);
+        }
+
+        answerCheck = (PlayerPrefs.GetInt("InteractionKey") == 1);
     }
 }

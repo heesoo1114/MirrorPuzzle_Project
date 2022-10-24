@@ -11,6 +11,7 @@ public class LibraryBoxPuzzle : MonoBehaviour
     private Transform coliderTransform;
 
     public UnityEvent OnClearPuzzle;
+    bool isPlaying;
 
     private void Update()
     {
@@ -29,6 +30,19 @@ public class LibraryBoxPuzzle : MonoBehaviour
                 OnClearPuzzle?.Invoke();
             }
         }
+
+        OnClearPuzzle.AddListener(() => { isPlaying = true; });
+
+        if (isPlaying)
+        {
+            PlayerPrefs.SetInt("InteractionKey", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("InteractionKey", 0);
+        }
+
+        isPlaying = (PlayerPrefs.GetInt("InteractionKey") == 1);
     }
 
 #if UNITY_EDITOR
