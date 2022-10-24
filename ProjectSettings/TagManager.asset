@@ -16,6 +16,7 @@ TagManager:
   - BlueBullet
   - RedBullet
   - LightCollider
+  - LetterCollider
   layers:
   - Default
   - TransparentFX
