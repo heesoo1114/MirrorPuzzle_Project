@@ -7,10 +7,13 @@ public class CameraPuzzle : InteractionObject
 {
     [SerializeField]
     private GameObject Film_spr;
+    [SerializeField]
+    private GameObject letter;
 
     public override void InteractionEvent()
     {
         Film_spr.gameObject.SetActive(true);
+        letter.gameObject.SetActive(true);
         base.InteractionEvent();
     }
 

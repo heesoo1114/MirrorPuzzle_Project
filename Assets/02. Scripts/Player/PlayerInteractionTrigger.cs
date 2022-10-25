@@ -54,12 +54,24 @@ public class PlayerInteractionTrigger : MonoBehaviour
                     InventorySystem.Inst.UseEquipItem();
                     break;
                 case "HALLWAY_LETTER_VERANDA":
-                    GameManager.Inst.ChangeGameState(EGameState.UI);
+                    GameManager.Inst.ChangeGameState(EGameState.UI);    
                     LetterUI.OpenLetter("ri");
                     break;
                 case "HALLWAY_LETTER_BEDROOM":
                     GameManager.Inst.ChangeGameState(EGameState.UI);
                     LetterUI.OpenLetter("r");
+                    break;
+                case "HALLWAY_LETTER_LIBRARY":
+                    GameManager.Inst.ChangeGameState(EGameState.UI);
+                    LetterUI.OpenLetter("or");
+                    break;
+                case "HALLWAY_LETTER_BB":
+                    GameManager.Inst.ChangeGameState(EGameState.UI);
+                    LetterUI.OpenLetter("dnah");
+                    break;
+                case "HALLWAY_LETTER_SB":
+                    GameManager.Inst.ChangeGameState(EGameState.UI);
+                    LetterUI.OpenLetter("m");
                     break;
             }
         }

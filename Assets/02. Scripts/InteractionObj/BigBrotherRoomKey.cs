@@ -9,6 +9,8 @@ public class BigBrotherRoomKey : InteractionObject
 
     private bool _isFallen;
 
+    [SerializeField] private GameObject letter;
+
     public override void InteractionEvent()
     {
         InventorySystem.Inst.AddItem("SBROOMKEY");
@@ -20,6 +22,7 @@ public class BigBrotherRoomKey : InteractionObject
         if (_isFallen) return;
 
         _isFallen = true;
+        letter.gameObject.SetActive(true);
 
         transform.DOLocalMove(_dropPos, 0.5f);
     }
