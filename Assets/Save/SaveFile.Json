@@ -5,14 +5,14 @@
     "inventoryList": [
         {
             "itemData": {
-                "itemID": "",
-                "name": "",
-                "info": "",
+                "itemID": "HALLWAY_LETTER_BB",
+                "name": "의문의 쪽지",
+                "info": "수상한 마지막 쪽지이다.",
                 "sprite": {
-                    "instanceID": 0
+                    "instanceID": 31830
                 }
             },
-            "itemCount": 0
+            "itemCount": 1
         },
         {
             "itemData": {
