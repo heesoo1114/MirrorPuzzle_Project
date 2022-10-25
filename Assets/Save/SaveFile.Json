@@ -5,58 +5,80 @@
     "inventoryList": [
         {
             "itemData": {
-                "itemID": "HALLWAY_LETTER_BB",
-                "name": "의문의 쪽지",
-                "info": "수상한 마지막 쪽지이다.",
+                "itemID": "HAND_MIRROR",
+                "name": "손거울",
+                "info": "거울 세계로 이동할 수 있는 손거울이다.",
                 "sprite": {
-                    "instanceID": 31830
+                    "instanceID": 32680
                 }
             },
             "itemCount": 1
         },
         {
             "itemData": {
-                "itemID": "",
-                "name": "",
-                "info": "",
+                "itemID": "LIBRARYKEY",
+                "name": "서재 열쇠",
+                "info": "서재 문을 열 수 있는 열쇠다.",
                 "sprite": {
-                    "instanceID": 0
+                    "instanceID": 32774
                 }
             },
-            "itemCount": 0
+            "itemCount": 1
         },
         {
             "itemData": {
-                "itemID": "",
-                "name": "",
-                "info": "",
+                "itemID": "HALLWAY_LETTER_BEDROOM",
+                "name": "의문의 쪽지",
+                "info": "수상한 첫번째 쪽지이다.",
                 "sprite": {
-                    "instanceID": 0
+                    "instanceID": 31852
                 }
             },
-            "itemCount": 0
+            "itemCount": 1
         },
         {
             "itemData": {
-                "itemID": "",
-                "name": "",
-                "info": "",
+                "itemID": "SBROOMKEY",
+                "name": "동생 방 열쇠",
+                "info": "동생 방 문을 열 수 있는 열쇠다.",
                 "sprite": {
-                    "instanceID": 0
+                    "instanceID": 32774
                 }
             },
-            "itemCount": 0
+            "itemCount": 1
         },
         {
             "itemData": {
-                "itemID": "",
-                "name": "",
-                "info": "",
+                "itemID": "HALLWAY_LETTER_LIBRARY",
+                "name": "의문의 쪽지",
+                "info": "수상한 두번째 쪽지이다.",
                 "sprite": {
-                    "instanceID": 0
+                    "instanceID": 31852
                 }
             },
-            "itemCount": 0
+            "itemCount": 1
+        },
+        {
+            "itemData": {
+                "itemID": "BBROOMKEY",
+                "name": "형 방 열쇠",
+                "info": "형 방 문을 열 수 있는 열쇠다.",
+                "sprite": {
+                    "instanceID": 32774
+                }
+            },
+            "itemCount": 1
+        },
+        {
+            "itemData": {
+                "itemID": "HALLWAY_LETTER_SB",
+                "name": "의문의 쪽지",
+                "info": "수상한 네번째 쪽지이다.",
+                "sprite": {
+                    "instanceID": 31852
+                }
+            },
+            "itemCount": 1
         }
     ]
 }
