@@ -14,6 +14,9 @@ public class PasswardScript : MonoBehaviour
     [SerializeField] 
     private GameObject password_Obj;
 
+    [SerializeField]
+    private GameObject key;
+
 
     private bool Check = false;
     private bool filmClear = false;
@@ -62,7 +65,7 @@ public class PasswardScript : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         password_Obj.gameObject.SetActive(false);
         Check = true;
-        InventorySystem.Inst.AddItem("BBROOMKEY");
+        key.GetComponent<SmallbrotherRoomkey>().Falling(); // ¿­¼è ¶³±¸±â
         GameManager.Inst.ChangeGameState(EGameState.Game);
         gameObject.SetActive(false);
 
