@@ -21,7 +21,7 @@ public class RotateMirror : MonoBehaviour
         _recTrm = GetComponent<RectTransform>();
         _image = GetComponent<Image>();
 
-        lightMove = gameObject.transform.parent.GetChild(0).GetComponent<LightMove>();
+        lightMove = gameObject.transform.parent.GetChild(1).GetComponent<LightMove>();
     }
 
     public enum State
