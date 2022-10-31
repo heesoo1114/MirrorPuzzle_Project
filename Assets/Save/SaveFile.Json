@@ -5,14 +5,14 @@
     "inventoryList": [
         {
             "itemData": {
-                "itemID": "10",
-                "name": "지하실 열쇠",
-                "info": "지하실 문을 열 수 있는 키다.",
+                "itemID": "",
+                "name": "",
+                "info": "",
                 "sprite": {
-                    "instanceID": 31596
+                    "instanceID": 0
                 }
             },
-            "itemCount": 1
+            "itemCount": 0
         },
         {
             "itemData": {
