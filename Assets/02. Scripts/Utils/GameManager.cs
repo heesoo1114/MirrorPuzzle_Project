@@ -71,7 +71,11 @@ public class GameManager : MonoSingleton<GameManager>
         {
             worldType = WorldType.RealWorld;
 
-            foreach(var room in rooms)
+            // Sound
+            SoundManager.Inst.BgmStop(Util.Bgm.MirrorWorld);
+            SoundManager.Inst.BgmStart(Util.Bgm.Main);
+            
+            foreach (var room in rooms)
             {
                 if(room.roomType == player.CurrentRoom)
                 {
@@ -88,6 +92,11 @@ public class GameManager : MonoSingleton<GameManager>
         else
         {
             worldType = WorldType.MirrorWorld;
+
+            // Sound
+            SoundManager.Inst.BgmStop(Util.Bgm.Main);
+            SoundManager.Inst.BgmStart(Util.Bgm.MirrorWorld);
+
             foreach (var room in rooms)
             {
                 if (room.roomType == player.CurrentRoom)

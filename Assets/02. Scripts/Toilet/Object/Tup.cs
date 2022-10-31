@@ -13,6 +13,8 @@ public class Tup : ToiletObjectManager
     public bool isAction = false;
     public bool isNow = false;
 
+    public bool isKeyOut = false;
+
     public override void InteractionEvent()
     {
         interect?.Invoke();
@@ -28,7 +30,8 @@ public class Tup : ToiletObjectManager
     {
         YesWater.SetActive(false);
         Nowater.SetActive(true);
-        key.SetActive(true);
+        if (isKeyOut == false) key.SetActive(true);
+        isKeyOut = true;
         isAction = true;
         _boxCollider.enabled = false;
     }
