@@ -73,5 +73,16 @@ public class CutSceneSoundPlayer : MonoBehaviour
     {
         SoundManager.Inst.BgmStop(Util.Bgm.Scary);
     }
+
+    public void AllBgmStop()
+    {
+        BgmMainStop();
+        BgmDramadicStop();
+        BgmFrozenWinterStop();
+        BgmHopeStop();
+        BgmMirrorWorldStop();
+        BgmScaryStop();
+        BgmSimilarMainStop();
+    }
 }
 
