@@ -13,6 +13,11 @@ public class LibraryBoxPuzzle : MonoBehaviour
     public UnityEvent OnClearPuzzle;
     bool isPlaying;
 
+    private void Awake()
+    {
+        OnClearPuzzle.AddListener(() => { isPlaying = true; });
+    }
+
     private void Update()
     {
         BoxColliderCheck();
@@ -31,7 +36,7 @@ public class LibraryBoxPuzzle : MonoBehaviour
             }
         }
 
-        OnClearPuzzle.AddListener(() => { isPlaying = true; });
+        
 
         if (isPlaying)
         {

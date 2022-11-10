@@ -47,7 +47,7 @@ public class GameManager : MonoSingleton<GameManager>
 
         SoundManager.Inst.BgmStart(Util.Bgm.Main);
 
-        CutSceneManager.Inst.StartCutScene("CELLER");
+        // CutSceneManager.Inst.StartCutScene("START");
     }
 
     public void ChangeWorld()
@@ -63,9 +63,9 @@ public class GameManager : MonoSingleton<GameManager>
         PlayerMove player = Define.PlayerRef;
 
         FadeScreen.fadeColor = Color.white;
-        FadeScreen.FadeOut(0.5f);
-        yield return new WaitForSeconds(0.5f);
-        FadeScreen.FadeIn(0.5f);
+        FadeScreen.FadeOut(0.8f);
+        yield return new WaitForSeconds(0.8f);
+        FadeScreen.FadeIn(0.8f);
 
         if (worldType == WorldType.MirrorWorld)
         {
