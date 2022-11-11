@@ -68,7 +68,8 @@ public class TextSystem : MonoSingleton<TextSystem>
             {
                 if (_isOutput)
                 {
-                    ImmediatelyEndOutput();
+                    // ImmediatelyEndOutput();
+                    UnShowTextPanal();
                 }
 
                 else
@@ -137,8 +138,8 @@ public class TextSystem : MonoSingleton<TextSystem>
     {
         if (transform.localScale.x != 1f)
         {
-            transform.DOScaleX(1f, 0.5f);
-            yield return new WaitForSeconds(0.5f);
+            transform.DOScaleX(1f, 0.2f);
+            yield return new WaitForSeconds(0.2f);
         }
 
         float time = _textMessage.Length * _textSpeed;
@@ -154,14 +155,13 @@ public class TextSystem : MonoSingleton<TextSystem>
 
     private IEnumerator Co_UnShowTextPanal()
     {
-        transform.DOScaleX(0f, 0.5f);
-        yield return new WaitForSeconds(0.5f);
+        transform.DOScaleX(0f, 0.2f);
+        yield return new WaitForSeconds(0.2f);
         gameObject.SetActive(false);
         _nameTextPanal.gameObject.SetActive(false);
         _currentText.text = "";
 
         if (GameManager.Inst.GameState == EGameState.UI)
             GameManager.Inst.ChangeGameState(_beforeGameState);
-
     }
 }

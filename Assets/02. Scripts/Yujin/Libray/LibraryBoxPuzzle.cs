@@ -20,6 +20,7 @@ public class LibraryBoxPuzzle : MonoBehaviour
 
     private void Update()
     {
+        if (isPlaying) return;
         BoxColliderCheck();
     }
 
@@ -27,16 +28,13 @@ public class LibraryBoxPuzzle : MonoBehaviour
     {
         if (GameManager.Inst.librayChestPuzzleClear)
         {
-            Collider2D[] boxCol = Physics2D.OverlapBoxAll(
-                                  coliderTransform.position, new Vector2(.03f, 6), 0f, layer);
+            Collider2D[] boxCol = Physics2D.OverlapBoxAll(coliderTransform.position, new Vector2(.03f, 6), 0f, layer);
 
             if (boxCol.Length == 5)
             {
                 OnClearPuzzle?.Invoke();
             }
         }
-
-        
 
         if (isPlaying)
         {
