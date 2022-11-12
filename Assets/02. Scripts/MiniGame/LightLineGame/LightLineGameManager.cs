@@ -16,6 +16,12 @@ public class LightLineGameManager : SingleUI<LightLineGameManager>
     public bool IsClear => _isClear;
     bool isPlaying;
 
+    private void Start() 
+    {
+        isPlaying = (PlayerPrefs.GetInt("LightLineGameIsPlaying") == 1);
+        _isClear = (PlayerPrefs.GetInt("LightLineGameIsClear") == 1);
+    }
+
     public static void StartGame()
     {
         if (CheckInstance()) return;
@@ -32,6 +38,7 @@ public class LightLineGameManager : SingleUI<LightLineGameManager>
 
         _isStart = false;
         _isClear = false;
+        PlayerPrefs.SetInt("LightLineGameIsClear", 0);
         transform.localScale = Vector3.zero;
         gameObject.SetActive(false);
 
@@ -59,6 +66,7 @@ public class LightLineGameManager : SingleUI<LightLineGameManager>
 
         _isStart = false;
         _isClear = true;
+        PlayerPrefs.SetInt("LightLineGameIsClear", 1);
 
         transform.localScale = Vector3.zero;
         gameEndEvent?.Invoke();
@@ -68,14 +76,6 @@ public class LightLineGameManager : SingleUI<LightLineGameManager>
         gameEndEvent.AddListener(() => { isPlaying = true; });
 
         if (isPlaying)
-        {
-            PlayerPrefs.SetInt("InteractionKey", 1);
-        }
-        else
-        {
-            PlayerPrefs.SetInt("InteractionKey", 0);
-        }
-
-        isPlaying = (PlayerPrefs.GetInt("InteractionKey") == 1);
+            PlayerPrefs.SetInt("LightLineGameIsPlaying", 1);
     }
 }

@@ -27,7 +27,7 @@ public class ChestScripts : InteractionObject
 
     void Start()
     {
-        answerCheck = false;
+        answerCheck = (PlayerPrefs.GetInt("Chest") == 1);
     }
 
     private void Update()
@@ -70,6 +70,7 @@ public class ChestScripts : InteractionObject
     IEnumerator CorrectAnswer()
     {
         answerCheck = true;
+        PlayerPrefs.SetInt("Chest", 0);
         toggleText.color = Color.cyan;
         toggleText.text = "정답입니다.";
         
@@ -105,16 +106,5 @@ public class ChestScripts : InteractionObject
 
         passWord.gameObject.SetActive(false);
         GameManager.Inst.ChangeGameState(EGameState.Game);
-
-        if (answerCheck)
-        {
-            PlayerPrefs.SetInt("InteractionKey", 1);
-        }
-        else
-        {
-            PlayerPrefs.SetInt("InteractionKey", 0);
-        }
-
-        answerCheck = (PlayerPrefs.GetInt("InteractionKey") == 1);
     }
 }

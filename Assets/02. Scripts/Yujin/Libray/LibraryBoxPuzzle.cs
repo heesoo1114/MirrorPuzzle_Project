@@ -15,7 +15,10 @@ public class LibraryBoxPuzzle : MonoBehaviour
 
     private void Awake()
     {
+        isPlaying = (PlayerPrefs.GetInt("LibraryBoxPuzzle") == 1);
         OnClearPuzzle.AddListener(() => { isPlaying = true; });
+        if (isPlaying)
+            PlayerPrefs.SetInt("LibraryBoxPuzzle", 1);
     }
 
     private void Update()
@@ -35,17 +38,6 @@ public class LibraryBoxPuzzle : MonoBehaviour
                 OnClearPuzzle?.Invoke();
             }
         }
-
-        if (isPlaying)
-        {
-            PlayerPrefs.SetInt("InteractionKey", 1);
-        }
-        else
-        {
-            PlayerPrefs.SetInt("InteractionKey", 0);
-        }
-
-        isPlaying = (PlayerPrefs.GetInt("InteractionKey") == 1);
     }
 
 #if UNITY_EDITOR

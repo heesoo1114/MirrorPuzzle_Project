@@ -12,6 +12,7 @@ public class ToiletKeyInteraction : InteractionObject
     private void Start()
     {
         _boxCollider = GetComponentInParent<BoxCollider2D>();   
+        isPlaying = (PlayerPrefs.GetInt("ToiletKeyInteraction") == 1);
     }
 
     public override void InteractionEvent()
@@ -24,15 +25,7 @@ public class ToiletKeyInteraction : InteractionObject
         AddKeyEvent.AddListener(() => { isPlaying = true; });
 
         if (isPlaying)
-        {
-            PlayerPrefs.SetInt("InteractionKey", 1);
-        }
-        else
-        {
-            PlayerPrefs.SetInt("InteractionKey", 0);
-        }
-
-        isPlaying = (PlayerPrefs.GetInt("InteractionKey") == 1);
+            PlayerPrefs.SetInt("ToiletKeyInteraction", 1);
     }
 
     IEnumerator DestroyKey()

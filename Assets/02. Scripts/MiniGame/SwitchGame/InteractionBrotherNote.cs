@@ -11,6 +11,7 @@ public class InteractionBrotherNote : InteractionObject
     private void Start()
     {
         EventManager.StartListening("START_CELLERCUTSCENE", ObjOn);
+        isPlaying = (PlayerPrefs.GetInt("InteractionBrotherNote") == 1);
     }
 
     private void ObjOn()
@@ -26,14 +27,6 @@ public class InteractionBrotherNote : InteractionObject
         GetNoteEvent.AddListener(() => { isPlaying = true; });
 
         if (isPlaying)
-        {
-            PlayerPrefs.SetInt("InteractionKey", 1);
-        }
-        else
-        {
-            PlayerPrefs.SetInt("InteractionKey", 0);
-        }
-
-        isPlaying = (PlayerPrefs.GetInt("InteractionKey") == 1);
+            PlayerPrefs.SetInt("InteractionBrotherNote", 1);
     }
 }
