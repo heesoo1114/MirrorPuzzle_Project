@@ -25,13 +25,11 @@ public class InteractionImage : SingleUI<InteractionImage>
     public static void Show(Vector3 targetPos)
     {
         if (CheckInstance()) return;
-
         inst.ShowInteractionUI(targetPos);
     }
     public static void UnShow()
     {
         if (CheckInstance()) return;
-
         inst.UnShowInteractionUI();
     }
 

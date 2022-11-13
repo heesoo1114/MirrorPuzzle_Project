@@ -33,11 +33,11 @@ public class PlayerInteractionTrigger : MonoBehaviour
     {
         if (TextSystem.Inst.gameObject.activeSelf) return;
 
-        if (InventorySystem.Inst.equipItemDataID == "HAND_MIRROR")
+        /*if (InventorySystem.Inst.equipItemDataID == "HAND_MIRROR")
         {
             if (GameManager.Inst.isCanUseHandMirror == true)
                 GameManager.Inst.ChangeWorld();
-        }
+        }*/
         else if (CurrentObject != null)
         { 
             CurrentObject.InteractionEvent();

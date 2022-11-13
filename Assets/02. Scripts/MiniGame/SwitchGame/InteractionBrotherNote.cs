@@ -8,6 +8,16 @@ public class InteractionBrotherNote : InteractionObject
     public UnityEvent GetNoteEvent;
     bool isPlaying;
 
+    private void Start()
+    {
+        EventManager.StartListening("START_CELLERCUTSCENE", ObjOn);
+    }
+
+    private void ObjOn()
+    {
+        gameObject.SetActive(true);
+    }
+
     public override void InteractionEvent()
     {
         GetNoteEvent?.Invoke();

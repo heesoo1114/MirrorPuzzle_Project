@@ -9,9 +9,12 @@ public class SwitchObject : InteractionObject
     [Header("1또는 2중에 몇번째 스위치인지")]
     [SerializeField] private int switchNum = 1;
 
+    private bool isSwitchOn = false;
+
     public override void InteractionEvent()
     {
+        if (isSwitchOn) return;
+        isSwitchOn = true;
         SwitchGameManager.Inst.StartSwitchGame(switchNum);
     }
-
 }

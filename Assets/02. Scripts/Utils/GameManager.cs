@@ -39,7 +39,7 @@ public class GameManager : MonoSingleton<GameManager>
     private IEnumerator Start() 
     {
         ChangeGlobalLight();
-        Cursor.lockState = CursorLockMode.Locked;
+        // Cursor.lockState = CursorLockMode.Locked;
 
         rooms = map.GetComponentsInChildren<Room>().ToList();
 
@@ -47,7 +47,7 @@ public class GameManager : MonoSingleton<GameManager>
 
         SoundManager.Inst.BgmStart(Util.Bgm.Main);
 
-        // CutSceneManager.Inst.StartCutScene("TOILET");
+        // CutSceneManager.Inst.StartCutScene("START");
     }
 
     public void ChangeWorld()
@@ -63,15 +63,19 @@ public class GameManager : MonoSingleton<GameManager>
         PlayerMove player = Define.PlayerRef;
 
         FadeScreen.fadeColor = Color.white;
-        FadeScreen.FadeOut(0.5f);
-        yield return new WaitForSeconds(0.5f);
-        FadeScreen.FadeIn(0.5f);
+        FadeScreen.FadeOut(0.8f);
+        yield return new WaitForSeconds(0.8f);
+        FadeScreen.FadeIn(0.8f);
 
         if (worldType == WorldType.MirrorWorld)
         {
             worldType = WorldType.RealWorld;
 
-            foreach(var room in rooms)
+            // Sound
+            SoundManager.Inst.BgmStop(Util.Bgm.MirrorWorld);
+            SoundManager.Inst.BgmStart(Util.Bgm.Main);
+            
+            foreach (var room in rooms)
             {
                 if(room.roomType == player.CurrentRoom)
                 {
@@ -88,6 +92,11 @@ public class GameManager : MonoSingleton<GameManager>
         else
         {
             worldType = WorldType.MirrorWorld;
+
+            // Sound
+            SoundManager.Inst.BgmStop(Util.Bgm.Main);
+            SoundManager.Inst.BgmStart(Util.Bgm.MirrorWorld);
+
             foreach (var room in rooms)
             {
                 if (room.roomType == player.CurrentRoom)
