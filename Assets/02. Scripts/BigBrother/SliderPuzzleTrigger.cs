@@ -1,0 +1,25 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SliderPuzzleTrigger : InteractionObject
+{
+    [SerializeField] private GameObject sliderPuzzlePanel;
+    public bool isClear = false;
+
+    private void Start()
+    {
+        EventManager.StartListening("ClearPuzzle", PuzzleClear);
+    }
+
+    public override void InteractionEvent()
+    {
+        if (isClear) return;
+        sliderPuzzlePanel.SetActive(true);
+    }
+
+    void PuzzleClear()
+    {
+        sliderPuzzlePanel.SetActive(false);
+    }
+}
