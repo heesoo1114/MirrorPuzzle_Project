@@ -30,6 +30,6 @@ public class Intro : MonoBehaviour
         _mirror.SetActive(false);
         _titleUI.SetActive(true);
         _image.transform.DOScale(new Vector3(1, 1, 1), 2f);
-        _image.transform.DOMove(new Vector3(1, 1, 1), 2f);
+        //_image.transform.DOMove(new Vector3(1, 1, 1), 2f);
     }
 }

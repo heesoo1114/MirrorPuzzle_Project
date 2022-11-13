@@ -82,6 +82,10 @@ public class WarpZone : MonoBehaviour
             case RoomType.Celler:
                 _roomName = "지하실";
                 break;
+
+            case RoomType.Garret:
+                _roomName = "다락방";
+                break;
         }
     }
 
