@@ -39,7 +39,7 @@ public class GameManager : MonoSingleton<GameManager>
     private IEnumerator Start() 
     {
         ChangeGlobalLight();
-        Cursor.lockState = CursorLockMode.Locked;
+        // Cursor.lockState = CursorLockMode.Locked;
 
         rooms = map.GetComponentsInChildren<Room>().ToList();
 
