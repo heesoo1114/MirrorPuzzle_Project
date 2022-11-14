@@ -7,6 +7,7 @@ public class Shuffle : MonoBehaviour
     [SerializeField]
     private TileClick[] tiles;
 
+    [SerializeField]
     private Vector3[] tilesTransform;
 
     private void Start()
@@ -16,19 +17,29 @@ public class Shuffle : MonoBehaviour
 
     void OnEnable()
     {
-        TileShuffle();
+        TileTrSave();
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.H))
+        // 개발자 디버깅용 치트 (슬라이더 퍼즐 깨는)
+        /*if (Input.GetKeyDown(KeyCode.H))
         {
             Debug.Log("cheat");
             for (int i = 0; i < tiles.Length; i++)
             {
-                
+                tiles[i].GetComponent<RectTransform>().localPosition = tilesTransform[i];
             }
+        }*/
+    }
+
+    private void TileTrSave()
+    {
+        for (int i = 0; i < tiles.Length; i++)
+        {
+            tilesTransform[i] = tiles[i].GetComponent<RectTransform>().localPosition;
         }
+        TileShuffle();
     }
 
     void TileShuffle()
@@ -46,19 +57,19 @@ public class Shuffle : MonoBehaviour
     {
         for (int i = 0; i < tiles.Length; i++)
         {
-            if (tiles[i].transform.position == tilesTransform[i])
+            if (tilesTransform[i] == tiles[i].GetComponent<RectTransform>().localPosition)
             {
-                if (i == tiles.Length - 1)
+                int lastTile = tiles.Length - 1;
+                if (i == lastTile)
                 {
-                    break;
+                    EventManager.TriggerEvent("ClearPuzzle");
                 }
                 continue;
             }
             else
             {
-                Debug.Log("no");
+                break;
             }
         }
-        print("yes");
     }
 }
