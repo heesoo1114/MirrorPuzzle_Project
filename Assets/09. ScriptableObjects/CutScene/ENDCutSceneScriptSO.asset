@@ -19,7 +19,6 @@ MonoBehaviour:
       lineText: "\uB8E8\uCE74\uC2A4!"
     - name: "\uB8E8\uCE74\uC2A4"
       lineText: "\uD615!"
-  - cutSceneLineList:
     - name: "\uB8E8\uCE74\uC2A4"
       lineText: "\uD615! \uBCF4\uACE0 \uC2F6\uC5C8\uC5B4!"
     - name: "\uC62C\uB9AC\uBC84"
@@ -32,18 +31,11 @@ MonoBehaviour:
       lineText: "\uB108\uAC00 \uB0A0 \uAD6C\uD55C \uAC70\uC57C. \uAD6C\uD558\uB7EC
         \uC640\uC918\uC11C \uACE0\uB9C8\uC6CC."
     - name: "\uB8E8\uCE74\uC2A4"
-      lineText: "\uC544\uB0D0 \uD615 \uB108\uBB34 \uBCF4\uACE0 \uC2F6\uC5C8\uC5B4.
-        \uC6B0\uB9AC \uBE68\uB9AC \uC6D0\uB798 \uC6B0\uB9AC\uAC00 \uC788\uB358 \uACF3\uC73C\uB85C
-        \uB3CC\uC544\uAC00\uC790"
-  - cutSceneLineList:
+      lineText: "\uC544\uB2C8\uC57C \uD615 \uB108\uBB34 \uBCF4\uACE0 \uC2F6\uC5C8\uC5B4.
+        \uD560 \uB9D0\uC774 \uB9CE\uC544. \uD615 \uC6B0\uB9AC \uC5EC\uAE30\uC11C
+        \uB9E8\uB0A0 \uCC3D\uBB38 \uBC16 \uBC14\uB77C \uBCF4\uBA74\uC11C \uB178\uB798
+        \uB4E4\uC5C8\uB358 \uAC70 \uAE30\uC5B5\uB098?"
+    - name: "\uC62C\uB9AC\uBC84"
+      lineText: "\uADF8\uB7FC. \uB2F9\uC5F0\uD558\uC9C0."
     - name: "\uB8E8\uCE74\uC2A4"
-      lineText: "\uD615. \uB3CC\uC544\uAC00\uC790."
-    - name: "\uC62C\uB9AC\uBC84"
-      lineText: "\uC5B4. \uB8E8\uCE74\uC2A4."
-  - cutSceneLineList:
-    - name: "\uB8E8\uCE74\uC2A4"
-      lineText: "\uD615. \uACF5\uB180\uC774 \uD560\uB798?"
-    - name: "\uC62C\uB9AC\uBC84"
-      lineText: "\uC5B4.. \uC870\uAE08 \uBB34\uC12D\uAE34 \uD55C\uB370.."
-    - name: "\uC62C\uB9AC\uBC84"
-      lineText: "\uADF8\uB7EC\uC790! \uB8E8\uCE74\uC2A4,  \uACF5 \uAC00\uC838\uC640!"
+      lineText: "\uAC00\uC790."

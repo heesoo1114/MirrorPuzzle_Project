@@ -5,6 +5,7 @@ using UnityEngine;
 public class SliderPuzzleTrigger : InteractionObject
 {
     [SerializeField] private GameObject sliderPuzzlePanel;
+    [SerializeField] private GameObject ladder;
     public bool isClear = false;
 
     private void Start()
@@ -21,5 +22,6 @@ public class SliderPuzzleTrigger : InteractionObject
     void PuzzleClear()
     {
         sliderPuzzlePanel.SetActive(false);
+        ladder.SetActive(true);
     }
 }
