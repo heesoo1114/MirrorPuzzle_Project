@@ -17,11 +17,13 @@ public class SliderPuzzleTrigger : InteractionObject
     {
         if (isClear) return;
         sliderPuzzlePanel.SetActive(true);
+        GameManager.Inst.ChangeGameState(EGameState.UI);
     }
 
     void PuzzleClear()
     {
         sliderPuzzlePanel.SetActive(false);
         ladder.SetActive(true);
+        GameManager.Inst.ChangeGameState(EGameState.Game);
     }
 }
