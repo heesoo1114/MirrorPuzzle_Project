@@ -12,11 +12,6 @@ public class VerandaPuzzle : MonoBehaviour
 
     [SerializeField]
     private bool isChangeing;
-
-    void Start()
-    {
-
-    }
         
     private void OnTriggerEnter2D(Collider2D other)
     {

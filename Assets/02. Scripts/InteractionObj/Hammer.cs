@@ -16,7 +16,7 @@ public class Hammer : InteractionObject
             return;
         }
 
-        TextSystem.Inst.ActiveTextPanal("옆에 있는 시계를 고치기 위해 있던 망치이다. \n 이 망치라면 거울을 깰 수 있을 것 같다.");
+        TextSystem.Inst.ActiveTextPanal("손거울을 깰 수 있을 정도의 망치이다");
         letter.gameObject.SetActive(true);
     }
 

@@ -10,4 +10,5 @@ public enum RoomType
     Toilet,
     Kitchen,
     Celler,
+    Garret,
 }

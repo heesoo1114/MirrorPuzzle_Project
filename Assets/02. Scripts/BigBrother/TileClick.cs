@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using DG.Tweening;
-using Cinemachine.Utility;
 
 public class TileClick : MonoBehaviour, IPointerClickHandler
 {
@@ -26,8 +25,8 @@ public class TileClick : MonoBehaviour, IPointerClickHandler
 
             emptyEmage.gameObject.transform.DOMove(clickButtonTransform.position, .1f); 
             clickButtonTransform.DOMove(changeTransform, .1f);
-            //º≠∑Œ πŸ≤„¡‹ (swap)
-
+                
+            EventManager.TriggerEvent("Swap");
         }
     }
 }
