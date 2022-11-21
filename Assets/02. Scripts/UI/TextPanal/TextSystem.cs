@@ -68,7 +68,7 @@ public class TextSystem : MonoSingleton<TextSystem>
             {
                 if (_isOutput)
                 {
-                    // ImmediatelyEndOutput();
+                    ImmediatelyEndOutput();
                     UnShowTextPanal();
                 }
 
@@ -113,7 +113,7 @@ public class TextSystem : MonoSingleton<TextSystem>
 
     public void ImmediatelyEndOutput()
     {
-        if (_isOutput == false) return;
+        if (_isOutput == true) return;
 
         _isOutput = false;
         _currentText.DOKill(true);

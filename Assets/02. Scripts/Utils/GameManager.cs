@@ -33,6 +33,7 @@ public class GameManager : MonoSingleton<GameManager>
     public UnityEvent ChangeRealWorld;
 
     private bool _isChangingWorld = false;
+    private bool _isGameStart = false;
     public bool librayChestPuzzleClear = false;
     public bool isCanUseHandMirror = true;
 
@@ -47,7 +48,17 @@ public class GameManager : MonoSingleton<GameManager>
 
         SoundManager.Inst.BgmStart(Util.Bgm.Main);
 
-        // CutSceneManager.Inst.StartCutScene("START");
+        // Start ÄÆ½Å Àç»ý
+        /*if (PlayerPrefs.GetInt("StartCutScene") == 0)
+            _isGameStart = (PlayerPrefs.GetInt("StartCutScene") == 1);
+
+        if (!_isGameStart)
+        {
+            CutSceneManager.Inst.StartCutScene("START");
+            _isGameStart = true;
+            if (_isGameStart)
+                PlayerPrefs.SetInt("StartCutScene", 1);
+        }*/
     }
 
     public void ChangeWorld()
@@ -63,9 +74,8 @@ public class GameManager : MonoSingleton<GameManager>
         PlayerMove player = Define.PlayerRef;
 
         FadeScreen.fadeColor = Color.white;
-        FadeScreen.FadeOut(0.8f);
-        yield return new WaitForSeconds(0.8f);
-        FadeScreen.FadeIn(0.8f);
+        FadeScreen.FadeOut(1.5f);
+        
 
         if (worldType == WorldType.MirrorWorld)
         {
@@ -106,6 +116,10 @@ public class GameManager : MonoSingleton<GameManager>
 
                 room.transform.localScale = new Vector3(-1f, 1f, 1f);
             }
+
+            yield return new WaitForSeconds(1.5f);
+            FadeScreen.FadeIn(1.5f);
+
             player.transform.SetParent(null);
             player.transform.localScale = Vector3.one;
             ChangeMirrorWorld?.Invoke();
