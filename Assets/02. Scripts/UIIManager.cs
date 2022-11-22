@@ -124,6 +124,12 @@ public class UIIManager : MonoBehaviour
         //_kitchenMinigameManager.StartGame();
     }
 
+    public void ToTitle()
+    {
+        SceneManager.LoadScene("Title");
+        print("the end");
+    }
+
     public void NewGame()
     {
         SceneManager.LoadScene("Main");

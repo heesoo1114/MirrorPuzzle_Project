@@ -14,11 +14,6 @@ public class Celler : MonoBehaviour
         EventManager.StartListening("END_INTRO2CUTSCENE", () => SetIsLockWarpzone(false, RoomType.Celler));
     }
 
-    private void StartCellerPuzzle()
-    {
-        _puzzleObjList.ForEach(x => x.Active(true));
-    }
-
     private void StartCutScene()
     {
         CutSceneManager.Inst.StartCutScene("CELLER");

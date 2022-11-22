@@ -1,0 +1,672 @@
+fileFormatVersion: 2
+guid: d80f443007d235941a3a839dddcec823
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 64
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: sliderPuzzle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 51.2
+        width: 12.8
+        height: 12.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36c2250faa1831747a6c3fe87282f8b3
+      internalID: 42730929
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sliderPuzzle_1
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 51.2
+        width: 12.8
+        height: 12.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 02a79f65121f4764aa774c2c269b275c
+      internalID: -1189102951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sliderPuzzle_2
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 51.2
+        width: 12.8
+        height: 12.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f52ad89e959ba9144a7c4ffca129c1d9
+      internalID: -318419724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sliderPuzzle_3
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 51.2
+        width: 12.8
+        height: 12.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f5bd315ca7adfb54eb112a5620ed5a5e
+      internalID: 1318960813
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sliderPuzzle_4
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 51.2
+        width: 12.8
+        height: 12.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 25663b7debb988b439fa2e9a81821db0
+      internalID: 1476695987
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sliderPuzzle_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 39.2
+        width: 12.8
+        height: 12.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07bcc4592dd8dad4d887706fba1628cd
+      internalID: 1785042208
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sliderPuzzle_6
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 39.2
+        width: 12.8
+        height: 12.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 024f265137788c14d8a3136344b77b3b
+      internalID: 209540150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sliderPuzzle_7
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 39.2
+        width: 12.8
+        height: 12.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 59ef4dde841244043b6fc36f0f094c8d
+      internalID: 583949006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sliderPuzzle_8
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 39.2
+        width: 12.8
+        height: 12.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 766b99ff369352c41b38014431b15cfa
+      internalID: -1685076698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sliderPuzzle_9
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 39.2
+        width: 12.8
+        height: 12.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dc310ee41651744c8bad44447b18b98
+      internalID: 1466314008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sliderPuzzle_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 27.2
+        width: 12.8
+        height: 12.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8e62b13399e76843aee7cb0b4e7187a
+      internalID: 1748772881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sliderPuzzle_11
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 27.2
+        width: 12.8
+        height: 12.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ea74f7ad5276bc4081e0dc4f778ece4
+      internalID: -1670032306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sliderPuzzle_12
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 27.2
+        width: 12.8
+        height: 12.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa2fb314f3bc28849823777ba62c6a57
+      internalID: -928270069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sliderPuzzle_13
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 27.2
+        width: 12.8
+        height: 12.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55650f7f9c85ed345a86f01d0d063dc4
+      internalID: -1326019159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sliderPuzzle_14
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 27.2
+        width: 12.8
+        height: 12.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb98dbd0d26d98146ac5ca97b6fd230a
+      internalID: 520058724
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sliderPuzzle_15
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 15.2
+        width: 12.8
+        height: 12.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adbd1bde92e16c54ea670f8c8d8377b0
+      internalID: 1630147781
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sliderPuzzle_16
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 15.2
+        width: 12.8
+        height: 12.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74b07283eb12bee40b2b7c3689643635
+      internalID: 615711749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sliderPuzzle_17
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 15.2
+        width: 12.8
+        height: 12.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 959bbc947115422478a594b5ea3eb520
+      internalID: 650275751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sliderPuzzle_18
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 15.2
+        width: 12.8
+        height: 12.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79921f242ebe2c54d93ac76900144424
+      internalID: -285067512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sliderPuzzle_19
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 15.2
+        width: 12.8
+        height: 12.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c065588eb6822884b93a2ed040711125
+      internalID: 948384852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sliderPuzzle_20
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3.1999998
+        width: 12.8
+        height: 12.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3459c809ba39d084fb715aab5f1b659a
+      internalID: -1467825806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sliderPuzzle_21
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 3.1999998
+        width: 12.8
+        height: 12.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7816b252006343f42b10eee4d7df8fdc
+      internalID: 950766900
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sliderPuzzle_22
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 3.1999998
+        width: 12.8
+        height: 12.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 977c9cca702f5134f92cf499f890c2fa
+      internalID: 2052628846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sliderPuzzle_23
+      rect:
+        serializedVersion: 2
+        x: 36
+        y: 3.1999998
+        width: 12.8
+        height: 12.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 768701437970e0d408a4eb1162d6ad50
+      internalID: -1101405014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sliderPuzzle_24
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 3.1999998
+        width: 12.8
+        height: 12.8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39960530a7a9d4141ada9c539bb9909e
+      internalID: 705424081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      sliderPuzzle_9: 1466314008
+      sliderPuzzle_11: -1670032306
+      sliderPuzzle_13: -1326019159
+      sliderPuzzle_12: -928270069
+      sliderPuzzle_20: -1467825806
+      sliderPuzzle_2: -318419724
+      sliderPuzzle_10: 1748772881
+      sliderPuzzle_4: 1476695987
+      sliderPuzzle_7: 583949006
+      sliderPuzzle_23: -1101405014
+      sliderPuzzle_16: 615711749
+      sliderPuzzle_5: 1785042208
+      sliderPuzzle_6: 209540150
+      sliderPuzzle_14: 520058724
+      sliderPuzzle_8: -1685076698
+      sliderPuzzle_21: 950766900
+      sliderPuzzle_3: 1318960813
+      sliderPuzzle_1: -1189102951
+      sliderPuzzle_15: 1630147781
+      sliderPuzzle_18: -285067512
+      sliderPuzzle_24: 705424081
+      sliderPuzzle_0: 42730929
+      sliderPuzzle_17: 650275751
+      sliderPuzzle_22: 2052628846
+      sliderPuzzle_19: 948384852
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
