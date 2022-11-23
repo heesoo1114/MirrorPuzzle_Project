@@ -5,14 +5,14 @@
     "inventoryList": [
         {
             "itemData": {
-                "itemID": "",
-                "name": "",
-                "info": "",
+                "itemID": "HAND_MIRROR",
+                "name": "손거울",
+                "info": "거울 세계로 이동할 수 있는 손거울이다.",
                 "sprite": {
-                    "instanceID": 0
+                    "instanceID": 32686
                 }
             },
-            "itemCount": 0
+            "itemCount": 1
         },
         {
             "itemData": {
