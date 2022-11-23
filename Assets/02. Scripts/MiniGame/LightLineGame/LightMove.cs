@@ -23,7 +23,7 @@ public class LightMove : MonoBehaviour
     {
         if (isEnd == true) return;
         if (isMove == false) return;
-        transform.Translate(transform.right * 5f * Time.deltaTime);
+        transform.Translate(transform.right * 10f * Time.deltaTime);
     }
 
     public void ResetLightMove()
