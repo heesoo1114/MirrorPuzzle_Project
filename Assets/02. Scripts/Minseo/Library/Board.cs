@@ -1,13 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Board : MonoBehaviour
 {
     [SerializeField]
     private GameObject blockPuzzle;
     [SerializeField]
-    private GameObject hintImage;
+    private Image hintImage;
+    [SerializeField]
+    private GameObject exitBtn;
 
     public GameObject grid;
 
@@ -29,7 +32,7 @@ public class Board : MonoBehaviour
         {
             for (int j = 0; j < arr.GetLength(1); j++)//x°ª
             {
-                Debug.Log($"[{i}, {j}] : {arr[i, j]}");
+                //Debug.Log($"[{i}, {j}] : {arr[i, j]}");
                 if (arr[i, j] == 1)
                 {
                     GameObject _grid = Instantiate(grid, new Vector2(j + 48, -i + 39), Quaternion.identity);
@@ -49,6 +52,7 @@ public class Board : MonoBehaviour
         if (CheckFullGrid())
         {
             blockPuzzle.gameObject.SetActive(false);
+            exitBtn.gameObject.SetActive(false);
             hintImage.gameObject.SetActive(true);
         }
     }

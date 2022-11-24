@@ -9,8 +9,6 @@ public class MissionCheck : InteractionObject
     [SerializeField] 
     private GameObject blockPuzzle;
     [SerializeField]
-    private Image hintImage;
-    [SerializeField]
     private GameObject exitButton;
 
     private bool _play;
@@ -26,7 +24,6 @@ public class MissionCheck : InteractionObject
     {
         if (Input.GetKey(KeyCode.Escape) && _play)
         {
-            hintImage.gameObject.SetActive(false);
             GameManager.Inst.ChangeGameState(EGameState.Game);
         }
     }
