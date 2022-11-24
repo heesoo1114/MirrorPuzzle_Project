@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1008863770211151040}
   - component: {fileID: 1008863770211151055}
   - component: {fileID: 1008863770211151054}
+  - component: {fileID: 4307463319108770687}
   m_Layer: 5
   m_Name: Peace4 (1)
   m_TagString: Untagged
@@ -89,16 +90,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c98411ac6ba092c4cb9dd9a29e0f7cf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _curveMovement:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  _curveSacle:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  <blockCount>k__BackingField: {x: 0, y: 0}
+  changeSize: {x: 299.01, y: 283.79}
+  originSize: {x: 166.713, y: 148.691}
+--- !u!61 &4307463319108770687
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008863770211151052}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 5, y: 5}
+  m_EdgeRadius: 0

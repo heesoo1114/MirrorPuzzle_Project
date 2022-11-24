@@ -1,75 +1,71 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class DragAndDrop : MonoBehaviour
 {
-    [SerializeField]
-    private AnimationCurve _curveMovement;
-    [SerializeField]
-    private AnimationCurve _curveSacle;
+    private Vector2 originPos;
+    private Board board;
 
-    private float appearTime = 0.5f;
-    private float returnTime = 0.1f;
+    private Vector3 selectedSize = new Vector3(1,1,1);
+    private Vector3 originSize;
 
-    [field: SerializeField]
-    public Vector2Int blockCount { private set; get; }
-
-    public void SetUp(Vector3 parentPosition)
+    private void Start()
     {
-        StartCoroutine(OnMoveTo(parentPosition, appearTime));
-    }
+        originPos = transform.position;
+        board = transform.parent.parent.Find("Background").GetComponent<Board>();
 
-    private void OnMouseDown()
-    {
-        StopCoroutine("OnSacle");
-        StartCoroutine("OnSacle", Vector3.one);
+        originSize = transform.localScale;
     }
 
     private void OnMouseDrag()
     {
-        Vector3 gap = new Vector3(0, blockCount.y * 0.5f + 1, 10);
-        transform.position = Camera.main.ScreenToViewportPoint(Input.mousePosition) + gap;
+        Vector3 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        pos.z = 0;
+        transform.position = pos;
+
+        transform.localScale = selectedSize;
     }
 
     private void OnMouseUp()
     {
-        StopCoroutine("OnSacle");
-        StartCoroutine("OnSacle", Vector3.one * 0.5f);
-        StartCoroutine(OnMoveTo(transform.parent.position, returnTime));
-    }
-
-    private IEnumerator OnMoveTo(Vector3 end, float time)
-    {
-        Vector3 start = transform.position;
-        float current = 0;
-        float percent = 0;
-
-        while (percent < 1)
+        if (!PutDown())
         {
-            current += Time.deltaTime;
-            percent = current / time;
-
-            transform.position = Vector3.Lerp(start, end, _curveMovement.Evaluate(percent));
-
-            yield return null;
+            transform.localScale = originSize;
         }
     }
 
-    private IEnumerator OnSacle(Vector3 end)
+    private bool PutDown()
     {
-        Vector3 start = transform.localPosition;
-        float current = 0;
-        float percent = 0;
+        Vector2[] blockPos = new Vector2[transform.childCount];
+        int i = 0;
 
-        while(percent < 1)
+        foreach (Transform child in transform)
         {
-            current += Time.deltaTime;
-            percent = current / returnTime;
+            RaycastHit2D col = Physics2D.Raycast(child.position, transform.forward, 10f, 1 << 9);
 
-            transform.localPosition = Vector3.Lerp(start, end, _curveSacle.Evaluate(percent));
+            if (col == false)
+            {
+                transform.position = originPos;
 
-            yield return null;
+                return false;
+            }
         }
+
+        foreach (Transform child in transform)
+        {
+            RaycastHit2D col = Physics2D.Raycast(child.position, transform.forward, 10f, 1 << 9);
+
+            child.transform.position = new Vector2((int)col.transform.position.x, (int)col.transform.position.y);
+
+            blockPos[i] = child.position;
+
+            board.SetGridArea(blockPos[i]);
+
+            i++;
+        }
+
+        return true;
     }
 }
