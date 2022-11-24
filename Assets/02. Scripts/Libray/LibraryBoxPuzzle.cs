@@ -34,6 +34,7 @@ public class LibraryBoxPuzzle : MonoBehaviour
             {
                 OnClearPuzzle?.Invoke();
             }
+            
         }
 
         if (isPlaying)
@@ -54,7 +55,6 @@ public class LibraryBoxPuzzle : MonoBehaviour
     {
         Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(coliderTransform.position, new Vector3(.03f, 6, 0));
-
     }
 
 #endif

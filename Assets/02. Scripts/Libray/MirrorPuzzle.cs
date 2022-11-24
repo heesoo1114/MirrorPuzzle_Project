@@ -12,7 +12,6 @@ public class MirrorPuzzle : InteractionObject
     [SerializeField]
     private Image cBookImage;
 
-
     public override void InteractionEvent()
     {
         if (InventorySystem.Inst.equipItemDataID == "Library_A_Stamp")

@@ -50,7 +50,7 @@ public class PasswardScript : MonoBehaviour
     }
     public void EnterClick()
     {
-        if (pswdInput.text == "chips" || pswdInput.text == "CHIPS" || pswdInput.text == "Chips")
+        if (pswdInput.text == "crush" || pswdInput.text == "CRUSH" || pswdInput.text == "Crush")
         {
             StartCoroutine("Answer");
         }

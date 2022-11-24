@@ -17,6 +17,7 @@ TagManager:
   - RedBullet
   - LightCollider
   - LetterCollider
+  - Board
   layers:
   - Default
   - TransparentFX
@@ -27,8 +28,8 @@ TagManager:
   - Trigger
   - Box
   - BigBrotherTile
-  - 
-  - 
+  - Grid
+  - Block
   - 
   - 
   - 
@@ -77,6 +78,9 @@ TagManager:
     locked: 0
   - name: F_NotLight
     uniqueID: 489664303
+    locked: 0
+  - name: Block
+    uniqueID: 499056111
     locked: 0
   - name: UI
     uniqueID: 3952627273
