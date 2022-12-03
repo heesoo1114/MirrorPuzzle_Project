@@ -79,6 +79,8 @@ public class FilmPuzzle : InteractionObject
 
         OnFilmClear.AddListener(() => { isPlaying = true; });
 
+        gameObject.SetActive(false);
+
         if (isPlaying)
         {
             PlayerPrefs.SetInt("InteractionKey", 1);

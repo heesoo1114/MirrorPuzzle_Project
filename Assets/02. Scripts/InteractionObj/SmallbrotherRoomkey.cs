@@ -25,7 +25,7 @@ public class SmallbrotherRoomkey : InteractionObject
         if (_isFallen) return;
 
         _isFallen = true;
-        letter.gameObject.SetActive(true);
+        letter.gameObject.SetActive(true); // 여기 오류
 
         transform.DOLocalMove(_dropPos, 0.5f);
     }

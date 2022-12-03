@@ -65,7 +65,7 @@ public class PasswardScript : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         password_Obj.gameObject.SetActive(false);
         Check = true;
-        key.GetComponent<SmallbrotherRoomkey>().Falling(); // ¿­¼è ¶³±¸±â
+        key.GetComponent<SmallbrotherRoomkey>().Falling(); // ¿­¼è ¶³±¸±â // ¿©±â ¿À·ù
         GameManager.Inst.ChangeGameState(EGameState.Game);
         gameObject.SetActive(false);
 

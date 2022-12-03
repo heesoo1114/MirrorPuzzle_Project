@@ -40,7 +40,7 @@ public class GameManager : MonoSingleton<GameManager>
     private IEnumerator Start() 
     {
         ChangeGlobalLight();
-        // Cursor.lockState = CursorLockMode.Locked;
+        Cursor.lockState = CursorLockMode.Locked;
 
         rooms = map.GetComponentsInChildren<Room>().ToList();
 
@@ -49,7 +49,7 @@ public class GameManager : MonoSingleton<GameManager>
         SoundManager.Inst.BgmStart(Util.Bgm.Main);
 
         // Start ÄÆ½Å Àç»ý
-        /*if (PlayerPrefs.GetInt("StartCutScene") == 0)
+        if (PlayerPrefs.GetInt("StartCutScene") == 0)
             _isGameStart = (PlayerPrefs.GetInt("StartCutScene") == 1);
 
         if (!_isGameStart)
@@ -58,7 +58,7 @@ public class GameManager : MonoSingleton<GameManager>
             _isGameStart = true;
             if (_isGameStart)
                 PlayerPrefs.SetInt("StartCutScene", 1);
-        }*/
+        }
     }
 
     public void ChangeWorld()
