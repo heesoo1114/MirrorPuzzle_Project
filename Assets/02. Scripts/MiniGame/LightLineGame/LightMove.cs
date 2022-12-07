@@ -39,7 +39,7 @@ public class LightMove : MonoBehaviour
     {
         trail.time = 0;
         yield return new WaitForSeconds(0.1f);
-        trail.time = 5;
+        trail.time = .75f;
     }
 
     public void StartGame()
