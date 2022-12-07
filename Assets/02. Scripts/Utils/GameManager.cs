@@ -25,6 +25,8 @@ public class GameManager : MonoSingleton<GameManager>
 
     [SerializeField] private TextDatas _textDatas;
 
+    [SerializeField] private Texture2D _cursorIcon;
+
     public Light2D globalLight;
     public List<Room> rooms;
     public Transform map;
@@ -37,10 +39,14 @@ public class GameManager : MonoSingleton<GameManager>
     public bool librayChestPuzzleClear = false;
     public bool isCanUseHandMirror = true;
 
+    private void Awake()
+    {
+        Cursor.SetCursor(_cursorIcon, new Vector2(_cursorIcon.width / 2f, _cursorIcon.height / 2f), CursorMode.Auto);
+    }
+
     private IEnumerator Start() 
     {
         ChangeGlobalLight();
-        Cursor.lockState = CursorLockMode.Locked;
 
         rooms = map.GetComponentsInChildren<Room>().ToList();
 
@@ -48,8 +54,11 @@ public class GameManager : MonoSingleton<GameManager>
 
         SoundManager.Inst.BgmStart(Util.Bgm.Main);
 
+        // ÄÆ½Å Å×½ºÆ®
+        // CutSceneManager.Inst.StartCutScene("CELLER");
+
         // Start ÄÆ½Å Àç»ý
-        if (PlayerPrefs.GetInt("StartCutScene") == 0)
+        /*if (PlayerPrefs.GetInt("StartCutScene") == 0)
             _isGameStart = (PlayerPrefs.GetInt("StartCutScene") == 1);
 
         if (!_isGameStart)
@@ -58,7 +67,7 @@ public class GameManager : MonoSingleton<GameManager>
             _isGameStart = true;
             if (_isGameStart)
                 PlayerPrefs.SetInt("StartCutScene", 1);
-        }
+        }*/
     }
 
     public void ChangeWorld()
@@ -74,7 +83,7 @@ public class GameManager : MonoSingleton<GameManager>
         PlayerMove player = Define.PlayerRef;
 
         FadeScreen.fadeColor = Color.white;
-        FadeScreen.FadeOut(1.5f);
+        FadeScreen.FadeOut(0.5f);
         
 
         if (worldType == WorldType.MirrorWorld)
@@ -118,7 +127,7 @@ public class GameManager : MonoSingleton<GameManager>
             }
 
             yield return new WaitForSeconds(1.5f);
-            FadeScreen.FadeIn(1.5f);
+            FadeScreen.FadeIn(0.5f);
 
             player.transform.SetParent(null);
             player.transform.localScale = Vector3.one;
