@@ -41,7 +41,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Awake()
     {
-        Cursor.SetCursor(_cursorIcon, new Vector2(_cursorIcon.width / 2f, _cursorIcon.height / 2f), CursorMode.Auto);
+        Cursor.SetCursor(_cursorIcon, new Vector2(_cursorIcon.width * 0.5f, _cursorIcon.height * 0.5f), CursorMode.Auto);
     }
 
     private IEnumerator Start() 
