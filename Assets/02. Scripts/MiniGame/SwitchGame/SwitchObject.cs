@@ -18,4 +18,9 @@ public class SwitchObject : InteractionObject
         isSwitchOn = true;
         SwitchGameManager.Inst.StartSwitchGame(switchNum);
     }
+
+    public void SwitchUIClose()
+    {
+        isSwitchOn = false;
+    }
 }
