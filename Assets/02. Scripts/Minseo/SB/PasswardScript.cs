@@ -21,16 +21,9 @@ public class PasswardScript : MonoBehaviour
     private bool Check = false;
     private bool filmClear = false;
 
-    private void Start() 
-    {
-        Check = (PlayerPrefs.GetInt("InteractionKeyCheck") == 1);
-        filmClear = (PlayerPrefs.GetInt("InteractionKeyFilmClear") == 1);
-    }
-
     public void FilmClear()
     {
         filmClear = true;
-        PlayerPrefs.SetInt("InteractionKeyFilmClear", 1);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -42,10 +35,22 @@ public class PasswardScript : MonoBehaviour
             GameManager.Inst.ChangeGameState(EGameState.UI);
             password_Obj.SetActive(true);
         }
+
+
+        if (Check)
+        {
+            PlayerPrefs.SetInt("InteractionKey", 1);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("InteractionKey", 0);
+        }
+
+        Check = (PlayerPrefs.GetInt("InteractionKey") == 1);
     }
     public void EnterClick()
     {
-        if (pswdInput.text == "chips" || pswdInput.text == "CHIPS" || pswdInput.text == "Chips")
+        if (pswdInput.text == "crush" || pswdInput.text == "CRUSH" || pswdInput.text == "Crush")
         {
             StartCoroutine("Answer");
         }
@@ -60,8 +65,7 @@ public class PasswardScript : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         password_Obj.gameObject.SetActive(false);
         Check = true;
-        PlayerPrefs.SetInt("InteractionKeyCheck", 1);
-        key.GetComponent<SmallbrotherRoomkey>().Falling(); // 열쇠 떨구기
+        key.GetComponent<SmallbrotherRoomkey>().Falling(); // 열쇠 떨구기 // 여기 오류
         GameManager.Inst.ChangeGameState(EGameState.Game);
         gameObject.SetActive(false);
 
@@ -74,7 +78,6 @@ public class PasswardScript : MonoBehaviour
         yield return new WaitForSeconds(1.0f);
         text.color = Color.white;
         Check = true;
-        PlayerPrefs.SetInt("InteractionKeyCheck", 1);
         text.text = "정답을 입력하세요";
     }
 }

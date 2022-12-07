@@ -22,8 +22,8 @@ public class Shuffle : MonoBehaviour
 
     private void Update()
     {
-        // 개발자 디버깅용 치트 (슬라이더 퍼즐 깨는)
-        /*if (Input.GetKeyDown(KeyCode.H))
+        /*// 개발자 디버깅용 치트 (슬라이더 퍼즐 깨는)
+        if (Input.GetKeyDown(KeyCode.H))
         {
             InventorySystem.Inst.AddItem("HAND_MIRROR");
             Debug.Log("cheat");
