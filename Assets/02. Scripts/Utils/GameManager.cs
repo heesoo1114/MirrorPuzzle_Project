@@ -41,7 +41,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Awake()
     {
-        Cursor.SetCursor(_cursorIcon, new Vector2(_cursorIcon.width * 0.5f, _cursorIcon.height * 0.5f), CursorMode.Auto);
+        Cursor.SetCursor(_cursorIcon, new Vector2(_cursorIcon.width * 2, _cursorIcon.height * 2), CursorMode.Auto);
     }
 
     private IEnumerator Start() 
@@ -63,7 +63,7 @@ public class GameManager : MonoSingleton<GameManager>
 
         if (!_isGameStart)
         {
-            CutSceneManager.Inst.StartCutScene("START");
+            //CutSceneManager.Inst.StartCutScene("START");
             _isGameStart = true;
             if (_isGameStart)
                 PlayerPrefs.SetInt("StartCutScene", 1);
@@ -72,7 +72,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void ChangeWorld()
     {
-        if (_isChangingWorld) return;
+        //if (_isChangingWorld) return;
 
         _isChangingWorld = true;
         StartCoroutine(ChangeWorldCoroutine());
