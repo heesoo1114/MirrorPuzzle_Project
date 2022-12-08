@@ -19,6 +19,7 @@ public class InventorySystem : MonoSingleton<InventorySystem>
     [SerializeField] private Sprite _selectSprite;
 
     [SerializeField] private Image _equipItemIamge;
+    [SerializeField] private Image _arrow;
 
     [SerializeField] private float _changeItemDelay;
     [SerializeField] private int _maxShowPanelCnt = 6;
@@ -136,6 +137,7 @@ public class InventorySystem : MonoSingleton<InventorySystem>
         _selectItemIndex = idx;
 
         SetActiveItemPanel();
+        ArrowSetActive();
 
         yield return new WaitForEndOfFrame();
 
@@ -265,5 +267,13 @@ public class InventorySystem : MonoSingleton<InventorySystem>
         _itemPanelList.Add(panel);
         panel.gameObject.SetActive(true);
         return panel;
+    }
+
+    private void ArrowSetActive()
+    {
+        if (_itemPanelList.Count - 1 > _selectItemIndex)
+            _arrow.enabled = true;
+        else 
+            _arrow.enabled = false;
     }
 }
