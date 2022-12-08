@@ -8,6 +8,12 @@ public class InteractionKey : InteractionObject
     public UnityEvent GetKeyEvent;
     bool isPlaying;
 
+    private void Start() 
+    {
+        if (PlayerPrefs.GetInt("InteractionKey") == 0)
+            isPlaying = (PlayerPrefs.GetInt("InteractionKey") == 1);
+    }
+
     public override void InteractionEvent()
     {
         GetKeyEvent?.Invoke();
@@ -19,14 +25,6 @@ public class InteractionKey : InteractionObject
         GetKeyEvent.AddListener(() => { isPlaying = true; });
 
         if(isPlaying)
-        {
             PlayerPrefs.SetInt("InteractionKey", 1);
-        }
-        else
-        {
-            PlayerPrefs.SetInt("InteractionKey", 0);
-        }
-
-        isPlaying = (PlayerPrefs.GetInt("InteractionKey") == 1);
     }
 }

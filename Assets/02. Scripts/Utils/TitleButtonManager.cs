@@ -14,12 +14,23 @@ public class TitleButtonManager : MonoBehaviour
 
     public void NewGame()
     {
+        PlayerPrefs.SetInt("LibraryBoxPuzzle", 0);
+        PlayerPrefs.SetInt("Chest", 0);
+        PlayerPrefs.SetInt("ToiletLetterInteraction", 0);
+        PlayerPrefs.SetInt("InteractionKeyCheck", 0);
+        PlayerPrefs.SetInt("InteractionKeyFilmClear", 0);
+        PlayerPrefs.SetInt("FilmPuzzle", 0);
+        PlayerPrefs.SetInt("InteractionBrotherNote", 0);
+        PlayerPrefs.SetInt("LightLineGameIsPlaying", 0);
+        PlayerPrefs.SetInt("LightLineGameIsClear", 0);
+        PlayerPrefs.SetInt("InteractionKey", 0);
+
         SceneManager.LoadScene("Main");
     }
 
     public void LoadGame()
     {
-
+        SceneManager.LoadScene("Main");
     }
 
     public void SettingPanelOnOff()

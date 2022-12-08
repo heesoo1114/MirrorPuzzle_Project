@@ -37,6 +37,7 @@ public class FilmPuzzle : InteractionObject
     {
         btn.onClick.AddListener(OnClick);
         color.a = 1f;
+        isPlaying = (PlayerPrefs.GetInt("FilmPuzzle") == 1);
     }
 
     public void OnClick()
@@ -82,15 +83,7 @@ public class FilmPuzzle : InteractionObject
         gameObject.SetActive(false);
 
         if (isPlaying)
-        {
-            PlayerPrefs.SetInt("InteractionKey", 1);
-        }
-        else
-        {
-            PlayerPrefs.SetInt("InteractionKey", 0);
-        }
-
-        isPlaying = (PlayerPrefs.GetInt("InteractionKey") == 1);
+            PlayerPrefs.SetInt("FilmPuzzle", 1);
     }
 
 }

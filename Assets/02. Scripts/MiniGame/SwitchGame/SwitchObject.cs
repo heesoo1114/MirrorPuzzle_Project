@@ -14,7 +14,13 @@ public class SwitchObject : InteractionObject
     public override void InteractionEvent()
     {
         if (isSwitchOn) return;
+
         isSwitchOn = true;
         SwitchGameManager.Inst.StartSwitchGame(switchNum);
+    }
+
+    public void SwitchUIClose()
+    {
+        isSwitchOn = false;
     }
 }

@@ -60,4 +60,9 @@ public class SwitchGame : UIBase
         seq.AppendCallback(() => gameEndEvent?.Invoke());
         seq.AppendCallback(() => gameObject.SetActive(false));
     }
+
+    public void SwitchClose()
+    {
+        _isStart = false;
+    }
 }
