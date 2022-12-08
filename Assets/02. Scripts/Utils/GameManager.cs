@@ -63,7 +63,7 @@ public class GameManager : MonoSingleton<GameManager>
 
         if (!_isGameStart)
         {
-            CutSceneManager.Inst.StartCutScene("START");
+            //CutSceneManager.Inst.StartCutScene("START");
             _isGameStart = true;
             if (_isGameStart)
                 PlayerPrefs.SetInt("StartCutScene", 1);
@@ -72,7 +72,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     public void ChangeWorld()
     {
-        if (_isChangingWorld) return;
+        //if (_isChangingWorld) return;
 
         _isChangingWorld = true;
         StartCoroutine(ChangeWorldCoroutine());
