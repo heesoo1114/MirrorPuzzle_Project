@@ -83,7 +83,7 @@ public class GameManager : MonoSingleton<GameManager>
         PlayerMove player = Define.PlayerRef;
 
         FadeScreen.fadeColor = Color.white;
-        FadeScreen.FadeOut(0.5f);
+        FadeScreen.FadeIn(1.5f);
         
 
         if (worldType == WorldType.MirrorWorld)
@@ -120,20 +120,21 @@ public class GameManager : MonoSingleton<GameManager>
             {
                 if (room.roomType == player.CurrentRoom)
                 {
-                    player.transform.SetParent(room.transform);
+                    print(player.transform.position);
+                    // player.transform.SetParent(room.transform);
                 }
 
                 room.transform.localScale = new Vector3(-1f, 1f, 1f);
             }
 
-            yield return new WaitForSeconds(1.5f);
-            FadeScreen.FadeIn(0.5f);
+            yield return new WaitForSeconds(0.1f);
 
             player.transform.SetParent(null);
             player.transform.localScale = Vector3.one;
             ChangeMirrorWorld?.Invoke();
         }
 
+        FadeScreen.FadeOut(1.4f);
         LocationTextBar.ActiveWorldText(worldType);
 
         ChangeGlobalLight();

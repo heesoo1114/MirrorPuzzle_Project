@@ -1669,7 +1669,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 36555991}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.46, y: -2.96, z: 0}
+  m_LocalPosition: {x: 4.18, y: -2.96, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1688,7 +1688,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b9654821da445428e30ca4a39c86b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warpPoint: {fileID: 0}
+  warpPoint: {fileID: 36555992}
   spawnType: 1
   currentRoom: 8
   targetRoom: 4
@@ -2407,7 +2407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b9654821da445428e30ca4a39c86b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warpPoint: {fileID: 0}
+  warpPoint: {fileID: 56271287}
   spawnType: 2
   currentRoom: 5
   targetRoom: 4
@@ -4285,7 +4285,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b9654821da445428e30ca4a39c86b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warpPoint: {fileID: 1846708385}
+  warpPoint: {fileID: 114220197}
   spawnType: 3
   currentRoom: 9
   targetRoom: 8
@@ -19310,7 +19310,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b9654821da445428e30ca4a39c86b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warpPoint: {fileID: 0}
+  warpPoint: {fileID: 345538322}
   spawnType: 3
   currentRoom: 7
   targetRoom: 4
@@ -24059,7 +24059,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b9654821da445428e30ca4a39c86b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warpPoint: {fileID: 2004573552}
+  warpPoint: {fileID: 375308063}
   spawnType: 3
   currentRoom: 4
   targetRoom: 5
@@ -24392,7 +24392,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 384759635}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.7, y: 2.4, z: -10}
+  m_LocalPosition: {x: -42.9, y: -23, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -29076,7 +29076,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.7, y: 2.4, z: -10}
+  m_LocalPosition: {x: -42.9, y: -23, z: -10}
   m_LocalScale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -41789,7 +41789,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 660295595}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.7, y: 2.4, z: 0}
+  m_LocalPosition: {x: -42.9, y: -23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -60150,7 +60150,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b9654821da445428e30ca4a39c86b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warpPoint: {fileID: 2004573552}
+  warpPoint: {fileID: 977560621}
   spawnType: 0
   currentRoom: 5
   targetRoom: 0
@@ -63209,7 +63209,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b9654821da445428e30ca4a39c86b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warpPoint: {fileID: 2056030600}
+  warpPoint: {fileID: 1033786105}
   spawnType: 0
   currentRoom: 5
   targetRoom: 1
@@ -78136,7 +78136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b9654821da445428e30ca4a39c86b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warpPoint: {fileID: 0}
+  warpPoint: {fileID: 1380816628}
   spawnType: 1
   currentRoom: 5
   targetRoom: 3
@@ -101368,7 +101368,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b9654821da445428e30ca4a39c86b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warpPoint: {fileID: 114220197}
+  warpPoint: {fileID: 1846708385}
   spawnType: 2
   currentRoom: 8
   targetRoom: 9
@@ -105564,7 +105564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b9654821da445428e30ca4a39c86b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warpPoint: {fileID: 0}
+  warpPoint: {fileID: 1916357328}
   spawnType: 0
   currentRoom: 6
   targetRoom: 4
@@ -109340,7 +109340,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b9654821da445428e30ca4a39c86b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warpPoint: {fileID: 977560621}
+  warpPoint: {fileID: 2004573552}
   spawnType: 1
   currentRoom: 0
   targetRoom: 5
@@ -110889,7 +110889,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 73b9654821da445428e30ca4a39c86b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  warpPoint: {fileID: 1033786105}
+  warpPoint: {fileID: 2056030600}
   spawnType: 1
   currentRoom: 1
   targetRoom: 5
