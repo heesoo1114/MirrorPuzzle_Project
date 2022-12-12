@@ -10,13 +10,9 @@ public class BlockToilet : InteractionObject
         {
             gameObject.SetActive(false);
         }
+        else
+        {
+            TextSystem.Inst.ActiveTextPanal("문이 열리지 않는다.\n다른 세계에서 한번 확인해보자!");
+        }
     }
-
-    public override void InteractionEvent()
-    {
-        if (GameManager.Inst.WorldType == WorldType.RealWorld) return;
-
-        TextSystem.Inst.ActiveTextPanal("문이 열리지 않는다.\n다른 세계에서 한번 확인해보자!");
-    }
-
 }

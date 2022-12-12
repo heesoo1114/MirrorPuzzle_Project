@@ -130,12 +130,10 @@ public class PlayerMove : MonoBehaviour
 
     private IEnumerator WarpPlayer(WarpZone warpZone)
     {
-        FadeScreen.FadeIn(1f);
-        yield return new WaitForSeconds(0.1f);
+        FadeScreen.FadeOut(3f);
+        yield return new WaitForSeconds(0.3f);
         transform.position = warpZone.WarpPoint;
-        yield return new WaitForSeconds(0.1f);
-        FadeScreen.FadeOut(1f);
-        yield return new WaitForSeconds(0.7f);
+        yield return new WaitForSeconds(0.3f);
         LocationTextBar.ActiveRoomText(warpZone.RoomName);
         _isWarping = false;
 
