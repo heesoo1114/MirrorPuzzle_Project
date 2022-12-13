@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class InteractionToKitchenTrigger : InteractionObject
 {
+    public override void EnterInteraction()
+    {
+        if (InventorySystem.Inst.equipItemDataID == "10") return;
+        TextSystem.Inst.ActiveTextPanal("문이 잠겨있다. \n 열쇠를 찾아보자.");
+    }
+
     public override void InteractionEvent()
     {
         if (InventorySystem.Inst.equipItemDataID == "10")
@@ -12,11 +18,6 @@ public class InteractionToKitchenTrigger : InteractionObject
             InventorySystem.Inst.UseEquipItem();
             StartCoroutine(ImmediatelyStop());
         }
-
-        else
-        {
-            TextSystem.Inst.ActiveTextPanal("문이 잠겨있다. \n 열쇠를 찾아보자.");
-        }
     }
 
     IEnumerator ImmediatelyStop()
@@ -24,5 +25,4 @@ public class InteractionToKitchenTrigger : InteractionObject
         yield return new WaitForSeconds(1.5f);
         this.gameObject.SetActive(false);
     }
-
 }
