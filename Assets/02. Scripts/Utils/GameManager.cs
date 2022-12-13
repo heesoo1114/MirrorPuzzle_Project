@@ -58,16 +58,16 @@ public class GameManager : MonoSingleton<GameManager>
         // CutSceneManager.Inst.StartCutScene("CELLER");
 
         // Start ÄÆ½Å Àç»ý
-        /*if (PlayerPrefs.GetInt("StartCutScene") == 0)
+        if (PlayerPrefs.GetInt("StartCutScene") == 0)
             _isGameStart = (PlayerPrefs.GetInt("StartCutScene") == 1);
 
         if (!_isGameStart)
         {
-            //CutSceneManager.Inst.StartCutScene("START");
+            // CutSceneManager.Inst.StartCutScene("START");
             _isGameStart = true;
             if (_isGameStart)
                 PlayerPrefs.SetInt("StartCutScene", 1);
-        }*/
+        }
     }
 
     public void ChangeWorld()
