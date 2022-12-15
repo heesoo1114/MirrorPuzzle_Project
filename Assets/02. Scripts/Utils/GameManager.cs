@@ -63,7 +63,7 @@ public class GameManager : MonoSingleton<GameManager>
 
         if (!_isGameStart)
         {
-            // CutSceneManager.Inst.StartCutScene("START");
+            CutSceneManager.Inst.StartCutScene("START");
             _isGameStart = true;
             if (_isGameStart)
                 PlayerPrefs.SetInt("StartCutScene", 1);
