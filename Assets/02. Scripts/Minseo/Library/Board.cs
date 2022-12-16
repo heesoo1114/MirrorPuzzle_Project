@@ -2,15 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 public class Board : MonoBehaviour
 {
     [SerializeField]
     private GameObject blockPuzzle;
     [SerializeField]
-    private Image hintImage;
-    [SerializeField]
     private GameObject exitBtn;
+    [SerializeField]
+    private GameObject key;
+    [SerializeField] 
+    private Vector3 _dropPos;
 
     public GameObject grid;
 
@@ -24,7 +27,6 @@ public class Board : MonoBehaviour
             { 0, 1, 1, 1, 1, 0 },
             { 0, 1, 1, 1, 1, 1 },
         };
-
 
     private void Start()
     {
@@ -51,9 +53,12 @@ public class Board : MonoBehaviour
 
         if (CheckFullGrid())
         {
+            Debug.Log("미션 성공");
             blockPuzzle.gameObject.SetActive(false);
             exitBtn.gameObject.SetActive(false);
-            hintImage.gameObject.SetActive(true);
+            key.transform.DOLocalMove(_dropPos, 0.5f);
+
+            GameManager.Inst.ChangeGameState(EGameState.Game);
         }
     }
 

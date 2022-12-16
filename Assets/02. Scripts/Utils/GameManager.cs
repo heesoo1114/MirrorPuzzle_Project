@@ -41,7 +41,7 @@ public class GameManager : MonoSingleton<GameManager>
 
     private void Awake()
     {
-        Cursor.SetCursor(_cursorIcon, new Vector2(_cursorIcon.width * 2, _cursorIcon.height * 2), CursorMode.Auto);
+        Cursor.SetCursor(_cursorIcon, new Vector2(_cursorIcon.width, _cursorIcon.height), CursorMode.Auto);
     }
 
     private IEnumerator Start() 
@@ -59,7 +59,7 @@ public class GameManager : MonoSingleton<GameManager>
 
         // Start ÄÆ½Å Àç»ý
         if (PlayerPrefs.GetInt("StartCutScene") == 0)
-            _isGameStart = (PlayerPrefs.GetInt("StartCutScene") == 1);
+            //_isGameStart = (PlayerPrefs.GetInt("StartCutScene") == 1);
 
         if (!_isGameStart)
         {
