@@ -5,14 +5,14 @@
     "inventoryList": [
         {
             "itemData": {
-                "itemID": "SBROOMKEY",
-                "name": "동생 방 열쇠",
-                "info": "동생 방 문을 열 수 있는 열쇠다.",
+                "itemID": "",
+                "name": "",
+                "info": "",
                 "sprite": {
-                    "instanceID": 32842
+                    "instanceID": 0
                 }
             },
-            "itemCount": 1
+            "itemCount": 0
         },
         {
             "itemData": {
