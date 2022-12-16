@@ -28,11 +28,6 @@ public class Board : MonoBehaviour
             { 0, 1, 1, 1, 1, 1 },
         };
 
-    private void Awake()
-    {
-
-    }
-
     private void Start()
     {
         for (int i = 0; i < arr.GetLength(0); i++)//y값
@@ -58,9 +53,12 @@ public class Board : MonoBehaviour
 
         if (CheckFullGrid())
         {
+            Debug.Log("미션 성공");
             blockPuzzle.gameObject.SetActive(false);
             exitBtn.gameObject.SetActive(false);
             key.transform.DOLocalMove(_dropPos, 0.5f);
+
+            GameManager.Inst.ChangeGameState(EGameState.Game);
         }
     }
 
