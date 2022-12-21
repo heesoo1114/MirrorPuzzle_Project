@@ -18,8 +18,6 @@ public class LightLineGameManager : SingleUI<LightLineGameManager>
 
     [SerializeField] private WarpZone _hallWayWarpZone;
 
-    [SerializeField] private GameObject _collider;
-
     private void Start() 
     {
         isPlaying = (PlayerPrefs.GetInt("LightLineGameIsPlaying") == 1);
