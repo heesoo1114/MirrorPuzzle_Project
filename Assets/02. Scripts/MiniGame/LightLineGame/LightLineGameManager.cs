@@ -70,7 +70,7 @@ public class LightLineGameManager : SingleUI<LightLineGameManager>
 
         transform.localScale = Vector3.zero;
         gameEndEvent?.Invoke();
-        InventorySystem.Inst.AddItem("LIBRARYKEY");
+        //InventorySystem.Inst.AddItem("LIBRARYKEY");
         gameObject.SetActive(false);
 
         gameEndEvent.AddListener(() => { isPlaying = true; });

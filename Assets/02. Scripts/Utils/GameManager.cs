@@ -28,7 +28,7 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField] private Texture2D _cursorIcon;
 
     public Light2D globalLight;
-    public List<Room> rooms;
+    public List<Room> rooms;    
     public Transform map;
 
     public UnityEvent ChangeMirrorWorld;
@@ -55,11 +55,11 @@ public class GameManager : MonoSingleton<GameManager>
         SoundManager.Inst.BgmStart(Util.Bgm.Main);
 
         // 컷신 테스트
-        CutSceneManager.Inst.StartCutScene("TOILET");
+        // CutSceneManager.Inst.StartCutScene("TOILET");
 
         // Start 컷신 재생
         if (PlayerPrefs.GetInt("StartCutScene") == 0)
-            _isGameStart = (PlayerPrefs.GetInt("StartCutScene") == 1);
+             _isGameStart = (PlayerPrefs.GetInt("StartCutScene") == 1);
 
         if (!_isGameStart)
         {
@@ -70,10 +70,9 @@ public class GameManager : MonoSingleton<GameManager>
         }
     }
 
+    [ContextMenu("ChangeWorld")]
     public void ChangeWorld()
     {
-        //if (_isChangingWorld) return;
-
         _isChangingWorld = true;
         StartCoroutine(ChangeWorldCoroutine());
     }
@@ -90,7 +89,6 @@ public class GameManager : MonoSingleton<GameManager>
         {
             worldType = WorldType.RealWorld;
 
-            // Sound
             SoundManager.Inst.BgmStop(Util.Bgm.MirrorWorld);
             SoundManager.Inst.BgmStart(Util.Bgm.Main);
             
@@ -112,7 +110,6 @@ public class GameManager : MonoSingleton<GameManager>
         {
             worldType = WorldType.MirrorWorld;
 
-            // Sound
             SoundManager.Inst.BgmStop(Util.Bgm.Main);
             SoundManager.Inst.BgmStart(Util.Bgm.MirrorWorld);
 
@@ -120,8 +117,7 @@ public class GameManager : MonoSingleton<GameManager>
             {
                 if (room.roomType == player.CurrentRoom)
                 {
-                    print(player.transform.position);
-                    // player.transform.SetParent(room.transform);
+                    player.transform.SetParent(room.transform);
                 }
 
                 room.transform.localScale = new Vector3(-1f, 1f, 1f);
@@ -130,7 +126,7 @@ public class GameManager : MonoSingleton<GameManager>
             yield return new WaitForSeconds(0.1f);
 
             player.transform.SetParent(null);
-            player.transform.localScale = Vector3.one;
+            player.transform.localScale = Vector3.one; // 여기는 바꾸면 안 될텐데
             ChangeMirrorWorld?.Invoke();
         }
 
