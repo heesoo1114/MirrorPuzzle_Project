@@ -7,7 +7,6 @@ public class VerandaPuzzle : MonoBehaviour
 {
     public Sprite[] sprites = new Sprite[4];
     public GameObject changeflower;
-    public GameObject key;
     public GameObject hallwayLetter;
 
     [SerializeField]
@@ -32,7 +31,6 @@ public class VerandaPuzzle : MonoBehaviour
             }
             isChangeing = false;
 
-            //key.SetActive(true);
             hallwayLetter.SetActive(true);
         }
     }

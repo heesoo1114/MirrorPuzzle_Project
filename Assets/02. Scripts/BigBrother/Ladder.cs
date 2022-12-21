@@ -5,6 +5,7 @@ using DG.Tweening;
 
 public class Ladder : MonoBehaviour
 {
+    [SerializeField] private GameObject ToGarretWarpPoint;
     private SpriteRenderer spriteRenderer;
     SpriteRenderer spr;
 
@@ -17,6 +18,7 @@ public class Ladder : MonoBehaviour
     private void OnEnable()
     {
         StartCoroutine(FadeCoroutine());
+        ToGarretWarpPoint.gameObject.SetActive(true);
     }
 
     IEnumerator FadeCoroutine()

@@ -55,15 +55,15 @@ public class GameManager : MonoSingleton<GameManager>
         SoundManager.Inst.BgmStart(Util.Bgm.Main);
 
         // ÄÆ½Å Å×½ºÆ®
-        // CutSceneManager.Inst.StartCutScene("CELLER");
+        CutSceneManager.Inst.StartCutScene("TOILET");
 
         // Start ÄÆ½Å Àç»ý
         if (PlayerPrefs.GetInt("StartCutScene") == 0)
-            //_isGameStart = (PlayerPrefs.GetInt("StartCutScene") == 1);
+            _isGameStart = (PlayerPrefs.GetInt("StartCutScene") == 1);
 
         if (!_isGameStart)
         {
-            CutSceneManager.Inst.StartCutScene("START");
+            // CutSceneManager.Inst.StartCutScene("START");
             _isGameStart = true;
             if (_isGameStart)
                 PlayerPrefs.SetInt("StartCutScene", 1);
