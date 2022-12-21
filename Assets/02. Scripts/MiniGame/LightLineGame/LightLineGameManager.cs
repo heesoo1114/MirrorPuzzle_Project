@@ -16,10 +16,15 @@ public class LightLineGameManager : SingleUI<LightLineGameManager>
     public bool IsClear => _isClear;
     bool isPlaying;
 
+    [SerializeField] private WarpZone _hallWayWarpZone;
+
+    [SerializeField] private GameObject _collider;
+
     private void Start() 
     {
         isPlaying = (PlayerPrefs.GetInt("LightLineGameIsPlaying") == 1);
         _isClear = (PlayerPrefs.GetInt("LightLineGameIsClear") == 1);
+
     }
 
     public static void StartGame()
@@ -72,8 +77,14 @@ public class LightLineGameManager : SingleUI<LightLineGameManager>
         gameEndEvent?.Invoke();
         //InventorySystem.Inst.AddItem("LIBRARYKEY");
         gameObject.SetActive(false);
+        if (_hallWayWarpZone.isLock)
+        {
+            _hallWayWarpZone.isLock = false;
+            _hallWayWarpZone.lockMessage = "";
+        }
 
-        gameEndEvent.AddListener(() => { isPlaying = true; });
+
+            gameEndEvent.AddListener(() => { isPlaying = true; });
 
         if (isPlaying)
             PlayerPrefs.SetInt("LightLineGameIsPlaying", 1);
