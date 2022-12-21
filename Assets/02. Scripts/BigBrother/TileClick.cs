@@ -11,10 +11,16 @@ public class TileClick : MonoBehaviour, IPointerClickHandler
     private Image emptyEmage;
 
     private Transform clickButtonTransform;
+    private RectTransform _rectTransform;
+
+    [SerializeField] private float _posX;
+    [SerializeField] private float _posY;
 
     private void Start()
     {
         clickButtonTransform = GetComponent<Transform>();
+        _rectTransform = GetComponent<RectTransform>();
+        StartCoroutine(TransformRounds());
     }
 
     public void OnPointerClick(PointerEventData eventData)
@@ -25,8 +31,19 @@ public class TileClick : MonoBehaviour, IPointerClickHandler
 
             emptyEmage.gameObject.transform.DOMove(clickButtonTransform.position, .1f); 
             clickButtonTransform.DOMove(changeTransform, .1f);
-                
+            
             EventManager.TriggerEvent("Swap");
+        }
+    }
+
+    private IEnumerator TransformRounds()
+    {
+        while (true)
+        {
+            yield return new WaitForSeconds(5f);
+            _posX = Mathf.Round(_rectTransform.localPosition.x);
+            _posY = Mathf.Round(_rectTransform.localPosition.y);
+            _rectTransform.localPosition = new Vector3(_posX, _posY);
         }
     }
 }
