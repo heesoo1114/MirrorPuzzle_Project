@@ -9,9 +9,8 @@ public class Hammer : InteractionObject
     {
         base.InteractionEvent();
 
-        if (InventorySystem.Inst.equipItemDataID == "HAND_MIRROR")
+        if (InventorySystem.Inst.equipItemDataID == "HAND_MIRROR" && GameManager.Inst.WorldType == WorldType.RealWorld)
         {
-            if (!(GameManager.Inst.WorldType == WorldType.MirrorWorld)) return;
             Invoke("BrokeHandMirror", 1.8f);
             return;
         }

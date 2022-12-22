@@ -36,7 +36,7 @@ public class PlayerMove : MonoBehaviour
         _walkParticle = GetComponentInChildren<ParticleSystem>();
 
         // roomType 처음 설정
-        _currentRoomType = RoomType.Kitchen;
+        _currentRoomType = RoomType.Kitchen ;
     }
 
     private void Update()
