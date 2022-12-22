@@ -15,6 +15,7 @@ public class CameraPuzzle : InteractionObject
         Film_spr.gameObject.SetActive(true);
         letter.gameObject.SetActive(true);
         base.InteractionEvent();
+        gameObject.tag = null;
     }
 
 }

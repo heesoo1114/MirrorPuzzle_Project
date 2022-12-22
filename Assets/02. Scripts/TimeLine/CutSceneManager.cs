@@ -118,7 +118,6 @@ public class CutSceneManager : MonoSingleton<CutSceneManager>
     {
         if (_isPlaying == false) return;
 
-        // FadeScreen.FadeOut(0f);
         if (_beforeState != EGameState.Timeline)
         {
             GameManager.Inst.ChangeGameState(_beforeState);
@@ -145,7 +144,7 @@ public class CutSceneManager : MonoSingleton<CutSceneManager>
         _currentCutScene = null;
         _textPanel.OnKeyDownSpace -= PlayCutSceneAct;
         _timeLineCam.m_Priority = 0;
-
+        
         _isPlaying = false;
 
     }
@@ -154,16 +153,15 @@ public class CutSceneManager : MonoSingleton<CutSceneManager>
     {
         if (_isPlaying == false) return;
 
-        // FadeScreen.FadeOut(0f);
         if (_beforeState != EGameState.Timeline)
         {
             GameManager.Inst.ChangeGameState(_beforeState);
         }
-
         else
         {
             GameManager.Inst.ChangeGameState(EGameState.Game);
         }
+
         EventManager.TriggerEvent($"END_{_currentCutScene.cutSceneID}CUTSCENE");
 
         _isScriptStarted = false;

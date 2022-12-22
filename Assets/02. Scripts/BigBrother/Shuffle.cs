@@ -23,7 +23,7 @@ public class Shuffle : MonoBehaviour
     private void Update()
     {
         // 개발자 디버깅용 치트 (슬라이더 퍼즐 깨는)
-        /*if (Input.GetKeyDown(KeyCode.H))
+        if (Input.GetKeyDown(KeyCode.H))
         {
             InventorySystem.Inst.AddItem("HAND_MIRROR");
             Debug.Log("cheat");
@@ -31,7 +31,7 @@ public class Shuffle : MonoBehaviour
             {
                 tiles[i].GetComponent<RectTransform>().localPosition = tilesTransform[i];
             }
-        }*/
+        }
     }
 
     private void TileTrSave()
