@@ -130,6 +130,11 @@ public class UIIManager : MonoBehaviour
         print("the end");
     }
 
+    public void ToTitleTest()
+    {
+        SceneManager.LoadScene("Title1");
+    }
+
     public void NewGame()
     {
         SceneManager.LoadScene("Main");
