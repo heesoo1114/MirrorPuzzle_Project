@@ -5,14 +5,14 @@
     "inventoryList": [
         {
             "itemData": {
-                "itemID": "",
-                "name": "",
-                "info": "",
+                "itemID": "HAND_MIRROR",
+                "name": "손거울",
+                "info": "무언가 깨뜨릴 수 있을 것 같은 손거울이다.",
                 "sprite": {
-                    "instanceID": 0
+                    "instanceID": 32866
                 }
             },
-            "itemCount": 0
+            "itemCount": 1
         },
         {
             "itemData": {
