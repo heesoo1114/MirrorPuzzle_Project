@@ -54,8 +54,6 @@ public class GameManager : MonoSingleton<GameManager>
 
         SoundManager.Inst.BgmStart(Util.Bgm.Main);
 
-        InventorySystem.Inst.AddItem("HAND_MIRROR", 1);
-
         // ÄÆ½Å Å×½ºÆ®
         // CutSceneManager.Inst.StartCutScene("END");
 
