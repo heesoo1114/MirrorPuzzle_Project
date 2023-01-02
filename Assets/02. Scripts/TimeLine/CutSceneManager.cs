@@ -118,7 +118,7 @@ public class CutSceneManager : MonoSingleton<CutSceneManager>
     {
         if (_isPlaying == false) return;
 
-        if (_beforeState != EGameState.Timeline)
+        /*if (_beforeState != EGameState.Timeline)
         {
             GameManager.Inst.ChangeGameState(_beforeState);
         }
@@ -126,7 +126,10 @@ public class CutSceneManager : MonoSingleton<CutSceneManager>
         else
         {
             GameManager.Inst.ChangeGameState(EGameState.Game);
-        }
+        }*/
+
+        GameManager.inst.ChangeGameState(EGameState.Game);
+
         EventManager.TriggerEvent($"END_{_currentCutScene.cutSceneID}CUTSCENE");
 
         // Sound
