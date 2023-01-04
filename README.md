@@ -1,7 +1,5 @@
 ### MirrorPuzzle_Project
 
-![Alt text]()![coverImage](https://user-images.githubusercontent.com/98923957/210481925-365df127-205c-4f10-b8f3-b335f2aef332.png)
-
 <Mirror Puzzle Project>
  <br/>
  
