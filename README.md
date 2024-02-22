@@ -13,6 +13,7 @@
 <br/>
 
 # 참고자료 (링크)
+- [다운로드 링크] (https://drive.google.com/file/d/16A3cjgqPrT3pXhLKM5yqW0iH-EASwENM/view?usp=sharing)
 - [게임 소개 영상] (https://youtu.be/D8Mh2A8plhM)
 - [플레이 영상] (https://youtu.be/EnfZvrFYPWA)
  
